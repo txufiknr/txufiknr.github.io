@@ -1,19 +1,27 @@
 @import url(//fonts.googleapis.com/css?family=Dancing+Script:400,600,700);
-@import url(//fonts.googleapis.com/css?family=Proxima+Nova:400,600,700);
+@import url(//fonts.googleapis.com/css?family=Albert+Sans:300,400,600,700);
 @import url(//fonts.googleapis.com/css?family=Oxygen+Mono:400);
 
 body {
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
   background-color: hsla(0, 100%, 0%, 1);
-  font-family: 'Dancing Script', 'Proxima Nova', cursive;
-  overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  font-family: 'Albert Sans', sans-serif;
+  /* overflow: hidden; */
+  overflow-x: hidden;
   user-select: none;
+  color: #fff;
+}
+lottie-player {
+  pointer-events: none;
+}
+section {
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
 }
 #btn-get-started {
   position: absolute;
@@ -29,6 +37,35 @@ body {
 }
 #btn-get-started:hover {
   opacity: 1;
+  transform: translateY(0);
+}
+#goToTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 999;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  color: #7072ef;
+  pointer-events: none;
+  transition: all .5s ease;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transform: translateY(4rem);
+}
+#goToTop:hover {
+  background: rgb(225, 231, 235);
+  color: #4648b4;
+}
+#goToTop.show {
+  opacity: 1;
+  pointer-events: all;
   transform: translateY(0);
 }
 #wrap-texture {
@@ -47,12 +84,13 @@ body {
   height: 100vh;
 }
 #header {
+  font-family: 'Dancing Script', cursive;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
   min-height: 600px;
@@ -66,6 +104,14 @@ body {
 #header.show {
   pointer-events: auto;
   opacity: 1;
+}
+#header canvas {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 #header .main-content {
   position: relative;
@@ -85,6 +131,7 @@ body {
 }
 #header h6 {
   font-family: 'Oxygen Mono', monospace;
+  font-size: .65rem;
   font-weight: 400;
   margin: 0;
 }

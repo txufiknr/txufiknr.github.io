@@ -55,10 +55,11 @@
         scene = new THREE.Scene();
         scene.fog = new THREE.FogExp2(fogHex, fogDensity);
 
-        container = document.createElement('div');
-        document.body.appendChild(container);
-        document.body.style.margin = 0;
-        document.body.style.overflow = 'hidden';
+        container = document.getElementById('header');
+        // container = document.createElement('div');
+        // document.body.appendChild(container);
+        // document.body.style.margin = 0;
+        // document.body.style.overflow = 'hidden';
 
         // geometry = new THREE.Geometry(); /*	NO ONE SAID ANYTHING ABOUT MATH! UGH!	*/
 		geometry = new THREE.CircleGeometry( 5, 32 );

@@ -59,7 +59,6 @@
   color: lavender;
   width: calc(25vw - 2rem);
   padding: 0 1rem;
-  line-height: 1.2;
   height: 0;
   grid-area: center;
   transform: translate3d(0, -20px, 0);

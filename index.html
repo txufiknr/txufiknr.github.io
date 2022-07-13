@@ -17,12 +17,122 @@
 	<meta property="og:url" content="https://www.taufiknur.com" />
 	<meta property="og:image" content="https://www.taufiknur.com/assets/images/image.png" />
 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="assets/css/nav.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/typewrite.css">
-
-	<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+	<style>
+		#about {
+			background: linear-gradient(45deg, #510b61 0%, #8950da 30%, #f3a8ff 100%);
+			background: linear-gradient(45deg, rgba(81, 11, 97, .4) 0%, rgba(137, 80, 218, .4) 30%, rgba(243, 168, 255, .4) 100%);
+			font-size: 1.25rem;
+			font-weight: 300;
+			position: relative;
+			z-index: 2;
+		}
+		#about::before {
+			content: 'About';
+			position: absolute;
+			left: -1.5rem;
+			bottom: -14rem;
+			font-size: 43rem;
+			font-weight: 700;
+			opacity: .075;
+			pointer-events: none;
+		}
+		#about .container {
+			padding: 10rem 1rem;
+			padding-bottom: 0;
+		}
+		#about h3 {
+			font-size: 1.75rem;
+			font-weight: 400;
+			margin-bottom: 0;
+			position: relative;
+		}
+		#about h3::before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 35px;
+			background-color: #eee;
+			position: absolute;
+			left: -45px;
+			top: calc(1.75rem / 2);
+			opacity: .3;
+		}
+		#about h2 {
+			font-size: 2.5rem;
+			margin-top: .5rem;
+		}
+		#about lottie-player {
+			position: absolute;
+			margin: -30rem 0;
+			top: 50%;
+			/* opacity: .1; */
+			animation: about-particles 5s infinite;
+		}
+		#about p {
+			margin: 2.5rem;
+		}
+		#about .about-info {
+			margin-bottom: 10rem;
+		}
+		#about .about-stats {
+			display: flex;
+			margin: 0 2.5rem;
+		}
+		#about .about-stats > div {
+			display: flex;
+			align-items: center;
+		}
+		#about .about-stats > div h1 {
+			margin-right: 1rem;
+			font-size: 4.5rem;
+			font-weight: 400;
+		}
+		#about .about-stats > div span {
+			line-height: 2rem;
+		}
+		/* #about .about-laptop {
+			position: relative;
+			width: 55%;
+		}
+		#about .about-laptop img {
+			position: absolute;
+			margin-left: -2rem;
+			width: calc(100% + 2rem);
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		#about .about-laptop p {
+			position: relative;
+			font-size: 2.5rem;
+			line-height: 3rem;
+			margin: 11% 17%;
+		}
+		#about .about-summary {
+			min-height: 22rem;
+		}
+		#about .about-text {
+			width: 45%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		#about .about-text p {
+			font-size: 1.5rem;
+			margin: 3rem;
+			opacity: .75;
+		} */
+		@keyframes about-particles {
+			0%   {opacity: .1;}
+			50%  {opacity: .2;}
+			100% {opacity: .1;}
+		}
+	</style>
 </head>
 <body>
 	<div id="wrap-texture">
@@ -78,6 +188,31 @@
 		<h5>Scroll ke bawah untuk mengetahui hal menarik tentangku</h5>
     <i id="btn-get-started" class="bi bi-chevron-compact-down"></i>
 	</header>
+
+	<section id="about">
+    <lottie-player src="assets/lottie/43778-particle.json" background="transparent" speed=".1" loop autoplay></lottie-player>
+    <div class="container">
+      <div class="row about-info">
+        <div class="col-lg-4" data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-duration="3000">
+          <h3 data-aos="zoom-in-up" data-aos-delay="300">About Me</h3>
+          <h2>Software engineer powered by cutting edge technologies</h2>
+        </div>
+        <div class="col-lg-8">
+          <p data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out">A full-stack mobile and web application developer, designer, also a Flutter enthusiast from Indonesia. Having over 5 years of experience while completing many projects in several software house industries. Also a founder of TaufikNur Production and Creactive Indonesia.</p>
+          <div class="about-stats row">
+            <div class="col-md-6" data-aos="zoom-in-right" data-aos-duration="1000">
+              <h1>5+</h1>
+              <span>Years of Experience</span>
+            </div>
+            <div class="col-md-6" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-offset="100">
+              <h1>6+</h1>
+              <span>Projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 	
 	<audio autoplay loop>
 		<source src="assets/sound/A_Great_Darkness_Approaches_Can_You_Feel_It.mp3" type="audio/mpeg">
@@ -87,20 +222,31 @@
 		<span>Menembus portal ...</span>
 	</div>
 	
-	<!-- bg -->
+  <div id="goToTop">
+    <i class="bi bi-arrow-up-circle"></i>
+  </div>
+
+	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js'></script>
 	<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js'></script> -->
-
-	<!-- nav -->
 	<script src='https://www.curtainsjs.com/build/curtains.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 	<script	src="assets/js/bg.js"></script>
 	<script src="assets/js/nav.js"></script>
 	<script src="assets/js/typewrite.js"></script>
 	
 	<script>
-	var pageLoader = document.getElementById('page-loader');
+	const pageLoader = document.getElementById('page-loader');
+	const navbar = document.getElementById('navbar');
+	const goToTop = document.getElementById('goToTop');
+	const btnGetStarted = document.getElementById('btn-get-started');
+	const sections = ['header', 'about'];
+
+	var section = sections[0];
+	var lastScrollY = 0;
+	var stillScrolling = false;
 	var obscured = 600;
 	var revealed = false;
 	var revelationInterval = setInterval(() => {
@@ -111,6 +257,8 @@
 
 	function universeDebugStart() {
 		console.log('universeDebugStart();');
+		window.scrollTo(0,0);
+
 		var elements = document.getElementsByClassName('typewrite');
 		for (var i = 0; i < elements.length; i++) {
 			var toRotate = elements[i].getAttribute('data-type');
@@ -121,12 +269,6 @@
 		}
 		
 		revelationDone();
-		document.getElementById('header').classList.add('show');
-		document.getElementById('navbar').classList.add('show');
-		pageLoader.classList.add('dismiss');
-		setTimeout(() => {
-			pageLoader.remove();
-		}, 1000);
 	}
 	
 	function revelationDone() {
@@ -134,6 +276,67 @@
 		console.log('revelationDone();');
 		revealed = true;
 		clearInterval(revelationInterval);
+		document.getElementById('header').classList.add('show');
+		pageLoader.classList.add('dismiss');
+		setTimeout(() => {
+			pageLoader.remove();
+			navbar.classList.add('show');
+		}, 1000);
+	}
+
+	function doScrollToggleClass(el, className, offset) {
+		if (window.scrollY > offset) {
+			el.classList.add(className);
+		} else {
+			el.classList.remove(className);
+		}
+	}
+	function doScrollPerSection() {
+		if (stillScrolling) return;
+		let direction = window.scrollY > lastScrollY ? 'down' : 'up';
+		let windowHeight = window.outerHeight - 50;
+		let sectionIndex = sections.indexOf(section);
+		let nextSection = sectionIndex == sections.length - 1 ? null : sections[sectionIndex + 1];
+		let prevSection = sectionIndex == 0 ? null : sections[sectionIndex - 1];
+		if (direction == 'down') {
+			if (nextSection && window.scrollY > document.getElementById(nextSection).offsetTop - windowHeight) {
+				scrollToSection(nextSection, direction);
+			}
+		} else if (prevSection) {
+			let prevSectionEl = document.getElementById(prevSection);
+			// if (window.scrollY < prevSectionEl.offsetTop + prevSectionEl.offsetHeight + windowHeight) {
+			if (window.scrollY < prevSectionEl.offsetTop + 150) {
+				scrollToSection(prevSection, direction);
+				// section = prevSection;
+			}
+		}
+		lastScrollY = window.scrollY;
+	}
+	function scrollToSection(id, direction) {
+		stillScrolling = true;
+		const sectionEl = document.getElementById(id);
+		const top = sectionEl?.offsetTop || 0;
+		console.log('scroll to section', direction, id, top);
+		window.scrollTo({ top, behavior: 'smooth' });
+		setTimeout(() => {
+			section = sectionEl?.id || sections[0];
+			lastScrollY = window.scrollY;
+			stillScrolling = false;
+		}, 1000);
+	}
+	function onPageLoaded() {
+		onPageScroll();
+	}
+	function onPageScroll() {
+		doScrollToggleClass(navbar, 'scrolled', 50);
+		doScrollToggleClass(goToTop, 'show', 200);
+		doScrollPerSection();
+	}
+	function scrollToTop() {
+		scrollToSection(sections[0], 'up');
+	}
+	function getStarted() {
+		scrollToSection(sections[1], 'down');
 	}
 
 	if (window.addEventListener) { // W3C standard
@@ -141,6 +344,12 @@
 	} else if (window.attachEvent) { // Microsoft
 		window.attachEvent('onload', universeDebugStart);
 	}
+
+	document.addEventListener('DOMContentLoaded', onPageLoaded);
+	document.addEventListener('scroll', onPageScroll);
+	goToTop.addEventListener('click', scrollToTop);
+	btnGetStarted.addEventListener('click', getStarted);
+	AOS.init();
 	</script>
 </body>
 </html>
