@@ -126,7 +126,7 @@
 
         renderer = new THREE.WebGLRenderer(); /*	Rendererererers particles.	*/
         renderer.setPixelRatio(window.devicePixelRatio); /*	Probably 1; unless you're fancy.	*/
-        renderer.setSize(WIDTH, HEIGHT * 2); /*	Full screen baby Wooooo!	*/
+        renderer.setSize(WIDTH, HEIGHT); /*	Full screen baby Wooooo!	*/
 
         container.appendChild(renderer.domElement); /* Let's add all this crazy junk to the page.	*/
 

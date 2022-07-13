@@ -109,7 +109,7 @@ section {
   opacity: 1;
 }
 #header canvas {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   left: 0;
   top: 0;
