@@ -18,7 +18,7 @@ const mathUtils = {
 };
 
 window.onload = () => {
-  // const navMain = [...document.querySelectorAll(".nav-main li")];
+  // const navMain = [...document.querySelectorAll("#navbar li")];
   const navMain = [...document.querySelectorAll(".content-buttons a")];
   let currentIndex = 0;
   let lastIndex = 0;

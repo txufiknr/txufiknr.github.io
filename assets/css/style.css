@@ -46,7 +46,7 @@ body {
   width: 100%;
   height: 100vh;
 }
-#content {
+#header {
   text-align: center;
   display: flex;
   align-items: center;
@@ -61,36 +61,41 @@ body {
   padding: 6rem 2rem;
   box-sizing: border-box;
   pointer-events: none;
+  transition: opacity 1s ease;
 }
-#content .main-content {
+#header.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+#header .main-content {
   position: relative;
   width: calc(30vmin + 200px);
 }
-#content .text-content {
+#header .text-content {
   height: 4rem;
   padding: 1rem 0;
   box-sizing: border-box;
 }
-#content h1 {
+#header h1 {
   font-weight: 700;
   font-size: 3.6rem;
   margin-top: 2rem;
   margin-bottom: 0;
   line-height: 1;
 }
-#content h6 {
+#header h6 {
   font-family: 'Oxygen Mono', monospace;
   font-weight: 400;
   margin: 0;
 }
-#content h5 {
+#header h5 {
   font-size: 0.9rem;
   color: #ccc;
   margin-top: 0;
   margin-bottom: 0;
   opacity: 0.6;
 }
-#content > * {
+#header > * {
   text-shadow: 0 0 48px #aaa, 0 0 12px #333;
 }
 .content-buttons {
@@ -147,6 +152,11 @@ body {
   z-index: 9999;
   box-shadow: inset 0 0 15em 1em #000;
   text-shadow: 0 0 54px deeppink, 0 0 16px plum, 0 0 75px violet, 0 0 20px lavender;
+  transition: opacity 1s ease;
+}
+#page-loader.dismiss {
+  pointer-events: none;
+  opacity: 0;
 }
 #page-loader span {
   position: absolute;
@@ -154,7 +164,7 @@ body {
   opacity: 1;
   bottom: 2rem;
 }
-#content-canvas {
+#profile-picture {
   border-radius: 50%;
   width: 30vmin;
   height: 30vmin;
@@ -165,7 +175,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-#content-canvas canvas {
+#header-canvas canvas {
   max-width: 100%;
   display: block;
 }

@@ -1,4 +1,4 @@
-.nav-main {
+#navbar {
   background: url(../images/flare.png) no-repeat center;
   display: flex;
   justify-content: center;
@@ -11,9 +11,14 @@
   padding: 2rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 1s ease;
+}
+#navbar.show {
+  pointer-events: auto;
+  opacity: 1;
 }
 
-.nav-main ul {
+#navbar ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -24,7 +29,7 @@
   text-align: center;
 }
 
-.nav-main li {
+#navbar li {
   display: grid;
   grid-template-areas: "center";
   font-weight: 700;
@@ -33,19 +38,19 @@
   cursor: pointer;
 }
 
-.nav-main li .first-menu {
+#navbar li .first-menu {
   color: white;
   text-decoration: none;
   opacity: 0.4;
   z-index: 10;
   transition: all .5s ease;
 }
-.nav-main li:hover .first-menu {
+#navbar li:hover .first-menu {
   text-shadow: 0 0 54px deeppink, 0 0 16px plum, 0 0 75px violet, 0 0 20px lavender;
   opacity: 1;
 }
 
-.nav-main li .second-menu {
+#navbar li .second-menu {
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   opacity: 0;
   -webkit-text-fill-color: transparent;
@@ -60,13 +65,13 @@
   transform: translate3d(0, -20px, 0);
 }
 
-.nav-main li:hover .second-menu {
+#navbar li:hover .second-menu {
   transform: translate3d(0, 0, 0);
   opacity: .5;
 }
 
 @media screen and (min-width: 600px) {
-  .nav-main ul {
+  #navbar ul {
     width: 100%;
     grid-template-columns: repeat(4, auto);
   }
