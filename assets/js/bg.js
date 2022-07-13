@@ -133,11 +133,11 @@
 		code is wrecking the performance of a user's machine.
 		Let's see some damn stats!	*/
 
-        stats = new Stats();
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.top = '0px';
-        stats.domElement.style.right = '0px';
-        container.appendChild(stats.domElement);
+        // stats = new Stats();
+        // stats.domElement.style.position = 'absolute';
+        // stats.domElement.style.top = '0px';
+        // stats.domElement.style.right = '0px';
+        // container.appendChild(stats.domElement);
 
         /* Event Listeners */
 
@@ -151,7 +151,7 @@
     function animate() {
         requestAnimationFrame(animate);
         render();
-        stats.update();
+        // stats.update();
     }
 
     function render() {

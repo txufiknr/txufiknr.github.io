@@ -27,7 +27,7 @@
 .nav-main li {
   display: grid;
   grid-template-areas: "center";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1rem !important;
   color: #fff;
   cursor: pointer;
