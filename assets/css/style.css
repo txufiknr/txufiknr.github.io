@@ -1,5 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Oxygen+Mono:400);
-@import url(//fonts.googleapis.com/css?family=Proxima+Nova:300,400,500,600,700,800);
+@import url(//fonts.googleapis.com/css?family=Proxima+Nova:400,600,700);
 
 body {
   position: relative;
@@ -61,8 +61,12 @@ body {
   box-sizing: border-box;
   pointer-events: none;
 }
+#content .main-content {
+  position: relative;
+  width: calc(30vmin + 200px);
+}
 #content h1 {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 3.6rem;
   margin-top: 2rem;
   margin-bottom: 0;
@@ -146,8 +150,10 @@ body {
 }
 #content-canvas {
   border-radius: 50%;
-  width: 30vh;
-  height: 30vh;
+  width: 30vmin;
+  height: 30vmin;
+  min-width: 180px;
+  min-height: 180px;
   filter: drop-shadow(0 0 45px rgba(255,255,255,1));
   display: flex;
   justify-content: center;
