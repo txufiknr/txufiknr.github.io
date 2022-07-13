@@ -62,16 +62,18 @@
 			</div>
 		</div>
 		<h1>Taufik Nur Rahmanda, S.Kom.</h1>
-		<h6>
-			Universe.<!--
-			--><span class="typewrite" data-period="4000" data-type='[
-				"alter(contents: [Things.hapiness]).then(shallowMe);",
-				"order((universe) => universe.inhabitants.has(you));",
-				"destroy();"
-			]'>
-				<span class="wrap"></span>
-			</span>
-		</h6>
+		<div class="text-content">
+			<h6>
+				Universe.<!--
+				--><span class="typewrite" data-period="4000" data-type='[
+					"alter(contents: [Things.hapiness]).then(shallowMe);",
+					"order((universe) => universe.inhabitants.has(you));",
+					"destroy();"
+				]'>
+					<span class="wrap"></span>
+				</span>
+			</h6>
+		</div>
 		<h5>Scroll ke bawah untuk mengetahui hal menarik tentangku</h5>
 		<!-- <h5>Hak cipta &copy;<script>document.write(new Date().getFullYear())</script> Taufik Nur Rahmanda</h5> -->
     <i id="btn-get-started" class="bi bi-chevron-compact-down"></i>
@@ -98,28 +100,16 @@
 	<script src="assets/js/typewrite.js"></script>
 	
 	<script>
-	$(() => {
-		$('.nav-main').on('click', 'a[href]', function(e) {
-			// e.preventDefault();
-			console.log($(this).attr('href'));
-		});
-	});
-	
 	function universeDebugStart() {
 		console.log('universeDebugStart();');
 		var elements = document.getElementsByClassName('typewrite');
-		for (var i=0; i<elements.length; i++) {
+		for (var i = 0; i < elements.length; i++) {
 			var toRotate = elements[i].getAttribute('data-type');
 			var period = elements[i].getAttribute('data-period');
 			if (toRotate) {
 				new TxtType(elements[i], JSON.parse(toRotate), period);
 			}
 		}
-		// INJECT CSS
-		// var css = document.createElement("style");
-		// css.type = "text/css";
-		// css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-		// document.body.appendChild(css);
 		
 		revelationDone();
 
@@ -132,7 +122,7 @@
 	function revelationDone() {
 		if (revealed) return;
 		console.log('revelationDone();');
-		revealed = true
+		revealed = true;
 		clearInterval(revelationInterval);
 	}
 	
