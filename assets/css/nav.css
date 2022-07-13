@@ -1,4 +1,5 @@
 #navbar {
+  font-family: 'Dancing Script', cursive;
   background: url(../images/flare.png) no-repeat center;
   display: flex;
   justify-content: center;
