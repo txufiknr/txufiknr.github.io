@@ -1,52 +1,18 @@
-<?php
-ob_start();
-$hs = $_SERVER['HTTP_HOST'];
-$ip = $_SERVER['REMOTE_ADDR'];
-$ua = $_SERVER['HTTP_USER_AGENT'];
-$rf = $_SERVER['HTTP_REFERER'] ?? '';
-$ur = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')?'https':'http').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];;
-
-$mysqli = $hs == 'localhost'
-	? new mysqli($hs, "root", "", "taufiknur")
-	: new mysqli($hs, "u8846056_root", "aaaAAA123", "u8846056_taufiknur");
-
-if ($mysqli->connect_error) {
-	echo "Database connection failed: ".$mysqli->connect_error." (".$mysqli->connect_errno.")".PHP_EOL;
-  exit;
-}
-
-if ($mysqli->query("INSERT INTO web_visitor (IP,USER_AGENT,REFERER,URI) VALUES ('$ip','$ua','$rf','$ur') ON DUPLICATE KEY UPDATE VISIT_COUNT=VISIT_COUNT+1") === TRUE) {
-  echo "Welcome to the other side!".PHP_EOL;
-} else {
-	echo $mysqli->error.PHP_EOL;
-}
-
-$total_visitor_unique = 0;
-$total_visitor_count  = 0;
-if ($result = $mysqli->query("SELECT * FROM web_visitor")) {
-	$total_visitor_unique = $result->num_rows;
-	// $result_array = $result->fetch_all(MYSQLI_ASSOC);
-	// print_r($result_array);
-	while ($row = $result->fetch_assoc()) {
-		$total_visitor_count += $row['VISIT_COUNT'];
-  }
-	$result->free_result();
-}
-
-$mysqli->close();
-$output = ob_get_contents();
-ob_end_clean();
-?>
-
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="id">
+<html lang="id">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>TaufikNur Production</title>
+	<title>Taufik Nur Rahmanda</title>
+  <meta name="description" content="A full-stack developer and Flutter enthusiast from Indonesia. I've developed many Flutter app. I also a modern web programmer & designer, and former Android (Kotlin) developer." />
+  <meta name="keywords" content="software engineer, programmer, full-stack developer, frontend developer, flutter, website, application, personal website" />
+	<meta name="author" content="Taufik Nur Rahmanda" />
+	<meta name="copyright" content="Taufik Nur Rahmanda" />
 
-	<meta property="og:title" content="TaufikNur Production" />
-	<meta property="og:description" content="new Universe.initialize(content: Things.hapiness).then(shallowMe);" />
+	<meta property="og:locale" content="id_ID" />
+	<meta property="og:site_name" content="Taufik Nur Rahmanda" />
+	<meta property="og:title" content="Taufik Nur Rahmanda" />
+	<meta property="og:description" content="A full-stack developer and Flutter enthusiast from Indonesia. I've developed many Flutter app. I also a modern web programmer & designer, and former Android (Kotlin) developer." />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://www.taufiknur.com" />
 	<meta property="og:image" content="https://www.taufiknur.com/assets/images/image.png" />
@@ -112,8 +78,8 @@ ob_end_clean();
 				<span class="wrap"></span>
 			</span>
 		</h6>
-		<h5>Anda adalah pengunjung ke: <?=number_format($total_visitor_count)?></h5>
-		<h5>Hak cipta &copy;<?=date('Y')?> Taufik Nur Rahmanda</h5>
+		<h5>Scroll ke bawah untuk mengetahui hal menarik tentangku</h5>
+		<!-- <h5>Hak cipta &copy;<script>document.write(new Date().getFullYear())</script> Taufik Nur Rahmanda</h5> -->
     <i id="btn-get-started" class="bi bi-chevron-compact-down"></i>
 	</div>
 	

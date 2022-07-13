@@ -26,7 +26,7 @@ body {
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
   position: absolute;
   width: 100vw;
@@ -51,7 +51,7 @@ body {
   line-height: 1.0;
 }
 #content h5 {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: #ccc;
   margin-top: 0;
   margin-bottom: 0;
@@ -125,6 +125,7 @@ body {
   color: white;
   text-decoration: none;
   opacity: 0.4;
+  transition: all .5s ease;
 }
 .nav-main li:hover .first-menu {
   text-shadow: 0 0 54px deeppink, 0 0 16px plum, 0 0 75px violet, 0 0 20px lavender;
