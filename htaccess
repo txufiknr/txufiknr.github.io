@@ -1,0 +1,23 @@
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Checks to see if the user is attempting to access a valid file,
+# such as an image or css document, if this isn’t true it sends the
+# request to index.php
+RewriteEngine on
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# php_value upload_max_filesize 128M
+# php_value post_max_size 128M
+# php_value max_input_time 3600
+# php_value max_execution_time 3600
+
+# Apache config
+<FilesMatch ".(eot|ttf|otf|woff)">
+ Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
