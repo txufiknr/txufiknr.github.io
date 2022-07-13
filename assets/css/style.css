@@ -1,3 +1,6 @@
+@import url(//fonts.googleapis.com/css?family=Oxygen+Mono:400);
+@import url(//fonts.googleapis.com/css?family=Proxima+Nova:300,400,500,600,700,800);
+
 body {
   font-family: 'Proxima Nova', cursive;
   overflow: hidden;
@@ -47,7 +50,7 @@ body {
 }
 #content h6 {
   font-family: 'Oxygen Mono', monospace;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1.0;
 }
 #content h5 {
