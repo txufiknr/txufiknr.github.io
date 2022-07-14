@@ -24,81 +24,19 @@
 	<link rel="stylesheet" href="assets/css/nav.css">
 	<link rel="stylesheet" href="assets/css/typewrite.css">
 	<style>
-		#about {
-			background: linear-gradient(14deg, rgba(81, 11, 97, .4) 0%, rgba(137, 80, 218, .4) 30%, rgb(0 0 0 / 0%) 70%, rgb(0 0 0 / 0%) 100%);
-			font-size: 1.25rem;
-			font-weight: 300;
-			position: relative;
-			z-index: 2;
+		#energy {
+			overflow: visible;
 		}
-		#about::before {
-			content: 'About';
+		#pool {
+			background: url(assets/images/banyu.jpg) no-repeat center;
+			background-size: cover;
 			position: absolute;
-			left: -1.5rem;
-			bottom: -14rem;
-			font-size: 30rem;
-			font-weight: 700;
-			opacity: .075;
-			pointer-events: none;
-		}
-		#about .container {
-			padding: 7rem 1rem;
-			padding-bottom: 0;
-		}
-		#about h3 {
-			font-family: 'Dancing Script', cursive;
-			font-size: 1.75rem;
-			font-weight: 400;
-			margin-bottom: 0;
-			position: relative;
-		}
-		#about h3::before {
-			content: '';
-			display: block;
-			height: 1px;
-			width: 35px;
-			background-color: #eee;
-			position: absolute;
-			left: -45px;
-			top: calc(1.75rem / 2);
-			opacity: .3;
-		}
-		#about h2 {
-			font-size: 2.5rem;
-			margin-top: .5rem;
-		}
-		#about lottie-player {
-			position: absolute;
-			margin: -30rem 0;
-			top: 50%;
-			/* opacity: .1; */
-			animation: about-particles 5s infinite;
-		}
-		#about p {
-			margin: 2.5rem;
-		}
-		#about .about-info {
-			margin-bottom: 10rem;
-		}
-		#about .about-stats {
-			margin: 0 2.5rem;
-		}
-		#about .about-stats > div {
-			display: flex;
-			align-items: center;
-		}
-		#about .about-stats > div h1 {
-			margin-right: 1rem;
-			font-size: 4.5rem;
-			font-weight: 400;
-		}
-		#about .about-stats > div span {
-			line-height: 2rem;
-		}
-		@keyframes about-particles {
-			0%   {opacity: .05;}
-			50%  {opacity: .2;}
-			100% {opacity: .05;}
+			left: 0;
+			top: -10rem;
+			width: 100%;
+			height: calc(100% + 10rem);
+			z-index: 999;
+			-webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
 		}
 	</style>
 </head>
@@ -125,9 +63,9 @@
   <header id="header">
 		<div class="main-content">
 			<div class="content-buttons" style="position: absolute;left: 0;bottom: 0;z-index: 1;">
-				<a href="https://www.facebook.com/TopEx.Divine" target="_blank" style="margin-right: -3rem"><img src="assets/images/fb.png"></a>
-				<a href="https://www.youtube.com/c/TopExSharingan" target="_blank"><img src="assets/images/yt.png"></a>
-				<a href="https://www.wattpad.com/TaufikNurRahmanda" target="_blank" style="margin-right: -2rem"><img src="assets/images/wp.png"></a>
+				<a href="https://www.facebook.com/TopEx.Divine" target="_blank" style="margin-right: -3rem"><img src="assets/images/social/fb.png"></a>
+				<a href="https://www.youtube.com/c/TopExSharingan" target="_blank"><img src="assets/images/social/yt.png"></a>
+				<a href="https://www.wattpad.com/TaufikNurRahmanda" target="_blank" style="margin-right: -2rem"><img src="assets/images/social/wp.png"></a>
 			</div>
 			<div class="wheel-container">
 				<img class="wheel" src="assets/images/wheel3.png">
@@ -182,6 +120,7 @@
   </section>
 
 	<section id="energy">
+		<div id="pool"></div>
   </section>
 
 	<i id="btn-next-dimension" class="bi bi-chevron-compact-down"></i>
@@ -211,6 +150,9 @@
 	<!-- <script src="assets/js/nav.js"></script> -->
 	<script src="assets/js/typewrite.js"></script>
 	<script src="assets/js/stargate.js"></script>
+
+	<script src="assets/vendor/jquery-ripples/jquery.js"></script>
+	<script src="assets/vendor/jquery-ripples/jquery-ripples.js"></script>
 	
 	<script>
 	const pageLoader = document.getElementById('page-loader');
@@ -305,6 +247,7 @@
 		}, 1000);
 	}
 	function onPageLoaded() {
+		// typing animation
 		var elements = document.getElementsByClassName('typewrite');
 		for (var i = 0; i < elements.length; i++) {
 			var toRotate = elements[i].getAttribute('data-type');
@@ -313,6 +256,14 @@
 				new TxtType(elements[i], JSON.parse(toRotate), period);
 			}
 		}
+		// ripple animation
+		$('#pool').ripples({
+			resolution: 512,
+			dropRadius: 20,
+			perturbance: 0.04,
+			interactive: true,
+		});
+		// nav animation
 		const animateNav = () => {
 			TweenMax.staggerFrom(
 				[...document.querySelectorAll(".content-buttons a")],

@@ -279,12 +279,77 @@ section > canvas,
   justify-content: center;
   align-items: center;
 }
-#header-canvas canvas {
-  max-width: 100%;
-  display: block;
+
+#about {
+  background: linear-gradient(14deg, rgba(81, 11, 97, .4) 0%, rgba(137, 80, 218, .4) 30%, rgb(0 0 0 / 0%) 70%, rgb(0 0 0 / 0%) 100%);
+  font-size: 1.25rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
 }
-#stats {
-  display: none !important;
+#about::before {
+  content: 'About';
+  position: absolute;
+  left: -1.5rem;
+  bottom: -14rem;
+  font-size: 30rem;
+  font-weight: 700;
+  opacity: .075;
+  pointer-events: none;
+}
+#about .container {
+  padding: 7rem 1rem;
+  padding-bottom: 0;
+}
+#about h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  position: relative;
+}
+#about h3::before {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 35px;
+  background-color: #eee;
+  position: absolute;
+  left: -45px;
+  top: calc(1.75rem / 2);
+  opacity: .3;
+}
+#about h2 {
+  font-size: 2.5rem;
+  margin-top: .5rem;
+}
+#about lottie-player {
+  position: absolute;
+  margin: -30rem 0;
+  top: 50%;
+  /* opacity: .1; */
+  animation: about-particles 5s infinite;
+}
+#about p {
+  margin: 2.5rem;
+}
+#about .about-info {
+  margin-bottom: 10rem;
+}
+#about .about-stats {
+  margin: 0 2.5rem;
+}
+#about .about-stats > div {
+  display: flex;
+  align-items: center;
+}
+#about .about-stats > div h1 {
+  margin-right: 1rem;
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+#about .about-stats > div span {
+  line-height: 2rem;
 }
 
 .wheel-container {
@@ -305,13 +370,14 @@ section > canvas,
   opacity: 0.15;
 }
 
+@keyframes about-particles {
+  0%   { opacity: .05; }
+  50%  { opacity: .2; }
+  100% { opacity: .05; }
+}
 @keyframes spin {
-  0% {
-    --rotate: 0deg;
-  }
-  100% {
-    --rotate: 360deg;
-  }
+  0%   { --rotate: 0deg; }
+  100% { --rotate: 360deg; }
 }
 @keyframes wheel {
   to {
