@@ -81,7 +81,6 @@
 			margin-bottom: 10rem;
 		}
 		#about .about-stats {
-			display: flex;
 			margin: 0 2.5rem;
 		}
 		#about .about-stats > div {
@@ -167,7 +166,7 @@
         </div>
         <div class="col-lg-8">
           <p data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out">A full-stack mobile and web application developer, designer, also a Flutter enthusiast from Indonesia. Having over 5 years of experience while completing many projects in several software house industries. Also a founder of TaufikNur Production and Creactive Indonesia.</p>
-          <div class="about-stats row">
+          <div class="about-stats row d-none d-md-flex">
             <div class="col-md-6" data-aos="zoom-in-right" data-aos-duration="1000">
               <h1>5+</h1>
               <span>Years of Experience</span>
@@ -239,8 +238,8 @@
 	function animatePlanets() {
 		let currentLevel = dimensions.indexOf(dimension);
 		if (currentLevel == dimensions.length - 1) return;
-		let dimensionHeight = Math.max(600, window.innerHeight);
-		btnNextDimension.style.top = `calc(${dimensionHeight * (currentLevel + 1)}px - 3rem)`;
+		let currentDimension = document.getElementById(dimension);
+		btnNextDimension.style.top = `calc(${currentDimension.offsetTop + currentDimension.offsetHeight}px - 3rem)`;
 		// btnNextDimension.style.top = `calc(100vh - 3rem + ${window.scrollY}px)`;
 	}
 
@@ -274,17 +273,17 @@
 		if (!itAllBegan) return;
 		if (stillScrolling) return;
 		let direction = window.scrollY > lastScrollY ? 'down' : 'up';
-		let dimensionHeight = Math.max(600, window.innerHeight);
 		let currentLevel = dimensions.indexOf(dimension);
 		let nextLevel = currentLevel == dimensions.length - 1 ? null : dimensions[currentLevel + 1];
 		let prevLevel = currentLevel == 0 ? null : dimensions[currentLevel - 1];
 		if (direction == 'down') {
-			if (nextLevel && window.scrollY > document.getElementById(nextLevel).offsetTop - dimensionHeight/2) {
+			let nextDimension = document.getElementById(nextLevel);
+			if (nextLevel && window.scrollY > nextDimension.offsetTop - nextDimension.offsetHeight/2) {
 				goToDimension(nextLevel, direction);
 			}
 		} else if (prevLevel) {
-			let prevSectionEl = document.getElementById(prevLevel);
-			if (window.scrollY < prevSectionEl.offsetTop + dimensionHeight/2) {
+			let prevDimension = document.getElementById(prevLevel);
+			if (window.scrollY < prevDimension.offsetTop + prevDimension.offsetHeight/2) {
 				goToDimension(prevLevel, direction);
 				// dimension = prevLevel;
 			}
@@ -293,12 +292,12 @@
 	}
 	function goToDimension(id, direction) {
 		stillScrolling = true;
-		const sectionEl = document.getElementById(id);
-		const top = sectionEl?.offsetTop || 0;
+		const destiny = document.getElementById(id);
+		const top = destiny?.offsetTop || 0;
 		console.log('flung into dimension', direction, id, top);
 		window.scrollTo({ top, left: 0, behavior: 'smooth' });
 		setTimeout(() => {
-			dimension = sectionEl?.id || dimensions[0];
+			dimension = destiny?.id || dimensions[0];
 			lastScrollY = window.scrollY;
 			stillScrolling = false;
 			animatePlanets();
