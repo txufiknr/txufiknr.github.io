@@ -74,6 +74,7 @@
 	</header>
 
 	<section id="about">
+		<span class="about-name">Taufik</span>
     <lottie-player src="assets/lottie/43778-particle.json" background="transparent" speed=".1" loop autoplay></lottie-player>
     <div class="container">
       <div class="row about-info">
@@ -180,7 +181,7 @@
 	<div id="btn-first-dimension"><i class="bi bi-arrow-up"></i></div>
 	<i id="btn-next-dimension" class="bi bi-chevron-compact-down"></i>
 
-	<div id="page-loader"><span>Menembus portal ...</span></div>
+	<div id="page-loader"><span>Expanding singularity ...</span></div>
 	
 	<audio autoplay loop>
 		<source src="assets/sound/A_Great_Darkness_Approaches_Can_You_Feel_It.mp3" type="audio/mpeg">
@@ -203,6 +204,7 @@
 
 	const pageLoader = document.getElementById('page-loader');
 	const navbar = document.getElementById('navbar');
+	const aboutName = document.getElementsByClassName('about-name')[0];
 	const btnFirstDimension = document.getElementById('btn-first-dimension');
 	const btnNextDimension = document.getElementById('btn-next-dimension');
 	const dimensions = ['header', 'about', 'energy', 'world'];
@@ -387,6 +389,7 @@
 		doAlterPhase(btnFirstDimension, 'show', 200);
 		doInterDimensionalJourney();
 		debounce(animateOrbits, 100);
+		aboutName.style.transform = `translateY(${window.scrollY/5}px)`;
 	}
 	function goToFirstDimension() {
 		goToDimension(dimensions[0], 'up');

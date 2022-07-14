@@ -317,14 +317,15 @@ section > canvas,
   position: relative;
   z-index: 2;
 }
-#about::before {
-  content: 'Taufik';
+/* #about::before { */
+#about .about-name {
+  /* content: 'Taufik'; */
   font-family: 'Dancing Script';
   font-size: 20rem;
   font-weight: 700;
   position: absolute;
   left: -1.5rem;
-  bottom: 2rem;
+  bottom: 10rem;
   opacity: .075;
   pointer-events: none;
 }
@@ -363,6 +364,9 @@ section > canvas,
 #energy h2 {
   min-height: calc(2.5rem * 2 * 1.2);
 }
+#energy h4 {
+  font-weight: 600;
+}
 #energy .container {
   position: relative;
   pointer-events: none;
@@ -372,6 +376,12 @@ section > canvas,
 }
 #energy .portfolio-right p {
   position: relative;
+}
+#energy .portfolio-right p:first-letter {
+  font-size: 2.75rem;
+  font-style: italic;
+  margin: -10px 12px -15px 0;
+  float: left;
 }
 #energy .portfolio-right p::before {
   content: '';
@@ -507,9 +517,9 @@ section > canvas,
 }
 
 @keyframes header-particles {
-  0%   {opacity: 1;}
-  50%  {opacity: .5;}
-  100% {opacity: 1;}
+  0%   { opacity: 1; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
 }
 @keyframes about-particles {
   0%   { opacity: .025; }
