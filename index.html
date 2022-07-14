@@ -31,8 +31,8 @@
 	<nav id="navbar">
 		<ul>
 			<li><a href="https://lnk.bio/ArjF" class="first-menu">Bio</a><span class="second-menu">Bio</span></li>
-			<li><a href="https://www.wattpad.com/TaufikNurRahmanda" class="first-menu">Story/Novel</a><span class="second-menu">Cerpen/Novel</span></li>
-			<li><a href="https://www.youtube.com/c/TopExSharingan" class="first-menu">Videos</a><span class="second-menu">Video</span></li>
+			<li><a href="https://www.wattpad.com/TaufikNurRahmanda" class="first-menu">Story/Novel</a><span class="second-menu">Story/Novel</span></li>
+			<li><a href="https://www.youtube.com/c/TopExSharingan" class="first-menu">Videos</a><span class="second-menu">Videos</span></li>
 			<li><a href="https://play.google.com/store/apps/dev?id=7554821831783338570" class="first-menu">Apps</a><span class="second-menu">Apps</span></li>
 		</ul>
 	</nav>
@@ -139,9 +139,9 @@
             </li>
             <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4"><h4>Web Application</h4>
 							<ul>
-								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="200">PHP 8, MySQL, MariaDB (CodeIgniter 4)
+								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="200">PHP 8, MariaDB/MySQL (CodeIgniter 4)
 								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="250">JavaScript (React.js, Angular, Vue)
-								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="300">HTML & CSS Latest Technologies
+								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="300">HTML, CSS, WebGL Latest Technologies
 								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="350">Chrome Extensions, etc
 							</ul>
 						</li>
@@ -149,7 +149,7 @@
         </div>
         <div class="col-lg-6 portfolio-right ps-0 ps-lg-5">
           <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="d-none d-lg-block mb-4">Our world is in the process of digitalization in all sectors of activity and in all areas of our daily life: meetings, social networks, shopping, finance, entertainment, recruitment, and so on.</p>
-          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="d-none d-lg-block mb-4">Hence, I am in this world have a mission, armed with proper skills and knowledges, I understand the best way to create a multi-platform applications. I support you at every stage, from design to deployment on the app stores.</p>
+          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="d-none d-lg-block mb-4">Hence, I am in this world have a mission, armed with proper skills, beautiful mind and knowledges, I understand the best way to create multi-platform applications. I support you at every stage, from design to deployment in the app stores.</p>
           <p data-aos="flip-right" data-aos-easing="ease-out-back" data-aos-duration="2000" class="mt-3">
             <a class="see-more" href="portfolio" title="See more portfolios">
               <img alt="My portfolios" src="assets/images/portfolio.png" class="img-fluid"/>
@@ -214,7 +214,6 @@
 	var stillScrolling = false;
 	var itAllBegan = false;
 	var obscured = 600;
-	// var rippleInterval;
 	var revelationInterval = setInterval(() => {
 		obscured--;
 		if (obscured <= 0) universeStart();
@@ -226,7 +225,7 @@
 		method._tId = setTimeout(method, delay);
 	}
 
-	function animateOrbits() {
+	function createOrbits() {
     let line = document.getElementById('line');
 		let energy = document.getElementById('energy');
 		let energyTop = energy.getBoundingClientRect().top;
@@ -237,9 +236,7 @@
 		for (let i = 0; i < paragraphs.length; i++) {
 			let p = paragraphs[i];
 			if (p.getBoundingClientRect().top + p.getBoundingClientRect().height / 2 < window.innerHeight / 2) {
-				setTimeout(() => {
-					p.classList.add('active');
-				}, 500);
+				setTimeout(() => { p.classList.add('active'); }, 500);
 			} else {
 				p.classList.remove('active');
 			}
@@ -251,22 +248,8 @@
 		if (currentLevel == dimensions.length - 1) return;
 		let currentDimension = document.getElementById(dimension);
 		btnNextDimension.style.top = `calc(${currentDimension.offsetTop + currentDimension.offsetHeight}px - 3rem)`;
-		// if (currentDimension != 'header' && currentDimension != 'world') {
-		// 	startRipple();
-		// } else {
-		// 	stopRipple();
-		// }
 		dropDarkMatter();
 	}
-
-	// function startRipple() {
-	// 	rippleInterval = setInterval(dropDarkMatter, 7000);
-	// }
-
-	// function stopRipple() {
-	// 	clearInterval(rippleInterval);
-	// 	rippleInterval = null;
-	// }
 
 	function dropDarkMatter() {
 		var $el = $('#akashic');
@@ -388,7 +371,7 @@
 		doAlterPhase(navbar, 'scrolled', 50);
 		doAlterPhase(btnFirstDimension, 'show', 200);
 		doInterDimensionalJourney();
-		debounce(animateOrbits, 100);
+		debounce(createOrbits, 100);
 		aboutName.style.transform = `translateY(${window.scrollY/5}px)`;
 	}
 	function goToFirstDimension() {

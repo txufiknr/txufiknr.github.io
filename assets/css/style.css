@@ -377,7 +377,7 @@ section > canvas,
 #energy .portfolio-right p {
   position: relative;
 }
-#energy .portfolio-right p:first-letter {
+#energy .portfolio-right p:first-child:first-letter {
   font-size: 2.75rem;
   font-style: italic;
   margin: -10px 12px -15px 0;
@@ -386,16 +386,18 @@ section > canvas,
 #energy .portfolio-right p::before {
   content: '';
   display: block;
-  height: 1px;
+  height: 1.5px;
   width: 0;
   background-color: #fff;
   position: absolute;
   left: -3rem;
-  top: 50%;
+  top: calc(50% - 1px);
   transition: width .3s ease-out;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
 }
 #energy .portfolio-right p.active::before {
-  width: 2rem;
+  width: 2.5rem;
 }
 #energy .see-more {
   position: relative;
@@ -493,6 +495,8 @@ section > canvas,
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 0;
   animation: header-particles 1s infinite;
   transition: opacity 1s ease-out;
