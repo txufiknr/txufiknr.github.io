@@ -24,25 +24,7 @@
 	<link rel="stylesheet" href="assets/css/nav.css">
 	<link rel="stylesheet" href="assets/css/typewrite.css">
 	<style>
-		#world .container {
-			padding-top: 10rem;
-		}
-		#world .socials {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		#world .socials a {
-			margin: 0 1rem;
-		}
-		#world .socials img {
-			width: 2rem;
-		}
-		#world lottie-player {
-			margin: 0 auto;
-			width: 100%;
-			max-width: 600px;
-		}
+		
 	</style>
 </head>
 <body>
@@ -134,7 +116,7 @@
   </section>
 
 	<section id="energy">
-		<div id="pool">
+		<div id="akashic">
 			<div id="line" class="d-none d-lg-block"></div>
 		</div>
 		<div class="container">
@@ -231,6 +213,9 @@
 
 	<script src="assets/vendor/jquery-ripples/jquery.js"></script>
 	<script src="assets/vendor/jquery-ripples/jquery-ripples.js"></script>
+	<script src="assets/vendor/jquery-ripples/jquery.simulate.js"></script>
+	<script src="assets/vendor/jquery-ripples/jquery.simulate.ext.js"></script>
+	<script src="assets/vendor/jquery-ripples/jquery.simulate.drag-n-drop.js"></script>
 	
 	<script>
 	const pageLoader = document.getElementById('page-loader');
@@ -249,6 +234,10 @@
 		if (obscured <= 0) universeStart();
 		pageLoader.style.background = 'rgba(0,0,0,'+(obscured / 600)+')';
 	}, 10);
+
+	function randomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
 
 	function debounce(method, delay) {
 		clearTimeout(method._tId);
@@ -366,12 +355,24 @@
 			}
 		}
 		// ripple animation
-		$('#pool').ripples({
+		$('#akashic').ripples({
 			resolution: 512,
 			dropRadius: 20,
 			perturbance: 0.04,
 			interactive: true,
 		});
+		setInterval(() => {
+			let akashicWidth = $('#akashic').width();
+			let akashicHeight = $('#akashic').height();
+			$('#akashic').simulate('drag', {
+				dx: randomNumber(-akashicWidth / 2, akashicWidth / 2),
+				dy: randomNumber(-akashicHeight / 2, akashicHeight / 2),
+				interpolation: {
+					stepWidth: 300,
+					stepDelay: 1000
+				}}
+			);
+		}, 3000);
 		// nav animation
 		const animateNav = () => {
 			TweenMax.staggerFrom(

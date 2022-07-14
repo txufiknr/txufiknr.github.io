@@ -426,7 +426,7 @@ section > canvas,
   transform: scale(1.25);
 }
 
-#pool {
+#akashic {
   background: url(../images/space/purple-space.jpg) no-repeat center;
   /* background: url(../images/space/134-1349958_wallpaper-of-blue-purple-space-stars-background-blue.jpg) no-repeat center; */
   background-size: cover;
@@ -440,11 +440,30 @@ section > canvas,
   -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10rem, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10rem, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
 }
-#pool canvas {
+#akashic canvas {
   pointer-events: none;
 }
 #world {
   text-shadow: 0 0 5rem #f9dbff, 0 0 2rem #d594e2, 0 0 1rem #a170d2;
+}
+#world .container {
+  padding-top: 10rem;
+}
+#world .socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#world .socials a {
+  margin: 0 1rem;
+}
+#world .socials img {
+  width: 2rem;
+}
+#world lottie-player {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
 }
 #line {
   width: 1px;
