@@ -262,7 +262,10 @@ section > canvas,
   filter: drop-shadow(0 0 0 rgba(255,255,255,0));
   z-index: 1;
 }
-.content-buttons a:hover img {
+.socials a img {
+  transition: all .4s ease;
+}
+.content-buttons a:hover img, .socials a:hover img {
   /*transform: rotateY(0deg) scale(1.2);*/
   transform: scale(1.2);
   filter: drop-shadow(0 0 15px rgba(255,255,255,.5));
@@ -332,6 +335,9 @@ section > canvas,
   /* opacity: .1; */
   animation: about-particles 5s infinite;
 }
+#about h2 {
+  min-height: calc(2.5rem * 4 * 1.2);
+}
 #about p {
   margin: 2.5rem;
 }
@@ -353,6 +359,9 @@ section > canvas,
 
 #energy {
   overflow: visible;
+}
+#energy h2 {
+  min-height: calc(2.5rem * 2 * 1.2);
 }
 #energy .container {
   position: relative;
@@ -390,18 +399,23 @@ section > canvas,
   position: absolute;
   left: 0;
   top: 1rem;
+  transition: transform .5s ease-out;
 }
 #energy .see-more:hover {
   opacity: .85;
   transform: perspective(75em) rotateY(18deg) scale(1.05);
   box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
 }
+#energy .see-more:hover lottie-player {
+  transform: scale(1.5) translate3d(20px, -8px, 20px);
+}
 #energy .see-more::after {
   content: 'See Portfolios';
   position: absolute;
-  left: 2rem;
-  bottom: 2rem;
+  left: 1.75rem;
+  bottom: 1.75rem;
   background: rebeccapurple;
+  background: linear-gradient(6deg, rgb(83 42 102) 0%, rgb(96 42 107) 30%, rgb(110 68 151 / 85%) 68%, rgb(135 79 173 / 70%) 100%);
   border-radius: 3rem;
   padding: 0 2rem;
   color: #fff;
@@ -440,9 +454,11 @@ section > canvas,
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 #world .socials a {
-  margin: 0 1rem;
+  margin: 0 .75rem;
 }
 #world .socials img {
   width: 2rem;
@@ -453,14 +469,23 @@ section > canvas,
   max-width: 600px;
 }
 #line {
-  width: 1px;
+  width: 2px;
   height: 0;
-  /* filter: blur(.5px); */
   background-color: #fff;
   position: absolute;
   top: 0;
-  left: calc(50% - .5px);
+  left: calc(50% - 1px);
   transition: all .5s ease-out;
+  -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 1rem, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 1rem, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+}
+#particles-js {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  animation: header-particles 1s infinite;
+  transition: opacity 1s ease-out;
 }
 
 .wheel-container {
@@ -481,6 +506,11 @@ section > canvas,
   opacity: 0.15;
 }
 
+@keyframes header-particles {
+  0%   {opacity: 1;}
+  50%  {opacity: .5;}
+  100% {opacity: 1;}
+}
 @keyframes about-particles {
   0%   { opacity: .025; }
   50%  { opacity: .1; }
