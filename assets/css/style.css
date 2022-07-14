@@ -1,18 +1,22 @@
 @import url(//fonts.googleapis.com/css?family=Dancing+Script:400,600,700);
-@import url(//fonts.googleapis.com/css?family=Albert+Sans:300,400,600,700);
 @import url(//fonts.googleapis.com/css?family=Lora:300,400,600,700);
-@import url(//fonts.googleapis.com/css?family=Nanum+Gothic:300,400,600,700);
-@import url(//fonts.googleapis.com/css?family=Quicksand:300,400,600,700);
 @import url(//fonts.googleapis.com/css?family=Oxygen+Mono:400);
+
+/* Experimental: This is an experimental technology */
+/* docs: https://developer.mozilla.org/en-US/docs/Web/CSS/@property */
+/* from: https://codepen.io/gayane-gasparyan/pen/jOmaBQK */
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
 
 body {
   position: relative;
   width: 100%;
-  /* height: 100vh; */
   margin: 0;
   background-color: hsla(0, 100%, 0%, 1);
   font-family: Lora, serif;
-  /* overflow: hidden; */
   overflow-x: hidden;
   user-select: none;
   color: #fff;
@@ -26,23 +30,32 @@ section {
   min-height: 600px;
   overflow: hidden;
 }
-#btn-get-started {
+section > canvas,
+#header > canvas {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+#btn-next-dimension {
   position: absolute;
   left: calc(50% - 1.5rem);
-  bottom: .5rem;
+  top: calc(100vh - 3rem);
   font-size: 3rem;
   color: #fff;
-  opacity: .75;
-  z-index: 1;
+  opacity: .5;
+  z-index: 999;
   cursor: pointer;
   transform: translateY(-1rem);
   transition: all .5s ease-in-out;
 }
-#btn-get-started:hover {
+#btn-next-dimension:hover {
   opacity: 1;
   transform: translateY(0);
 }
-#goToTop {
+#btn-first-dimension {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -62,11 +75,44 @@ section {
   font-size: 2rem;
   transform: translateY(4rem);
 }
-#goToTop:hover {
+#btn-first-dimension::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(1.5);
+  filter: blur(10px);
+  border-radius: 50%;
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  opacity: 0;
+  transition: opacity .5s;
+}
+#btn-first-dimension i {
+  background-color: rgba(255,255,255,0);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s ease;
+}
+#btn-first-dimension:hover {
   background: #e1e7eb;
   color: #582a8a;
 }
-#goToTop.show {
+#btn-first-dimension:hover i {
+  background-color: rgba(255,255,255,.5);
+}
+#btn-first-dimension:hover::before {
+  animation: spin 2.5s linear infinite;
+  opacity: 1;
+}
+#btn-first-dimension.show {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
@@ -108,16 +154,10 @@ section {
   pointer-events: auto;
   opacity: 1;
 }
-#header canvas {
+#header canvas#stars {
   position: fixed;
-  z-index: -1;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 #header canvas#stargate {
-  position: absolute;
   opacity: .1;
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
   mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
@@ -209,6 +249,9 @@ section {
   box-shadow: inset 0 0 15em 1em #000;
   text-shadow: 0 0 54px deeppink, 0 0 16px plum, 0 0 75px violet, 0 0 20px lavender;
   transition: opacity 1s ease;
+  opacity: 1;
+  left: 0;
+  top: 0;
 }
 #page-loader.dismiss {
   pointer-events: none;
@@ -255,6 +298,15 @@ section {
   position: absolute;
   height: calc(30vh + 700px);
   opacity: 0.15;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
 }
 @keyframes wheel {
   to {

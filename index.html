@@ -96,41 +96,10 @@
 		#about .about-stats > div span {
 			line-height: 2rem;
 		}
-		/* #about .about-laptop {
-			position: relative;
-			width: 55%;
-		}
-		#about .about-laptop img {
-			position: absolute;
-			margin-left: -2rem;
-			width: calc(100% + 2rem);
-			top: 50%;
-			transform: translateY(-50%);
-		}
-		#about .about-laptop p {
-			position: relative;
-			font-size: 2.5rem;
-			line-height: 3rem;
-			margin: 11% 17%;
-		}
-		#about .about-summary {
-			min-height: 22rem;
-		}
-		#about .about-text {
-			width: 45%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-		#about .about-text p {
-			font-size: 1.5rem;
-			margin: 3rem;
-			opacity: .75;
-		} */
 		@keyframes about-particles {
-			0%   {opacity: .1;}
+			0%   {opacity: .05;}
 			50%  {opacity: .2;}
-			100% {opacity: .1;}
+			100% {opacity: .05;}
 		}
 	</style>
 </head>
@@ -186,7 +155,6 @@
 			</h6>
 		</div>
 		<h5>Scroll ke bawah untuk mengetahui hal menarik tentangku</h5>
-    <i id="btn-get-started" class="bi bi-chevron-compact-down"></i>
 	</header>
 
 	<section id="about">
@@ -215,7 +183,10 @@
   </section>
 
 	<section id="world">
+		<div id="energy"></div>
   </section>
+
+	<i id="btn-next-dimension" class="bi bi-chevron-compact-down"></i>
 	
 	<audio autoplay loop>
 		<source src="assets/sound/A_Great_Darkness_Approaches_Can_You_Feel_It.mp3" type="audio/mpeg">
@@ -225,7 +196,7 @@
 		<span>Menembus portal ...</span>
 	</div>
 	
-  <div id="goToTop">
+  <div id="btn-first-dimension">
     <i class="bi bi-arrow-up"></i>
   </div>
 
@@ -245,20 +216,33 @@
 	<script>
 	const pageLoader = document.getElementById('page-loader');
 	const navbar = document.getElementById('navbar');
-	const goToTop = document.getElementById('goToTop');
-	const btnGetStarted = document.getElementById('btn-get-started');
-	const sections = ['header', 'about'];
+	const btnFirstDimension = document.getElementById('btn-first-dimension');
+	const btnNextDimension = document.getElementById('btn-next-dimension');
+	const dimensions = ['header', 'about'];
 
-	var section = sections[0];
+	var dimension = dimensions[0];
 	var lastScrollY = 0;
 	var stillScrolling = false;
+	var itAllBegan = false;
 	var obscured = 600;
-	var created = false;
 	var revelationInterval = setInterval(() => {
 		obscured--;
 		if (obscured <= 0) universeStart();
 		pageLoader.style.background = 'rgba(0,0,0,'+(obscured / 600)+')';
 	}, 10);
+
+	// function debounce(method, delay) {
+	// 	clearTimeout(method._tId);
+	// 	method._tId = setTimeout(method, delay);
+	// }
+
+	function animatePlanets() {
+		let currentLevel = dimensions.indexOf(dimension);
+		if (currentLevel == dimensions.length - 1) return;
+		let dimensionHeight = Math.max(600, window.innerHeight);
+		btnNextDimension.style.top = `calc(${dimensionHeight * (currentLevel + 1)}px - 3rem)`;
+		// btnNextDimension.style.top = `calc(100vh - 3rem + ${window.scrollY}px)`;
+	}
 
 	function universeRearrange() {
 		window.scrollTo(0,0);
@@ -266,9 +250,10 @@
 
 	function universeStart() {
 		universeRearrange();
-		if (created) return;
+		if (itAllBegan) return;
 		console.log('universeStart();');
-		created = true;
+		itAllBegan = true;
+		dimension = dimensions[0];
 		clearInterval(revelationInterval);
 		document.getElementById('header').classList.add('show');
 		pageLoader.classList.add('dismiss');
@@ -278,44 +263,45 @@
 		}, 1000);
 	}
 
-	function doScrollToggleClass(el, className, offset) {
+	function doAlterPhase(el, className, offset) {
 		if (window.scrollY > offset) {
 			el.classList.add(className);
 		} else {
 			el.classList.remove(className);
 		}
 	}
-	function doScrollPerSection() {
+	function doInterDimensionalJourney() {
 		if (stillScrolling) return;
 		let direction = window.scrollY > lastScrollY ? 'down' : 'up';
 		let windowHeight = window.outerHeight - 50;
-		let sectionIndex = sections.indexOf(section);
-		let nextSection = sectionIndex == sections.length - 1 ? null : sections[sectionIndex + 1];
-		let prevSection = sectionIndex == 0 ? null : sections[sectionIndex - 1];
+		let currentLevel = dimensions.indexOf(dimension);
+		let nextLevel = currentLevel == dimensions.length - 1 ? null : dimensions[currentLevel + 1];
+		let prevLevel = currentLevel == 0 ? null : dimensions[currentLevel - 1];
 		if (direction == 'down') {
-			if (nextSection && window.scrollY > document.getElementById(nextSection).offsetTop - windowHeight) {
-				scrollToSection(nextSection, direction);
+			if (nextLevel && window.scrollY > document.getElementById(nextLevel).offsetTop - windowHeight) {
+				goToDimension(nextLevel, direction);
 			}
-		} else if (prevSection) {
-			let prevSectionEl = document.getElementById(prevSection);
+		} else if (prevLevel) {
+			let prevSectionEl = document.getElementById(prevLevel);
 			// if (window.scrollY < prevSectionEl.offsetTop + prevSectionEl.offsetHeight + windowHeight) {
 			if (window.scrollY < prevSectionEl.offsetTop + 150) {
-				scrollToSection(prevSection, direction);
-				// section = prevSection;
+				goToDimension(prevLevel, direction);
+				// dimension = prevLevel;
 			}
 		}
 		lastScrollY = window.scrollY;
 	}
-	function scrollToSection(id, direction) {
+	function goToDimension(id, direction) {
 		stillScrolling = true;
 		const sectionEl = document.getElementById(id);
 		const top = sectionEl?.offsetTop || 0;
-		console.log('scroll to section', direction, id, top);
+		console.log('flung into dimension', direction, id, top);
 		window.scrollTo({ top, left: 0, behavior: 'smooth' });
 		setTimeout(() => {
-			section = sectionEl?.id || sections[0];
+			dimension = sectionEl?.id || dimensions[0];
 			lastScrollY = window.scrollY;
 			stillScrolling = false;
+			animatePlanets();
 		}, 1000);
 	}
 	function onPageLoaded() {
@@ -330,23 +316,27 @@
 		onPageScroll();
 	}
 	function onPageScroll() {
-		doScrollToggleClass(navbar, 'scrolled', 50);
-		doScrollToggleClass(goToTop, 'show', 200);
-		doScrollPerSection();
+		// debounce(animatePlanets, 100);
+		doAlterPhase(navbar, 'scrolled', 50);
+		doAlterPhase(btnFirstDimension, 'show', 200);
+		doInterDimensionalJourney();
 	}
-	function scrollToTop() {
-		scrollToSection(sections[0], 'up');
+	function goToFirstDimension() {
+		goToDimension(dimensions[0], 'up');
 	}
-	function getStarted() {
-		scrollToSection(sections[1], 'down');
+	function goToNextDimension() {
+		let currentLevel = dimensions.indexOf(dimension);
+		if (currentLevel < dimensions.length - 1) {
+			goToDimension(dimensions[currentLevel + 1], 'down');
+		}
 	}
 	
 	window.addEventListener('load', universeStart);
 	window.addEventListener('resize', universeRearrange);
 	document.addEventListener('DOMContentLoaded', onPageLoaded);
 	document.addEventListener('scroll', onPageScroll);
-	goToTop.addEventListener('click', scrollToTop);
-	btnGetStarted.addEventListener('click', getStarted);
+	btnFirstDimension.addEventListener('click', goToFirstDimension);
+	btnNextDimension.addEventListener('click', goToNextDimension);
 	AOS.init();
 	</script>
 </body>
