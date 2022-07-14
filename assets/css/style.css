@@ -164,21 +164,6 @@ section > canvas,
   pointer-events: all;
   transform: translateY(0);
 }
-#wrap-texture {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: .05;
-}
-#wrap-texture .plane {
-  width: 100%;
-  height: 100vh;
-}
 #header {
   font-family: 'Dancing Script', cursive;
   text-align: center;

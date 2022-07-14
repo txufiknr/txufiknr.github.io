@@ -33,16 +33,6 @@
 	</style>
 </head>
 <body>
-	<div id="wrap-texture">
-		<div id="canvas"></div>
-		<div class="plane">
-			<!-- <img class="texture" crossorigin="anonymous" src="https://source.unsplash.com/1600x900/?universe&r=1" /> -->
-			<!-- <img class="texture" crossorigin="anonymous" src="https://source.unsplash.com/1600x900/?space&r=2" /> -->
-			<!-- <img class="texture" crossorigin="anonymous" src="https://source.unsplash.com/1600x900/?dark&r=3" /> -->
-			<!-- <img class="texture" crossorigin="anonymous" src="https://source.unsplash.com/1600x900/?coding&r=4" /> -->
-		</div>
-	</div>
-
 	<nav id="navbar">
 		<ul>
 			<li><a href="https://lnk.bio/ArjF" class="first-menu">Bio</a><span class="second-menu">Bio</span></li>
@@ -129,7 +119,6 @@
         <div class="col-lg-6 portfolio-left pe-0 pe-lg-4">
           <div data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="3000" class="white-box">
             <h3 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2500">My Skills</h3>
-            <!-- <h2 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2000" class="mb-4">So, what can I do for you?</h2> -->
 						<h2 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2000" class="mb-4">
 							<span class="typewrite" data-period="4000" data-type='[
 								"So, what can I do for you?",
@@ -165,7 +154,6 @@
           <p data-aos="flip-right" data-aos-easing="ease-out-back" data-aos-duration="2000">
             <a class="see-more" href="portfolio" title="See more portfolios">
               <img alt="My portfolios" src="assets/images/portfolio.png" class="img-fluid"/>
-              <!-- <lottie-player src="assets/lottie/76501-onboarding-mobile-app-animation.json" background="transparent" speed="1" loop autoplay></lottie-player> -->
               <lottie-player src="assets/lottie/101820-mobile-app-showcase.json" background="transparent" speed="1" loop autoplay></lottie-player>
             </a>
           </p>
@@ -202,25 +190,16 @@
     <i class="bi bi-arrow-up"></i>
   </div>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script> -->
-	<!-- <script src="https://www.curtainsjs.com/build/curtains.min.js"></script> -->
-	<!-- <script src="https://www.curtainsjs.com/dist/curtains.umd.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	<script src="assets/vendor/jquery.ripples/jquery.ripples-min.js"></script>
 	<script	src="assets/js/bg.js"></script>
-	<!-- <script src="assets/js/nav.js"></script> -->
 	<script src="assets/js/typewrite.js"></script>
 	<script src="assets/js/stargate.js"></script>
-
-	<script src="assets/vendor/jquery-ripples/jquery.js"></script>
-	<script src="assets/vendor/jquery-ripples/jquery-ripples.js"></script>
-	<script src="assets/vendor/jquery-ripples/jquery.simulate.js"></script>
-	<script src="assets/vendor/jquery-ripples/jquery.simulate.ext.js"></script>
-	<script src="assets/vendor/jquery-ripples/jquery.simulate.drag-n-drop.js"></script>
 	
 	<script>
 	const pageLoader = document.getElementById('page-loader');
@@ -234,15 +213,12 @@
 	var stillScrolling = false;
 	var itAllBegan = false;
 	var obscured = 600;
+	// var rippleInterval;
 	var revelationInterval = setInterval(() => {
 		obscured--;
 		if (obscured <= 0) universeStart();
 		pageLoader.style.background = 'rgba(0,0,0,'+(obscured / 600)+')';
 	}, 10);
-
-	function randomNumber(min, max) {
-		return Math.floor(Math.random() * (max - min + 1) + min);
-	}
 
 	function debounce(method, delay) {
 		clearTimeout(method._tId);
@@ -274,16 +250,39 @@
 		if (currentLevel == dimensions.length - 1) return;
 		let currentDimension = document.getElementById(dimension);
 		btnNextDimension.style.top = `calc(${currentDimension.offsetTop + currentDimension.offsetHeight}px - 3rem)`;
-		// btnNextDimension.style.top = `calc(100vh - 3rem + ${window.scrollY}px)`;
+		// if (currentDimension != 'header' && currentDimension != 'world') {
+		// 	startRipple();
+		// } else {
+		// 	stopRipple();
+		// }
+		dropDarkMatter();
+	}
+
+	// function startRipple() {
+	// 	rippleInterval = setInterval(dropDarkMatter, 7000);
+	// }
+
+	// function stopRipple() {
+	// 	clearInterval(rippleInterval);
+	// 	rippleInterval = null;
+	// }
+
+	function dropDarkMatter() {
+		var $el = $('#akashic');
+		var x = Math.random() * $el.outerWidth();
+		var y = Math.random() * $el.outerHeight();
+		var dropRadius = 20;
+		var strength = 0.04 + Math.random() * 0.04;
+		$el.ripples('drop', x, y, dropRadius, strength);
 	}
 
 	function universeRearrange() {
-		// window.scrollTo(0, 0);
 		window.scrollTo(0, window.scrollY);
 	}
 
 	function universeStart() {
 		universeRearrange();
+		dropDarkMatter();
 		if (itAllBegan) return;
 		console.log('universeStart();');
 		itAllBegan = true;
@@ -361,24 +360,13 @@
 			}
 		}
 		// ripple animation
+		// demo: http://sirxemic.github.io/jquery.ripples/
 		$('#akashic').ripples({
 			resolution: 512,
 			dropRadius: 20,
 			perturbance: 0.04,
 			interactive: true,
 		});
-		setInterval(() => {
-			let akashicWidth = $('#akashic').width();
-			let akashicHeight = $('#akashic').height();
-			$('#akashic').simulate('drag', {
-				dx: randomNumber(-akashicWidth / 2, akashicWidth / 2),
-				dy: randomNumber(-akashicHeight / 2, akashicHeight / 2),
-				interpolation: {
-					stepWidth: 300,
-					stepDelay: 1000
-				}}
-			);
-		}, 3000);
 		// nav animation
 		const animateNav = () => {
 			TweenMax.staggerFrom(
