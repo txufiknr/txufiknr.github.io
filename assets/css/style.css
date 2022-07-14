@@ -326,11 +326,12 @@ section > canvas,
 }
 #about::before {
   content: 'Taufik';
+  font-family: 'Dancing Script';
+  font-size: 20rem;
+  font-weight: 700;
   position: absolute;
   left: -1.5rem;
-  bottom: -14rem;
-  font-size: 30rem;
-  font-weight: 700;
+  bottom: 2rem;
   opacity: .075;
   pointer-events: none;
 }
@@ -440,7 +441,7 @@ section > canvas,
 #pool canvas {
   pointer-events: none;
 }
-#world h1 {
+#world {
   text-shadow: 0 0 5rem #f9dbff, 0 0 2rem #d594e2, 0 0 1rem #a170d2;
 }
 #line {
