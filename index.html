@@ -42,7 +42,7 @@
 			pointer-events: none;
 		}
 		#about .container {
-			padding: 10rem 1rem;
+			padding: 7rem 1rem;
 			padding-bottom: 0;
 		}
 		#about h3 {
@@ -271,20 +271,19 @@
 		}
 	}
 	function doInterDimensionalJourney() {
+		if (!itAllBegan) return;
 		if (stillScrolling) return;
 		let direction = window.scrollY > lastScrollY ? 'down' : 'up';
-		let windowHeight = window.outerHeight - 50;
+		let dimensionHeight = Math.max(600, window.innerHeight);
 		let currentLevel = dimensions.indexOf(dimension);
 		let nextLevel = currentLevel == dimensions.length - 1 ? null : dimensions[currentLevel + 1];
 		let prevLevel = currentLevel == 0 ? null : dimensions[currentLevel - 1];
 		if (direction == 'down') {
-			if (nextLevel && window.scrollY > document.getElementById(nextLevel).offsetTop - windowHeight) {
+			if (nextLevel && window.scrollY > document.getElementById(nextLevel).offsetTop - dimensionHeight/2) {
 				goToDimension(nextLevel, direction);
 			}
 		} else if (prevLevel) {
 			let prevSectionEl = document.getElementById(prevLevel);
-			let dimensionHeight = Math.max(600, window.innerHeight);
-			// if (window.scrollY < prevSectionEl.offsetTop + prevSectionEl.offsetHeight + windowHeight) {
 			if (window.scrollY < prevSectionEl.offsetTop + dimensionHeight/2) {
 				goToDimension(prevLevel, direction);
 				// dimension = prevLevel;
