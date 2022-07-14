@@ -24,7 +24,12 @@
 	<link rel="stylesheet" href="assets/css/nav.css">
 	<link rel="stylesheet" href="assets/css/typewrite.css">
 	<style>
-		
+		#about h2 {
+			min-height: calc(2.5rem * 4 * 1.2);
+		}
+		#energy h2 {
+			min-height: calc(2.5rem * 2 * 1.2);
+		}
 	</style>
 </head>
 <body>
@@ -155,8 +160,8 @@
           </ul>
         </div>
         <div class="col-lg-6 portfolio-right ps-0 ps-lg-5">
-          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="mb-4">Our world is in the process of digitalization in all sectors of activity and in all areas of our daily life: meetings, social networks, shopping, finance, entertainment, recruitment...</p>
-          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="mb-5">After determining that the best way to meet your request is to create a mobile application, we support you at every stage, from design to deployment on the stores.</p>
+          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="d-none d-lg-block mb-4">Our world is in the process of digitalization in all sectors of activity and in all areas of our daily life: meetings, social networks, shopping, finance, entertainment, recruitment...</p>
+          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="d-none d-lg-block mb-4">After determining that the best way to meet your request is to create a mobile application, we support you at every stage, from design to deployment on the stores.</p>
           <p data-aos="flip-right" data-aos-easing="ease-out-back" data-aos-duration="2000">
             <a class="see-more" href="portfolio" title="See more portfolios">
               <img alt="My portfolios" src="assets/images/portfolio.png" class="img-fluid"/>
@@ -249,7 +254,7 @@
 		let energy = document.getElementById('energy');
 		let energyTop = energy.getBoundingClientRect().top;
 		let windowHeight = window.innerHeight;
-		line.style.height = `calc(${-energyTop + windowHeight/2}px + 10rem)`;
+		line.style.height = `calc(${-energyTop + windowHeight/2}px + 20rem)`;
 
 		let paragraphs = document.querySelectorAll('.portfolio-right p');
 		for (let i = 0; i < paragraphs.length; i++) {
@@ -289,6 +294,7 @@
 		setTimeout(() => {
 			pageLoader.remove();
 			navbar.classList.add('show');
+			btnNextDimension.classList.add('show');
 		}, 1000);
 	}
 
