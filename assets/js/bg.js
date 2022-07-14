@@ -1,3 +1,5 @@
+// from: https://codepen.io/reksaandhika/pen/abONbdm
+
 (function() {
     'use strict';
     // 'To actually be able to display anything with Three.js, we need three things:
@@ -109,7 +111,7 @@
             size = parameters[i][1];
 
             materials[i] = new THREE.PointCloudMaterial({
-                size: size / 2
+                size: size / 1.5
             });
 
             particles = new THREE.PointCloud(geometry, materials[i]);
@@ -127,6 +129,7 @@
         renderer = new THREE.WebGLRenderer(); /*	Rendererererers particles.	*/
         renderer.setPixelRatio(window.devicePixelRatio); /*	Probably 1; unless you're fancy.	*/
         renderer.setSize(WIDTH, HEIGHT); /*	Full screen baby Wooooo!	*/
+        renderer.domElement.id = 'stars';
 
         container.appendChild(renderer.domElement); /* Let's add all this crazy junk to the page.	*/
 

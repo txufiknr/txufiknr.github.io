@@ -63,8 +63,8 @@ section {
   transform: translateY(4rem);
 }
 #goToTop:hover {
-  background: rgb(225, 231, 235);
-  color: #4648b4;
+  background: #e1e7eb;
+  color: #582a8a;
 }
 #goToTop.show {
   opacity: 1;
@@ -115,8 +115,12 @@ section {
   top: 0;
   right: 0;
   bottom: 0;
-  height: 200vh;
-  min-height: 1200px;
+}
+#header canvas#stargate {
+  position: absolute;
+  opacity: .1;
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
+  mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
 }
 #header .main-content {
   position: relative;
