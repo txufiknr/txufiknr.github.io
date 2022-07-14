@@ -204,7 +204,7 @@
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script> -->
 	<!-- <script src="https://www.curtainsjs.com/build/curtains.min.js"></script> -->
 	<!-- <script src="https://www.curtainsjs.com/dist/curtains.umd.min.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 	<script	src="assets/js/bg.js"></script>
@@ -244,7 +244,8 @@
 	}
 
 	function universeRearrange() {
-		window.scrollTo(0,0);
+		// window.scrollTo(0, 0);
+		window.scrollTo(0, window.scrollY);
 	}
 
 	function universeStart() {
@@ -312,6 +313,19 @@
 				new TxtType(elements[i], JSON.parse(toRotate), period);
 			}
 		}
+		const animateNav = () => {
+			TweenMax.staggerFrom(
+				[...document.querySelectorAll(".content-buttons a")],
+				0.8,
+				{
+					opacity: 0,
+					y: 200,
+					ease: Power2.easeOut
+				},
+				0.2
+			);
+		};
+		animateNav();
 		onPageScroll();
 	}
 	function onPageScroll() {
