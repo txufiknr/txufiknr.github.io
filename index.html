@@ -27,9 +27,21 @@
 		#world .container {
 			padding-top: 10rem;
 		}
+		#world .socials {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#world .socials a {
+			margin: 0 1rem;
+		}
+		#world .socials img {
+			width: 2rem;
+		}
 		#world lottie-player {
-			width: 50%;
 			margin: 0 auto;
+			width: 100%;
+			max-width: 600px;
 		}
 	</style>
 </head>
@@ -123,11 +135,11 @@
 
 	<section id="energy">
 		<div id="pool">
-			<div id="line" class="d-none d-md-block"></div>
+			<div id="line" class="d-none d-lg-block"></div>
 		</div>
 		<div class="container">
       <div class="row">
-        <div class="col-lg-6 portfolio-left pe-0 pe-md-4">
+        <div class="col-lg-6 portfolio-left pe-0 pe-lg-4">
           <div data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="3000" class="white-box">
             <h3 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2500">My Skills</h3>
             <!-- <h2 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2000" class="mb-4">So, what can I do for you?</h2> -->
@@ -144,20 +156,23 @@
           </div>
           <ul>
             <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4 active">
-              <h4>Mobile Development</h4>
+              <h4>Mobile Application</h4>
               <ul>
-                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="50">Flutter (iOS, Android, Web)
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="50" class="active">Flutter (iOS, Android, Web)
                 <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="100">Machine Learning & AI
-                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="150" class="active">Android Studio
-                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="200">React.js
-                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="250">Angular
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="150">Android Studio
               </ul>
             </li>
-            <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4"><h4>Web Development</h4>
+            <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4"><h4>Web Application</h4>
+							<ul>
+								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="200">React.js
+								<li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="250">Angular
+							</ul>
+						</li>
             <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4"><h4>Chrome Extensions & More</h4>
           </ul>
         </div>
-        <div class="col-lg-6 portfolio-right ps-0 ps-md-5">
+        <div class="col-lg-6 portfolio-right ps-0 ps-lg-5">
           <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="mb-4">Our world is in the process of digitalization in all sectors of activity and in all areas of our daily life: meetings, social networks, shopping, finance, entertainment, recruitment...</p>
           <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="mb-5">After determining that the best way to meet your request is to create a mobile application, we support you at every stage, from design to deployment on the stores.</p>
           <p data-aos="flip-right" data-aos-easing="ease-out-back" data-aos-duration="2000">
@@ -175,7 +190,12 @@
 	<section id="world">
 		<div class="container text-center">
 			<h1 class="mb-5">Thank you for visiting!</h1>
-			<h5>Follow me on:</h5>
+			<h5 class="mb-4">Follow me on:</h5>
+			<div class="socials">
+				<a href="https://www.facebook.com/TopEx.Divine" target="_blank"><img src="assets/images/social/fb.png"></a>
+				<a href="https://www.youtube.com/c/TopExSharingan" target="_blank"><img src="assets/images/social/yt.png"></a>
+				<a href="https://www.wattpad.com/TaufikNurRahmanda" target="_blank"><img src="assets/images/social/wp.png"></a>
+			</div>
 			<!-- <lottie-player src="assets/lottie/43792-yoga-se-hi-hoga.json" background="transparent" speed="1" loop autoplay></lottie-player> -->
 			<lottie-player src="assets/lottie/47575-meditation.json" background="transparent" speed="1" loop autoplay></lottie-player>
 		</div>
