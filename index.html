@@ -24,24 +24,7 @@
 	<link rel="stylesheet" href="assets/css/nav.css">
 	<link rel="stylesheet" href="assets/css/typewrite.css">
 	<style>
-		#energy {
-			overflow: visible;
-		}
-		#pool {
-			background: url(assets/images/space/purple-space.jpg) no-repeat center;
-			/* background: url(assets/images/space/134-1349958_wallpaper-of-blue-purple-space-stars-background-blue.jpg) no-repeat center; */
-			background-size: cover;
-			position: absolute;
-			left: 0;
-			top: -10rem;
-			width: 100%;
-			height: calc(100% + 10rem);
-			z-index: 999;
-			-webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10rem, rgba(0,0,0,1) 100%);
-		}
-		#pool canvas {
-			pointer-events: none;
-		}
+		
 	</style>
 </head>
 <body>
@@ -104,7 +87,16 @@
       <div class="row about-info">
         <div class="col-lg-4" data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-duration="3000">
           <h3 data-aos="zoom-in-up" data-aos-delay="300">About Me</h3>
-          <h2>Software engineer powered by cutting edge technologies</h2>
+					<h2>
+						Software engineer powered by <!--
+						--><span class="typewrite" data-period="4000" data-type='[
+							"cutting edge technologies",
+							"5+ years experience",
+							"bachelor degree"
+						]'>
+							<span class="wrap"></span>
+						</span>
+					</h2>
         </div>
         <div class="col-lg-8">
           <p data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out">A full-stack mobile and web application developer, designer, also a Flutter enthusiast from Indonesia. Having over 5 years of experience while completing many projects in several software house industries. Also a founder of TaufikNur Production and Creactive Indonesia.</p>
@@ -124,7 +116,60 @@
   </section>
 
 	<section id="energy">
-		<div id="pool"></div>
+		<div id="pool">
+			<div id="line" class="d-none d-md-block"></div>
+		</div>
+		<div class="container">
+      <div class="row">
+        <div class="col-lg-6 portfolio-left pe-0 pe-md-4">
+          <div data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="3000" class="white-box">
+            <h3 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2500">My Skills</h3>
+            <!-- <h2 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2000" class="mb-4">So, what can I do for you?</h2> -->
+						<h2 data-aos="fade-down" data-aos-easing="ease-out" data-aos-duration="2000" class="mb-4">
+							<span class="typewrite" data-period="4000" data-type='[
+								"So, what can I do for you?",
+								"I`ve made several projects",
+								"Here`s what I can do ..."
+							]'>
+								<span class="wrap"></span>
+							</span>
+							&nbsp;
+						</h2>
+          </div>
+          <ul>
+            <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4 active">
+              <h4>Mobile Development</h4>
+              <ul>
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="50">Flutter (iOS, Android, Web)
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="100">Machine Learning & AI
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="150" class="active">Android Studio
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="200">React.js
+                <li data-aos="fade-right" data-aos-easing="ease-out-back" data-aos-delay="250">Angular
+              </ul>
+            </li>
+            <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4"><h4>Web Development</h4>
+            <li data-aos="fade-right" data-aos-easing="ease-out-back" class="mb-4"><h4>Chrome Extensions & More</h4>
+          </ul>
+        </div>
+        <div class="col-lg-6 portfolio-right ps-0 ps-md-5">
+          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="mb-4">Our world is in the process of digitalization in all sectors of activity and in all areas of our daily life: meetings, social networks, shopping, finance, entertainment, recruitment...</p>
+          <p data-aos="fade-left" data-aos-easing="ease-out" data-aos-duration="1500" class="mb-5">After determining that the best way to meet your request is to create a mobile application, we support you at every stage, from design to deployment on the stores.</p>
+          <p data-aos="flip-right" data-aos-easing="ease-out-back" data-aos-duration="2000">
+            <a class="see-more" href="portfolio" title="See more portfolios">
+              <img alt="My portfolios" src="assets/images/portfolio.png" class="img-fluid"/>
+              <!-- <lottie-player src="assets/lottie/76501-onboarding-mobile-app-animation.json" background="transparent" speed="1" loop autoplay></lottie-player> -->
+              <lottie-player src="assets/lottie/101820-mobile-app-showcase.json" background="transparent" speed="1" loop autoplay></lottie-player>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+	<section id="world">
+		<div class="container">
+			<h1 class="text-center">Thank you for visiting!</h1>
+		</div>
   </section>
 
 	<i id="btn-next-dimension" class="bi bi-chevron-compact-down"></i>
@@ -163,7 +208,7 @@
 	const navbar = document.getElementById('navbar');
 	const btnFirstDimension = document.getElementById('btn-first-dimension');
 	const btnNextDimension = document.getElementById('btn-next-dimension');
-	const dimensions = ['header', 'about', 'energy'];
+	const dimensions = ['header', 'about', 'energy', 'world'];
 
 	var dimension = dimensions[0];
 	var lastScrollY = 0;
@@ -176,10 +221,30 @@
 		pageLoader.style.background = 'rgba(0,0,0,'+(obscured / 600)+')';
 	}, 10);
 
-	// function debounce(method, delay) {
-	// 	clearTimeout(method._tId);
-	// 	method._tId = setTimeout(method, delay);
-	// }
+	function debounce(method, delay) {
+		clearTimeout(method._tId);
+		method._tId = setTimeout(method, delay);
+	}
+
+	function animateOrbits() {
+    let line = document.getElementById('line');
+		let energy = document.getElementById('energy');
+		let energyTop = energy.getBoundingClientRect().top;
+		let windowHeight = window.innerHeight;
+		line.style.height = `calc(${-energyTop + windowHeight/2}px + 10rem)`;
+
+		let paragraphs = document.querySelectorAll('.portfolio-right p');
+		for (let i = 0; i < paragraphs.length; i++) {
+			let p = paragraphs[i];
+			if (p.getBoundingClientRect().top + p.getBoundingClientRect().height / 2 < window.innerHeight / 2) {
+				setTimeout(() => {
+					p.classList.add('active');
+				}, 500);
+			} else {
+				p.classList.remove('active');
+			}
+		}
+	}
 
 	function animatePlanets() {
 		let currentLevel = dimensions.indexOf(dimension);
@@ -227,12 +292,23 @@
 			let nextDimension = document.getElementById(nextLevel);
 			if (nextLevel && window.scrollY > nextDimension.offsetTop - nextDimension.offsetHeight/2) {
 				goToDimension(nextLevel, direction);
+				// if (nextLevel == 'about') {
+				// 	goToDimension(nextLevel, direction);
+				// } else {
+				// 	dimension = nextLevel;
+				// 	animatePlanets();
+				// }
 			}
 		} else if (prevLevel) {
 			let prevDimension = document.getElementById(prevLevel);
 			if (window.scrollY < prevDimension.offsetTop + prevDimension.offsetHeight/2) {
-				goToDimension(prevLevel, direction);
-				// dimension = prevLevel;
+				// goToDimension(prevLevel, direction);
+				if (prevLevel == 'header') {
+					goToDimension(prevLevel, direction);
+				} else {
+					dimension = prevLevel;
+					animatePlanets();
+				}
 			}
 		}
 		lastScrollY = window.scrollY;
@@ -284,10 +360,10 @@
 		onPageScroll();
 	}
 	function onPageScroll() {
-		// debounce(animatePlanets, 100);
 		doAlterPhase(navbar, 'scrolled', 50);
 		doAlterPhase(btnFirstDimension, 'show', 200);
 		doInterDimensionalJourney();
+		debounce(animateOrbits, 100);
 	}
 	function goToFirstDimension() {
 		goToDimension(dimensions[0], 'up');
