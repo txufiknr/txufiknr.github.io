@@ -1,4 +1,4 @@
-import {Curtains, Vec2, PingPongPlane, ShaderPass} from 'https://cdn.jsdelivr.net/npm/curtainsjs@8.1.2/src/index.mjs';
+// import {Curtains, Vec2, PingPongPlane, ShaderPass} from 'https://cdn.jsdelivr.net/npm/curtainsjs@8.1.2/src/index.mjs';
 
 const ripplesVs = `
         #ifdef GL_FRAGMENT_PRECISION_HIGH
@@ -494,30 +494,30 @@ window.addEventListener('load', () => {
 
 
     // GUI
-    const gui = new dat.GUI();
+    // const gui = new dat.GUI();
 
-    const guiHue = gui.add({hue: renderPass.uniforms.hue.value}, "hue", 0, Math.PI * 2, 0.01);
-    guiHue.onChange((value) => {
-      renderPass.uniforms.hue.value = value;
-    });
+    // const guiHue = gui.add({hue: renderPass.uniforms.hue.value}, "hue", 0, Math.PI * 2, 0.01);
+    // guiHue.onChange((value) => {
+    //   renderPass.uniforms.hue.value = value;
+    // });
 
-    const guiSaturation = gui.add({saturation: renderPass.uniforms.saturation.value}, "saturation", 0, 3, 0.0625);
-    guiSaturation.onChange((value) => {
-      renderPass.uniforms.saturation.value = value;
-    });
+    // const guiSaturation = gui.add({saturation: renderPass.uniforms.saturation.value}, "saturation", 0, 3, 0.0625);
+    // guiSaturation.onChange((value) => {
+    //   renderPass.uniforms.saturation.value = value;
+    // });
 
-    const guiBgColor = gui.addColor(
-      {
-        bgColor: {
-          r: renderPass.uniforms.bgColor.value[0],
-          g: renderPass.uniforms.bgColor.value[1],
-          b: renderPass.uniforms.bgColor.value[2]
-        }
-      },
-      "bgColor"
-    );
-    guiBgColor.onChange((value) => {
-      renderPass.uniforms.bgColor.value = [value.r, value.g, value.b];
-    });
+    // const guiBgColor = gui.addColor(
+    //   {
+    //     bgColor: {
+    //       r: renderPass.uniforms.bgColor.value[0],
+    //       g: renderPass.uniforms.bgColor.value[1],
+    //       b: renderPass.uniforms.bgColor.value[2]
+    //     }
+    //   },
+    //   "bgColor"
+    // );
+    // guiBgColor.onChange((value) => {
+    //   renderPass.uniforms.bgColor.value = [value.r, value.g, value.b];
+    // });
   });
 });
