@@ -222,10 +222,17 @@
       padding: 0 1rem;
     }
 
+    /* Portfolio */
     #portfolios {
       background: var(--accent-color) var(--card-gradient);
       color: #fff;
       text-align: center;
+    }
+    #portfolios h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      border-bottom: 0;
+      margin-bottom: 0;
     }
 
     #portfolios .btn {
@@ -238,33 +245,10 @@
       color: var(--accent-light-color);
     }
 
-    #portfolios h2 {
-      color: #fff;
-      font-size: 2.5rem;
-      border-bottom: 0;
-      margin-bottom: 0;
-    }
-
     #portfolios .vendors {
-      /* perspective: 100px; */
-      /* perspective-origin: center right; */
-      /* position: fixed; */
-      /* left: 30%; */
-      /* right: 0; */
-      /* top: calc(50% - 5rem - 12.5vh - 1rem); */
       margin-bottom: 1rem;
-    }
-    #portfolios .vendors div {
       display: flex;
-      /* transform: rotate3d(1, 1, 1, -11deg); */
       mask: linear-gradient(90deg, transparent, white 20% 80%, transparent);
-      /* animation: rotate-3d linear forwards; */
-      /* animation-timeline: scroll(); */
-      /* animation-range: 100vh 180vh; */
-      /* backface-visibility: hidden; */
-      /* transform-style: preserve-3d; */
-      /* -webkit-backface-visibility: hidden; */
-      /* -webkit-transform-style: preserve-3d; */
       width: 500vw;
     }
     #portfolios .vendors amp-img {
@@ -279,9 +263,6 @@
     @keyframes scrolling {
       from { transform: translate(200rem); }
       to { transform: translate(-200rem); }
-    }
-    @keyframes rotate-3d {
-      to { transform: rotate3d(1, 1, 1, 0deg); }
     }
 
     .portfolios {
@@ -870,28 +851,26 @@
         </div>
         <p>And <strong>10</strong> more ...</p>
         <div class="vendors">
-          <div>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="react" src="images/vendors/react-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="vue" src="images/vendors/vue-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="angular" src="images/vendors/angular-icon-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nextjs" src="images/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="android" src="images/vendors/android-icon-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="apple" src="images/vendors/apple-svgrepo-com.svg" style="filter: invert(.8);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="firebase" src="images/vendors/firebase-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="kotlin" src="images/vendors/kotlin-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="flutter" src="images/vendors/flutter-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="dart" src="images/vendors/dart-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="php" src="images/vendors/php-alt-svgrepo-com.svg" style="filter: invert();"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="codeigniter" src="images/vendors/codeigniter-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="mysql" src="images/vendors/mysql-svgrepo-com.svg" style="filter: grayscale(1) brightness(3);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="bootstrap" src="images/vendors/bootstrap-svgrepo-com.svg" style="filter: grayscale(1) brightness(1.5);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="css" src="images/vendors/css-3-official-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="es6" src="images/vendors/es6-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="typescript" src="images/vendors/typescript-icon-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nodejs" src="images/vendors/nodejs-icon-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="python" src="images/vendors/python-svgrepo-com.svg"></amp-img>
-            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
-          </div>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="react" src="images/vendors/react-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="vue" src="images/vendors/vue-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="angular" src="images/vendors/angular-icon-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nextjs" src="images/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="android" src="images/vendors/android-icon-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="apple" src="images/vendors/apple-svgrepo-com.svg" style="filter: invert(.8);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="firebase" src="images/vendors/firebase-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="kotlin" src="images/vendors/kotlin-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="flutter" src="images/vendors/flutter-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="dart" src="images/vendors/dart-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="php" src="images/vendors/php-alt-svgrepo-com.svg" style="filter: invert();"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="codeigniter" src="images/vendors/codeigniter-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="mysql" src="images/vendors/mysql-svgrepo-com.svg" style="filter: grayscale(1) brightness(3);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="bootstrap" src="images/vendors/bootstrap-svgrepo-com.svg" style="filter: grayscale(1) brightness(1.5);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="css" src="images/vendors/css-3-official-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="es6" src="images/vendors/es6-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="typescript" src="images/vendors/typescript-icon-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nodejs" src="images/vendors/nodejs-icon-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="python" src="images/vendors/python-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
         </div>
   
         <button class="btn">View all portfolios</button>
