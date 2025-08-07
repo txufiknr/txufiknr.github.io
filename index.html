@@ -1,5 +1,5 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -11,6 +11,57 @@
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 
+  <!-- Site Info -->
+  <meta name="description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
+  <meta name="keywords" content="Taufik Nur Rahmanda, Flutter, mobile, web, development, software developer, front-end, back-end">
+  <meta name="author" content="Taufik Nur Rahmanda">
+  <meta name="copyright" content="Taufik Nur Rahmanda">
+  
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#673AB7">
+  <meta name="color-scheme" content="dark light">
+  
+  <!-- Security -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <!-- Performance -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+
+  <!-- TODO Open Graph -->
+  <!-- <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Taufik Nur Rahmanda - Portfolio">
+  <meta property="og:description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
+  <meta property="og:url" content="https://taufiknr.com">
+  <meta property="og:image" content="https://taufiknr.com/images/photo.webp">
+  <meta property="og:image:alt" content="Taufik Nur Rahmanda's photo">
+  <meta property="og:image:width" content="720">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:site_name" content="Taufik Nur Rahmanda"> -->
+
+  <!-- TODO Twitter Card -->
+  <!-- <meta name="twitter:url" content="https://taufiknr.com"/>
+  <meta name="twitter:title" content="Taufik Nur Rahmanda - Portfolio"/>
+  <meta name="twitter:description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications."/>
+  <meta name="twitter:image" content="https://taufiknr.com/images/photo.webp"/>
+  <meta name="twitter:image:alt" content="Taufik Nur Rahmanda's photo"/>
+  <meta name="twitter:site" content="@txufiknr">
+  <meta name="twitter:creator" content="@txufiknr">
+  <meta name="twitter:card" content="summary"> -->
+
+  <!-- <base href="https://taufiknr.com"> -->
+
+  <!-- TODO Favicons -->
+  <!-- <link href="favicon.png" rel="icon">
+  <link href="apple-touch-icon.png" rel="apple-touch-icon"> -->
+  
   <link rel="canonical" href="index.html">
 
   <!-- Pre-connects -->
@@ -18,6 +69,10 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <!-- Pre-loads -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Muli&display=swap" as="style" fetchpriority="high">
+  <link rel="preload" href="images/photo.webp" as="image" fetchpriority="high">
+  
   <!-- AMP boilerplate -->
   <style amp-boilerplate>
     body {
@@ -165,7 +220,6 @@
     }
 
     #portfolios {
-      /* background-color: var(--accent-color); */
       background: var(--accent-color) var(--card-gradient);
       color: #fff;
       text-align: center;
@@ -312,17 +366,27 @@
     #skills h2 {
       border-bottom: 0;
       font-size: 2rem;
+      margin-top: 0;
+    }
+    #skills .content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    #skills .content > div {
+      background-color: var(--background-color);
+      border-radius: 1.5rem;
+      padding: 2rem;
     }
 
-    .skills {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: .75rem;
       justify-content: center;
     }
 
-    .skill-tag {
-      /* background-color: var(--accent-color); */
+    .tag {
       background: var(--accent-color) linear-gradient(135deg, var(--accent-light-color), var(--accent-color));
       color: white;
       padding: 0.5rem 1rem;
@@ -494,15 +558,8 @@
       left: -0.65em;
     }
 
-    /* Desktop */
-    @media screen and (min-width: 1200px) {
-      /* section:nth-child(odd), #portfolios {
-        border-radius: 1rem;
-        box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.8);
-      } */
-      section .content {
-        margin: 3rem auto;
-      }
+    /* Tablet */
+    @media screen and (min-width: 768px) {
       .portfolios {
         flex-direction: row;
       }
@@ -511,6 +568,16 @@
       }
       .portfolios .card p {
         min-height: 3rem;
+      }
+      #skills .content {
+        flex-direction: row;
+      }
+    }
+
+    /* Desktop */
+    @media screen and (min-width: 1200px) {
+      section .content {
+        margin: 3rem auto;
       }
       .nav-tab {
         display: inline !important;
@@ -528,11 +595,18 @@
         white-space: nowrap;
         flex-basis: 30%;
       }
-      /* #portfolios {
-        margin: 3rem 0;
-      } */
     }
   </style>
+
+  <!-- Critical Scripts that should load early -->
+  <script>
+    // Inline critical JavaScript for immediate execution
+    document.documentElement.classList.remove('no-js');
+    // Add dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 
 <body>
@@ -649,7 +723,7 @@
             </div>
           </div>
         </div>
-        <p>And 37 more ...</p>
+        <p>And <strong>10</strong> more ...</p>
         <button class="btn">View all portfolios</button>
       </div>
     </section>
@@ -660,16 +734,32 @@
         layout="nodisplay">
       </amp-position-observer>
       <div class="content">
-        <h2>Skills</h2>
         <div class="skills">
-          <span class="skill-tag">Mobile Development</span>
-          <span class="skill-tag">Web Development</span>
-          <span class="skill-tag">Frontend</span>
-          <span class="skill-tag">Backend</span>
-          <span class="skill-tag">UI/UX Design</span>
-          <span class="skill-tag">API Development</span>
-          <span class="skill-tag">Database Design</span>
-          <span class="skill-tag">Project Management</span>
+          <h2>Skills</h2>
+          <div class="tags">
+            <span class="tag">Mobile Development</span>
+            <span class="tag">Web Development</span>
+            <span class="tag">Frontend</span>
+            <span class="tag">Backend</span>
+            <span class="tag">UI/UX Design</span>
+            <span class="tag">API Development</span>
+            <span class="tag">Database Design</span>
+            <span class="tag">Project Management</span>
+          </div>
+        </div>
+        <div class="languages">
+          <h2>Languages</h2>
+          <div class="tags">
+            <span class="tag">Flutter (Dart)</span>
+            <span class="tag">PHP</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Kotlin</span>
+          </div>
         </div>
       </div>
     </section>
