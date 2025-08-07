@@ -1,0 +1,812 @@
+<!doctype html>
+<html ⚡>
+
+<head>
+  <meta charset="utf-8">
+  <title>Taufik Nur Rahmanda - Portfolio</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+  <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+  <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+  <link rel="canonical" href="index.html">
+
+  <!-- Pre-connects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- AMP boilerplate -->
+  <style amp-boilerplate>
+    body {
+      -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+
+    @-webkit-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-moz-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-ms-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-o-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none
+      }
+    </style>
+  </noscript>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <style amp-custom>
+    /* @font-face {
+      font-family: 'Titillium Web';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEGItzYw.woff2) format('woff2');
+    } */
+
+    :root {
+      --primary-color: #2d3436;
+      --accent-color: #720fff;
+      --accent-light-color: #852eff;
+      --accent-dark-color: #5b00db;
+      --text-color: #2d3436;
+      --background-color: #f5f6fa;
+      --max-content-width: 1200px;
+      --box-shadow: 0 0 5px var(--accent-color), 0 0 25px var(--accent-color), 0 0 50px var(--accent-color),
+        0 0 100px var(--accent-color);
+      --card-gradient: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
+      --card-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    body {
+      /* font-family: 'Titillium Web', sans-serif; */
+      font-family: 'Muli', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    h2 {
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      font-weight: 900;
+    }
+
+    /* Sections */
+    section {
+      padding: 1rem;
+    }
+
+    section:nth-child(odd) {
+      background: #fff;
+    }
+
+    section .content {
+      max-width: 1200px;
+      margin: 5rem 0;
+      padding: 0 1rem;
+    }
+
+    #portfolios {
+      /* background-color: var(--accent-color); */
+      background: var(--accent-color) var(--card-gradient);
+      color: #fff;
+      text-align: center;
+    }
+
+    #portfolios .btn {
+      background: #fff;
+      color: var(--accent-color);
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-size: .8rem;
+    }
+
+    #portfolios h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .portfolios {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .portfolios .card {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      width: 100%;
+    }
+    .portfolios .card a {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .portfolios .card p {
+      margin-bottom: 1rem !important;
+      font-size: .95rem;
+      line-height: 1.5rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    /* Header */
+    header {
+      background: var(--primary-color) url('images/hero.webp') no-repeat center center/cover;
+      color: #fff;
+      padding: 3rem 1rem 10rem;
+      position: relative;
+      margin-bottom: -6rem;
+      z-index: 101;
+    }
+
+    header:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 1.0)
+      );
+      backdrop-filter: blur(8px);
+    }
+
+    header .container {
+      position: relative;
+      z-index: 1;
+      padding: 0 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+    header h3 {
+      margin: 1rem 0 2rem;
+    }
+    header .header-photo {
+      width: 700px;
+      min-width: 700px;
+      float: right;
+      margin-right: -200px;
+      margin-top: -300px;
+    }
+    header .header-photo amp-img {
+      border-radius: 50%;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer .container {
+      padding: 1rem;
+    }
+
+    /* Components */
+    .container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 1rem 1.75rem;
+      letter-spacing: .15rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Skills */
+    #skills {
+      text-align: center;
+    }
+    #skills h2 {
+      border-bottom: 0;
+      font-size: 2rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill-tag {
+      /* background-color: var(--accent-color); */
+      background: var(--accent-color) linear-gradient(135deg, var(--accent-light-color), var(--accent-color));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: end;
+    }
+
+    .social-links amp-social-share,
+    .social-links .github-share {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-links .github-share {
+      width: 40px;
+      height: 40px;
+    }
+
+    .social-links amp-social-share:hover,
+    .social-links .github-share:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Particles Animation */
+    @keyframes particle {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate3d(var(--move-x, 100px), var(--move-y, 100px), 0) rotate(var(--rotate, 180deg));
+        opacity: 0;
+      }
+    }
+
+    .particles-css {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: particle 3s infinite linear;
+    }
+
+    .particle:nth-child(1) { --move-x: -100px; --move-y: 150px; --rotate: 145deg; left: 10%; top: 20%; animation-delay: -0.2s; }
+    .particle:nth-child(2) { --move-x: 120px; --move-y: -100px; --rotate: 225deg; left: 30%; top: 40%; animation-delay: -0.5s; }
+    .particle:nth-child(3) { --move-x: -150px; --move-y: -120px; --rotate: 180deg; left: 50%; top: 60%; animation-delay: -0.8s; }
+    .particle:nth-child(4) { --move-x: 130px; --move-y: 180px; --rotate: 200deg; left: 70%; top: 25%; animation-delay: -1.1s; }
+    .particle:nth-child(5) { --move-x: -120px; --move-y: -150px; --rotate: 165deg; left: 90%; top: 45%; animation-delay: -1.4s; }
+    .particle:nth-child(6) { --move-x: 110px; --move-y: 130px; --rotate: 190deg; left: 20%; top: 80%; animation-delay: -1.7s; }
+    .particle:nth-child(7) { --move-x: -140px; --move-y: -160px; --rotate: 210deg; left: 40%; top: 15%; animation-delay: -2s; }
+    .particle:nth-child(8) { --move-x: 160px; --move-y: 140px; --rotate: 235deg; left: 60%; top: 70%; animation-delay: -2.3s; }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      position: sticky;
+      top: 0;
+      z-index: 102;
+      padding: .5rem 2rem;
+    }
+
+    .nav-tabs .container {
+      position: relative;
+      height: 3rem;
+    }
+
+    .nav-tabs-bg {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 4rem;
+      background-color: #000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .nav-tab {
+      padding: 0 1rem;
+      border: none;
+      color: var(--background-color);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      line-height: 3rem;
+      white-space: nowrap;
+      opacity: 0.5;
+    }
+
+    .nav-tab:nth-child(n + 5), #portfolios-tab {
+      display: none;
+    }
+    
+    .nav-tab:hover {
+      opacity: 0.7;
+    }
+
+    .nav-tab.active,
+    .nav-tab:active {
+      opacity: 1;
+    }
+
+    /* Scroll To Top */
+    .scroll-to-top {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .scroll-to-top[hidden] {
+      display: none;
+    }
+
+    .link {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+    .link span,
+    .link amp-img {
+      position: relative;
+    }
+    .link amp-img {
+      margin-left: 0.25rem;
+    }
+    .link .color {
+      width: 2em;
+      height: 2em;
+      border-radius: 2em;
+      background-color: var(--accent-color);
+      position: absolute;
+      top: 50%;
+      transform: translatey(-50%);
+      left: -0.65em;
+    }
+
+    /* Desktop */
+    @media screen and (min-width: 1200px) {
+      /* section:nth-child(odd), #portfolios {
+        border-radius: 1rem;
+        box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.8);
+      } */
+      section .content {
+        margin: 3rem auto;
+      }
+      .portfolios {
+        flex-direction: row;
+      }
+      .portfolios .card {
+        width: 33.333%;
+      }
+      .portfolios .card p {
+        min-height: 3rem;
+      }
+      .nav-tab {
+        display: inline !important;
+      }
+      .about-content {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+        clear: right;
+      }
+      .about-content > div {
+        flex-basis: 70%;
+      }
+      .about-content > h2 {
+        white-space: nowrap;
+        flex-basis: 30%;
+      }
+      /* #portfolios {
+        margin: 3rem 0;
+      } */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div class="nav-tabs-bg"></div>
+  <header>
+		<div class="particles-css">
+			<div class="particle"></div>
+			<div class="particle"></div>
+			<div class="particle"></div>
+			<div class="particle"></div>
+			<div class="particle"></div>
+			<div class="particle"></div>
+			<div class="particle"></div>
+			<div class="particle"></div>
+		</div>
+    <div class="header-photo">
+      <amp-img src="images/photo.webp"
+        width="700"
+        height="700"
+        layout="responsive"
+        fetchpriority="high"
+        alt="Taufik Nur Rahmanda">
+      </amp-img>
+    </div>
+    <div class="container">
+      <small>Hello, I am</small>
+      <h1>Taufik Nur Rahmanda</h1>
+      <h3>Professional Mobile & Web App Developer</h3>
+      <a class="link" href="#portfolios">
+        <div class="color"></div>
+        <span>Portfolios</span>
+        <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolios" style="filter: invert()"></amp-img>
+      </a>
+    </div>
+  </header>
+
+  <nav class="nav-tabs" id="nav-tabs">
+    <div class="container">
+      <a href="#about" class="nav-tab" role="tab" id="about-tab">About Me</a>
+      <a href="#portfolios" class="nav-tab" role="tab" id="portfolios-tab">Portfolios</a>
+      <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
+      <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
+    </div>
+  </nav>
+
+  <!-- Position observer to trigger scroll button visibility -->
+  <div id="scroll-trigger">
+    <amp-position-observer
+      on="enter:hideButton.start; exit:showButton.start"
+      layout="nodisplay">
+    </amp-position-observer>
+  </div>
+
+  <main>
+    
+    <section id="about">
+      <amp-position-observer
+        on="enter:highlightAbout.start"
+        layout="nodisplay">
+      </amp-position-observer>
+      <div class="content">
+        <div class="about-content">
+          <h2>About Me</h2>
+          <div>
+            <h3>Taufik Nur Rahmanda, S.Kom.</h3>
+            <p>A passionate software developer with <strong>8 years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <amp-social-share type="linkedin" width="40" height="40" aria-label="Share on LinkedIn"></amp-social-share>
+          <amp-social-share type="twitter" width="40" height="40" aria-label="Share on Twitter"></amp-social-share>
+          <a href="https://github.com/topex-psy" target="_blank" class="github-share" aria-label="GitHub">
+            <amp-img src="images/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
+          </a>
+          <amp-social-share type="email" width="40" height="40" aria-label="Share via Email"></amp-social-share>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolios">
+      <div class="content">
+        <h2>Portfolios</h2>
+        <p>Here are some of my recent projects</p>
+        <div class="portfolios">
+          <div class="card">
+            <amp-img src="images/portfolios/1.webp" width="800" height="600" layout="responsive" alt="Portfolio 1"></amp-img>
+            <div class="card-content">
+              <h3>Portfolio 1</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sit exercitationem praesentium, natus aut, accusamus neque reprehenderit molestias in iusto dolorum, aliquam architecto. Exercitationem modi ducimus, accusamus dignissimos excepturi aut.</p>
+              <a href="#" target="_blank">View Project
+                <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <amp-img src="images/portfolios/2.webp" width="800" height="600" layout="responsive" alt="Portfolio 2"></amp-img>
+            <div class="card-content">
+              <h3>Portfolio 2</h3>
+              <p>Here is a description of the portfolio</p>
+              <a href="#" target="_blank">View Project
+                <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <amp-img src="images/portfolios/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <div class="card-content">
+              <h3>Portfolio 3</h3>
+              <p>Here is a description of the portfolio</p>
+              <a href="#" target="_blank">View Project
+                <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p>And 37 more ...</p>
+        <button class="btn">View all portfolios</button>
+      </div>
+    </section>
+
+    <section id="skills">
+      <amp-position-observer
+        on="enter:highlightSkills.start"
+        layout="nodisplay">
+      </amp-position-observer>
+      <div class="content">
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="skill-tag">Mobile Development</span>
+          <span class="skill-tag">Web Development</span>
+          <span class="skill-tag">Frontend</span>
+          <span class="skill-tag">Backend</span>
+          <span class="skill-tag">UI/UX Design</span>
+          <span class="skill-tag">API Development</span>
+          <span class="skill-tag">Database Design</span>
+          <span class="skill-tag">Project Management</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <amp-position-observer
+        on="enter:highlightServices.start"
+        layout="nodisplay">
+      </amp-position-observer>
+      <div class="content">
+        <h2>Services</h2>
+        <ul>
+          <li>Mobile Application Development (iOS & Android)</li>
+          <li>Web Application Development</li>
+          <li>Full-Stack Development</li>
+          <li>API Development & Integration</li>
+          <li>Technical Consultation</li>
+          <li>Software Architecture Design</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><small>&copy; 2025 Taufik Nur Rahmanda. All rights reserved.</small></p>
+    </div>
+  </footer>
+
+  <!-- AMP animations to show/hide the button -->
+  <amp-animation id="showButton" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          {
+            "selector": ".scroll-to-top",
+            "duration": "200ms",
+            "fill": "both",
+            "easing": "ease-out",
+            "keyframes": [
+              { "transform": "translateY(0)", "opacity": "1", "visibility": "visible" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <amp-animation id="hideButton" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          {
+            "selector": ".scroll-to-top",
+            "duration": "200ms",
+            "fill": "both",
+            "easing": "ease-out",
+            "keyframes": [
+              { "transform": "translateY(50px)", "opacity": "0", "visibility": "hidden" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <button class="scroll-to-top" on="tap:AMP.scrollTo(id='top', duration=500)" style="opacity: 0; visibility: hidden;">
+    <amp-img src="images/icons/arrow-up.svg" width="16" height="16" layout="fixed" alt="Scroll to top" style="filter: invert()"></amp-img>
+  </button>
+
+  <!-- Highlight About -->
+  <amp-animation id="highlightAbout" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          { "selector": "#about-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": "#skills-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <!-- Highlight Skills -->
+  <amp-animation id="highlightSkills" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          { "selector": "#skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": "#about-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <!-- Highlight Services -->
+  <amp-animation id="highlightServices" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          { "selector": "#services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": "#about-tab, #skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+
+  <script>
+    let link = document.querySelector(".link");
+    let pink = document.querySelector(".color");
+
+    let hoverTL = gsap.timeline();
+    hoverTL.pause();
+
+    // from, to, fromTo Tweens
+    hoverTL.to(pink, {
+      width: "calc(100% + 1.3em)",
+      ease: "Elastic.easeOut(0.25)",
+      duration: 0.4
+    });
+    hoverTL.to(pink, {
+      width: "2em",
+      left: "calc(100% - 1.45em)",
+      ease: "Elastic.easeOut(0.4)",
+      duration: 0.6
+    });
+
+    link.addEventListener("mouseenter", () => {
+      hoverTL.play();
+    });
+
+    link.addEventListener("mouseleave", () => {
+      hoverTL.reverse();
+    });
+  </script>
+
+</body>
+
+</html>

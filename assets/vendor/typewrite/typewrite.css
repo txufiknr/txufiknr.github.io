@@ -1,9 +1,0 @@
-@keyframes text-cursor {
-  0%   {border-right-color: #fff;}
-  50%  {border-right-color: transparent;}
-  100%  {border-right-color: #fff;}
-}
-.typewrite .wrap {
-  border-right: 4px solid #fff;
-  animation: text-cursor 1s infinite;
-}
