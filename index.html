@@ -157,17 +157,22 @@
     } */
 
     :root {
-      --primary-color: #2d3436;
-      --accent-color: #720fff;
-      --accent-light-color: #852eff;
-      --accent-dark-color: #5b00db;
-      --text-color: #2d3436;
+      --primary-color: #322d36;
+      --primary-dark-color: #251f2a;
+      --button-color: #720fff;
+      --button-light-color: #852eff;
+      --button-dark-color: #2e006f;
+      --accent-color: #370086;
+      --accent-light-color: #3e088b;
+      --accent-dark-color: #19003c;
       --background-color: #f5f6fa;
       --max-content-width: 1200px;
       --box-shadow: 0 0 5px var(--accent-color), 0 0 25px var(--accent-color), 0 0 50px var(--accent-color),
         0 0 100px var(--accent-color);
+      --button-gradient: linear-gradient(135deg, var(--button-light-color), var(--button-dark-color));
       --card-gradient: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
       --card-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.8);
+      --footer-gradient: linear-gradient(to bottom, var(--primary-color), var(--primary-dark-color));
     }
 
     * {
@@ -186,7 +191,7 @@
       /* font-family: 'Titillium Web', sans-serif; */
       font-family: 'Muli', sans-serif;
       line-height: 1.6;
-      color: var(--text-color);
+      color: var(--primary-color);
       margin: 0;
       padding: 0;
       background-color: var(--background-color);
@@ -199,8 +204,6 @@
 
     h2 {
       color: var(--accent-color);
-      border-bottom: 1px solid var(--accent-color);
-      padding-bottom: 0.5rem;
       font-weight: 900;
     }
 
@@ -228,9 +231,11 @@
     #portfolios .btn {
       background: #fff;
       color: var(--accent-color);
-      border-radius: 50px;
       text-transform: uppercase;
-      font-size: .8rem;
+      font-size: .95rem;
+    }
+    #portfolios .btn:hover {
+      color: var(--accent-light-color);
     }
 
     #portfolios h2 {
@@ -238,6 +243,45 @@
       font-size: 2.5rem;
       border-bottom: 0;
       margin-bottom: 0;
+    }
+
+    #portfolios .vendors {
+      /* perspective: 100px; */
+      /* perspective-origin: center right; */
+      /* position: fixed; */
+      /* left: 30%; */
+      /* right: 0; */
+      /* top: calc(50% - 5rem - 12.5vh - 1rem); */
+      margin-bottom: 1rem;
+    }
+    #portfolios .vendors div {
+      display: flex;
+      /* transform: rotate3d(1, 1, 1, -11deg); */
+      mask: linear-gradient(90deg, transparent, white 20% 80%, transparent);
+      /* animation: rotate-3d linear forwards; */
+      /* animation-timeline: scroll(); */
+      /* animation-range: 100vh 180vh; */
+      /* backface-visibility: hidden; */
+      /* transform-style: preserve-3d; */
+      /* -webkit-backface-visibility: hidden; */
+      /* -webkit-transform-style: preserve-3d; */
+      width: 500vw;
+    }
+    #portfolios .vendors amp-img {
+      height: 3rem;
+      margin: 1rem;
+      filter: grayscale(1) brightness(1.25);
+      opacity: .25;
+      animation: scrolling linear forwards;
+      animation-timeline: scroll(root);
+      animation-range: 25vh;
+    }
+    @keyframes scrolling {
+      from { transform: translate(200rem); }
+      to { transform: translate(-200rem); }
+    }
+    @keyframes rotate-3d {
+      to { transform: rotate3d(1, 1, 1, 0deg); }
     }
 
     .portfolios {
@@ -293,7 +337,7 @@
       height: 100%;
       background-image: linear-gradient(
         rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 1.0)
+        var(--accent-dark-color)
       );
       backdrop-filter: blur(8px);
     }
@@ -324,11 +368,10 @@
 
     /* Footer */
     footer {
-      background-color: var(--primary-color);
+      background-color: var(--primary-dark-color);
       color: white;
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
     }
 
     footer .container {
@@ -342,21 +385,96 @@
     }
 
     .btn {
-      background: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
+      background: var(--button-color) var(--button-gradient);
       border: none;
       color: white;
       font-size: 1rem;
-      padding: 1rem 1.75rem;
-      letter-spacing: .15rem;
+      padding: .75rem 1.5rem;
+      letter-spacing: .05rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
       text-decoration: none;
+      display: inline-block;
     }
 
     .btn:hover {
       transform: translateY(-2px);
+      background: var(--button-light-color);
+    }
+
+    /* About */
+    #about h2 {
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Services */
+    #services {
+      /* background-color: var(--primary-color); */
+      background: var(--primary-color) var(--footer-gradient);
+      /* background-color: #fff; */
+      color: #fff;
+      position: relative;
+    }
+    /* #services:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-color);
+      border-top-left-radius: 100% 100%;
+      z-index: 0;
+    }
+    #services > * {
+      position: relative;
+      z-index: 1;
+    } */
+    #services h2 {
+      color: #fff;
+    }
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .services > div {
+      background: url('images/coding.jpg') no-repeat center center/cover;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .services > div:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.3)
+      );
+      backdrop-filter: blur(8px);
+      mask-image: linear-gradient(to right, black, black, transparent);
+      z-index: 0;
+    }
+    .services > div > * {
+      position: relative;
+      z-index: 1;
+    }
+    .services > div > h3 {
+      margin: 0;
+    }
+    .services > div > p {
+      font-size: .95rem;
+      line-height: 1.5rem;
+      margin: 1rem 0 2rem;
     }
 
     /* Skills */
@@ -379,19 +497,20 @@
       padding: 2rem;
     }
 
-    .tags {
+    #skills .tags {
       display: flex;
       flex-wrap: wrap;
       gap: .75rem;
       justify-content: center;
     }
 
-    .tag {
-      background: var(--accent-color) linear-gradient(135deg, var(--accent-light-color), var(--accent-color));
+    #skills .tag {
+      background: var(--button-color) linear-gradient(135deg, var(--button-light-color), var(--button-color));
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0 1rem;
       border-radius: 20px;
       font-size: 0.9rem;
+      line-height: 2rem;
     }
 
     /* Social Links */
@@ -483,7 +602,7 @@
       top: 0;
       width: 100%;
       height: 4rem;
-      background-color: #000;
+      background-color: var(--accent-dark-color);
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 100;
     }
@@ -516,7 +635,7 @@
 
     /* Scroll To Top */
     .scroll-to-top {
-      background-color: var(--accent-color);
+      background-color: var(--button-color);
       color: white;
       border: none;
       border-radius: 50%;
@@ -527,6 +646,11 @@
       bottom: 20px;
       right: 20px;
       z-index: 1000;
+      transition: bottom 0.3s ease-out;
+    }
+    
+    .scroll-to-top:hover {
+      bottom: 25px;
     }
 
     .scroll-to-top[hidden] {
@@ -572,6 +696,14 @@
       #skills .content {
         flex-direction: row;
       }
+      /* #skills .tags {
+        height: 7.50rem;
+        max-height: 7.50rem;
+        overflow: hidden;
+      } */
+      .services {
+        flex-direction: row;
+      }
     }
 
     /* Desktop */
@@ -595,6 +727,19 @@
         white-space: nowrap;
         flex-basis: 30%;
       }
+    }
+
+    /* Screen readers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 
@@ -724,6 +869,31 @@
           </div>
         </div>
         <p>And <strong>10</strong> more ...</p>
+        <div class="vendors">
+          <div>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="react" src="images/vendors/react-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="vue" src="images/vendors/vue-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="angular" src="images/vendors/angular-icon-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nextjs" src="images/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="android" src="images/vendors/android-icon-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="apple" src="images/vendors/apple-svgrepo-com.svg" style="filter: invert(.8);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="firebase" src="images/vendors/firebase-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="kotlin" src="images/vendors/kotlin-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="flutter" src="images/vendors/flutter-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="dart" src="images/vendors/dart-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="php" src="images/vendors/php-alt-svgrepo-com.svg" style="filter: invert();"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="codeigniter" src="images/vendors/codeigniter-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="mysql" src="images/vendors/mysql-svgrepo-com.svg" style="filter: grayscale(1) brightness(3);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="bootstrap" src="images/vendors/bootstrap-svgrepo-com.svg" style="filter: grayscale(1) brightness(1.5);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="css" src="images/vendors/css-3-official-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="es6" src="images/vendors/es6-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="typescript" src="images/vendors/typescript-icon-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nodejs" src="images/vendors/nodejs-icon-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="python" src="images/vendors/python-svgrepo-com.svg"></amp-img>
+            <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
+          </div>
+        </div>
+  
         <button class="btn">View all portfolios</button>
       </div>
     </section>
@@ -770,15 +940,27 @@
         layout="nodisplay">
       </amp-position-observer>
       <div class="content">
-        <h2>Services</h2>
-        <ul>
+        <h2 class="sr-only">Services</h2>
+        <!-- <ul>
           <li>Mobile Application Development (iOS & Android)</li>
           <li>Web Application Development</li>
           <li>Full-Stack Development</li>
           <li>API Development & Integration</li>
           <li>Technical Consultation</li>
           <li>Software Architecture Design</li>
-        </ul>
+        </ul> -->
+        <div class="services">
+          <div class="coding">
+            <h3>App Development</h3>
+            <p>I can help you to develop a beautiful and functional mobile application for both iOS and Android platforms. I have experience with various technologies and frameworks, including Flutter, React Native, and native SDKs.</p>
+            <a href="https://wa.me/6285954479380" target="_blank" class="btn">Say your price</a>
+          </div>
+          <div class="design">
+            <h3>Graphic Design</h3>
+            <p>I can help you to create a visually appealing and user-friendly interface for your app, website, app assets, app store graphics, or any other digital product.</p>
+            <a href="#" target="_blank" class="btn">Send your requirements</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
