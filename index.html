@@ -6,11 +6,16 @@
   <title>Taufik Nur Rahmanda - Portfolio</title>
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
+
   <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
   <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
   <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+
+  <script async custom-element="amp-inline-gallery" src="https://cdn.ampproject.org/v0/amp-inline-gallery-0.1.js"></script>
+  <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+  <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
 
   <!-- Site Info -->
   <meta name="description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
@@ -219,7 +224,7 @@
     }
 
     section .content {
-      max-width: 1200px;
+      max-width: var(--max-content-width);
       margin: 5rem 0;
       padding: 0 1rem;
     }
@@ -364,24 +369,23 @@
       flex-direction: column;
     }
 
-    /* Testimonial and Certification Styles */
+    /* Carousels */
     .testimonial-card {
-      padding: 2rem;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     
     .testimonial-avatar {
       border-radius: 50%;
-      margin-bottom: 1rem;
-      border: 3px solid var(--accent-color);
     }
     
     .testimonial-text {
+      display: block;
       font-style: italic;
-      margin-bottom: 1rem;
+      margin: 1rem;
       color: var(--primary-color);
     }
     
@@ -390,7 +394,7 @@
       color: var(--accent-color);
     }
     
-    .certification-card {
+    /* .certification-card {
       padding: 2rem;
       background: var(--background-color);
       border-radius: 1rem;
@@ -410,6 +414,23 @@
     .certification-card p {
       color: var(--primary-color);
       opacity: 0.8;
+    } */
+
+    #certifications .item {
+      padding: .5rem;
+    }
+
+    #certifications .card {
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    #certifications .content {
+      margin-bottom: 1rem;
+    }
+
+    #certifications .carousel {
+      margin: 0 -1rem 5rem;
     }
 
     /* Components */
@@ -745,7 +766,7 @@
       position: sticky;
       top: 0;
       z-index: 102;
-      padding: .5rem 2rem;
+      padding: .5rem 1rem;
       white-space: nowrap;
     }
 
@@ -855,6 +876,15 @@
         font-size: 7rem;
         line-height: 7rem;
       }
+      #certifications .item {
+        padding: 1rem;
+      }
+      #certifications .card {
+        border-radius: 1.5rem;
+      }
+      .testimonial-card {
+        padding: 0 7rem;
+      }
       .portfolio {
         flex-direction: row;
       }
@@ -886,6 +916,17 @@
       section .content {
         margin: 3rem auto;
       }
+      #certifications .item {
+        padding: 1.5rem;
+      }
+      #certifications .card {
+        border-radius: 2rem;
+      }
+      #certifications .carousel {
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+      }
+      #certifications .carousel,
       #skills a {
         margin-bottom: 3rem;
       }
@@ -1010,7 +1051,7 @@
         <div class="social-links">
           <amp-social-share type="linkedin" width="40" height="40" aria-label="Share on LinkedIn"></amp-social-share>
           <amp-social-share type="twitter" width="40" height="40" aria-label="Share on Twitter"></amp-social-share>
-          <a href="https://github.com/topex-psy" target="_blank" class="github-share" aria-label="GitHub">
+          <a href="https://github.com/txufiknr" target="_blank" class="github-share" aria-label="GitHub">
             <amp-img src="images/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
           </a>
           <amp-social-share type="email" width="40" height="40" aria-label="Share via Email"></amp-social-share>
@@ -1170,54 +1211,56 @@
     <section id="testimonials">
       <div class="content">
         <h2>Testimonials</h2>
-        <p>What my clients say about me</p>
+        <p>What my clients say about me. I'm proud to have worked with some amazing companies and individuals over the years. Here are a few quotes from some of my satisfied clients.</p>
         <amp-carousel
           height="300"
           layout="fixed-height"
-          type="carousel"
+          type="slides"
           loop
           autoplay
-          delay="3000">
+          controls
+          dots
+          snap>
           <div class="testimonial-card">
             <amp-img
               src="https://i.pravatar.cc/100"
-              width="50"
-              height="50"
+              width="100"
+              height="100"
               layout="fixed"
               alt="Client 1"
               class="testimonial-avatar">
             </amp-img>
-            <p class="testimonial-text">
-              "Taufik is an exceptional developer with a keen eye for detail and a deep understanding of modern web technologies. His work is always of the highest quality and he delivers projects on time."
-            </p>
+            <q class="testimonial-text">
+              Taufik is an exceptional developer with a keen eye for detail and a deep understanding of modern web technologies. His work is always of the highest quality and he delivers projects on time.
+            </q>
             <p class="testimonial-author">John Doe, CEO of TechCorp</p>
           </div>
           <div class="testimonial-card">
             <amp-img
               src="https://i.pravatar.cc/100"
-              width="50"
-              height="50"
+              width="100"
+              height="100"
               layout="fixed"
               alt="Client 2"
               class="testimonial-avatar">
             </amp-img>
-            <p class="testimonial-text">
-              "Working with Taufik was a pleasure. He not only delivered what we asked for but also suggested improvements that made our project even better."
-            </p>
+            <q class="testimonial-text">
+              Working with Taufik was a pleasure. He not only delivered what we asked for but also suggested improvements that made our project even better.
+            </q>
             <p class="testimonial-author">Jane Smith, Project Manager</p>
           </div>
           <div class="testimonial-card">
             <amp-img
               src="https://i.pravatar.cc/100"
-              width="50"
-              height="50"
+              width="100"
+              height="100"
               layout="fixed"
               alt="Client 3"
               class="testimonial-avatar">
             </amp-img>
-            <p class="testimonial-text">
-              "Taufik's technical expertise and problem-solving skills are outstanding. He consistently exceeds expectations and is a pleasure to work with."
-            </p>
+            <q class="testimonial-text">
+              Taufik's technical expertise and problem-solving skills are outstanding. He consistently exceeds expectations and is a pleasure to work with.
+            </q>
             <p class="testimonial-author">Mike Johnson, CTO</p>
           </div>
         </amp-carousel>
@@ -1228,50 +1271,88 @@
       <div class="content">
         <h2>Certifications</h2>
         <p>My professional credentials</p>
-        <amp-carousel
-          height="360"
-          layout="fixed-height"
-          type="carousel"
-          loop
-          autoplay
-          delay="3000">
-          <div class="certification-card">
-            <amp-img
-              src="https://via.placeholder.com/150"
-              width="150"
-              height="150"
-              layout="fixed"
-              alt="Certification 1"
-              class="certification-image">
-            </amp-img>
-            <h3>Google Certified Developer</h3>
-            <p>Issued by Google</p>
-          </div>
-          <div class="certification-card">
-            <amp-img
-              src="https://via.placeholder.com/150"
-              width="150"
-              height="150"
-              layout="fixed"
-              alt="Certification 2"
-              class="certification-image">
-            </amp-img>
-            <h3>Microsoft Certified: Azure Developer</h3>
-            <p>Issued by Microsoft</p>
-          </div>
-          <div class="certification-card">
-            <amp-img
-              src="https://via.placeholder.com/150"
-              width="150"
-              height="150"
-              layout="fixed"
-              alt="Certification 3"
-              class="certification-image">
-            </amp-img>
-            <h3>Oracle Certified Java Developer</h3>
-            <p>Issued by Oracle</p>
-          </div>
-        </amp-carousel>
+      </div>
+      <div class="carousel">
+        <amp-inline-gallery layout="container">
+          <amp-base-carousel
+            class="gallery"
+            layout="responsive"
+            width="6"
+            height="2"
+            snap-align="center"
+            loop
+            autoplay
+            visible-count="2"
+            advance-count="1"
+            lightbox
+          >
+            <div class="item">
+              <div class="card">
+                <amp-img
+                  src="images/portfolio/1.webp"
+                  layout="responsive"
+                  width="450"
+                  height="300"
+                ></amp-img>
+              </div>
+            </div>
+            <div class="item">
+              <div class="card">
+                <amp-img
+                  src="images/portfolio/2.webp"
+                  layout="responsive"
+                  width="450"
+                  height="300"
+                ></amp-img>
+              </div>
+            </div>
+            <div class="item">
+              <div class="card">
+                <amp-img
+                  src="images/portfolio/3.webp"
+                  layout="responsive"
+                  width="450"
+                  height="300"
+                ></amp-img>
+              </div>
+            </div>
+            <div class="item">
+              <div class="card">
+                <amp-img
+                  src="images/portfolio/1.webp"
+                  layout="responsive"
+                  width="450"
+                  height="300"
+                ></amp-img>
+              </div>
+            </div>
+            <div class="item">
+              <div class="card">
+                <amp-img
+                  src="images/portfolio/2.webp"
+                  layout="responsive"
+                  width="450"
+                  height="300"
+                ></amp-img>
+              </div>
+            </div>
+            <div class="item">
+              <div class="card">
+                <amp-img
+                  src="images/portfolio/3.webp"
+                  layout="responsive"
+                  width="450"
+                  height="300"
+                ></amp-img>
+              </div>
+            </div>
+          </amp-base-carousel>
+          <amp-inline-gallery-pagination
+            layout="fixed-height"
+            height="24"
+          >
+          </amp-inline-gallery-pagination>
+        </amp-inline-gallery>
       </div>
     </section>
 
@@ -1343,7 +1424,7 @@
           <p><a href="https://wa.me/6285954479380" target="_blank">WhatsApp</a></p>
           <p><a href="https://www.instagram.com/txufiknr/" target="_blank">Instagram</a></p>
           <p><a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank">LinkedIn</a></p>
-          <p><a href="https://github.com/topex-psy" target="_blank">GitHub</a></p>
+          <p><a href="https://github.com/txufiknr" target="_blank">GitHub</a></p>
         </div>
       </div>
       <p><small>&copy; 2025 Taufik Nur Rahmanda. All rights reserved.</small></p>
