@@ -154,30 +154,25 @@
 
   <!-- Custom styles -->
   <style amp-custom>
-    /* @font-face {
-      font-family: 'Titillium Web';
-      font-style: normal;
-      font-weight: 300;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEGItzYw.woff2) format('woff2');
-    } */
-
     :root {
       --primary-color: #322d36;
       --primary-dark-color: #251f2a;
       --button-color: #720fff;
+      --button-color-blue: #0a66c2;
       --button-light-color: #852eff;
+      --button-light-color-blue: #3296fb;
       --button-dark-color: #2e006f;
+      --button-dark-color-blue: #06498d;
       --accent-color: #370086;
       --accent-light-color: #3e088b;
       --accent-dark-color: #19003c;
       --background-color: #f5f6fa;
       --max-content-width: 1200px;
-      --box-shadow: 0 0 5px var(--accent-color), 0 0 25px var(--accent-color), 0 0 50px var(--accent-color),
-        0 0 100px var(--accent-color);
       --button-gradient: linear-gradient(135deg, var(--button-light-color), var(--button-dark-color));
+      --button-gradient-blue: linear-gradient(135deg, var(--button-light-color-blue), var(--button-dark-color-blue));
       --card-gradient: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
       --card-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.8);
+      --light-shadow: 0px 0px 80px -20px rgba(255, 255, 255, 0.3);
       --footer-gradient: linear-gradient(to bottom, var(--primary-color), var(--primary-dark-color));
     }
 
@@ -194,13 +189,13 @@
     }
 
     body {
-      /* font-family: 'Titillium Web', sans-serif; */
       font-family: 'Muli', sans-serif;
       line-height: 1.6;
       color: var(--primary-color);
       margin: 0;
       padding: 0;
       background-color: var(--background-color);
+      overflow-x: hidden;
     }
 
     h1 {
@@ -284,6 +279,10 @@
       border-radius: 1.5rem;
       padding: 1rem;
       width: 100%;
+      transition: all .3s ease-in-out;
+    }
+    .portfolio .card:hover {
+      box-shadow: var(--light-shadow);
     }
     .portfolio .card a {
       color: #fff;
@@ -293,6 +292,21 @@
       letter-spacing: 2px;
       margin-bottom: 1rem;
       display: inline-block;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .portfolio .card a amp-img {
+      position: absolute;
+      right: 0;
+      top: calc(50% - 6px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .portfolio .card:hover a amp-img {
+      opacity: 1;
+    }
+    .portfolio .card:hover a {
+      padding-right: 25px;
     }
     .portfolio .card p {
       margin-bottom: 1rem !important;
@@ -451,12 +465,19 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
     }
-
+    .btn.blue {
+      background: var(--button-color-blue) var(--button-gradient-blue);
+    }
     .btn:hover {
       transform: translateY(-2px);
       background: var(--button-light-color);
+    }
+    .btn.blue:hover {
+      background: var(--button-light-color-blue);
     }
 
     /* About */
@@ -467,6 +488,20 @@
     #about p {
       font-size: 1.1rem;
       margin: 2rem 0;
+    }
+    #about .content,
+    #about .content > * {
+      position: relative;
+    }
+    #about .content:before {
+      content: 'About';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      font-size: 15rem;
+      color: var(--primary-color);
+      opacity: .1;
+      z-index: 0;
     }
     #about .experience {
       font-weight: 600;
@@ -641,6 +676,9 @@
     }
 
     /* Experiances */
+    #experiences .btn {
+      margin-top: 3rem;
+    }
     #experiences .experiences {
       position: relative;
       margin-top: 2rem;
@@ -870,7 +908,7 @@
     /* Tablet */
     @media screen and (min-width: 768px) {
       #about .experience {
-        max-width: 700px;
+        max-width: 600px;
       }
       #about .years p {
         font-size: 7rem;
@@ -887,6 +925,7 @@
       }
       .portfolio {
         flex-direction: row;
+        /* perspective: 1000px; */
       }
       .portfolio .card {
         width: 33.333%;
@@ -894,6 +933,17 @@
       .portfolio .card p {
         min-height: 3rem;
       }
+      /* .portfolio .card:nth-child(1):hover {
+        transform: rotateY(14deg) scale(1.1);
+        transform-origin: right center;
+      }
+      .portfolio .card:nth-child(2):hover {
+        transform: scale(1.1);
+      }
+      .portfolio .card:nth-child(3):hover {
+        transform: rotateY(-14deg) scale(1.1);
+        transform-origin: left center;
+      } */
       #skills .content {
         flex-direction: row;
       }
@@ -970,6 +1020,12 @@
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark-mode');
     }
+    // Set initial horizontal scroll position to 0
+    window.scrollTo({
+      left: 0,
+      top: window.scrollY,
+      behavior: 'instant'
+    });
   </script>
 </head>
 
@@ -1205,6 +1261,10 @@
             </div>
           </div>
         </div>
+        <a target="_blank" href="https://www.linkedin.com/in/taufik-nur-rahmanda/" class="btn blue">
+          <amp-img src="images/icons/linkedin.svg" width="20" height="20" layout="fixed" alt="See my LinkedIn" style="filter: invert()"></amp-img>
+          See my LinkedIn
+        </a>
       </div>
     </section>
 
@@ -1349,7 +1409,7 @@
           </amp-base-carousel>
           <amp-inline-gallery-pagination
             layout="fixed-height"
-            height="24"
+            height="36"
           >
           </amp-inline-gallery-pagination>
         </amp-inline-gallery>
