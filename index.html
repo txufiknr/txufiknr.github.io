@@ -527,9 +527,7 @@
 
     /* Services */
     #services {
-      /* background-color: var(--primary-color); */
       background: var(--primary-color) var(--footer-gradient);
-      /* background-color: #fff; */
       color: #fff;
       position: relative;
     }
@@ -635,6 +633,7 @@
     }
     #skills h2 {
       margin-top: 0;
+      font-size: 1.75rem;
     }
     #skills .content {
       display: flex;
@@ -645,7 +644,7 @@
     #skills .content > div {
       background-color: var(--background-color);
       border-radius: 1.5rem;
-      padding: 2rem;
+      padding: 1.5rem;
     }
     #skills a {
       display: inline-block;
@@ -662,7 +661,7 @@
     #skills .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: .75rem;
+      gap: .5rem;
       justify-content: center;
     }
 
@@ -946,6 +945,12 @@
       } */
       #skills .content {
         flex-direction: row;
+      }
+      #skills .content > div {
+        padding: 2rem;
+      }
+      #skills .tags {
+        gap: .75rem;
       }
       #experiences .experience {
         height: 9rem;
@@ -1268,69 +1273,19 @@
       </div>
     </section>
 
-    <section id="testimonials">
-      <div class="content">
-        <h2>Testimonials</h2>
-        <p>What my clients say about me. I'm proud to have worked with some amazing companies and individuals over the years. Here are a few quotes from some of my satisfied clients.</p>
-        <amp-carousel
-          height="300"
-          layout="fixed-height"
-          type="slides"
-          loop
-          autoplay
-          controls
-          dots
-          snap>
-          <div class="testimonial-card">
-            <amp-img
-              src="https://i.pravatar.cc/100"
-              width="100"
-              height="100"
-              layout="fixed"
-              alt="Client 1"
-              class="testimonial-avatar">
-            </amp-img>
-            <q class="testimonial-text">
-              Taufik is an exceptional developer with a keen eye for detail and a deep understanding of modern web technologies. His work is always of the highest quality and he delivers projects on time.
-            </q>
-            <p class="testimonial-author">John Doe, CEO of TechCorp</p>
-          </div>
-          <div class="testimonial-card">
-            <amp-img
-              src="https://i.pravatar.cc/100"
-              width="100"
-              height="100"
-              layout="fixed"
-              alt="Client 2"
-              class="testimonial-avatar">
-            </amp-img>
-            <q class="testimonial-text">
-              Working with Taufik was a pleasure. He not only delivered what we asked for but also suggested improvements that made our project even better.
-            </q>
-            <p class="testimonial-author">Jane Smith, Project Manager</p>
-          </div>
-          <div class="testimonial-card">
-            <amp-img
-              src="https://i.pravatar.cc/100"
-              width="100"
-              height="100"
-              layout="fixed"
-              alt="Client 3"
-              class="testimonial-avatar">
-            </amp-img>
-            <q class="testimonial-text">
-              Taufik's technical expertise and problem-solving skills are outstanding. He consistently exceeds expectations and is a pleasure to work with.
-            </q>
-            <p class="testimonial-author">Mike Johnson, CTO</p>
-          </div>
-        </amp-carousel>
-      </div>
-    </section>
-
     <section id="certifications">
       <div class="content">
         <h2>Certifications</h2>
-        <p>My professional credentials</p>
+        <p>
+          As a professional developer, I believe it is essential to continually
+          update my skills and knowledge to stay current with the latest
+          technologies and trends. To that end, I have obtained various
+          certifications that demonstrate my expertise and commitment to my
+          craft.
+        </p>
+        <p class="sr-only">
+          Below are some of my notable certifications.
+        </p>
       </div>
       <div class="carousel">
         <amp-inline-gallery layout="container">
@@ -1416,6 +1371,65 @@
       </div>
     </section>
 
+    <section id="testimonials">
+      <div class="content">
+        <h2 class="sr-only">Testimonials</h2>
+        <p class="sr-only">What my clients say about me. I'm proud to have worked with some amazing companies and individuals over the years. Here are a few quotes from some of my satisfied clients.</p>
+        <amp-carousel
+          height="300"
+          layout="fixed-height"
+          type="slides"
+          loop
+          autoplay
+          controls
+          dots
+          snap>
+          <div class="testimonial-card">
+            <amp-img
+              src="https://i.pravatar.cc/100"
+              width="100"
+              height="100"
+              layout="fixed"
+              alt="Client 1"
+              class="testimonial-avatar">
+            </amp-img>
+            <q class="testimonial-text">
+              Taufik is an exceptional developer with a keen eye for detail and a deep understanding of modern web technologies. His work is always of the highest quality and he delivers projects on time.
+            </q>
+            <p class="testimonial-author">John Doe, CEO of TechCorp</p>
+          </div>
+          <div class="testimonial-card">
+            <amp-img
+              src="https://i.pravatar.cc/100"
+              width="100"
+              height="100"
+              layout="fixed"
+              alt="Client 2"
+              class="testimonial-avatar">
+            </amp-img>
+            <q class="testimonial-text">
+              Working with Taufik was a pleasure. He not only delivered what we asked for but also suggested improvements that made our project even better.
+            </q>
+            <p class="testimonial-author">Jane Smith, Project Manager</p>
+          </div>
+          <div class="testimonial-card">
+            <amp-img
+              src="https://i.pravatar.cc/100"
+              width="100"
+              height="100"
+              layout="fixed"
+              alt="Client 3"
+              class="testimonial-avatar">
+            </amp-img>
+            <q class="testimonial-text">
+              Taufik's technical expertise and problem-solving skills are outstanding. He consistently exceeds expectations and is a pleasure to work with.
+            </q>
+            <p class="testimonial-author">Mike Johnson, CTO</p>
+          </div>
+        </amp-carousel>
+      </div>
+    </section>
+
     <section id="services">
       <amp-position-observer
         on="enter:highlightServices.start"
@@ -1463,6 +1477,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
