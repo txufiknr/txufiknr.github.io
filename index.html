@@ -224,35 +224,35 @@
     }
 
     /* Portfolio */
-    #portfolios {
+    #portfolio {
       background: var(--accent-color) var(--card-gradient);
       color: #fff;
       text-align: center;
     }
-    #portfolios h2 {
+    #portfolio h2 {
       color: #fff;
       font-size: 2.5rem;
       border-bottom: 0;
       margin-bottom: 0;
     }
 
-    #portfolios .btn {
+    #portfolio .btn {
       background: #fff;
       color: var(--accent-color);
       text-transform: uppercase;
       font-size: .95rem;
     }
-    #portfolios .btn:hover {
+    #portfolio .btn:hover {
       color: var(--accent-light-color);
     }
 
-    #portfolios .vendors {
+    #portfolio .vendors {
       margin-bottom: 1rem;
       display: flex;
       mask: linear-gradient(90deg, transparent, white 20% 80%, transparent);
       width: 500vw;
     }
-    #portfolios .vendors amp-img {
+    #portfolio .vendors amp-img {
       height: 3rem;
       margin: 1rem;
       filter: grayscale(1) brightness(1.25);
@@ -266,20 +266,20 @@
       to { transform: translate(-200rem); }
     }
 
-    .portfolios {
+    .portfolio {
       display: flex;
       justify-content: center;
       flex-direction: column;
       gap: 2rem;
       margin: 2rem 0;
     }
-    .portfolios .card {
+    .portfolio .card {
       background-color: rgba(255, 255, 255, 0.15);
       border-radius: 1.5rem;
       padding: 1rem;
       width: 100%;
     }
-    .portfolios .card a {
+    .portfolio .card a {
       color: #fff;
       text-transform: uppercase;
       font-weight: 600;
@@ -288,7 +288,7 @@
       margin-bottom: 1rem;
       display: inline-block;
     }
-    .portfolios .card p {
+    .portfolio .card p {
       margin-bottom: 1rem !important;
       font-size: .95rem;
       line-height: 1.5rem;
@@ -352,12 +352,15 @@
     footer {
       background-color: var(--primary-dark-color);
       color: white;
-      text-align: center;
       padding: 1rem;
+      font-size: 95%;
     }
-
     footer .container {
       padding: 1rem;
+    }
+    footer .content {
+      display: flex;
+      flex-direction: column;
     }
 
     /* Testimonial and Certification Styles */
@@ -388,9 +391,8 @@
     
     .certification-card {
       padding: 2rem;
-      background: white;
+      background: var(--background-color);
       border-radius: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
     
@@ -440,6 +442,29 @@
       border-bottom: 1px solid var(--accent-color);
       padding-bottom: 0.5rem;
     }
+    #about p {
+      font-size: 1.1rem;
+    }
+    #about .experience {
+      font-weight: 600;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+    #about .experience p {
+      margin: 0;
+    }
+    #about .experience > * {
+      flex-grow: 1;
+    }
+    #about .years p {
+      font-size: 30vw;
+      line-height: 30vw;
+    }
+    #about .years span {
+      letter-spacing: .5rem;
+    }
 
     /* Services */
     #services {
@@ -479,6 +504,40 @@
       position: relative;
       overflow: hidden;
       flex-grow: 1;
+    }
+    .services > div amp-img {
+      transition: all 0.3s ease;
+    }
+    .services > div:hover > amp-img {
+      transform: translateY(-5px);
+      filter: grayscale(0) brightness(1.25);
+    }
+    .services > div > a > amp-img {
+      position: absolute;
+      right: 1.5rem;
+      top: calc(50% - 8px);
+      opacity: 0;
+    }
+    .services > div.app > a > amp-img {
+      top: calc(50% - 10px);
+    }
+    .services > div.app > a > amp-img {
+      left: 1.5rem;
+    }
+    .services > div.ui > a > amp-img {
+      right: 1.5rem;
+    }
+    .services > div:hover > a > amp-img {
+      opacity: 1;
+    }
+    .services > div > a {
+      transition: all 0.3s ease;
+    }
+    .services > div.app:hover > a {
+      padding-left: calc(1.5rem + 30px);
+    }
+    .services > div.ui:hover > a {
+      padding-right: calc(1.5rem + 25px);
     }
     .services > div:before {
       content: '';
@@ -521,11 +580,23 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      margin-bottom: 2rem;
     }
     #skills .content > div {
       background-color: var(--background-color);
       border-radius: 1.5rem;
       padding: 2rem;
+    }
+    #skills a {
+      display: inline-block;
+      margin-bottom: 5rem;
+      position: relative;
+      padding-left: calc(1.5rem + 25px);
+    }
+    #skills a amp-img {
+      position: absolute;
+      left: 1.5rem;
+      top: calc(50% - 8px);
     }
 
     #skills .tags {
@@ -651,7 +722,7 @@
       opacity: 0.5;
     }
 
-    .nav-tab:nth-child(n + 5), #portfolios-tab {
+    .nav-tab:nth-child(n + 5), #portfolio-tab {
       display: none;
     }
     
@@ -715,13 +786,20 @@
 
     /* Tablet */
     @media screen and (min-width: 768px) {
-      .portfolios {
+      #about .experience {
+        max-width: 400px;
+      }
+      #about .years p {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+      .portfolio {
         flex-direction: row;
       }
-      .portfolios .card {
+      .portfolio .card {
         width: 33.333%;
       }
-      .portfolios .card p {
+      .portfolio .card p {
         min-height: 3rem;
       }
       #skills .content {
@@ -735,12 +813,21 @@
       .services {
         flex-direction: row;
       }
+      footer .content {
+        flex-direction: row;
+      }
+      footer .content > div {
+        flex-grow: 1;
+      }
     }
 
     /* Desktop */
     @media screen and (min-width: 1200px) {
       section .content {
         margin: 3rem auto;
+      }
+      #skills a {
+        margin-bottom: 3rem;
       }
       .nav-tab {
         display: inline !important;
@@ -789,6 +876,15 @@
   <div id="top"></div>
   <div class="nav-tabs-bg"></div>
   <header>
+
+    <!-- Position observer to trigger scroll button visibility -->
+    <div id="scroll-trigger">
+      <amp-position-observer
+        on="enter:hideButton.start; exit:showButton.start"
+        layout="nodisplay">
+      </amp-position-observer>
+    </div>
+
 		<div class="particles-css">
 			<div class="particle"></div>
 			<div class="particle"></div>
@@ -812,10 +908,10 @@
       <small>Hello, I am</small>
       <h1>Taufik Nur Rahmanda</h1>
       <h3>Professional Mobile & Web App Developer</h3>
-      <a class="link" href="#portfolios">
+      <a class="link" href="#portfolio">
         <div class="color"></div>
         <span>Portfolios</span>
-        <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolios" style="filter: invert()"></amp-img>
+        <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
       </a>
     </div>
   </header>
@@ -823,22 +919,13 @@
   <nav class="nav-tabs" id="nav-tabs">
     <div class="container">
       <a href="#about" class="nav-tab" role="tab" id="about-tab">About Me</a>
-      <a href="#portfolios" class="nav-tab" role="tab" id="portfolios-tab">Portfolios</a>
+      <a href="#portfolio" class="nav-tab" role="tab" id="portfolio-tab">Portfolios</a>
       <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
       <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
     </div>
   </nav>
 
-  <!-- Position observer to trigger scroll button visibility -->
-  <div id="scroll-trigger">
-    <amp-position-observer
-      on="enter:hideButton.start; exit:showButton.start"
-      layout="nodisplay">
-    </amp-position-observer>
-  </div>
-
   <main>
-    
     <section id="about">
       <amp-position-observer
         on="enter:highlightAbout.start"
@@ -849,7 +936,14 @@
           <h2>About Me</h2>
           <div>
             <h3>Taufik Nur Rahmanda, S.Kom.</h3>
-            <p>A passionate software developer with <strong>8 years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+            <div class="experience">
+              <div class="years">
+                <p>8+</p>
+                <span>Years</span>
+              </div>
+              <p>of working experience as a web & mobile app developer</p>
+            </div>
+            <p>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
           </div>
         </div>
         <div class="social-links">
@@ -863,13 +957,17 @@
       </div>
     </section>
 
-    <section id="portfolios">
+    <section id="portfolio">
+      <amp-position-observer
+        on="enter:highlightPortfolio.start"
+        layout="nodisplay">
+      </amp-position-observer>
       <div class="content">
         <h2>Portfolios</h2>
         <p>Here are some of my recent projects</p>
-        <div class="portfolios">
+        <div class="portfolio">
           <div class="card">
-            <amp-img src="images/portfolios/1.webp" width="800" height="600" layout="responsive" alt="Portfolio 1"></amp-img>
+            <amp-img src="images/portfolio/1.webp" width="800" height="600" layout="responsive" alt="Portfolio 1"></amp-img>
             <div class="card-content">
               <h3>Portfolio 1</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sit exercitationem praesentium, natus aut, accusamus neque reprehenderit molestias in iusto dolorum, aliquam architecto. Exercitationem modi ducimus, accusamus dignissimos excepturi aut.</p>
@@ -879,7 +977,7 @@
             </div>
           </div>
           <div class="card">
-            <amp-img src="images/portfolios/2.webp" width="800" height="600" layout="responsive" alt="Portfolio 2"></amp-img>
+            <amp-img src="images/portfolio/2.webp" width="800" height="600" layout="responsive" alt="Portfolio 2"></amp-img>
             <div class="card-content">
               <h3>Portfolio 2</h3>
               <p>Here is a description of the portfolio</p>
@@ -889,7 +987,7 @@
             </div>
           </div>
           <div class="card">
-            <amp-img src="images/portfolios/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
             <div class="card-content">
               <h3>Portfolio 3</h3>
               <p>Here is a description of the portfolio</p>
@@ -923,7 +1021,7 @@
           <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
         </div>
   
-        <button class="btn">View all portfolios</button>
+        <button class="btn">View all portfolio</button>
       </div>
     </section>
 
@@ -940,14 +1038,18 @@
             <span class="tag">Web Development</span>
             <span class="tag">Frontend</span>
             <span class="tag">Backend</span>
+            <span class="tag">Full-stack</span>
+            <span class="tag">Multi-platform</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">XCode</span>
             <span class="tag">UI/UX Design</span>
             <span class="tag">API Development</span>
-            <span class="tag">Database Design</span>
-            <span class="tag">Project Management</span>
+            <span class="tag">Graphic Design</span>
+            <span class="tag">Video Editing</span>
           </div>
         </div>
-        <div class="languages">
-          <h2>Languages</h2>
+        <div class="tech">
+          <h2>Tech Stack</h2>
           <div class="tags">
             <span class="tag">Flutter (Dart)</span>
             <span class="tag">PHP</span>
@@ -955,12 +1057,20 @@
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">React.js</span>
+            <span class="tag">Next.js</span>
             <span class="tag">Vue.js</span>
             <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
             <span class="tag">Kotlin</span>
+            <span class="tag">MySQL/MariaDB</span>
+            <span class="tag">PostgreSQL</span>
           </div>
         </div>
       </div>
+      <a target="_blank" href="https://online.fliphtml5.com/ziify/uxdq/" class="btn">
+        <amp-img src="images/icons/download.svg" width="16" height="16" layout="fixed" alt="Download CV" style="filter: invert()"></amp-img>
+        Download CV
+      </a>
     </section>
 
     <section id="testimonials">
@@ -976,7 +1086,7 @@
           delay="3000">
           <div class="testimonial-card">
             <amp-img
-              src="https://via.placeholder.com/50"
+              src="https://i.pravatar.cc/100"
               width="50"
               height="50"
               layout="fixed"
@@ -990,7 +1100,7 @@
           </div>
           <div class="testimonial-card">
             <amp-img
-              src="https://via.placeholder.com/50"
+              src="https://i.pravatar.cc/100"
               width="50"
               height="50"
               layout="fixed"
@@ -1004,7 +1114,7 @@
           </div>
           <div class="testimonial-card">
             <amp-img
-              src="https://via.placeholder.com/50"
+              src="https://i.pravatar.cc/100"
               width="50"
               height="50"
               layout="fixed"
@@ -1087,15 +1197,33 @@
           <li>Software Architecture Design</li>
         </ul> -->
         <div class="services">
-          <div class="coding">
+          <div class="app">
+            <amp-img
+              src="images/icons/service-app.svg"
+              width="60"
+              height="60"
+              layout="fixed"
+              alt="App Development">
+            </amp-img>
             <h3>App Development</h3>
             <p>I can help you to develop a beautiful and functional mobile application for both iOS and Android platforms. I have experience with various technologies and frameworks, including Flutter, React Native, and native SDKs.</p>
-            <a href="https://wa.me/6285954479380" target="_blank" class="btn">Say your price</a>
+            <a href="https://wa.me/6285954479380" target="_blank" class="btn">Say your need
+              <amp-img src="images/icons/whatsapp.svg" width="20" height="20" layout="fixed" alt="Contact me" style="filter: invert()"></amp-img>
+            </a>
           </div>
-          <div class="design">
+          <div class="ui">
+            <amp-img
+              src="images/icons/service-ui.svg"
+              width="60"
+              height="60"
+              layout="fixed"
+              alt="Graphic Design">
+            </amp-img>
             <h3>Graphic Design</h3>
             <p>I can help you to create a visually appealing and user-friendly interface for your app, website, app assets, app store graphics, or any other digital product.</p>
-            <a href="#" target="_blank" class="btn">Send your requirements</a>
+            <a href="#" target="_blank" class="btn">See examples
+              <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
+            </a>
           </div>
         </div>
       </div>
@@ -1104,6 +1232,26 @@
 
   <footer>
     <div class="container">
+      <div>
+        <h3>Taufik Nur Rahmanda</h3>
+        <p>A passionate software engineer specializing in mobile and web application development. With extensive experience in creating robust and scalable solutions, I strive to deliver high-quality software that makes a difference.</p>
+      </div>
+      <div class="content">
+        <div>
+          <h4>Project Links</h4>
+          <p><a href="index.php" target="_blank">Other Personal Website</a></p>
+          <p><a href="" target="_blank">Cushier POS</a></p>
+          <p><a href="" target="_blank">Dhikr Counter</a></p>
+          <p><a href="" target="_blank">Quran Recite</a></p>
+        </div>
+        <div>
+          <h4>Contact Links</h4>
+          <p><a href="https://wa.me/6285954479380" target="_blank">WhatsApp</a></p>
+          <p><a href="https://www.instagram.com/txufiknr/" target="_blank">Instagram</a></p>
+          <p><a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank">LinkedIn</a></p>
+          <p><a href="https://github.com/topex-psy" target="_blank">GitHub</a></p>
+        </div>
+      </div>
       <p><small>&copy; 2025 Taufik Nur Rahmanda. All rights reserved.</small></p>
     </div>
   </footer>
@@ -1155,7 +1303,19 @@
       {
         "animations": [
           { "selector": "#about-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#skills-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": "#portfolio-tab, #skills-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <!-- Highlight Portfolio -->
+  <amp-animation id="highlightPortfolio" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          { "selector": "#portfolio-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": "#about-tab, #skills-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
@@ -1167,7 +1327,7 @@
       {
         "animations": [
           { "selector": "#skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#about-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": "#about-tab, #portfolio-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
@@ -1179,7 +1339,7 @@
       {
         "animations": [
           { "selector": "#services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#about-tab, #skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": "#about-tab, #portfolio-tab, #skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
