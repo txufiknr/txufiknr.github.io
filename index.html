@@ -205,6 +205,7 @@
 
     h2 {
       color: var(--accent-color);
+      font-size: 2rem;
       font-weight: 900;
     }
 
@@ -444,6 +445,7 @@
     }
     #about p {
       font-size: 1.1rem;
+      margin: 2rem 0;
     }
     #about .experience {
       font-weight: 600;
@@ -463,7 +465,8 @@
       line-height: 30vw;
     }
     #about .years span {
-      letter-spacing: .5rem;
+      letter-spacing: 2.5vw;
+      font-size: min(1.5rem, max(1.1rem, 3vw));
     }
 
     /* Services */
@@ -498,12 +501,15 @@
       gap: 2rem;
     }
     .services > div {
-      background: url('images/coding.jpg') no-repeat center center/cover;
+      background: url('images/services/app.webp') no-repeat center center/cover;
       border-radius: 1.5rem;
       padding: 2rem;
       position: relative;
       overflow: hidden;
       flex-grow: 1;
+    }
+    .services > div.ui {
+      background-image: url('images/services/ui.webp');
     }
     .services > div amp-img {
       transition: all 0.3s ease;
@@ -572,8 +578,6 @@
       text-align: center;
     }
     #skills h2 {
-      border-bottom: 0;
-      font-size: 2rem;
       margin-top: 0;
     }
     #skills .content {
@@ -613,6 +617,57 @@
       border-radius: 20px;
       font-size: 0.9rem;
       line-height: 2rem;
+    }
+
+    /* Experiances */
+    #experiences .experiences {
+      position: relative;
+      margin-top: 2rem;
+    }
+    #experiences .experiences:before {
+      content: '';
+      position: absolute;
+      left: 11.5px;
+      top: 30%;
+      bottom: 30%;
+      width: 2px;
+      background-color: var(--button-color);
+    }
+    #experiences .experience {
+      height: 12rem;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+    }
+    #experiences .experience amp-img {
+      min-width: 80px;
+    }
+    #experiences .experience h3 {
+      margin: 0 0 .5rem;
+    }
+    #experiences .experience h4,
+    #experiences .experience p {
+      margin: 0;
+    }
+    #experiences .experience .dot {
+      min-width: 25px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid var(--button-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #experiences .experience .dot:before {
+      content: '';
+      min-width: 15px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--button-color);
     }
 
     /* Social Links */
@@ -691,6 +746,7 @@
       top: 0;
       z-index: 102;
       padding: .5rem 2rem;
+      white-space: nowrap;
     }
 
     .nav-tabs .container {
@@ -784,14 +840,20 @@
       left: -0.65em;
     }
 
+    @media screen and (max-width: 880px) {
+      header .container {
+        clear: right;
+      }
+    }
+
     /* Tablet */
     @media screen and (min-width: 768px) {
       #about .experience {
-        max-width: 400px;
+        max-width: 700px;
       }
       #about .years p {
-        font-size: 5rem;
-        line-height: 5rem;
+        font-size: 7rem;
+        line-height: 7rem;
       }
       .portfolio {
         flex-direction: row;
@@ -805,11 +867,9 @@
       #skills .content {
         flex-direction: row;
       }
-      /* #skills .tags {
-        height: 7.50rem;
-        max-height: 7.50rem;
-        overflow: hidden;
-      } */
+      #experiences .experience {
+        height: 9rem;
+      }
       .services {
         flex-direction: row;
       }
@@ -921,6 +981,7 @@
       <a href="#about" class="nav-tab" role="tab" id="about-tab">About Me</a>
       <a href="#portfolio" class="nav-tab" role="tab" id="portfolio-tab">Portfolios</a>
       <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
+      <a href="#experiences" class="nav-tab" role="tab" id="experiences-tab">Experiences</a>
       <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
     </div>
   </nav>
@@ -1071,6 +1132,39 @@
         <amp-img src="images/icons/download.svg" width="16" height="16" layout="fixed" alt="Download CV" style="filter: invert()"></amp-img>
         Download CV
       </a>
+    </section>
+    
+    <section id="experiences">
+      <amp-position-observer
+        on="enter:highlightExperiences.start"
+        layout="nodisplay">
+      </amp-position-observer>
+      <div class="content">
+        <h2>Experiences</h2>
+        <p>I have extensive work experience in several tech industries, specializing in web development and mobile app development.</p>
+        <div class="experiences">
+          <div class="experience">
+            <span class="dot"></span>
+            <amp-img src="images/experiences/nurosoft.webp" width="125" height="20" layout="responsive" alt="Nurosoft Consulting"></amp-img>
+            <div>
+              <h3>Senior Software Engineer</h3>
+              <h4>Nurosoft Consulting</h4>
+              <p>Web, mobile & cross-platform app developer</p>
+              <p>2019 - Present</p>
+            </div>
+          </div>
+          <div class="experience">
+            <span class="dot"></span>
+            <amp-img src="images/experiences/jtech.webp" width="125" height="60" layout="responsive" alt="J-Tech Solusindo"></amp-img>
+            <div>
+              <h3>Programmer</h3>
+              <h4>J-Tech Solusindo</h4>
+              <p>Web & Android app developer</p>
+              <p>2017 - 2019</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="testimonials">
@@ -1303,7 +1397,7 @@
       {
         "animations": [
           { "selector": "#about-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#portfolio-tab, #skills-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": ".nav-tab:not(#about-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
@@ -1315,7 +1409,7 @@
       {
         "animations": [
           { "selector": "#portfolio-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#about-tab, #skills-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": ".nav-tab:not(#portfolio-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
@@ -1327,7 +1421,19 @@
       {
         "animations": [
           { "selector": "#skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#about-tab, #portfolio-tab, #services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": ".nav-tab:not(#skills-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <!-- Highlight Experiences -->
+  <amp-animation id="highlightExperiences" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          { "selector": "#experiences-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": ".nav-tab:not(#experiences-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
@@ -1339,7 +1445,7 @@
       {
         "animations": [
           { "selector": "#services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": "#about-tab, #portfolio-tab, #skills-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": ".nav-tab:not(#services-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
