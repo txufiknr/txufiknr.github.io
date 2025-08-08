@@ -810,6 +810,15 @@
     .nav-tabs .container {
       position: relative;
       height: 3rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .nav-tabs button {
+      margin-left: auto;
+      background: none;
+      border: none;
     }
 
     .nav-tabs-bg {
@@ -988,6 +997,12 @@
       .nav-tab {
         display: inline !important;
       }
+      .nav-tabs .container {
+        display: block;
+      }
+      .nav-tabs button {
+        display: none;
+      }
       .about-content {
         display: flex;
         gap: 4rem;
@@ -1085,6 +1100,9 @@
       <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
       <a href="#experiences" class="nav-tab" role="tab" id="experiences-tab">Experiences</a>
       <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
+      <button id="btn-menu" aria-label="Open menu">
+        <amp-img src="images/icons/bars.svg" width="20" height="20" layout="fixed" alt="Menus" style="filter: invert()"></amp-img>
+      </button>
     </div>
   </nav>
 
