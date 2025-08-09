@@ -18,6 +18,7 @@
   <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
 
   <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 
   <!-- Site Info -->
   <meta name="description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
@@ -790,7 +791,7 @@
     }
 
     .social-links amp-social-share,
-    .social-links .github-share {
+    .social-links .social-icon {
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -800,13 +801,13 @@
       text-decoration: none;
     }
     
-    .social-links .github-share {
+    .social-links .social-icon {
       width: 40px;
       height: 40px;
     }
 
     .social-links amp-social-share:hover,
-    .social-links .github-share:hover {
+    .social-links .social-icon:hover {
       transform: translateY(-3px);
     }
 
@@ -1185,10 +1186,13 @@
         <div class="social-links">
           <amp-social-share type="linkedin" width="40" height="40" aria-label="Share on LinkedIn"></amp-social-share>
           <amp-social-share type="twitter" width="40" height="40" aria-label="Share on Twitter"></amp-social-share>
-          <a href="https://github.com/txufiknr" target="_blank" class="github-share" aria-label="GitHub">
-            <amp-img src="images/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
+          <a href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
+            <amp-img src="images/social/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
           </a>
-          <amp-social-share type="email" width="40" height="40" aria-label="Share via Email"></amp-social-share>
+          <!-- <amp-social-share type="email" width="40" height="40" aria-label="Share via Email"></amp-social-share> -->
+          <a href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
+            <amp-img src="images/social/whatsapp.svg" width="40" height="40" alt="WhatsApp" layout="fixed"></amp-img>
+          </a>
         </div>
       </div>
     </section>
