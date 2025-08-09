@@ -17,6 +17,8 @@
   <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
   <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
 
+  <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+
   <!-- Site Info -->
   <meta name="description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
   <meta name="keywords" content="Taufik Nur Rahmanda, Flutter, mobile, web, development, software developer, front-end, back-end">
@@ -171,7 +173,7 @@
       --button-gradient: linear-gradient(135deg, var(--button-light-color), var(--button-dark-color));
       --button-gradient-blue: linear-gradient(135deg, var(--button-light-color-blue), var(--button-dark-color-blue));
       --card-gradient: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
-      --card-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.8);
+      --card-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
       --light-shadow: 0px 0px 80px -20px rgba(255, 255, 255, 0.3);
       --footer-gradient: linear-gradient(to bottom, var(--primary-color), var(--primary-dark-color));
     }
@@ -212,6 +214,7 @@
     /* Sections */
     section {
       padding: 1rem;
+      background: var(--background-color);
     }
 
     section:nth-child(odd) {
@@ -229,6 +232,9 @@
       background: var(--accent-color) var(--card-gradient);
       color: #fff;
       text-align: center;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% calc(100% - 4rem));
+      margin-bottom: -4rem;
+      padding-bottom: 10rem;
     }
     #portfolio h2 {
       color: #fff;
@@ -318,6 +324,51 @@
       line-clamp: 2;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+    }
+
+    #stats {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      width: calc(100vw - 4rem);
+      max-width: 600px;
+      margin: 2rem auto;
+      margin-top: -3rem;
+      text-align: center;
+      color: var(--primary-dark-color);
+    }
+    #stats .captions {
+      margin-bottom: 1.5rem;
+    }
+    #stats .captions span,
+    #stats .stat {
+      width: 100%;
+    }
+    #stats .captions span {
+      font-weight: 600;
+      line-height: 1.25rem;
+    }
+    #stats .captions,
+    #stats .stats {
+      display: flex;
+      gap: 1rem;
+    }
+    #stats .stat {
+      background: rgba(62, 8, 139, 0.15);
+      border-radius: 1rem;
+      padding: 1rem 0;
+    }
+    #stats .stat p {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #000;
+    }
+    #stats .stat span {
+      white-space: nowrap;
+      font-size: .8rem;
+      font-weight: 600;
     }
 
     /* Header */
@@ -493,8 +544,7 @@
     #about .content > * {
       position: relative;
     }
-    #about .content:before {
-      content: 'About';
+    #about .content .text-bg {
       position: absolute;
       right: 0;
       top: 50%;
@@ -531,21 +581,9 @@
       color: #fff;
       position: relative;
     }
-    /* #services:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--primary-color);
-      border-top-left-radius: 100% 100%;
-      z-index: 0;
+    #services .content {
+      margin-bottom: 0;
     }
-    #services > * {
-      position: relative;
-      z-index: 1;
-    } */
     #services h2 {
       color: #fff;
     }
@@ -630,6 +668,17 @@
     /* Skills */
     #skills {
       text-align: center;
+      position: relative;
+      background: none;
+    }
+    #skills .image-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      mask-image: linear-gradient(to top, transparent, black);
+      mask-mode: alpha;
     }
     #skills h2 {
       margin-top: 0;
@@ -640,11 +689,15 @@
       flex-direction: column;
       gap: 2rem;
       margin-bottom: 2rem;
+      margin-top: 0;
     }
     #skills .content > div {
-      background-color: var(--background-color);
-      border-radius: 1.5rem;
+      /* background-color: var(--background-color); */
+      /* border-radius: 1.5rem; */
       padding: 1.5rem;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: var(--card-shadow);
     }
     #skills a {
       display: inline-block;
@@ -952,11 +1005,18 @@
         transform: rotateY(-14deg) scale(1.1);
         transform-origin: left center;
       } */
+      #stats .stat p {
+        font-size: 3rem;
+      }
+      #stats .stat span {
+        font-size: 1rem;
+      }
+      #stats .captions span {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+      }
       #skills .content {
         flex-direction: row;
-      }
-      #skills .content > div {
-        padding: 2rem;
       }
       #skills .tags {
         gap: .75rem;
@@ -1040,12 +1100,6 @@
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark-mode');
     }
-    // Set initial horizontal scroll position to 0
-    window.scrollTo({
-      left: 0,
-      top: window.scrollY,
-      behavior: 'instant'
-    });
   </script>
 </head>
 
@@ -1113,6 +1167,7 @@
         layout="nodisplay">
       </amp-position-observer>
       <div class="content">
+        <div class="text-bg" amp-fx="parallax" data-parallax-factor="1.3">About</div>
         <div class="about-content">
           <h2>About Me</h2>
           <div>
@@ -1147,7 +1202,7 @@
         <h2>Portfolios</h2>
         <p>Here are some of my recent projects</p>
         <div class="portfolio">
-          <div class="card">
+          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/1.webp" width="800" height="600" layout="responsive" alt="Portfolio 1"></amp-img>
             <div class="card-content">
               <h3>Portfolio 1</h3>
@@ -1157,7 +1212,7 @@
               </a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/2.webp" width="800" height="600" layout="responsive" alt="Portfolio 2"></amp-img>
             <div class="card-content">
               <h3>Portfolio 2</h3>
@@ -1167,7 +1222,7 @@
               </a>
             </div>
           </div>
-          <div class="card">
+          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
             <div class="card-content">
               <h3>Portfolio 3</h3>
@@ -1203,14 +1258,38 @@
         </div>
   
         <button class="btn">View all portfolio</button>
+
       </div>
     </section>
-
+    
     <section id="skills">
       <amp-position-observer
         on="enter:highlightSkills.start"
         layout="nodisplay">
       </amp-position-observer>
+      <div id="stats" amp-fx="parallax" data-parallax-factor="1.1" data-margin-start="10%" data-margin-end="80%">
+        <div class="captions">
+          <span>Currently, I've done at least</span>
+          <span>Until now, I'm experienced in</span>
+          <span>So far, I've worked with</span>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <p>10</p>
+            <span>Projects</span>
+          </div>
+          <div class="stat">
+            <p>10</p>
+            <span>Tech Stack</span>
+          </div>
+          <div class="stat">
+            <p>10</p>
+            <span>Clients</span>
+          </div>
+        </div>
+      </div>
+      <!-- <amp-img class="image-bg" amp-fx="parallax" data-parallax-factor="1.15" width="618" height="583" layout="responsive" src="https://images.unsplash.com/photo-1527683040093-3a2b80ed1592?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3493d310a725643c1aa1cd201065d31c&auto=format&fit=crop&w=1130&q=80"></amp-img> -->
+      <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor="1.15" width="108" height="162" layout="responsive" src="images/services/more/1.webp"></amp-img>
       <div class="content">
         <div class="skills">
           <h2>Skills</h2>
@@ -1263,7 +1342,7 @@
         <h2>Experiences</h2>
         <p>I have extensive work experience in several tech industries, specializing in web development and mobile app development.</p>
         <div class="experiences">
-          <div class="experience">
+          <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
             <amp-img src="images/experiences/nurosoft.webp" width="125" height="20" layout="responsive" alt="Nurosoft Consulting"></amp-img>
             <div>
@@ -1273,7 +1352,7 @@
               <p>2019 - Present</p>
             </div>
           </div>
-          <div class="experience">
+          <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
             <amp-img src="images/experiences/jtech.webp" width="125" height="60" layout="responsive" alt="J-Tech Solusindo"></amp-img>
             <div>
@@ -1464,7 +1543,7 @@
           <li>Software Architecture Design</li>
         </ul> -->
         <div class="services">
-          <div class="app">
+          <div class="app" amp-fx="fade-in fly-in-bottom" data-duration="1000ms">
             <amp-img
               src="images/icons/service-app.svg"
               width="60"
@@ -1478,7 +1557,7 @@
               <amp-img src="images/icons/whatsapp.svg" width="20" height="20" layout="fixed" alt="Contact me" style="filter: invert()"></amp-img>
             </a>
           </div>
-          <div class="ui">
+          <div class="ui" amp-fx="fade-in fly-in-bottom" data-duration="1000ms">
             <amp-img
               src="images/icons/service-ui.svg"
               width="60"
@@ -1653,6 +1732,13 @@
 
     link.addEventListener("mouseleave", () => {
       hoverTL.reverse();
+    });
+
+    // Set initial horizontal scroll position to 0
+    window.scrollTo({
+      left: 0,
+      top: window.scrollY,
+      behavior: 'instant'
     });
   </script>
 
