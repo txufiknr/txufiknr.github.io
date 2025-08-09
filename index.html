@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-  <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
   <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
@@ -264,7 +263,7 @@
       height: 3rem;
       margin: 1rem;
       filter: grayscale(1) brightness(1.25);
-      opacity: .25;
+      opacity: .35;
       animation: scrolling linear forwards;
       animation-timeline: scroll(root);
       animation-range: 25vh;
@@ -334,7 +333,7 @@
       padding: 1.5rem;
       width: calc(100vw - 4rem);
       max-width: 600px;
-      margin: 2rem auto;
+      margin: 2rem auto 0;
       margin-top: -3rem;
       text-align: center;
       color: var(--primary-dark-color);
@@ -460,28 +459,6 @@
       color: var(--accent-color);
     }
     
-    /* .certification-card {
-      padding: 2rem;
-      background: var(--background-color);
-      border-radius: 1rem;
-      text-align: center;
-    }
-    
-    .certification-image {
-      margin-bottom: 1rem;
-      border: 2px solid var(--accent-color);
-    }
-    
-    .certification-card h3 {
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
-    }
-    
-    .certification-card p {
-      color: var(--primary-color);
-      opacity: 0.8;
-    } */
-
     #certifications .item {
       padding: .5rem;
     }
@@ -553,6 +530,7 @@
       color: var(--primary-color);
       opacity: .1;
       z-index: 0;
+      max-width: 100vw;
     }
     #about .experience {
       font-weight: 600;
@@ -689,42 +667,39 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      margin-bottom: 2rem;
       margin-top: 0;
     }
-    #skills .content > div {
-      /* background-color: var(--background-color); */
-      /* border-radius: 1.5rem; */
-      padding: 1.5rem;
-      background: #fff;
+    #skills .expertise ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #skills .expertise ul li {
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--accent-dark-color);
+      white-space: nowrap;
+      background-color: #fff;
       border-radius: 1.5rem;
+      padding: 1rem;
       box-shadow: var(--card-shadow);
     }
-    #skills a {
-      display: inline-block;
-      margin-bottom: 5rem;
-      position: relative;
-      padding-left: calc(1.5rem + 25px);
-    }
-    #skills a amp-img {
-      position: absolute;
-      left: 1.5rem;
-      top: calc(50% - 8px);
-    }
-
     #skills .tags {
       display: flex;
       flex-wrap: wrap;
       gap: .5rem;
       justify-content: center;
     }
-
     #skills .tag {
       background: var(--button-color) linear-gradient(135deg, var(--button-light-color), var(--button-color));
       color: white;
       padding: 0 1rem;
       border-radius: 20px;
-      font-size: 0.9rem;
       line-height: 2rem;
     }
 
@@ -790,7 +765,6 @@
       justify-content: end;
     }
 
-    .social-links amp-social-share,
     .social-links .social-icon {
       display: inline-flex;
       justify-content: center;
@@ -806,9 +780,34 @@
       height: 40px;
     }
 
-    .social-links amp-social-share:hover,
     .social-links .social-icon:hover {
       transform: translateY(-3px);
+    }
+
+    /* Sidebar */
+    #sidebar {
+      background: var(--primary-dark-color);
+      padding: 1rem;
+    }
+    #sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #sidebar .nav-tab {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+    }
+    #sidebar .nav-tab:hover {
+      background: rgba(114, 0, 255, 0.2);
+    }
+    #sidebar button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
     }
 
     /* Particles Animation */
@@ -1019,6 +1018,19 @@
       #skills .content {
         flex-direction: row;
       }
+      #skills .content > div {
+        background-color: #fff;
+        border-radius: 1.5rem;
+        width: 50%;
+        padding: 2rem;
+        box-shadow: var(--card-shadow);
+      }
+      #skills .expertise ul li {
+        background: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+      }
       #skills .tags {
         gap: .75rem;
       }
@@ -1155,10 +1167,27 @@
       <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
       <a href="#experiences" class="nav-tab" role="tab" id="experiences-tab">Experiences</a>
       <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
-      <button id="btn-menu" aria-label="Open menu">
+      <button id="btn-menu" aria-label="Open menu" on="tap:sidebar.toggle">
         <amp-img src="images/icons/bars.svg" width="20" height="20" layout="fixed" alt="Menus" style="filter: invert()"></amp-img>
       </button>
     </div>
+  </nav>
+
+  <!-- AMP Sidebar -->
+  <amp-sidebar id="sidebar" layout="nodisplay" side="right">
+    <nav>
+      <a href="#about" class="nav-tab" role="tab" id="about-tab">About Me</a>
+      <a href="#portfolio" class="nav-tab" role="tab" id="portfolio-tab">Portfolios</a>
+      <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
+      <a href="#experiences" class="nav-tab" role="tab" id="experiences-tab">Experiences</a>
+      <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
+    </nav>
+    <button on="tap:sidebar.close" aria-label="Close menu">
+      <amp-img src="images/icons/close.svg" width="20" height="20" layout="fixed" alt="Close menu" style="filter: invert()"></amp-img>
+    </button>
+  </amp-sidebar>
+
+  <main>
   </nav>
 
   <main>
@@ -1173,24 +1202,27 @@
           <h2>About Me</h2>
           <div>
             <h3>Taufik Nur Rahmanda, S.Kom.</h3>
-            <div class="experience">
+            <div class="experience" amp-fx="fade-in-scroll" data-repeat>
               <div class="years">
                 <p>8+</p>
                 <span>Years</span>
               </div>
-              <p>of working experience as a web & mobile app developer</p>
+              <p>of professional experience as a web & mobile app developer</p>
             </div>
-            <p>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+            <p amp-fx="fade-in-scroll" data-repeat>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
           </div>
         </div>
         <div class="social-links">
-          <amp-social-share type="linkedin" width="40" height="40" aria-label="Share on LinkedIn"></amp-social-share>
-          <amp-social-share type="twitter" width="40" height="40" aria-label="Share on Twitter"></amp-social-share>
-          <a href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
+          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <amp-img src="images/social/linkedin.svg" width="40" height="40" alt="LinkedIn" layout="fixed"></amp-img>
+          </a>
+          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-margin-start="10%" href="https://x.com/txufiknr" target="_blank" class="social-icon" aria-label="X">
+            <amp-img src="images/social/x.svg" width="40" height="40" alt="X" layout="fixed"></amp-img>
+          </a>
+          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-margin-start="20%" href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
             <amp-img src="images/social/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
           </a>
-          <!-- <amp-social-share type="email" width="40" height="40" aria-label="Share via Email"></amp-social-share> -->
-          <a href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
+          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-margin-start="30%" href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
             <amp-img src="images/social/whatsapp.svg" width="40" height="40" alt="WhatsApp" layout="fixed"></amp-img>
           </a>
         </div>
@@ -1204,12 +1236,12 @@
       </amp-position-observer>
       <div class="content">
         <h2>Portfolios</h2>
-        <p>Here are some of my recent projects</p>
+        <p>Here are some of the projects I'm most proud of.</p>
         <div class="portfolio">
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/1.webp" width="800" height="600" layout="responsive" alt="Portfolio 1"></amp-img>
             <div class="card-content">
-              <h3>Portfolio 1</h3>
+              <h3>Cushier</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sit exercitationem praesentium, natus aut, accusamus neque reprehenderit molestias in iusto dolorum, aliquam architecto. Exercitationem modi ducimus, accusamus dignissimos excepturi aut.</p>
               <a href="#" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
@@ -1219,7 +1251,7 @@
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/2.webp" width="800" height="600" layout="responsive" alt="Portfolio 2"></amp-img>
             <div class="card-content">
-              <h3>Portfolio 2</h3>
+              <h3>FOOM</h3>
               <p>Here is a description of the portfolio</p>
               <a href="#" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
@@ -1229,7 +1261,7 @@
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
             <div class="card-content">
-              <h3>Portfolio 3</h3>
+              <h3>Leapverse</h3>
               <p>Here is a description of the portfolio</p>
               <a href="#" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
@@ -1274,20 +1306,20 @@
       <div id="stats" amp-fx="parallax" data-parallax-factor="1.1" data-margin-start="10%" data-margin-end="80%">
         <div class="captions">
           <span>Currently, I've done at least</span>
-          <span>Until now, I'm experienced in</span>
+          <span>Until now, I've been involved in</span>
           <span>So far, I've worked with</span>
         </div>
         <div class="stats">
           <div class="stat">
-            <p>10</p>
+            <p>25</p>
             <span>Projects</span>
           </div>
           <div class="stat">
-            <p>10</p>
+            <p>25</p>
             <span>Tech Stack</span>
           </div>
           <div class="stat">
-            <p>10</p>
+            <p>2</p>
             <span>Clients</span>
           </div>
         </div>
@@ -1295,39 +1327,60 @@
       <!-- <amp-img class="image-bg" amp-fx="parallax" data-parallax-factor="1.15" width="618" height="583" layout="responsive" src="https://images.unsplash.com/photo-1527683040093-3a2b80ed1592?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3493d310a725643c1aa1cd201065d31c&auto=format&fit=crop&w=1130&q=80"></amp-img> -->
       <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor="1.15" width="108" height="162" layout="responsive" src="images/services/more/1.webp"></amp-img>
       <div class="content">
+        <div class="expertise">
+          <h2>Expertise</h2>
+          <ul>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development & design"></amp-img>
+              Mobile app development & design</li>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Website development & design"></amp-img>
+              Website development & design</li>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
+              Cross-platform app development</li>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Front-end development"></amp-img>
+              Frontend & backend development</li>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Front-end development"></amp-img>
+              Full-stack development</li>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Video & graphic design"></amp-img>
+              Video & graphic design</li>
+            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Video & graphic design"></amp-img>
+              SEO, AMP, WordPress</li>
+          </ul>
+        </div>
         <div class="skills">
           <h2>Skills</h2>
           <div class="tags">
-            <span class="tag">Mobile Development</span>
-            <span class="tag">Web Development</span>
-            <span class="tag">Frontend</span>
-            <span class="tag">Backend</span>
-            <span class="tag">Full-stack</span>
-            <span class="tag">Multi-platform</span>
-            <span class="tag">Android Studio</span>
-            <span class="tag">XCode</span>
-            <span class="tag">UI/UX Design</span>
-            <span class="tag">API Development</span>
-            <span class="tag">Graphic Design</span>
-            <span class="tag">Video Editing</span>
-          </div>
-        </div>
-        <div class="tech">
-          <h2>Tech Stack</h2>
-          <div class="tags">
-            <span class="tag">Flutter (Dart)</span>
-            <span class="tag">PHP</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">React.js</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Vue.js</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">Kotlin</span>
-            <span class="tag">MySQL/MariaDB</span>
-            <span class="tag">PostgreSQL</span>
+            <span class="tag" style="font-size: 100%">Mobile Development</span>
+            <span class="tag" style="font-size: 96%">Web Development</span>
+            <span class="tag" style="font-size: 113%">Flutter (Dart)</span>
+            <span class="tag" style="font-size: 103%">Frontend</span>
+            <span class="tag" style="font-size: 115%">Backend</span>
+            <span class="tag" style="font-size: 119%">Full-stack</span>
+            <span class="tag" style="font-size: 89%">Multi-platform</span>
+            <span class="tag" style="font-size: 117%">PHP</span>
+            <span class="tag" style="font-size: 102%">JavaScript</span>
+            <span class="tag" style="font-size: 97%">HTML, CSS</span>
+            <span class="tag" style="font-size: 110%">Node.js</span>
+            <span class="tag" style="font-size: 104%">React.js</span>
+            <span class="tag" style="font-size: 95%">Next.js</span>
+            <span class="tag" style="font-size: 109%">Vue.js</span>
+            <span class="tag" style="font-size: 112%">Angular</span>
+            <span class="tag" style="font-size: 87%">Kotlin</span>
+            <span class="tag" style="font-size: 94%">XCode</span>
+            <span class="tag" style="font-size: 118%">Android</span>
+            <span class="tag" style="font-size: 101%">iOS</span>
+            <span class="tag" style="font-size: 91%">UI/UX Design</span>
+            <span class="tag" style="font-size: 107%">API</span>
+            <span class="tag" style="font-size: 99%">Express</span>
+            <span class="tag" style="font-size: 85%">Database</span>
+            <span class="tag" style="font-size: 92%">Graphic Design</span>
+            <span class="tag" style="font-size: 88%">Video Editing</span>
           </div>
         </div>
       </div>
@@ -1344,7 +1397,7 @@
       </amp-position-observer>
       <div class="content">
         <h2>Experiences</h2>
-        <p>I have extensive work experience in several tech industries, specializing in web development and mobile app development.</p>
+        <p amp-fx="fade-in-scroll" data-repeat>I have extensive work experience in several tech industries, specializing in mobile and web application development.</p>
         <div class="experiences">
           <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
@@ -1405,60 +1458,66 @@
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/portfolio/1.webp"
+                  src="images/certificates/aca.webp"
                   layout="responsive"
                   width="450"
                   height="300"
+                  alt="Alibaba Cloud Associate"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/portfolio/2.webp"
+                  src="images/certificates/ci.webp"
                   layout="responsive"
                   width="450"
                   height="300"
+                  alt="Code Igniter - Karisma Academy"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/portfolio/3.webp"
+                  src="images/certificates/ic3.webp"
                   layout="responsive"
                   width="450"
                   height="300"
+                  alt="IC3 Digital Literacy"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/portfolio/1.webp"
+                  src="images/certificates/odoo1.webp"
                   layout="responsive"
                   width="450"
                   height="300"
+                  alt="Odoo Functional"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/portfolio/2.webp"
+                  src="images/certificates/odoo2.webp"
                   layout="responsive"
                   width="450"
                   height="300"
+                  alt="Odoo Functional Exam"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/portfolio/3.webp"
+                  src="images/certificates/s1.webp"
                   layout="responsive"
                   width="450"
                   height="300"
+                  alt="Bachelor Degree in Information System"
                 ></amp-img>
               </div>
             </div>
