@@ -1051,6 +1051,9 @@
       #skills .tags {
         gap: .75rem;
       }
+      #experiences {
+        background: none;
+      }
       #experiences .experience {
         height: 9rem;
       }
@@ -1225,7 +1228,7 @@
             <h3>Taufik Nur Rahmanda, S.Kom.</h3>
             <div class="experience" amp-fx="fade-in-scroll" data-repeat>
               <div class="years">
-                <p>8+</p>
+                <p class="counter">8+</p>
                 <span>Years</span>
               </div>
               <p>of professional experience as a web & mobile app developer</p>
@@ -1320,10 +1323,6 @@
     </section>
     
     <section id="skills">
-      <amp-position-observer
-        on="enter:highlightSkills.start"
-        layout="nodisplay">
-      </amp-position-observer>
       <div id="stats" amp-fx="parallax" data-parallax-factor="1.1" data-margin-start="10%" data-margin-end="80%">
         <div class="captions">
           <span>Currently, I've done at least</span>
@@ -1332,21 +1331,24 @@
         </div>
         <div class="stats">
           <div class="stat">
-            <p>25</p>
+            <p class="counter">25</p>
             <span>Projects</span>
           </div>
           <div class="stat">
-            <p>25</p>
+            <p class="counter">25</p>
             <span>Tech Stack</span>
           </div>
           <div class="stat">
-            <p>2</p>
+            <p class="counter">2</p>
             <span>Clients</span>
           </div>
         </div>
       </div>
-      <!-- <amp-img class="image-bg" amp-fx="parallax" data-parallax-factor="1.15" width="618" height="583" layout="responsive" src="https://images.unsplash.com/photo-1527683040093-3a2b80ed1592?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3493d310a725643c1aa1cd201065d31c&auto=format&fit=crop&w=1130&q=80"></amp-img> -->
       <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor="1.15" width="108" height="162" layout="responsive" src="images/services/more/1.webp"></amp-img>
+      <amp-position-observer
+        on="enter:highlightSkills.start"
+        layout="nodisplay">
+      </amp-position-observer>
       <div class="content">
         <div class="expertise">
           <h2>Expertise</h2>
@@ -1618,14 +1620,6 @@
       </amp-position-observer>
       <div class="content">
         <h2 class="sr-only">Services</h2>
-        <!-- <ul>
-          <li>Mobile Application Development (iOS & Android)</li>
-          <li>Web Application Development</li>
-          <li>Full-Stack Development</li>
-          <li>API Development & Integration</li>
-          <li>Technical Consultation</li>
-          <li>Software Architecture Design</li>
-        </ul> -->
         <div class="services">
           <div class="app" amp-fx="fade-in fly-in-bottom" data-duration="1000ms">
             <amp-img
@@ -1789,6 +1783,7 @@
   </amp-animation>
 
   <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
 
   <script>
     let link = document.querySelector(".link");
@@ -1817,6 +1812,38 @@
     link.addEventListener("mouseleave", () => {
       hoverTL.reverse();
     });
+
+    // Counter animation
+    function initCounter(el = '.counter') {
+      document.querySelectorAll(el).forEach((c) => {
+        window.counterUp.default(c, {
+          duration: 2000,
+          delay: 16,
+        })
+      })
+    }
+
+    // Init counter on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initCounter('#about .counter');
+    })
+
+    // Init counter based on element visibility
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          switch(entry.target.id) {
+            case 'stats':
+              initCounter('#stats .counter');
+              break;
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    // Observe sections for counter animations
+    document.querySelectorAll('#stats').forEach(section => observer.observe(section));
 
     // Set initial horizontal scroll position to 0
     window.scrollTo({
