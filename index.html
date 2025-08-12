@@ -7,15 +7,14 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
 
+  <!-- AMP components -->
   <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
   <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-
   <script async custom-element="amp-inline-gallery" src="https://cdn.ampproject.org/v0/amp-inline-gallery-0.1.js"></script>
   <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
   <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
-
   <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
   <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 
@@ -31,40 +30,33 @@
   <meta name="theme-color" content="#673AB7">
   <meta name="color-scheme" content="dark light">
   
-  <!-- Security -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  
   <!-- Performance -->
   <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit|ie-comp|ie-stand">
 
-  <!-- TODO Open Graph -->
-  <!-- <meta property="og:locale" content="en_US">
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Taufik Nur Rahmanda - Portfolio">
   <meta property="og:description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
-  <meta property="og:url" content="https://taufiknr.com">
-  <meta property="og:image" content="https://taufiknr.com/images/photo.webp">
+  <meta property="og:url" content="https://txufiknr.github.io/">
+  <meta property="og:image" content="https://txufiknr.github.io//images/photo.webp">
   <meta property="og:image:alt" content="Taufik Nur Rahmanda's photo">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="1080">
-  <meta property="og:site_name" content="Taufik Nur Rahmanda"> -->
+  <meta property="og:site_name" content="Taufik Nur Rahmanda">
 
-  <!-- TODO Twitter Card -->
-  <!-- <meta name="twitter:url" content="https://taufiknr.com"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:url" content="https://txufiknr.github.io/"/>
   <meta name="twitter:title" content="Taufik Nur Rahmanda - Portfolio"/>
   <meta name="twitter:description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications."/>
-  <meta name="twitter:image" content="https://taufiknr.com/images/photo.webp"/>
+  <meta name="twitter:image" content="https://txufiknr.github.io//images/photo.webp"/>
   <meta name="twitter:image:alt" content="Taufik Nur Rahmanda's photo"/>
   <meta name="twitter:site" content="@txufiknr">
   <meta name="twitter:creator" content="@txufiknr">
-  <meta name="twitter:card" content="summary"> -->
+  <meta name="twitter:card" content="summary">
 
-  <!-- <base href="https://taufiknr.com"> -->
+  <!-- <base href="https://txufiknr.github.io/"> -->
 
   <!-- TODO Favicons -->
   <!-- <link href="favicon.png" rel="icon">
@@ -74,9 +66,8 @@
 
   <!-- Pre-connects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+  
   <!-- Pre-loads -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Muli&display=swap" as="style" fetchpriority="high">
   <link rel="preload" href="images/photo.webp" as="image" fetchpriority="high">
@@ -169,7 +160,8 @@
       --accent-light-color: #3e088b;
       --accent-dark-color: #19003c;
       --background-color: #f5f6fa;
-      --max-content-width: 1200px;
+      --content-max-width: 1200px;
+      --content-padding: .5rem;
       --button-gradient: linear-gradient(135deg, var(--button-light-color), var(--button-dark-color));
       --button-gradient-blue: linear-gradient(135deg, var(--button-light-color-blue), var(--button-dark-color-blue));
       --card-gradient: linear-gradient(135deg, var(--accent-light-color), var(--accent-dark-color));
@@ -213,7 +205,7 @@
 
     /* Sections */
     section {
-      padding: 1rem;
+      padding: var(--content-padding);
       background: var(--background-color);
     }
 
@@ -222,7 +214,7 @@
     }
 
     section .content {
-      max-width: var(--max-content-width);
+      max-width: var(--content-max-width);
       margin: 5rem 0;
       padding: 0 1rem;
     }
@@ -275,8 +267,9 @@
 
     .portfolio {
       display: flex;
-      justify-content: center;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 2rem;
       margin: 2rem 0;
     }
@@ -284,7 +277,7 @@
       background-color: rgba(255, 255, 255, 0.15);
       border-radius: 1.5rem;
       padding: 1rem;
-      width: 100%;
+      width: 90%;
       transition: all .3s ease-in-out;
     }
     .portfolio .card:hover {
@@ -314,8 +307,11 @@
     .portfolio .card:hover a {
       padding-right: 25px;
     }
+    .portfolio .card h3 {
+      margin-bottom: .5rem;
+    }
     .portfolio .card p {
-      margin-bottom: 1rem !important;
+      margin: 0 0 1rem;
       font-size: .95rem;
       line-height: 1.5rem;
       text-overflow: ellipsis;
@@ -375,7 +371,7 @@
     header {
       background: var(--primary-color) url('images/hero.webp') no-repeat center center/cover;
       color: #fff;
-      padding: 3rem 1rem 10rem;
+      padding: 3rem var(--content-padding) 10rem;
       position: relative;
       margin-bottom: -6rem;
       z-index: 101;
@@ -404,19 +400,83 @@
     header h1 {
       font-size: 3rem;
       line-height: 3.5rem;
+      background: linear-gradient(90deg, #8f41ff, #e58cfe);
+      background-size: 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     header h3 {
       margin: 1rem 0 2rem;
+      font-size: 1.15rem;
     }
-    header .header-photo {
+    header .photo {
       width: 700px;
       min-width: 700px;
       float: right;
       margin-right: -200px;
       margin-top: -300px;
     }
-    header .header-photo amp-img {
+    header .photo amp-img {
       border-radius: 50%;
+    }
+    header .decoration {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      opacity: .3;
+      mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, .75));
+    }
+    header .box {
+      border-radius: 25%;
+      background: #fff;
+      position: absolute;
+    }
+    header .box:nth-child(1) {
+      width: 9vmin;
+      height: 9vmin;
+      left: 20%;
+      top: 70%;
+      opacity: .15;
+    }
+    header .box:nth-child(2) {
+      width: 18vmin;
+      height: 18vmin;
+      left: 35%;
+      top: 50%;
+      opacity: .125;
+    }
+    header .box:nth-child(3) {
+      width: 27vmin;
+      height: 27vmin;
+      left: 60%;
+      top: 80%;
+      opacity: .1;
+    }
+
+    header .link {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+    header .link span,
+    header .link amp-img {
+      position: relative;
+    }
+    header .link amp-img {
+      margin-left: 0.25rem;
+    }
+    header .link .color {
+      width: 2em;
+      height: 2em;
+      border-radius: 2em;
+      background-color: var(--accent-color);
+      position: absolute;
+      top: 50%;
+      transform: translatey(-50%);
+      left: -0.65em;
     }
 
     /* Footer */
@@ -478,7 +538,7 @@
 
     /* Components */
     .container {
-      max-width: var(--max-content-width);
+      max-width: var(--content-max-width);
       margin: 0 auto;
     }
 
@@ -508,16 +568,25 @@
     .btn.blue:hover {
       background: var(--button-light-color-blue);
     }
+    .mobile {
+      display: block;
+    }
+    .desktop {
+      display: none;
+    }
 
     /* About */
+    #about {
+      background: linear-gradient(0deg, var(--accent-light-color), #fff 50%);
+    }
     #about h2 {
       border-bottom: 1px solid var(--accent-color);
       padding-bottom: 0.5rem;
     }
-    #about p {
+    /* #about p {
       font-size: 1.1rem;
       margin: 2rem 0;
-    }
+    } */
     #about .content,
     #about .content > * {
       position: relative;
@@ -525,7 +594,7 @@
     #about .content .text-bg {
       position: absolute;
       right: 0;
-      top: 50%;
+      top: 20%;
       font-size: 15rem;
       color: var(--primary-color);
       opacity: .1;
@@ -540,10 +609,28 @@
       gap: 1rem;
     }
     #about .experience p {
+      font-size: 1.1rem;
       margin: 0;
     }
     #about .experience > * {
       flex-grow: 1;
+    }
+    #about .laptop {
+      margin: 3rem -1rem;
+      position: relative;
+    }
+    #about .laptop .about-text {
+      position: absolute;
+      left: 20%;
+      right: 20%;
+      top: 0;
+      bottom: 0;
+      mask-image: linear-gradient(to bottom, transparent 5%, black 10% 90%, transparent 95%);
+      mask-mode: alpha;
+    }
+    #about .laptop .about-text p {
+      color: #fff;
+      margin: 0;
     }
     #about .years p {
       font-size: 30vw;
@@ -761,8 +848,9 @@
     .social-links {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       gap: 1rem;
-      justify-content: end;
+      margin: 1.5rem 0 2rem;
     }
 
     .social-links .social-icon {
@@ -771,17 +859,16 @@
       align-items: center;
       border-radius: 50%;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: all 0.2s ease-out;
       text-decoration: none;
+      /* box-shadow: 0 0 50px rgba(255, 255, 255, .3); */
+      background: #fff;
     }
-    
-    .social-links .social-icon {
-      width: 40px;
-      height: 40px;
+    .social-links .social-icon amp-img {
+      scale: 1.05;
     }
-
     .social-links .social-icon:hover {
-      transform: translateY(-3px);
+      transform: translateY(-8px);
     }
 
     /* Sidebar */
@@ -797,23 +884,28 @@
       flex-direction: column;
       gap: .25rem;
     }
-    #sidebar nav a {
+    #sidebar nav > a {
       color: white;
       text-decoration: none;
       padding: 0.5rem;
       border-radius: 0.5rem;
       transition: background-color 0.3s;
+      font-size: 1.25rem;
     }
-    #sidebar nav a:hover {
+    #sidebar nav > a:hover {
       background: rgba(114, 0, 255, 0.2);
     }
-    #sidebar nav hr {
+    #sidebar nav > hr {
       width: calc(100% - 1rem);
       opacity: .5;
     }
-    #sidebar nav p {
+    #sidebar .social-links {
+      gap: .75rem;
       padding: 0 .5rem;
       margin: 2rem 0 0;
+    }
+    #sidebar nav p {
+      padding: 0 .5rem;
     }
     #sidebar nav p small {
       font-size: .7rem;
@@ -825,6 +917,7 @@
       right: 1rem;
       background: none;
       border: none;
+      outline: none;
     }
 
     /* Particles Animation */
@@ -873,7 +966,7 @@
       position: sticky;
       top: 0;
       z-index: 102;
-      padding: .5rem 1rem;
+      padding: .5rem var(--content-padding);
       white-space: nowrap;
     }
 
@@ -952,32 +1045,7 @@
       display: none;
     }
 
-    .link {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-      position: relative;
-    }
-    .link span,
-    .link amp-img {
-      position: relative;
-    }
-    .link amp-img {
-      margin-left: 0.25rem;
-    }
-    .link .color {
-      width: 2em;
-      height: 2em;
-      border-radius: 2em;
-      background-color: var(--accent-color);
-      position: absolute;
-      top: 50%;
-      transform: translatey(-50%);
-      left: -0.65em;
-    }
-
-    @media screen and (max-width: 880px) {
+    @media screen and (max-width: 900px) {
       header .container {
         clear: right;
       }
@@ -985,8 +1053,21 @@
 
     /* Tablet */
     @media screen and (min-width: 768px) {
+      :root {
+        --content-padding: 2rem;
+      }
+      .mobile {
+        display: none;
+      }
+      .desktop {
+        display: block;
+      }
       #about .experience {
         max-width: 600px;
+      }
+      #about .laptop .about-text {
+        top: 20%;
+        mask-image: none;
       }
       #about .years p {
         font-size: 7rem;
@@ -1003,25 +1084,31 @@
       }
       .portfolio {
         flex-direction: row;
+        flex-wrap: wrap;
+        text-align: left;
         /* perspective: 1000px; */
       }
       .portfolio .card {
-        width: 33.333%;
+        width: calc((100% - 4rem) / 3);
+        display: flex;
+        flex-direction: column;
+      }
+      .portfolio .card .card-content {
+        padding: 0 .5rem;
+        min-height: 3rem;
       }
       .portfolio .card p {
         min-height: 3rem;
       }
-      /* .portfolio .card:nth-child(1):hover {
-        transform: rotateY(14deg) scale(1.1);
-        transform-origin: right center;
+      .portfolio .card:nth-child(1) {
+        width: calc(60% - 2rem);
       }
-      .portfolio .card:nth-child(2):hover {
-        transform: scale(1.1);
+      .portfolio .card:nth-child(2) {
+        width: 40%;
       }
-      .portfolio .card:nth-child(3):hover {
-        transform: rotateY(-14deg) scale(1.1);
-        transform-origin: left center;
-      } */
+      .portfolio .card:nth-child(1) > amp-img {
+        max-width: calc((100% + 1rem) * 4 / 6);
+      }
       #stats .stat p {
         font-size: 3rem;
       }
@@ -1080,15 +1167,15 @@
         border-radius: 2rem;
       }
       #certifications .carousel {
-        max-width: var(--max-content-width);
+        max-width: var(--content-max-width);
         margin: 0 auto;
       }
       #certifications .carousel,
       #skills a {
         margin-bottom: 3rem;
       }
-      .nav-tab {
-        display: inline !important;
+      .nav-tab:nth-child(n + 4) {
+        display: inline;
       }
       .nav-tabs .container {
         display: block;
@@ -1111,6 +1198,14 @@
       }
     }
 
+    /* Dark theme */
+    /* @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: #222222;
+        --text-color: #ffffff;
+      }
+    } */
+
     /* Screen readers */
     .sr-only {
       position: absolute;
@@ -1124,16 +1219,6 @@
       border: 0;
     }
   </style>
-
-  <!-- Critical Scripts that should load early -->
-  <script>
-    // Inline critical JavaScript for immediate execution
-    document.documentElement.classList.remove('no-js');
-    // Add dark mode detection
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark-mode');
-    }
-  </script>
 </head>
 
 <body>
@@ -1149,7 +1234,15 @@
       </amp-position-observer>
     </div>
 
-		<div class="particles-css">
+    <amp-img amp-fx="parallax" data-parallax-factor="0.5" class="decoration" src="images/grid.png" width="257" height="174" layout="fixed" alt="Hero decoration"></amp-img>
+
+    <div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="1.1"></div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="0.8"></div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="0.9"></div>
+    </div>
+
+    <div class="particles-css">
 			<div class="particle"></div>
 			<div class="particle"></div>
 			<div class="particle"></div>
@@ -1159,12 +1252,11 @@
 			<div class="particle"></div>
 			<div class="particle"></div>
 		</div>
-    <div class="header-photo">
+    <div class="photo">
       <amp-img src="images/photo.webp"
         width="700"
         height="700"
         layout="responsive"
-        fetchpriority="high"
         alt="Taufik Nur Rahmanda">
       </amp-img>
     </div>
@@ -1204,6 +1296,20 @@
       <!-- <hr> -->
       <!-- <a href="#">Privacy Policy</a> -->
       <!-- <a href="#">Terms of Use</a> -->
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <amp-img src="images/social/linkedin.svg" width="30" height="30" alt="LinkedIn" layout="fixed"></amp-img>
+        </a>
+        <a href="https://x.com/txufiknr" target="_blank" class="social-icon" aria-label="X">
+          <amp-img src="images/social/x.svg" width="30" height="30" alt="X" layout="fixed"></amp-img>
+        </a>
+        <a href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
+          <amp-img src="images/social/github.svg" width="30" height="30" alt="GitHub" layout="fixed"></amp-img>
+        </a>
+        <a href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
+          <amp-img src="images/social/whatsapp.svg" width="30" height="30" alt="WhatsApp" layout="fixed"></amp-img>
+        </a>
+      </div>
       <p><small>&copy; 2025 Taufik Nur Rahmanda. All rights reserved.</small></p>
     </nav>
     <button on="tap:sidebar.close" aria-label="Close menu">
@@ -1225,34 +1331,45 @@
         <div class="about-content">
           <h2>About Me</h2>
           <div>
-            <h3>Taufik Nur Rahmanda, S.Kom.</h3>
-            <div class="experience" amp-fx="fade-in-scroll" data-repeat>
+            <h3 class="sr-only">Taufik Nur Rahmanda, S.Kom.</h3>
+            <div class="experience">
               <div class="years">
                 <p class="counter">8+</p>
                 <span>Years</span>
               </div>
               <p>of professional experience as a web & mobile app developer</p>
             </div>
-            <p amp-fx="fade-in-scroll" data-repeat>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+            <!-- <p amp-fx="fade-in-scroll" data-repeat>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p> -->
           </div>
         </div>
-        <div class="social-links">
-          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <div class="laptop">
+          <amp-img src="images/laptop.png" width="990" height="576" alt="Laptop" layout="responsive" class="desktop"></amp-img>
+          <amp-img src="images/mobile.png" width="3024" height="4789" alt="Mobile" layout="responsive" class="mobile"></amp-img>
+          <div class="about-text" amp-fx="fade-in-scroll" data-repeat>
+            <p amp-fx="parallax" data-parallax-factor=".8" data-margin-start="10%" data-margin-end="80%">A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+          </div>
+        </div>
+        <!-- <div class="social-links">
+          <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" class="social-icon" aria-label="LinkedIn">
             <amp-img src="images/social/linkedin.svg" width="40" height="40" alt="LinkedIn" layout="fixed"></amp-img>
           </a>
-          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-margin-start="10%" href="https://x.com/txufiknr" target="_blank" class="social-icon" aria-label="X">
+          <a href="https://x.com/txufiknr" target="_blank" class="social-icon" aria-label="X">
             <amp-img src="images/social/x.svg" width="40" height="40" alt="X" layout="fixed"></amp-img>
           </a>
-          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-margin-start="20%" href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
+          <a href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
             <amp-img src="images/social/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
           </a>
-          <a amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-margin-start="30%" href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
+          <a href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
             <amp-img src="images/social/whatsapp.svg" width="40" height="40" alt="WhatsApp" layout="fixed"></amp-img>
           </a>
-        </div>
+        </div> -->
       </div>
     </section>
 
+    <!-- <div id="laptop">
+      <amp-img src="images/laptop.png" width="990" height="576" alt="Laptop" layout="responsive"></amp-img>
+    </div> -->
+    
     <section id="portfolio">
       <amp-position-observer
         on="enter:highlightPortfolio.start"
@@ -1292,29 +1409,49 @@
               </a>
             </div>
           </div>
+          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <div class="card-content">
+              <h3>Leapverse</h3>
+              <p>Here is a description of the portfolio</p>
+              <a href="#" target="_blank">View Project
+                <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
+              </a>
+            </div>
+          </div>
+          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <div class="card-content">
+              <h3>Leapverse</h3>
+              <p>Here is a description of the portfolio</p>
+              <a href="#" target="_blank">View Project
+                <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
+              </a>
+            </div>
+          </div>
         </div>
         <p>And <strong>10</strong> more ...</p>
         <div class="vendors">
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="react" src="images/vendors/react-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="vue" src="images/vendors/vue-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="angular" src="images/vendors/angular-icon-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nextjs" src="images/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="android" src="images/vendors/android-icon-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="apple" src="images/vendors/apple-svgrepo-com.svg" style="filter: invert(.8);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="firebase" src="images/vendors/firebase-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="kotlin" src="images/vendors/kotlin-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="flutter" src="images/vendors/flutter-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="dart" src="images/vendors/dart-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="php" src="images/vendors/php-alt-svgrepo-com.svg" style="filter: invert();"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="codeigniter" src="images/vendors/codeigniter-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="mysql" src="images/vendors/mysql-svgrepo-com.svg" style="filter: grayscale(1) brightness(3);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="bootstrap" src="images/vendors/bootstrap-svgrepo-com.svg" style="filter: grayscale(1) brightness(1.5);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="css" src="images/vendors/css-3-official-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="es6" src="images/vendors/es6-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="typescript" src="images/vendors/typescript-icon-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="nodejs" src="images/vendors/nodejs-icon-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="python" src="images/vendors/python-svgrepo-com.svg"></amp-img>
-          <amp-img width="64" height="64" layout="fixed" loading="lazy" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="react" src="images/vendors/react-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="vue" src="images/vendors/vue-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="angular" src="images/vendors/angular-icon-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="nextjs" src="images/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="android" src="images/vendors/android-icon-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="apple" src="images/vendors/apple-svgrepo-com.svg" style="filter: invert(.8);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="firebase" src="images/vendors/firebase-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="kotlin" src="images/vendors/kotlin-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="flutter" src="images/vendors/flutter-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="dart" src="images/vendors/dart-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="php" src="images/vendors/php-alt-svgrepo-com.svg" style="filter: invert();"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="codeigniter" src="images/vendors/codeigniter-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="mysql" src="images/vendors/mysql-svgrepo-com.svg" style="filter: grayscale(1) brightness(3);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="bootstrap" src="images/vendors/bootstrap-svgrepo-com.svg" style="filter: grayscale(1) brightness(1.5);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="css" src="images/vendors/css-3-official-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="es6" src="images/vendors/es6-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="typescript" src="images/vendors/typescript-icon-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="nodejs" src="images/vendors/nodejs-icon-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="python" src="images/vendors/python-svgrepo-com.svg"></amp-img>
+          <amp-img width="64" height="64" layout="fixed" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
         </div>
   
         <button class="btn">View all portfolio</button>
@@ -1402,8 +1539,12 @@
             <span class="tag" style="font-size: 107%">API</span>
             <span class="tag" style="font-size: 99%">Express</span>
             <span class="tag" style="font-size: 85%">Database</span>
+            <span class="tag" style="font-size: 84%">Chrome Extension</span>
             <span class="tag" style="font-size: 92%">Graphic Design</span>
             <span class="tag" style="font-size: 88%">Video Editing</span>
+            <span class="tag" style="font-size: 97%">AMP</span>
+            <span class="tag" style="font-size: 91%">WordPress</span>
+            <span class="tag" style="font-size: 90%">SEO</span>
           </div>
         </div>
       </div>
@@ -1473,7 +1614,6 @@
             height="2"
             snap-align="center"
             loop
-            autoplay
             visible-count="2"
             advance-count="1"
             lightbox
@@ -1565,8 +1705,7 @@
           loop
           autoplay
           controls
-          dots
-          snap>
+          dots>
           <div class="testimonial-card">
             <amp-img
               src="https://i.pravatar.cc/100"
@@ -1660,6 +1799,20 @@
       <div>
         <h3>Taufik Nur Rahmanda</h3>
         <p>A passionate software engineer specializing in mobile and web application development. With extensive experience in creating robust and scalable solutions, I strive to deliver high-quality software that makes a difference.</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <amp-img src="images/social/linkedin.svg" width="40" height="40" alt="LinkedIn" layout="fixed"></amp-img>
+        </a>
+        <a href="https://x.com/txufiknr" target="_blank" class="social-icon" aria-label="X">
+          <amp-img src="images/social/x.svg" width="40" height="40" alt="X" layout="fixed"></amp-img>
+        </a>
+        <a href="https://github.com/txufiknr" target="_blank" class="social-icon" aria-label="GitHub">
+          <amp-img src="images/social/github.svg" width="40" height="40" alt="GitHub" layout="fixed"></amp-img>
+        </a>
+        <a href="https://wa.me/6285954479380" target="_blank" class="social-icon" aria-label="WhatsApp">
+          <amp-img src="images/social/whatsapp.svg" width="40" height="40" alt="WhatsApp" layout="fixed"></amp-img>
+        </a>
       </div>
       <div class="content">
         <div>
@@ -1781,78 +1934,5 @@
       }
     </script>
   </amp-animation>
-
-  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
-
-  <script>
-    let link = document.querySelector(".link");
-    let pink = document.querySelector(".color");
-
-    let hoverTL = gsap.timeline();
-    hoverTL.pause();
-
-    // from, to, fromTo Tweens
-    hoverTL.to(pink, {
-      width: "calc(100% + 1.3em)",
-      ease: "Elastic.easeOut(0.25)",
-      duration: 0.4
-    });
-    hoverTL.to(pink, {
-      width: "2em",
-      left: "calc(100% - 1.45em)",
-      ease: "Elastic.easeOut(0.4)",
-      duration: 0.6
-    });
-
-    link.addEventListener("mouseenter", () => {
-      hoverTL.play();
-    });
-
-    link.addEventListener("mouseleave", () => {
-      hoverTL.reverse();
-    });
-
-    // Counter animation
-    function initCounter(el = '.counter') {
-      document.querySelectorAll(el).forEach((c) => {
-        window.counterUp.default(c, {
-          duration: 2000,
-          delay: 16,
-        })
-      })
-    }
-
-    // Init counter on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      initCounter('#about .counter');
-    })
-
-    // Init counter based on element visibility
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          switch(entry.target.id) {
-            case 'stats':
-              initCounter('#stats .counter');
-              break;
-          }
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    // Observe sections for counter animations
-    document.querySelectorAll('#stats').forEach(section => observer.observe(section));
-
-    // Set initial horizontal scroll position to 0
-    window.scrollTo({
-      left: 0,
-      top: window.scrollY,
-      behavior: 'instant'
-    });
-  </script>
-
 </body>
-
 </html>
