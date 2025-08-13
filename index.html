@@ -18,6 +18,7 @@
   <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
   <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
   <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
 
   <!-- Site Info -->
   <meta name="description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
@@ -289,7 +290,8 @@
     .portfolio .card > amp-img {
       border-radius: 1rem;
     }
-    .portfolio .card a {
+    .portfolio .card a,
+    .portfolio .card span {
       color: #fff;
       text-transform: uppercase;
       font-weight: 600;
@@ -793,10 +795,45 @@
       transform: rotate(180deg);
     }
     #skills .expertise amp-accordion section .i-amphtml-accordion-content {
-      padding: 1.5rem;
-      padding-top: 0;
+      padding: 0 1.25rem 1rem;
       white-space: normal;
       font-size: 1rem;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content > amp-img {
+      float: right;
+      margin-left: 1rem;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content p,
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content ul {
+      margin: 0 0 .75rem;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content ul li {
+      margin-bottom: .15rem;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content ul li a {
+      color: var(--accent-color);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content ul li a:hover {
+      color: var(--accent-light-color);
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content .btn {
+      margin-top: .5rem;
+      position: relative;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content .btn amp-img {
+      position: absolute;
+      right: 1.5rem;
+      top: calc(50% - 8px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    #skills .expertise amp-accordion section:hover .i-amphtml-accordion-content .btn {
+      padding-right: calc(1.5rem + 25px);
+    }
+    #skills .expertise amp-accordion section:hover .i-amphtml-accordion-content .btn amp-img {
+      opacity: 1;
     }
 
     /* Tags */
@@ -1144,14 +1181,15 @@
         box-shadow: var(--card-shadow);
       }
       #skills .expertise amp-accordion section {
-        background: none;
-        border-radius: 0;
+        /* background: none; */
+        /* border-radius: 0; */
+        background: rgba(62, 8, 139, .04);
         box-shadow: none;
       }
-      #skills .expertise amp-accordion section .i-amphtml-accordion-header,
+      /* #skills .expertise amp-accordion section .i-amphtml-accordion-header,
       #skills .expertise amp-accordion section .i-amphtml-accordion-content {
         padding: .25rem 0;
-      }
+      } */
       #skills .tags {
         gap: .75rem;
       }
@@ -1203,8 +1241,9 @@
         max-width: var(--content-max-width);
         margin: 0 auto;
       }
-      #certifications .carousel,
-      #skills a {
+      /* #certifications .carousel,
+      #skills a { */
+      #certifications .carousel {
         margin-bottom: 3rem;
       }
       .nav-tab:nth-child(n + 4) {
@@ -1404,16 +1443,17 @@
       </amp-position-observer>
       <div class="content">
         <h2>Portfolios</h2>
-        <p>Here are some of the projects I'm most proud of.</p>
+        <p>Here are some of my personal projects I'm most proud of.</p>
         <div class="portfolio">
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
             <amp-img src="images/portfolio/cushier-pos.webp" width="192" height="108" layout="responsive" alt="Cushier"></amp-img>
             <div class="card-content">
               <h3>Cushier</h3>
               <p>Cushier POS is a powerful, intuitive mobile point-of-sale solution designed specifically for small to medium retail businesses. Whether you run a boutique, grocery store, electronics shop, or any retail establishment. Built with Flutter for blazing performance, Cushier combines enterprise-grade features with an interface so simple your staff will need minimal training. Say goodbye to clunky legacy systems and hello to modern retail management.</p>
-              <a href="#" target="_blank">View Project
+              <!-- <a href="https://play.google.com/store/apps/details?id=com.cushier.pos" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
-              </a>
+              </a> -->
+              <span>Coming Soon</span>
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
@@ -1421,7 +1461,7 @@
             <div class="card-content">
               <h3>Dhikr Counter</h3>
               <p>Dhikr Counter is an intuitive, user-friendly mobile application designed to help you keep track of your dhikr (remembrance of Allah) digitally. Whether you are reciting prayers, invoking blessings, or seeking spiritual connection, this app is the perfect tool to assist you in counting and displaying dhikr text as you go.</p>
-              <a href="#" target="_blank">View Project
+              <a href="https://play.google.com/store/apps/details?id=com.tarra.tasbih" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
               </a>
             </div>
@@ -1431,7 +1471,7 @@
             <div class="card-content">
               <h3>Zakat Calculator</h3>
               <p>Zakat Calculator is an easy and user-friendly mobile app designed to simplify the process of calculating, tracking, and understanding Zakat obligations for every Muslim. With an intuitive interface and a range of thoughtful features, this application empowers users to calculate their Zakat, track their annual obligations, and access relevant Islamic guidance—all in one place.</p>
-              <a href="#" target="_blank">View Project
+              <a href="https://play.google.com/store/apps/details?id=com.tarra.zakat" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
               </a>
             </div>
@@ -1441,7 +1481,7 @@
             <div class="card-content">
               <h3>Qibla Locator</h3>
               <p>Qibla Locator is the perfect tool for Muslims around the world to easily and accurately determine the direction of the Qibla, the sacred direction towards the Kaaba in Mecca, Saudi Arabia, for daily prayers (Salah). Whether you’re at home, traveling, or in a new location, this app ensures you can always align yourself with the correct direction for prayer.</p>
-              <a href="#" target="_blank">View Project
+              <a href="https://play.google.com/store/apps/details?id=com.tarra.qibla" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
               </a>
             </div>
@@ -1451,13 +1491,13 @@
             <div class="card-content">
               <h3>Qur'an Recite</h3>
               <p>Qur'an Recite is an all-in-one mobile app designed to offer a comprehensive and customizable experience for users to engage with the Holy Qur'an. Whether you're looking to read, listen, or learn, Qur'an Recite is the perfect companion for your spiritual journey. Packed with powerful features, this app provides a seamless way to interact with the Qur'an on your mobile device, offering translations, transliterations, and a variety of other tools to enhance your understanding and connection to the sacred text.</p>
-              <a href="#" target="_blank">View Project
+              <a href="https://play.google.com/store/apps/details?id=com.tarra.alquran" target="_blank">View Project
                 <amp-img src="images/icons/arrow-right.svg" width="12" height="12" layout="fixed" alt="View Project" style="filter: invert()"></amp-img>
               </a>
             </div>
           </div>
         </div>
-        <p>And <strong>10</strong> more ...</p>
+        <p>And <strong>10</strong> more work projects ...</p>
         <div class="vendors">
           <amp-img width="64" height="64" layout="fixed" alt="react" src="images/vendors/react-svgrepo-com.svg"></amp-img>
           <amp-img width="64" height="64" layout="fixed" alt="vue" src="images/vendors/vue-svgrepo-com.svg"></amp-img>
@@ -1523,7 +1563,28 @@
                   <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
                 </h4>
               </header>
-              <p>I develop mobile application for Android & iOS using Flutter (Dart) and Kotlin, providing a visually appealing and user-friendly interface, light-weight, scalable, robust, secure, and meets your business needs.</p>
+              <div>
+                <amp-img
+                  src="images/projects/leapverse.png"
+                  width="100"
+                  height="100"
+                  layout="fixed"
+                  alt="Leapverse mobile app">
+                </amp-img>
+                <p>I develop mobile application that user-friendly, light-weight, scalable, robust, secure, and meets your business needs. With Flutter (Dart) and Kotlin, I can create both Android and iOS app and ship them seamlessly to Google Play and App Store, and even web.</p>
+                <p>See completed projects:</p>
+                <ul>
+                  <!-- <li><a href="https://play.google.com/store/apps/details?id=com.tarra.tasbih" target="_blank">Dhikr Counter on Play Store</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.tarra.qibla" target="_blank">Qibla Locator on Play Store</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.tarra.alquran" target="_blank">Qur'an Recite on Play Store</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.tarra.zakat" target="_blank">Zakat Calculator on Play Store</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.tarra.adhan" target="_blank">Adhan Notifier on Play Store</a></li> -->
+                  <li><a href="https://play.google.com/store/apps/details?id=com.leap.leapverse&hl=en" target="_blank">Leapverse on Play Store</a></li>
+                  <li><a href="https://apps.apple.com/id/app/leapverse/id1610709042" target="_blank">Leapverse on App Store</a></li>
+                  <li><a href="https://leapverse.leapsurabaya.sch.id/" target="_blank">Leapverse on Web</a></li>
+                  <li><a href="https://apps.apple.com/id/app/foom-now/id6470125134?platform=iphone" target="_blank">FOOM Now on App Store</a></li>
+                </ul>
+              </div>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <header>
@@ -1533,9 +1594,25 @@
                   <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
                 </h4>
               </header>
-              <p>I develop responsive website with mobile-first philosophy, including web application, company profile, front page, and admin dashboard that fast, secure, and SEO optimized for your business needs.</p>
+              <div>
+                <amp-img
+                  src="images/projects/nurosoft.jpg"
+                  width="100"
+                  height="100"
+                  layout="fixed"
+                  alt="Nurosoft.id front page">
+                </amp-img>
+                <p>I develop website, including web application, company profile, front page, and admin dashboard that fast, responsive, and secure. Whether it's a simple website or a complex application, I can help you create a website that meets your needs. I can develop website using PHP, JavaScript, AMP or even pure HTML/CSS.</p>
+                <p>See completed projects:</p>
+                <ul>
+                  <!-- <li><a href="index.php" target="_blank">My Second Personal Website</a></li> -->
+                  <li><a href="https://nurosoft.id/" target="_blank">Nurosoft.id Company Website</a></li>
+                  <li><a href="https://flits.id/" target="_blank">Flits.id Company Website</a></li>
+                  <li><a href="https://app.niaga-logistics.com/" target="_blank">Niaga Logistics Customer Portal</a></li>
+                </ul>
+              </div>
             </section>
-            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <!-- <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <header>
                 <h4>
                   <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
@@ -1543,8 +1620,23 @@
                   <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
                 </h4>
               </header>
-              <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
-            </section>
+              <div>
+                <amp-img
+                  src="images/projects/leapverse.png"
+                  width="100"
+                  height="100"
+                  layout="fixed"
+                  alt="Leapverse mobile app">
+                </amp-img>
+                <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
+                <p>See completed projects:</p>
+                <ul>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.leap.leapverse&hl=en" target="_blank">Leapverse on Play Store</a></li>
+                  <li><a href="https://apps.apple.com/id/app/leapverse/id1610709042" target="_blank">Leapverse on App Store</a></li>
+                  <li><a href="https://leapverse.leapsurabaya.sch.id/" target="_blank">Leapverse on Web</a></li>
+                </ul>
+              </div>
+            </section> -->
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <header>
                 <h4>
@@ -1553,7 +1645,19 @@
                   <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
                 </h4>
               </header>
-              <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
+              <div>
+                <amp-img
+                  src="images/projects/flits.png"
+                  width="100"
+                  height="100"
+                  layout="fixed"
+                  alt="Flits.id Driver app">
+                </amp-img>
+                <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
+                <a class="btn" href="#" role="button">See example repo
+                  <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
+                </a>
+              </div>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <header>
@@ -1563,7 +1667,21 @@
                   <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
                 </h4>
               </header>
-              <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design.</p>
+              <div>
+                <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design.</p>
+                <amp-video
+                  controls
+                  width="16"
+                  height="9"
+                  layout="responsive"
+                  poster="videos/cushier.png">
+                  <source src="videos/cushier.webm" type="video/webm" />
+                  <source src="videos/cushier.mp4" type="video/mp4" />
+                  <div fallback>
+                    <p>This browser does not support the video element.</p>
+                  </div>
+                </amp-video>
+              </div>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <header>
@@ -1573,7 +1691,21 @@
                   <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
                 </h4>
               </header>
-              <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is secure, easy to maintain, and optimized for search engine.</p>
+              <div>
+                <amp-img
+                  src="images/icons/service-app.svg"
+                  width="60"
+                  height="60"
+                  layout="fixed"
+                  alt="Service app">
+                </amp-img>
+                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is secure, easy to maintain, and optimized for search engine.</p>
+                <p>See completed projects:</p>
+                <ul>
+                  <li><a href="https://nurosoft.id/blog" target="_blank">Nurosoft Blog</a></li>
+                  <li><a href="https://pagespeed.web.dev/analysis/https-nurosoft-id-blog/b0dcg5lhuj?form_factor=mobile" target="_blank">Nurosoft Blog's Page Speed Score</a></li>
+                </ul>
+              </div>
             </section>
           </amp-accordion>
         </div>
@@ -1589,27 +1721,38 @@
             <span class="tag" style="font-size: 117%">Flutter (Dart)</span>
             <span class="tag" style="font-size: 113%">PHP</span>
             <span class="tag" style="font-size: 102%">JavaScript</span>
-            <span class="tag" style="font-size: 97%">HTML, CSS</span>
+            <span class="tag" style="font-size: 97%">TypeScript</span>
+            <span class="tag" style="font-size: 95%">ECMAScript</span>
+            <span class="tag" style="font-size: 98%">HTML</span>
+            <span class="tag" style="font-size: 101%">CSS</span>
             <span class="tag" style="font-size: 110%">Node.js</span>
-            <span class="tag" style="font-size: 95%">React.js</span>
+            <span class="tag" style="font-size: 95%">React</span>
             <span class="tag" style="font-size: 104%">Next.js</span>
             <span class="tag" style="font-size: 109%">Vue.js</span>
             <span class="tag" style="font-size: 103%">Angular</span>
-            <span class="tag" style="font-size: 87%">Kotlin</span>
+            <span class="tag" style="font-size: 92%">Kotlin</span>
             <span class="tag" style="font-size: 94%">XCode</span>
-            <span class="tag" style="font-size: 118%">Android</span>
-            <span class="tag" style="font-size: 101%">iOS</span>
+            <span class="tag" style="font-size: 104%">Android Studio</span>
+            <span class="tag" style="font-size: 120%">Android</span>
+            <span class="tag" style="font-size: 103%">iOS</span>
             <span class="tag" style="font-size: 91%">UI/UX Design</span>
             <span class="tag" style="font-size: 112%">Website</span>
-            <span class="tag" style="font-size: 85%">Database</span>
+            <span class="tag" style="font-size: 92%">Firebase</span>
+            <span class="tag" style="font-size: 99%">Database</span>
             <span class="tag" style="font-size: 107%">API</span>
             <span class="tag" style="font-size: 99%">Express</span>
+            <span class="tag" style="font-size: 109%">PostgreSQL</span>
+            <span class="tag" style="font-size: 98%">MariaDB</span>
+            <span class="tag" style="font-size: 92%">MySQL</span>
             <span class="tag" style="font-size: 84%">Chrome Extension</span>
             <span class="tag" style="font-size: 92%">Graphic Design</span>
             <span class="tag" style="font-size: 88%">Video Editing</span>
             <span class="tag" style="font-size: 97%">AMP</span>
             <span class="tag" style="font-size: 91%">WordPress</span>
             <span class="tag" style="font-size: 95%">SEO</span>
+            <span class="tag" style="font-size: 86%">WebGL</span>
+            <span class="tag" style="font-size: 88%">Unity</span>
+            <span class="tag" style="font-size: 90%">Cocos Studio</span>
           </div>
         </div>
       </div>
