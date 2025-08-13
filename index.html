@@ -276,13 +276,14 @@
       margin: 2rem 0;
     }
     .portfolio .card {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 1.5rem;
       padding: 1rem;
       width: 90%;
       transition: all .3s ease-in-out;
     }
     .portfolio .card:hover {
+      background-color: rgba(255, 255, 255, 0.15);
       box-shadow: var(--light-shadow);
     }
     .portfolio .card > amp-img {
@@ -373,7 +374,7 @@
     }
 
     /* Header */
-    header {
+    body > header {
       background: var(--primary-color) url('images/hero.webp') no-repeat center center/cover;
       color: #fff;
       padding: 3rem var(--content-padding) 10rem;
@@ -382,7 +383,7 @@
       z-index: 101;
     }
 
-    header:before {
+    body > header:before {
       content: '';
       position: absolute;
       top: 0;
@@ -396,13 +397,13 @@
       /* backdrop-filter: blur(8px); */
     }
 
-    header .container {
+    body > header .container {
       position: relative;
       z-index: 1;
       padding: 0 1rem;
     }
 
-    header h1 {
+    body > header h1 {
       font-size: 3rem;
       line-height: 3.5rem;
       background: linear-gradient(90deg, #8f41ff, #e58cfe);
@@ -411,47 +412,47 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    header h3 {
+    body > header h3 {
       margin: 1rem 0 2rem;
       font-size: 1.15rem;
     }
-    header .photo {
+    body > header .photo {
       width: 700px;
       min-width: 700px;
       float: right;
       margin-right: -200px;
       margin-top: -300px;
     }
-    header .photo amp-img {
+    body > header .photo amp-img {
       border-radius: 50%;
     }
-    header .decoration {
+    body > header .decoration {
       position: absolute;
       right: 0;
       top: 50%;
       opacity: .3;
       mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, .75));
     }
-    header .box {
+    body > header .box {
       border-radius: 25%;
       background: #fff;
       position: absolute;
     }
-    header .box:nth-child(1) {
+    body > header .box:nth-child(1) {
       width: 9vmin;
       height: 9vmin;
       left: 20%;
       top: 70%;
       opacity: .15;
     }
-    header .box:nth-child(2) {
+    body > header .box:nth-child(2) {
       width: 18vmin;
       height: 18vmin;
       left: 35%;
       top: 50%;
       opacity: .125;
     }
-    header .box:nth-child(3) {
+    body > header .box:nth-child(3) {
       width: 27vmin;
       height: 27vmin;
       left: 60%;
@@ -459,21 +460,21 @@
       opacity: .1;
     }
 
-    header .link {
+    body > header .link {
       font-size: 1.25rem;
       font-weight: bold;
       color: white;
       text-decoration: none;
       position: relative;
     }
-    header .link span,
-    header .link amp-img {
+    body > header .link span,
+    body > header .link amp-img {
       position: relative;
     }
-    header .link amp-img {
+    body > header .link amp-img {
       margin-left: 0.25rem;
     }
-    header .link .color {
+    body > header .link .color {
       width: 2em;
       height: 2em;
       border-radius: 2em;
@@ -757,6 +758,9 @@
     }
 
     /* Accordion */
+    #skills .expertise amp-accordion {
+      text-align: start;
+    }
     #skills .expertise amp-accordion section {
       font-size: 1.1rem;
       font-weight: 500;
@@ -773,14 +777,15 @@
       background: none;
       border: 0;
       padding: 1rem;
-      line-height: 30px;
     }
-    #skills .expertise amp-accordion section .i-amphtml-accordion-header amp-img:nth-child(1) {
-      margin-right: 4px;
-      transform: translateY(2px);
+    #skills .expertise amp-accordion section .i-amphtml-accordion-header h4 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
     }
     #skills .expertise amp-accordion section .i-amphtml-accordion-header .arrow {
-      margin-left: 4px;
+      margin-left: auto;
       transition: transform 0.3s ease;
       opacity: .5;
     }
@@ -1143,9 +1148,7 @@
         border-radius: 0;
         box-shadow: none;
       }
-      #skills .expertise amp-accordion section .i-amphtml-accordion-header {
-        padding: 0;
-      }
+      #skills .expertise amp-accordion section .i-amphtml-accordion-header,
       #skills .expertise amp-accordion section .i-amphtml-accordion-content {
         padding: .25rem 0;
       }
@@ -1358,7 +1361,7 @@
         </div>
         <div class="laptop">
           <amp-img
-            media="(max-width: 767px)"
+            media="(max-width: 767.5px)"
             src="images/mobile.webp"
             width="3024"
             height="4789"
@@ -1404,7 +1407,7 @@
         <p>Here are some of the projects I'm most proud of.</p>
         <div class="portfolio">
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/cushier.jpg" width="192" height="108" layout="responsive" alt="Cushier"></amp-img>
+            <amp-img src="images/portfolio/cushier-pos.webp" width="192" height="108" layout="responsive" alt="Cushier"></amp-img>
             <div class="card-content">
               <h3>Cushier</h3>
               <p>Cushier POS is a powerful, intuitive mobile point-of-sale solution designed specifically for small to medium retail businesses. Whether you run a boutique, grocery store, electronics shop, or any retail establishment. Built with Flutter for blazing performance, Cushier combines enterprise-grade features with an interface so simple your staff will need minimal training. Say goodbye to clunky legacy systems and hello to modern retail management.</p>
@@ -1414,7 +1417,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/dhikr.jpg" width="192" height="108" layout="responsive" alt="Dhikr Counter"></amp-img>
+            <amp-img src="images/portfolio/dhikr-counter.webp" width="192" height="108" layout="responsive" alt="Dhikr Counter"></amp-img>
             <div class="card-content">
               <h3>Dhikr Counter</h3>
               <p>Dhikr Counter is an intuitive, user-friendly mobile application designed to help you keep track of your dhikr (remembrance of Allah) digitally. Whether you are reciting prayers, invoking blessings, or seeking spiritual connection, this app is the perfect tool to assist you in counting and displaying dhikr text as you go.</p>
@@ -1424,7 +1427,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/zakat.jpg" width="192" height="108" layout="responsive" alt="Zakat Calculator"></amp-img>
+            <amp-img src="images/portfolio/zakat-calculator.webp" width="192" height="108" layout="responsive" alt="Zakat Calculator"></amp-img>
             <div class="card-content">
               <h3>Zakat Calculator</h3>
               <p>Zakat Calculator is an easy and user-friendly mobile app designed to simplify the process of calculating, tracking, and understanding Zakat obligations for every Muslim. With an intuitive interface and a range of thoughtful features, this application empowers users to calculate their Zakat, track their annual obligations, and access relevant Islamic guidance—all in one place.</p>
@@ -1434,7 +1437,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/qibla.jpg" width="192" height="108" layout="responsive" alt="Qibla Locator"></amp-img>
+            <amp-img src="images/portfolio/qibla-locator.webp" width="192" height="108" layout="responsive" alt="Qibla Locator"></amp-img>
             <div class="card-content">
               <h3>Qibla Locator</h3>
               <p>Qibla Locator is the perfect tool for Muslims around the world to easily and accurately determine the direction of the Qibla, the sacred direction towards the Kaaba in Mecca, Saudi Arabia, for daily prayers (Salah). Whether you’re at home, traveling, or in a new location, this app ensures you can always align yourself with the correct direction for prayer.</p>
@@ -1444,7 +1447,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/quran.jpg" width="192" height="108" layout="responsive" alt="Qur'an Recite"></amp-img>
+            <amp-img src="images/portfolio/quran-recite.webp" width="192" height="108" layout="responsive" alt="Qur'an Recite"></amp-img>
             <div class="card-content">
               <h3>Qur'an Recite</h3>
               <p>Qur'an Recite is an all-in-one mobile app designed to offer a comprehensive and customizable experience for users to engage with the Holy Qur'an. Whether you're looking to read, listen, or learn, Qur'an Recite is the perfect companion for your spiritual journey. Packed with powerful features, this app provides a seamless way to interact with the Qur'an on your mobile device, offering translations, transliterations, and a variety of other tools to enhance your understanding and connection to the sacred text.</p>
@@ -1513,51 +1516,63 @@
           <h2>Expertise</h2>
           <amp-accordion animate expand-single-section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms" expanded>
-              <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development"></amp-img>
-                Mobile app development
-                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-              </h4>
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development"></amp-img>
+                  Mobile app development
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
               <p>I develop mobile application for Android & iOS using Flutter (Dart) and Kotlin, providing a visually appealing and user-friendly interface, light-weight, scalable, robust, secure, and meets your business needs.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Responsive web development"></amp-img>
-                Responsive web development
-                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-              </h4>
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Responsive web development"></amp-img>
+                  Responsive web development
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
               <p>I develop responsive website with mobile-first philosophy, including web application, company profile, front page, and admin dashboard that fast, secure, and SEO optimized for your business needs.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
-                Cross-platform app development
-                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-              </h4>
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
+                  Cross-platform app development
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
               <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Backend & API development"></amp-img>
-                Backend & API development
-                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-              </h4>
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Backend & API development"></amp-img>
+                  Backend & API development
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
               <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="UI/UX, video & graphic design"></amp-img>
-                UI/UX, video & graphic design
-                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-              </h4>
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="UI/UX, video & graphic design"></amp-img>
+                  UI/UX, video & graphic design
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
               <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="SEO, AMP, WordPress"></amp-img>
-                SEO, AMP, WordPress
-                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-              </h4>
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="SEO, AMP, WordPress"></amp-img>
+                  SEO, AMP, WordPress
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
               <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is secure, easy to maintain, and optimized for search engine.</p>
             </section>
           </amp-accordion>
