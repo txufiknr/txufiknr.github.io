@@ -9,6 +9,7 @@
 
   <!-- AMP components -->
   <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+  <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
   <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
@@ -39,24 +40,24 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Taufik Nur Rahmanda - Portfolio">
   <meta property="og:description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications.">
-  <meta property="og:url" content="https://txufiknr.github.io/">
-  <meta property="og:image" content="https://txufiknr.github.io//images/photo.webp">
+  <meta property="og:url" content="https://txufiknr.github.io">
+  <meta property="og:image" content="https://txufiknr.github.io/images/taufik-nur-rahmanda.webp">
   <meta property="og:image:alt" content="Taufik Nur Rahmanda's photo">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="1080">
   <meta property="og:site_name" content="Taufik Nur Rahmanda">
 
   <!-- Twitter Card -->
-  <meta name="twitter:url" content="https://txufiknr.github.io/"/>
+  <meta name="twitter:url" content="https://txufiknr.github.io"/>
   <meta name="twitter:title" content="Taufik Nur Rahmanda - Portfolio"/>
   <meta name="twitter:description" content="A passionate software developer with 8 years of professional experience in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both front-end and back-end development, with a focus on building high-performance, robust, and scalable applications."/>
-  <meta name="twitter:image" content="https://txufiknr.github.io//images/photo.webp"/>
+  <meta name="twitter:image" content="https://txufiknr.github.io/images/taufik-nur-rahmanda.webp"/>
   <meta name="twitter:image:alt" content="Taufik Nur Rahmanda's photo"/>
   <meta name="twitter:site" content="@txufiknr">
   <meta name="twitter:creator" content="@txufiknr">
   <meta name="twitter:card" content="summary">
 
-  <!-- <base href="https://txufiknr.github.io/"> -->
+  <!-- <base href="https://txufiknr.github.io"> -->
 
   <!-- TODO Favicons -->
   <!-- <link href="favicon.png" rel="icon">
@@ -70,7 +71,8 @@
   
   <!-- Pre-loads -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Muli&display=swap" as="style" fetchpriority="high">
-  <link rel="preload" href="images/photo.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="images/taufik-nur-rahmanda.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="images/hero.webp" as="image" fetchpriority="high">
   
   <!-- AMP boilerplate -->
   <style amp-boilerplate>
@@ -206,11 +208,11 @@
     /* Sections */
     section {
       padding: var(--content-padding);
-      background: var(--background-color);
+      background-color: var(--background-color);
     }
 
     section:nth-child(odd) {
-      background: #fff;
+      background-color: #fff;
     }
 
     section .content {
@@ -388,7 +390,7 @@
         rgba(0, 0, 0, 0.7),
         var(--accent-dark-color)
       );
-      backdrop-filter: blur(8px);
+      /* backdrop-filter: blur(8px); */
     }
 
     header .container {
@@ -568,12 +570,6 @@
     .btn.blue:hover {
       background: var(--button-light-color-blue);
     }
-    .mobile {
-      display: block;
-    }
-    .desktop {
-      display: none;
-    }
 
     /* About */
     #about {
@@ -743,7 +739,7 @@
       left: 0;
       right: 0;
       z-index: -1;
-      mask-image: linear-gradient(to top, transparent, black);
+      mask-image: linear-gradient(to top, transparent, black, black);
       mask-mode: alpha;
     }
     #skills h2 {
@@ -756,26 +752,38 @@
       gap: 2rem;
       margin-top: 0;
     }
-    #skills .expertise ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #skills .expertise ul li {
-      margin: 0 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
+
+    /* Accordion */
+    #skills .expertise amp-accordion section {
       font-size: 1.1rem;
       font-weight: 500;
       color: var(--accent-dark-color);
       white-space: nowrap;
-      background-color: #fff;
+      background: #fff;
       border-radius: 1.5rem;
-      padding: 1rem;
       box-shadow: var(--card-shadow);
+      margin: 0 0 1rem;
+      padding: 0;
+      transition: transform 2s ease-out;
     }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-header {
+      background: none;
+      border: 0;
+      padding: 1rem;
+      line-height: 30px;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-header amp-img {
+      margin-right: 4px;
+      transform: translateY(2px);
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content {
+      padding: 1.5rem;
+      padding-top: 0;
+      white-space: normal;
+      font-size: 1rem;
+    }
+
+    /* Tags */
     #skills .tags {
       display: flex;
       flex-wrap: wrap;
@@ -1056,12 +1064,6 @@
       :root {
         --content-padding: 2rem;
       }
-      .mobile {
-        display: none;
-      }
-      .desktop {
-        display: block;
-      }
       #about .experience {
         max-width: 600px;
       }
@@ -1129,11 +1131,16 @@
         padding: 2rem;
         box-shadow: var(--card-shadow);
       }
-      #skills .expertise ul li {
+      #skills .expertise amp-accordion section {
         background: none;
         border-radius: 0;
-        padding: 0;
         box-shadow: none;
+      }
+      #skills .expertise amp-accordion section .i-amphtml-accordion-header {
+        padding: 0;
+      }
+      #skills .expertise amp-accordion section .i-amphtml-accordion-content {
+        padding: .25rem 0;
       }
       #skills .tags {
         gap: .75rem;
@@ -1234,10 +1241,10 @@
       </amp-position-observer>
     </div>
 
-    <amp-img amp-fx="parallax" data-parallax-factor="0.5" class="decoration" src="images/grid.png" width="257" height="174" layout="fixed" alt="Hero decoration"></amp-img>
+    <amp-img amp-fx="parallax" data-parallax-factor="0.5" class="decoration" src="images/grid.webp" width="257" height="174" layout="fixed" alt="Hero decoration"></amp-img>
 
     <div>
-      <div class="box" amp-fx="parallax" data-parallax-factor="1.1"></div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="0.7"></div>
       <div class="box" amp-fx="parallax" data-parallax-factor="0.8"></div>
       <div class="box" amp-fx="parallax" data-parallax-factor="0.9"></div>
     </div>
@@ -1253,7 +1260,7 @@
 			<div class="particle"></div>
 		</div>
     <div class="photo">
-      <amp-img src="images/photo.webp"
+      <amp-img src="images/taufik-nur-rahmanda.webp"
         width="700"
         height="700"
         layout="responsive"
@@ -1318,9 +1325,6 @@
   </amp-sidebar>
 
   <main>
-  </nav>
-
-  <main>
     <section id="about">
       <amp-position-observer
         on="enter:highlightAbout.start"
@@ -1337,16 +1341,30 @@
                 <p class="counter">8+</p>
                 <span>Years</span>
               </div>
-              <p>of professional experience as a web & mobile app developer</p>
+              <p>of work experience as a web & mobile app developer</p>
             </div>
             <!-- <p amp-fx="fade-in-scroll" data-repeat>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p> -->
           </div>
         </div>
         <div class="laptop">
-          <amp-img src="images/laptop.png" width="990" height="576" alt="Laptop" layout="responsive" class="desktop"></amp-img>
-          <amp-img src="images/mobile.png" width="3024" height="4789" alt="Mobile" layout="responsive" class="mobile"></amp-img>
+          <amp-img
+            media="(max-width: 767px)"
+            src="images/mobile.webp"
+            width="3024"
+            height="4789"
+            layout="responsive"
+            alt="Mobile screen">
+          </amp-img>
+          <amp-img
+            media="(min-width: 768px)"
+            src="images/laptop.webp"
+            width="990"
+            height="576"
+            layout="responsive"
+            alt="Laptop screen">
+          </amp-img>
           <div class="about-text" amp-fx="fade-in-scroll" data-repeat>
-            <p amp-fx="parallax" data-parallax-factor=".8" data-margin-start="10%" data-margin-end="80%">A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+            <p amp-fx="parallax" data-parallax-factor=".8" data-margin-start="10%" data-margin-end="80%">A passionate software developer with <strong>extensive professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
           </div>
         </div>
         <!-- <div class="social-links">
@@ -1366,10 +1384,6 @@
       </div>
     </section>
 
-    <!-- <div id="laptop">
-      <amp-img src="images/laptop.png" width="990" height="576" alt="Laptop" layout="responsive"></amp-img>
-    </div> -->
-    
     <section id="portfolio">
       <amp-position-observer
         on="enter:highlightPortfolio.start"
@@ -1453,9 +1467,7 @@
           <amp-img width="64" height="64" layout="fixed" alt="python" src="images/vendors/python-svgrepo-com.svg"></amp-img>
           <amp-img width="64" height="64" layout="fixed" alt="unity" src="images/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);"></amp-img>
         </div>
-  
         <button class="btn">View all portfolio</button>
-
       </div>
     </section>
     
@@ -1481,7 +1493,7 @@
           </div>
         </div>
       </div>
-      <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor="1.15" width="108" height="162" layout="responsive" src="images/services/more/1.webp"></amp-img>
+      <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor="1.15" width="1024" height="1536" layout="responsive" src="images/circuit-board-background.webp"></amp-img>
       <amp-position-observer
         on="enter:highlightSkills.start"
         layout="nodisplay">
@@ -1489,62 +1501,84 @@
       <div class="content">
         <div class="expertise">
           <h2>Expertise</h2>
-          <ul>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development & design"></amp-img>
-              Mobile app development & design</li>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Website development & design"></amp-img>
-              Website development & design</li>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
-              Cross-platform app development</li>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Front-end development"></amp-img>
-              Frontend & backend development</li>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Front-end development"></amp-img>
-              Full-stack development</li>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Video & graphic design"></amp-img>
-              Video & graphic design</li>
-            <li amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Video & graphic design"></amp-img>
-              SEO, AMP, WordPress</li>
-          </ul>
+          <amp-accordion animate expand-single-section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <h4>
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development"></amp-img>
+                Mobile app development
+              </h4>
+              <p>I develop mobile application for Android & iOS, providing a visually appealing and user-friendly interface, and scalable, secure, and robust application that meets your business needs.</p>
+            </section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <h4>
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Web development & optimization"></amp-img>
+                Web development & optimization
+              </h4>
+              <p>I develop responsive website with mobile-first philosophy, including company profile, web-based application, WordPress, AMP-compliant and SEO optimized for your business needs.</p>
+            </section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <h4>
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
+                Cross-platform app development
+              </h4>
+              <p>I develop cross-platform app using Flutter and Kotlin, providing a single codebase that runs on multiple platforms, including iOS, Android, and web.</p>
+            </section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <h4>
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Backend & API development"></amp-img>
+                Backend & API development
+              </h4>
+              <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
+            </section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <h4>
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="UI/UX, video & graphic design"></amp-img>
+                UI/UX, video & graphic design
+              </h4>
+              <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your app, and professional-looking promotional video and graphic design.</p>
+            </section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <h4>
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="SEO, AMP, WordPress"></amp-img>
+                SEO, AMP, WordPress
+              </h4>
+              <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is secure, easy to maintain, and optimized for search engine.</p>
+            </section>
+          </amp-accordion>
         </div>
         <div class="skills">
           <h2>Skills</h2>
           <div class="tags">
-            <span class="tag" style="font-size: 100%">Mobile Development</span>
+            <span class="tag" style="font-size: 100%">Mobile App Development</span>
             <span class="tag" style="font-size: 96%">Web Development</span>
-            <span class="tag" style="font-size: 113%">Flutter (Dart)</span>
-            <span class="tag" style="font-size: 103%">Frontend</span>
-            <span class="tag" style="font-size: 115%">Backend</span>
-            <span class="tag" style="font-size: 119%">Full-stack</span>
+            <span class="tag" style="font-size: 119%">Frontend</span>
+            <span class="tag" style="font-size: 95%">Backend</span>
+            <span class="tag" style="font-size: 103%">Full-stack</span>
             <span class="tag" style="font-size: 89%">Multi-platform</span>
-            <span class="tag" style="font-size: 117%">PHP</span>
+            <span class="tag" style="font-size: 117%">Flutter (Dart)</span>
+            <span class="tag" style="font-size: 113%">PHP</span>
             <span class="tag" style="font-size: 102%">JavaScript</span>
             <span class="tag" style="font-size: 97%">HTML, CSS</span>
             <span class="tag" style="font-size: 110%">Node.js</span>
-            <span class="tag" style="font-size: 104%">React.js</span>
-            <span class="tag" style="font-size: 95%">Next.js</span>
+            <span class="tag" style="font-size: 95%">React.js</span>
+            <span class="tag" style="font-size: 104%">Next.js</span>
             <span class="tag" style="font-size: 109%">Vue.js</span>
-            <span class="tag" style="font-size: 112%">Angular</span>
+            <span class="tag" style="font-size: 103%">Angular</span>
             <span class="tag" style="font-size: 87%">Kotlin</span>
             <span class="tag" style="font-size: 94%">XCode</span>
             <span class="tag" style="font-size: 118%">Android</span>
             <span class="tag" style="font-size: 101%">iOS</span>
             <span class="tag" style="font-size: 91%">UI/UX Design</span>
+            <span class="tag" style="font-size: 112%">Website</span>
+            <span class="tag" style="font-size: 85%">Database</span>
             <span class="tag" style="font-size: 107%">API</span>
             <span class="tag" style="font-size: 99%">Express</span>
-            <span class="tag" style="font-size: 85%">Database</span>
             <span class="tag" style="font-size: 84%">Chrome Extension</span>
             <span class="tag" style="font-size: 92%">Graphic Design</span>
             <span class="tag" style="font-size: 88%">Video Editing</span>
             <span class="tag" style="font-size: 97%">AMP</span>
             <span class="tag" style="font-size: 91%">WordPress</span>
-            <span class="tag" style="font-size: 90%">SEO</span>
+            <span class="tag" style="font-size: 95%">SEO</span>
           </div>
         </div>
       </div>
@@ -1565,7 +1599,7 @@
         <div class="experiences">
           <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
-            <amp-img src="images/experiences/nurosoft.webp" width="125" height="20" layout="responsive" alt="Nurosoft Consulting"></amp-img>
+            <amp-img src="images/experiences/nurosoft-consulting-logo.webp" width="125" height="20" layout="responsive" alt="Nurosoft Consulting"></amp-img>
             <div>
               <h3>Senior Software Engineer</h3>
               <h4>Nurosoft Consulting</h4>
@@ -1575,7 +1609,7 @@
           </div>
           <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
-            <amp-img src="images/experiences/jtech.webp" width="125" height="60" layout="responsive" alt="J-Tech Solusindo"></amp-img>
+            <amp-img src="images/experiences/jtech-solusindo-logo.webp" width="125" height="60" layout="responsive" alt="J-Tech Solusindo"></amp-img>
             <div>
               <h3>Programmer</h3>
               <h4>J-Tech Solusindo</h4>
@@ -1621,66 +1655,66 @@
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/certificates/aca.webp"
+                  src="images/certificates/alibaba-cloud-associate-cloud-computing-certification.webp"
                   layout="responsive"
                   width="450"
                   height="300"
-                  alt="Alibaba Cloud Associate"
+                  alt="Alibaba Cloud Associate Cloud Computing Certification"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/certificates/ci.webp"
+                  src="images/certificates/code-igniter-karisma-academy-certificate-of-completion.webp"
                   layout="responsive"
                   width="450"
                   height="300"
-                  alt="Code Igniter - Karisma Academy"
+                  alt="Code Igniter - Karisma Academy Certificate of Completion"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/certificates/ic3.webp"
+                  src="images/certificates/ic3-digital-literacy-certification.webp"
                   layout="responsive"
                   width="450"
                   height="300"
-                  alt="IC3 Digital Literacy"
+                  alt="IC3 Digital Literacy Certification"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/certificates/odoo1.webp"
+                  src="images/certificates/odoo-functional-certificate-of-achievement.webp"
                   layout="responsive"
                   width="450"
                   height="300"
-                  alt="Odoo Functional"
+                  alt="Odoo Functional Certificate of Achievement"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/certificates/odoo2.webp"
+                  src="images/certificates/odoo-final-exam-functional-level-1-certificate-of-achievement.webp"
                   layout="responsive"
                   width="450"
                   height="300"
-                  alt="Odoo Functional Exam"
+                  alt="Odoo Final Exam Functional Level 1 Certificate of Achievement"
                 ></amp-img>
               </div>
             </div>
             <div class="item">
               <div class="card">
                 <amp-img
-                  src="images/certificates/s1.webp"
+                  src="images/certificates/bachelor-degree-of-information-system-universitas-brawijaya.webp"
                   layout="responsive"
                   width="450"
                   height="300"
-                  alt="Bachelor Degree in Information System"
+                  alt="Bachelor Degree of Information System - Universitas Brawijaya"
                 ></amp-img>
               </div>
             </div>
@@ -1751,6 +1785,31 @@
         </amp-carousel>
       </div>
     </section>
+    
+    <!-- <section id="faq">
+      <div class="content">
+        <amp-accordion animate expand-single-section>
+          <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <h4>
+              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development & design"></amp-img>
+              Mobile app development & design
+            </h4>
+            <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio,
+              odio arcu in eu wisi. </p>
+          </section>
+          <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <h4>Section 2</h4>
+            <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio,
+              odio arcu in eu wisi. </p>
+          </section>
+          <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <h4>Section 3</h4>
+            <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio,
+              odio arcu in eu wisi. </p>
+          </section>
+        </amp-accordion>
+      </div>
+    </section> -->
 
     <section id="services">
       <amp-position-observer
@@ -1791,7 +1850,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -1934,5 +1992,30 @@
       }
     </script>
   </amp-animation>
+
+  <amp-animation id="clockAnim" layout="nodisplay">
+    <script type="application/json">
+      {
+        "duration": "3s",
+        "fill": "both",
+        "direction": "alternate",
+        "animations": [
+          {
+            "selector": "#about .laptop",
+            "keyframes": [
+              {"transform": "rotate(0deg)"},
+              {"transform": "rotate(45deg)"}
+            ]
+          }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <amp-position-observer
+    intersection-ratios="1"
+    on="scroll:clockAnim.seekTo(percent=event.percent)"
+    layout="nodisplay">
+  </amp-position-observer>
 </body>
 </html>
