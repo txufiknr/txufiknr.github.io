@@ -285,6 +285,9 @@
     .portfolio .card:hover {
       box-shadow: var(--light-shadow);
     }
+    .portfolio .card > amp-img {
+      border-radius: 1rem;
+    }
     .portfolio .card a {
       color: #fff;
       text-transform: uppercase;
@@ -772,9 +775,17 @@
       padding: 1rem;
       line-height: 30px;
     }
-    #skills .expertise amp-accordion section .i-amphtml-accordion-header amp-img {
+    #skills .expertise amp-accordion section .i-amphtml-accordion-header amp-img:nth-child(1) {
       margin-right: 4px;
       transform: translateY(2px);
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-header .arrow {
+      margin-left: 4px;
+      transition: transform 0.3s ease;
+      opacity: .5;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-header[aria-expanded="true"] .arrow {
+      transform: rotate(180deg);
     }
     #skills .expertise amp-accordion section .i-amphtml-accordion-content {
       padding: 1.5rem;
@@ -1067,10 +1078,6 @@
       #about .experience {
         max-width: 600px;
       }
-      #about .laptop .about-text {
-        top: 20%;
-        mask-image: none;
-      }
       #about .years p {
         font-size: 7rem;
         line-height: 7rem;
@@ -1167,6 +1174,22 @@
       section .content {
         margin: 3rem auto;
       }
+      #about .laptop .about-text {
+        padding-top: 10%;
+      }
+      #about .about-content {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+        clear: right;
+      }
+      #about .about-content > div {
+        flex-basis: 70%;
+      }
+      #about .about-content > h2 {
+        white-space: nowrap;
+        flex-basis: 30%;
+      }
       #certifications .item {
         padding: 1.5rem;
       }
@@ -1189,19 +1212,6 @@
       }
       .nav-tabs button {
         display: none;
-      }
-      .about-content {
-        display: flex;
-        gap: 4rem;
-        align-items: flex-start;
-        clear: right;
-      }
-      .about-content > div {
-        flex-basis: 70%;
-      }
-      .about-content > h2 {
-        white-space: nowrap;
-        flex-basis: 30%;
       }
     }
 
@@ -1394,7 +1404,7 @@
         <p>Here are some of the projects I'm most proud of.</p>
         <div class="portfolio">
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/1.webp" width="800" height="600" layout="responsive" alt="Portfolio 1"></amp-img>
+            <amp-img src="images/portfolio/cushier.png" width="192" height="108" layout="responsive" alt="Cushier"></amp-img>
             <div class="card-content">
               <h3>Cushier</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sit exercitationem praesentium, natus aut, accusamus neque reprehenderit molestias in iusto dolorum, aliquam architecto. Exercitationem modi ducimus, accusamus dignissimos excepturi aut.</p>
@@ -1404,7 +1414,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/2.webp" width="800" height="600" layout="responsive" alt="Portfolio 2"></amp-img>
+            <amp-img src="images/portfolio/cushier.png" width="192" height="108" layout="responsive" alt="Portfolio 2"></amp-img>
             <div class="card-content">
               <h3>FOOM</h3>
               <p>Here is a description of the portfolio</p>
@@ -1414,7 +1424,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <amp-img src="images/portfolio/cushier.png" width="192" height="108" layout="responsive" alt="Portfolio 3"></amp-img>
             <div class="card-content">
               <h3>Leapverse</h3>
               <p>Here is a description of the portfolio</p>
@@ -1424,7 +1434,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <amp-img src="images/portfolio/cushier.png" width="192" height="108" layout="responsive" alt="Portfolio 3"></amp-img>
             <div class="card-content">
               <h3>Leapverse</h3>
               <p>Here is a description of the portfolio</p>
@@ -1434,7 +1444,7 @@
             </div>
           </div>
           <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <amp-img src="images/portfolio/3.webp" width="800" height="600" layout="responsive" alt="Portfolio 3"></amp-img>
+            <amp-img src="images/portfolio/cushier.png" width="192" height="108" layout="responsive" alt="Portfolio 3"></amp-img>
             <div class="card-content">
               <h3>Leapverse</h3>
               <p>Here is a description of the portfolio</p>
@@ -1502,31 +1512,35 @@
         <div class="expertise">
           <h2>Expertise</h2>
           <amp-accordion animate expand-single-section>
-            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms" expanded>
               <h4>
                 <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development"></amp-img>
                 Mobile app development
+                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
               </h4>
-              <p>I develop mobile application for Android & iOS, providing a visually appealing and user-friendly interface, and scalable, secure, and robust application that meets your business needs.</p>
+              <p>I develop mobile application for Android & iOS using Flutter (Dart) and Kotlin, providing a visually appealing and user-friendly interface, light-weight, scalable, robust, secure, and meets your business needs.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <h4>
-                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Web development & optimization"></amp-img>
-                Web development & optimization
+                <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Responsive web development"></amp-img>
+                Responsive web development
+                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
               </h4>
-              <p>I develop responsive website with mobile-first philosophy, including company profile, web-based application, WordPress, AMP-compliant and SEO optimized for your business needs.</p>
+              <p>I develop responsive website with mobile-first philosophy, including web application, company profile, front page, and admin dashboard that fast, secure, and SEO optimized for your business needs.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <h4>
                 <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
                 Cross-platform app development
+                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
               </h4>
-              <p>I develop cross-platform app using Flutter and Kotlin, providing a single codebase that runs on multiple platforms, including iOS, Android, and web.</p>
+              <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <h4>
                 <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Backend & API development"></amp-img>
                 Backend & API development
+                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
               </h4>
               <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
             </section>
@@ -1534,13 +1548,15 @@
               <h4>
                 <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="UI/UX, video & graphic design"></amp-img>
                 UI/UX, video & graphic design
+                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
               </h4>
-              <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your app, and professional-looking promotional video and graphic design.</p>
+              <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design.</p>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
               <h4>
                 <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="SEO, AMP, WordPress"></amp-img>
                 SEO, AMP, WordPress
+                <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
               </h4>
               <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is secure, easy to maintain, and optimized for search engine.</p>
             </section>
