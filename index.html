@@ -502,6 +502,131 @@
       flex-direction: column;
     }
 
+    /* Text Animation */
+    .dropping-texts {
+      display: inline-block;
+      width: 180px;
+      line-height: 1;
+      font-size: 3rem;
+      height: 3rem;
+    }
+
+    .dropping-texts > div {
+      font-size: 0px;
+      opacity: 0;
+      margin-left: -30px;
+      position: absolute;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .dropping-texts > div:nth-child(1) {
+      animation: roll 5s linear infinite 0s;
+    }
+    .dropping-texts > div:nth-child(2) {
+      animation: roll 5s linear infinite 1s;
+    }
+    .dropping-texts > div:nth-child(3) {
+      animation: roll 5s linear infinite 2s;
+    }
+    .dropping-texts > div:nth-child(4) {
+      animation: roll2 5s linear infinite 3s;
+    }
+
+    @keyframes roll {
+      0% {
+        font-size:0px;
+        opacity:0;
+        margin-left:-30px;
+        margin-top:0px;
+        transform: rotate(-25deg);
+      }
+      3% {
+        opacity:1;
+        transform: rotate(0deg);
+      }
+      5% {
+        font-size:inherit;
+        opacity:1;
+        margin-left:0px;
+        margin-top:0px;
+      }
+      20% {
+        font-size:inherit;
+        opacity:1;
+        margin-left:0px;
+        margin-top:0px;
+        transform: rotate(0deg);
+      }
+      27% {
+        font-size:0px;
+        opacity:0.5;
+        margin-left:20px;
+        margin-top:100px;
+      }
+      100% {
+        font-size:0px;
+        opacity:0;
+        margin-left:-30px;
+        margin-top:0px;
+        transform: rotate(15deg);
+      }
+    }
+
+    @keyframes roll2 {
+      0% {
+        font-size:0px;
+        opacity:0;
+        margin-left:-30px;
+        margin-top:0px;
+        transform: rotate(-25deg);
+      }
+      3% {
+        opacity:1;
+        transform: rotate(0deg);
+      }
+      5% {
+        font-size:inherit;
+        opacity:1;
+        margin-left:0px;
+        margin-top:0px;
+      }
+      30% {
+        font-size:inherit;
+        opacity:1;
+        margin-left:0px;
+        margin-top:0px;
+        transform: rotate(0deg);
+      }
+      37% {
+        font-size:1500px;
+        opacity:0;
+        margin-left:-1000px;
+        margin-top:-800px;
+      }
+      100% {
+        font-size:0px;
+        opacity:0;
+        margin-left:-30px;
+        margin-top:0px;
+        transform: rotate(15deg);
+      }
+    }
+
+    /* @keyframes bg {
+      0% {background: #ff0075;}
+      3% {background: #0094ff;}
+      20% {background: #0094ff;}
+      23% {background: #b200ff;}
+      40% {background: #b200ff;}
+      43% {background: #8BC34A;}
+      60% {background: #8BC34A;}
+      63% {background: #F44336;}
+      80% {background: #F44336;}
+      83% {background: #F44336;}
+      100% {background: #F44336;}
+    } */
+
     /* Carousels */
     .testimonial-card {
       text-align: center;
@@ -604,11 +729,17 @@
       max-width: 100vw;
     }
     #about .experience {
-      font-weight: 600;
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
+    }
+    #about .experience > span {
+      line-height: 1.5rem;
+      text-align: right;
+      width: 25%;
+      min-width: 150px;
     }
     #about .experience p {
       font-size: 1.1rem;
@@ -634,12 +765,15 @@
       color: #fff;
       margin: 0;
     }
+    /*#about .years {
+      text-align: center;
+    }*/
     #about .years p {
       font-size: 30vw;
       line-height: 30vw;
     }
     #about .years span {
-      letter-spacing: 2.5vw;
+      letter-spacing: 1.5vw;
       font-size: min(1.5rem, max(1.1rem, 3vw));
     }
 
@@ -1405,7 +1539,14 @@
                 <p class="counter">8+</p>
                 <span>Years</span>
               </div>
-              <p>of work experience as a web & mobile app developer</p>
+              <!-- <p>of work experience as a web & mobile app developer</p> -->
+              <span>of professional work experience as a</span>
+              <div class="dropping-texts">
+                <div>Developer</div>
+                <div>Designer</div>
+                <div>Programmer</div>
+                <div>Software Engineer</div>
+              </div>
             </div>
             <!-- <p amp-fx="fade-in-scroll" data-repeat>A passionate software developer with <strong>8+ years of professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p> -->
           </div>
@@ -1577,7 +1718,7 @@
               </header>
               <div>
                 <amp-img
-                  src="images/projects/leapverse.png"
+                  src="images/projects/leapverse.webp"
                   width="150"
                   height="130"
                   layout="fixed"
@@ -1608,7 +1749,7 @@
               </header>
               <div>
                 <amp-img
-                  src="images/projects/nurosoft.jpg"
+                  src="images/projects/nurosoft.webp"
                   width="150"
                   height="144"
                   layout="fixed"
@@ -1646,12 +1787,19 @@
               </header>
               <div>
                 <amp-img
-                  src="images/projects/flits.jpg"
+                  src="images/icons/service-ui.svg"
+                  width="60"
+                  height="60"
+                  layout="fixed"
+                  alt="Service UI">
+                </amp-img>
+                <!-- <amp-img
+                  src="images/projects/flits.webp"
                   width="150"
                   height="150"
                   layout="fixed"
                   alt="Flits.id Driver app">
-                </amp-img>
+                </amp-img> -->
                 <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
                 <a class="btn" href="#" role="button">See example repo
                   <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
@@ -1783,8 +1931,9 @@
             <span class="tag" style="font-size: 91%">WordPress</span>
             <span class="tag" style="font-size: 95%">SEO</span>
             <span class="tag" style="font-size: 86%">WebGL</span>
-            <span class="tag" style="font-size: 88%">Unity</span>
-            <span class="tag" style="font-size: 90%">Cocos Studio</span>
+            <!-- <span class="tag" style="font-size: 88%">Unity</span> -->
+            <!-- <span class="tag" style="font-size: 90%">Cocos Studio</span> -->
+            <!-- SCSS, GSAP, Three.js, Tailwind -->
           </div>
         </div>
       </div>
