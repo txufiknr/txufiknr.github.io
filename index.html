@@ -1112,11 +1112,11 @@
     #experiences .btn {
       margin-top: 3rem;
     }
-    #experiences .experiences {
+    .experiences {
       position: relative;
       margin-top: 2rem;
     }
-    #experiences .experiences:before {
+    .experiences:before {
       content: '';
       position: absolute;
       left: 11.5px;
@@ -1125,7 +1125,7 @@
       width: 2px;
       background-color: var(--button-color);
     }
-    #experiences .experience {
+    .experience {
       height: 12rem;
       padding: 1rem 0;
       display: flex;
@@ -1133,17 +1133,17 @@
       gap: 2rem;
       align-items: center;
     }
-    #experiences .experience amp-img {
+    .experience amp-img {
       min-width: 80px;
     }
-    #experiences .experience h3 {
+    .experience h3 {
       margin: 0 0 .5rem;
     }
-    #experiences .experience h4,
-    #experiences .experience p {
+    .experience h4,
+    .experience p {
       margin: 0;
     }
-    #experiences .experience .dot {
+    .experience .dot {
       min-width: 25px;
       width: 25px;
       height: 25px;
@@ -1153,7 +1153,7 @@
       align-items: center;
       justify-content: center;
     }
-    #experiences .experience .dot:before {
+    .experience .dot:before {
       content: '';
       min-width: 15px;
       width: 15px;
@@ -1459,7 +1459,7 @@
       #experiences {
         background: none;
       }
-      #experiences .experience {
+      .experience {
         height: 9rem;
       }
       .services {
@@ -2227,6 +2227,40 @@
           >
           </amp-inline-gallery-pagination>
         </amp-inline-gallery>
+      </div>
+      <div class="content">
+        <h2>Awards
+          <amp-img src="images/icons/award.svg" width="30" height="30" layout="fixed" alt="See awards"></amp-img>
+        </h2>
+        <div class="experiences">
+          <div class="experience" amp-fx="fade-in-scroll" data-repeat>
+            <span class="dot"></span>
+            <div>
+              <h3>1ST RUNNER UP</h3>
+              <h4>DYNAMIC WEB DEVELOPMENT COMPETITION JAVA-BALI</h4>
+              <p>Universitas Negeri Malang</p>
+              <p>Jan 2010</p>
+            </div>
+          </div>
+          <div class="experience" amp-fx="fade-in-scroll" data-repeat>
+            <span class="dot"></span>
+            <div>
+              <h3>2ND WINNER</h3>
+              <h4>WEB PROGRAMMING COMPETITION</h4>
+              <p>Vocational High School 5th Malang</p>
+              <p>Jan 2010</p>
+            </div>
+          </div>
+          <div class="experience" amp-fx="fade-in-scroll" data-repeat>
+            <span class="dot"></span>
+            <div>
+              <h3>3RD WINNER</h3>
+              <h4>PROGRAMMING COMPETTION</h4>
+              <p>STIKI Malang</p>
+              <p>Jan 2010</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
