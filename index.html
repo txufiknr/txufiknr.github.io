@@ -818,6 +818,18 @@
     #skills .expertise amp-accordion section .i-amphtml-accordion-content ul li a:hover {
       color: var(--accent-light-color);
     }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content > amp-img {
+      max-width: 50%;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content .showcase {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    #skills .expertise amp-accordion section .i-amphtml-accordion-content .showcase amp-img {
+      width: calc((100% - 3rem) / 4);
+    }
     #skills .expertise amp-accordion section .i-amphtml-accordion-content .btn {
       margin-top: .5rem;
       position: relative;
@@ -1566,8 +1578,8 @@
               <div>
                 <amp-img
                   src="images/projects/leapverse.png"
-                  width="100"
-                  height="100"
+                  width="150"
+                  height="130"
                   layout="fixed"
                   alt="Leapverse mobile app">
                 </amp-img>
@@ -1597,12 +1609,12 @@
               <div>
                 <amp-img
                   src="images/projects/nurosoft.jpg"
-                  width="100"
-                  height="100"
+                  width="150"
+                  height="144"
                   layout="fixed"
                   alt="Nurosoft.id front page">
                 </amp-img>
-                <p>I develop website, including web application, company profile, front page, and admin dashboard that fast, responsive, and secure. Whether it's a simple website or a complex application, I can help you create a website that meets your needs. I can develop website using PHP, JavaScript, AMP or even pure HTML/CSS.</p>
+                <p>I develop website, including web application, company profile, front page, and admin dashboard that fast, responsive, and secure. Whether it's a simple website or a complex application, I can help you create a website that meets your needs. I can develop website using PHP, Node.js + Vite, TypeScript, AMP, or even pure HTML, CSS & JavaScript.</p>
                 <p>See completed projects:</p>
                 <ul>
                   <!-- <li><a href="index.php" target="_blank">My Second Personal Website</a></li> -->
@@ -1621,20 +1633,7 @@
                 </h4>
               </header>
               <div>
-                <amp-img
-                  src="images/projects/leapverse.png"
-                  width="100"
-                  height="100"
-                  layout="fixed"
-                  alt="Leapverse mobile app">
-                </amp-img>
                 <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
-                <p>See completed projects:</p>
-                <ul>
-                  <li><a href="https://play.google.com/store/apps/details?id=com.leap.leapverse&hl=en" target="_blank">Leapverse on Play Store</a></li>
-                  <li><a href="https://apps.apple.com/id/app/leapverse/id1610709042" target="_blank">Leapverse on App Store</a></li>
-                  <li><a href="https://leapverse.leapsurabaya.sch.id/" target="_blank">Leapverse on Web</a></li>
-                </ul>
               </div>
             </section> -->
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
@@ -1647,9 +1646,9 @@
               </header>
               <div>
                 <amp-img
-                  src="images/projects/flits.png"
-                  width="100"
-                  height="100"
+                  src="images/projects/flits.jpg"
+                  width="150"
+                  height="150"
                   layout="fixed"
                   alt="Flits.id Driver app">
                 </amp-img>
@@ -1668,7 +1667,7 @@
                 </h4>
               </header>
               <div>
-                <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design.</p>
+                <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design. I can comfortably work with Figma, PhotoShop, Canva, and Vegas Pro.</p>
                 <amp-video
                   controls
                   width="16"
@@ -1681,6 +1680,36 @@
                     <p>This browser does not support the video element.</p>
                   </div>
                 </amp-video>
+                <div class="showcase">
+                  <amp-img
+                    src="images/projects/more/allware-web.jpg"
+                    width="150"
+                    height="150"
+                    layout="responsive"
+                    alt="Allware website">
+                  </amp-img>
+                  <amp-img
+                    src="images/projects/more/printdisini.jpg"
+                    width="150"
+                    height="150"
+                    layout="responsive"
+                    alt="PrintDiSini website">
+                  </amp-img>
+                  <amp-img
+                    src="images/projects/more/kuliahku.jpg"
+                    width="150"
+                    height="150"
+                    layout="responsive"
+                    alt="Kuliahku website">
+                  </amp-img>
+                  <amp-img
+                    src="images/projects/more/mumupudding2.jpg"
+                    width="150"
+                    height="150"
+                    layout="responsive"
+                    alt="MumuPudding website">
+                  </amp-img>
+                </div>
               </div>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
@@ -1726,7 +1755,8 @@
             <span class="tag" style="font-size: 98%">HTML</span>
             <span class="tag" style="font-size: 101%">CSS</span>
             <span class="tag" style="font-size: 110%">Node.js</span>
-            <span class="tag" style="font-size: 95%">React</span>
+            <span class="tag" style="font-size: 95%">Vite</span>
+            <span class="tag" style="font-size: 100%">React</span>
             <span class="tag" style="font-size: 104%">Next.js</span>
             <span class="tag" style="font-size: 109%">Vue.js</span>
             <span class="tag" style="font-size: 103%">Angular</span>
@@ -1744,6 +1774,8 @@
             <span class="tag" style="font-size: 109%">PostgreSQL</span>
             <span class="tag" style="font-size: 98%">MariaDB</span>
             <span class="tag" style="font-size: 92%">MySQL</span>
+            <span class="tag" style="font-size: 99%">npm</span>
+            <span class="tag" style="font-size: 103%">Git</span>
             <span class="tag" style="font-size: 84%">Chrome Extension</span>
             <span class="tag" style="font-size: 92%">Graphic Design</span>
             <span class="tag" style="font-size: 88%">Video Editing</span>
@@ -1913,7 +1945,11 @@
           loop
           autoplay
           controls
-          dots>
+          dots
+          data-next-button-aria-label="Go to next testimonial"
+          data-previous-button-aria-label="Go to previous testimonial"
+          role="region"
+          aria-label="Testimonials">
           <div class="testimonial-card">
             <amp-img
               src="https://i.pravatar.cc/100"
