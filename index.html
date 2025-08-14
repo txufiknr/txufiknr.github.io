@@ -436,9 +436,14 @@
       mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, .75));
     }
     body > header .box {
+      position: absolute;
+    }
+    body > header .box div {
       border-radius: 25%;
       background: #fff;
-      position: absolute;
+      width: 100%;
+      height: 100%;
+      /* animation: floating 5s ease-in-out infinite; */
     }
     body > header .box:nth-child(1) {
       width: 9vmin;
@@ -446,6 +451,7 @@
       left: 20%;
       top: 70%;
       opacity: .15;
+      animation: floating 5s ease-in-out infinite;
     }
     body > header .box:nth-child(2) {
       width: 18vmin;
@@ -453,6 +459,7 @@
       left: 35%;
       top: 50%;
       opacity: .125;
+      animation: floating 7s ease-in-out infinite;
     }
     body > header .box:nth-child(3) {
       width: 27vmin;
@@ -460,6 +467,7 @@
       left: 60%;
       top: 80%;
       opacity: .1;
+      animation: floating 9s ease-in-out infinite;
     }
 
     body > header .link {
@@ -500,6 +508,54 @@
     footer .content {
       display: flex;
       flex-direction: column;
+    }
+
+    /* Card Animation */
+    #cards {
+      width: 100%;
+      flex-direction: row;
+      gap: .5rem;
+      display: none;
+    }
+    #cards .card {
+      background: rgba(255, 255, 255, .1);
+      border-radius: 1rem;
+      padding: 1rem;
+      transition: all .5s ease;
+      width: 4rem;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+    #cards .card > header {
+      writing-mode: vertical-rl;
+      transition: all .1s ease;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    #cards .card > p {
+      text-overflow: ellipsis;
+      opacity: 0;
+      transition: all 1.5s ease;
+    }
+    #cards .card:hover {
+      width: 100%;
+      background: rgba(255, 255, 255, .16);
+    }
+    #cards .card:hover > header {
+      transform: rotate(-90deg);
+      transform-origin: top left;
+      margin-top: 1.5rem;
+    }
+    #cards .card:hover > *:nth-child(n + 2) {
+      display: block;
+    }
+    #cards .card:hover > p {
+      opacity: 1;
     }
 
     /* Text Animation */
@@ -613,6 +669,7 @@
       }
     }
 
+    /* animation: bg 5s linear infinite; */
     /* @keyframes bg {
       0% {background: #ff0075;}
       3% {background: #0094ff;}
@@ -626,6 +683,9 @@
       83% {background: #F44336;}
       100% {background: #F44336;}
     } */
+    @keyframes floating {
+      50% {transform: translateY(-30px);}
+    }
 
     /* Carousels */
     .testimonial-card {
@@ -763,11 +823,29 @@
     }
     #about .laptop .about-text p {
       color: #fff;
-      margin: 0;
+      margin-top: 2rem;
     }
-    /*#about .years {
-      text-align: center;
-    }*/
+    #about .laptop .about-text address {
+      display: none;
+      font-style: normal;
+    }
+    #about .laptop .about-text address p {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      align-items: center;
+    }
+    #about .laptop .about-text address p > amp-img {
+      margin-right: .75rem;
+      filter: invert(0.5) sepia(1) saturate(5) hue-rotate(270deg) brightness(0.5);
+    }
+    #about .laptop .about-text address p > span:nth-of-type(1) {
+      width: 100px;
+      font-weight: 600;
+    }
+    #about .laptop .about-text address p > span:nth-of-type(2) {
+      width: 20px;
+    }
     #about .years p {
       font-size: 30vw;
       line-height: 30vw;
@@ -1266,6 +1344,9 @@
       #about .experience {
         max-width: 600px;
       }
+      #about .laptop .about-text {
+        padding-top: 10%;
+      }
       #about .years p {
         font-size: 7rem;
         line-height: 7rem;
@@ -1357,12 +1438,19 @@
     }
 
     /* Desktop */
+    @media screen and (min-width: 1024px) {
+      #about .laptop .about-text {
+        padding-top: 0;
+        left: 15%;
+        right: 15%;
+      }
+      #cards {
+        display: flex;
+      }
+    }
     @media screen and (min-width: 1200px) {
       section .content {
         margin: 3rem auto;
-      }
-      #about .laptop .about-text {
-        padding-top: 10%;
       }
       #about .about-content {
         display: flex;
@@ -1400,6 +1488,11 @@
       }
       .nav-tabs button {
         display: none;
+      }
+    }
+    @media screen and (min-width: 1440px) {
+      #about .laptop .about-text address {
+        display: block;
       }
     }
 
@@ -1442,9 +1535,15 @@
     <amp-img amp-fx="parallax" data-parallax-factor="0.5" class="decoration" src="images/grid.webp" width="257" height="174" layout="fixed" alt="Hero decoration"></amp-img>
 
     <div>
-      <div class="box" amp-fx="parallax" data-parallax-factor="0.7"></div>
-      <div class="box" amp-fx="parallax" data-parallax-factor="0.8"></div>
-      <div class="box" amp-fx="parallax" data-parallax-factor="0.9"></div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="0.7">
+        <div></div>
+      </div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="0.8">
+        <div></div>
+      </div>
+      <div class="box" amp-fx="parallax" data-parallax-factor="0.9">
+        <div></div>
+      </div>
     </div>
 
     <div class="particles-css">
@@ -1485,7 +1584,7 @@
       <a href="#experiences" class="nav-tab" role="tab" id="experiences-tab">Experiences</a>
       <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
       <button id="btn-menu" aria-label="Open menu" on="tap:sidebar.toggle">
-        <amp-img src="images/icons/bars.svg" width="20" height="20" layout="fixed" alt="Menus" style="filter: invert()"></amp-img>
+        <amp-img src="images/icons/menu.svg" width="20" height="20" layout="fixed" alt="Menus" style="filter: invert()"></amp-img>
       </button>
     </div>
   </nav>
@@ -1569,7 +1668,22 @@
             alt="Laptop screen">
           </amp-img>
           <div class="about-text" amp-fx="fade-in-scroll" data-repeat>
-            <p amp-fx="parallax" data-parallax-factor=".8" data-margin-start="10%" data-margin-end="80%">A passionate software developer with <strong>extensive professional experience</strong> in tech industries. I specialize in Flutter, mobile, and web development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, robust, and scalable applications.</p>
+            <div amp-fx="parallax" data-parallax-factor=".8" data-margin-start="10%" data-margin-end="80%">
+              <div id="cards">
+                <div class="card"><header>Developer</header><p>Designs, develops, tests, and maintains software applications.</p></div>
+                <div class="card"><header>Designer</header><p>Creates visual concepts to communicate ideas that inspire, inform, or captivate consumers.</p></div>
+                <div class="card"><header>Full-stack</header><p>Develops the front-end (client-side) and back-end (server-side) of a web application.</p></div>
+                <div class="card"><header>Software Engineer</header><p>Applies engineering principles to design, develop, test, and maintain software applications.</p></div>
+                <div class="card"><header>Programmer</header><p>Writes code in various programming languages to develop or maintain software applications.</p></div>
+              </div>
+              <p>A passionate software developer with <strong>extensive professional experience</strong> in tech industries. I specialize in mobile and web app development. Proficient in modern app development tech stacks including Flutter (Dart), Node.js, React.js, Next.js, Vue.js, PHP 8, Kotlin, and more. Demonstrates strong technical expertise in both <strong>front-end</strong> and <strong>back-end development</strong>, with a focus on building high-performance, user-friendly, secure, robust, and scalable applications.</p>
+              <address>
+                <p><amp-img src="images/icons/user.svg" width="20" height="20" layout="fixed" alt="Name icon"></amp-img><span>Name</span><span>:</span><span>Taufik Nur Rahmanda</span></p>
+                <p><amp-img src="images/icons/phone.svg" width="20" height="20" layout="fixed" alt="Phone icon"></amp-img><span>Phone</span><span>:</span><span>+62 859-5447-9380</span></p>
+                <p><amp-img src="images/icons/mail.svg" width="20" height="20" layout="fixed" alt="Email icon"></amp-img><span>Email</span><span>:</span><span>flias.test@gmail.com</span></p>
+                <p><amp-img src="images/icons/location.svg" width="20" height="20" layout="fixed" alt="Location icon"></amp-img><span>Location</span><span>:</span><span>Indonesia</span></p>
+              </address>
+            </div>
           </div>
         </div>
         <!-- <div class="social-links">
@@ -1938,7 +2052,7 @@
         </div>
       </div>
       <a target="_blank" href="https://online.fliphtml5.com/ziify/uxdq/" class="btn">
-        <amp-img src="images/icons/download.svg" width="16" height="16" layout="fixed" alt="Download CV" style="filter: invert()"></amp-img>
+        <amp-img src="images/icons/download.svg" width="20" height="20" layout="fixed" alt="Download CV" style="filter: invert()"></amp-img>
         Download CV
       </a>
     </section>
@@ -2288,8 +2402,8 @@
     </script>
   </amp-animation>
 
-  <button class="scroll-to-top" on="tap:AMP.scrollTo(id='top', duration=500)" style="opacity: 0; visibility: hidden;">
-    <amp-img src="images/icons/arrow-up.svg" width="16" height="16" layout="fixed" alt="Scroll to top" style="filter: invert()"></amp-img>
+  <button class="scroll-to-top" on="tap:top.scrollTo(duration=200)" style="opacity: 0; visibility: hidden;">
+    <amp-img src="images/icons/chevron-up.svg" width="20" height="20" layout="fixed" alt="Scroll to top" style="filter: invert()"></amp-img>
   </button>
 
   <!-- Highlight About -->
