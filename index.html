@@ -12,7 +12,7 @@
   <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <!-- <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script> -->
   <script async custom-element="amp-inline-gallery" src="https://cdn.ampproject.org/v0/amp-inline-gallery-0.1.js"></script>
   <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
   <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
@@ -72,8 +72,8 @@
   
   <!-- Pre-loads -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Muli&display=swap" as="style" fetchpriority="high">
-  <link rel="preload" href="images/me/taufik-nur-rahmanda.webp" as="image" fetchpriority="high">
-  <link rel="preload" href="images/hero.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="images/me/taufik-nur-rahmanda.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="images/hero.webp" as="image" type="image/webp" fetchpriority="high">
   
   <!-- AMP boilerplate -->
   <style amp-boilerplate>
@@ -213,12 +213,19 @@
     section {
       padding: var(--content-padding);
       background-color: var(--background-color);
+      position: relative;
     }
-
     section:nth-child(odd) {
       background-color: #fff;
     }
-
+    section .image-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      mask-image: linear-gradient(to top, transparent, black, black);
+      mask-mode: alpha;
+    }
     section .content {
       max-width: var(--content-max-width);
       margin: 5rem 0;
@@ -280,11 +287,24 @@
       margin: 2rem 0;
     }
     .portfolio .card {
-      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 1.5rem;
       padding: 1rem;
       width: 90%;
       transition: all .3s ease-in-out;
+      position: relative;
+    }
+    .portfolio .card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 1s ease-in-out;
+      background-color: attr(data-color type(<color>), #6a1fd4);
+      border-radius: 1.5rem;
+      z-index: -1;
+      opacity: .2;
     }
     .portfolio .card > amp-img {
       border-radius: 1rem;
@@ -323,9 +343,9 @@
       -webkit-box-orient: vertical;
     }
     .portfolio .card:hover {
-      background-color: rgba(255, 255, 255, 0.15);
       box-shadow: var(--light-shadow);
     }
+    .portfolio .card:hover:before,
     .portfolio .card:hover a amp-img {
       opacity: 1;
     }
@@ -417,9 +437,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    body > header h3 {
-      margin: 1rem 0 2rem;
-      font-size: 1.15rem;
+    body > header p {
+      font-size: 1.1rem;
     }
     body > header .photo {
       width: 700px;
@@ -430,6 +449,7 @@
     }
     body > header .photo amp-img {
       border-radius: 50%;
+      background-color: var(--primary-dark-color);
     }
     body > header .decoration {
       position: absolute;
@@ -985,13 +1005,7 @@
       background: none;
     }
     #skills .image-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
       z-index: -1;
-      mask-image: linear-gradient(to top, transparent, black, black);
-      mask-mode: alpha;
     }
     #skills h2 {
       margin-top: 0;
@@ -1002,6 +1016,20 @@
       flex-direction: column;
       gap: 2rem;
       margin-top: 0;
+    }
+
+    /* Certifications */
+    #certifications {
+      box-shadow: var(--card-shadow);
+    }
+    #awards {
+      background: none;
+    }
+    #awards .image-bg {
+      top: auto;
+      bottom: 0;
+      mask-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .5));
+      z-index: -1;
     }
 
     /* Accordion */
@@ -1117,18 +1145,7 @@
       position: relative;
       margin-top: 2rem;
     }
-    /* .experiences:before {
-      content: '';
-      position: absolute;
-      left: calc(1.5rem / 2 - 1px);
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: repeating-linear-gradient(to bottom, var(--button-color) 5.5rem 12.5rem, transparent 12.5rem 14.5rem);
-      mask-image: linear-gradient(to bottom, transparent 1rem, black 4rem calc(100% - 4rem), transparent calc(100% - 1rem));
-    } */
     .experience {
-      height: 12rem;
       padding: 1rem 0;
       display: flex;
       flex-direction: row;
@@ -1570,6 +1587,8 @@
       white-space: nowrap;
       border: 0;
     }
+    /* .skip-link {} */
+    /* .skip-link:focus {} */
   </style>
 </head>
 
@@ -1577,6 +1596,7 @@
   <div id="top"></div>
   <div class="nav-tabs-bg"></div>
   <header>
+    <a class="skip-link" href="#content">Skip to content</a>
 
     <!-- Position observer to trigger scroll button visibility -->
     <div id="scroll-trigger">
@@ -1618,7 +1638,7 @@
     <div class="container">
       <small>Hello, I am</small>
       <h1>Taufik Nur Rahmanda</h1>
-      <h3>Professional Mobile & Web App Developer</h3>
+      <p>Professional mobile, web, and cross-platform application developer.</p>
       <a class="link" href="#portfolio">
         <div class="color"></div>
         <span>Portfolios</span>
@@ -1633,7 +1653,9 @@
       <a href="#portfolio" class="nav-tab" role="tab" id="portfolio-tab">Projects</a>
       <a href="#skills" class="nav-tab" role="tab" id="skills-tab">Skills</a>
       <a href="#experiences" class="nav-tab" role="tab" id="experiences-tab">Experiences</a>
-      <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a>
+      <a href="#certifications" class="nav-tab" role="tab" id="certifications-tab">Certifications</a>
+      <a href="#awards" class="nav-tab" role="tab" id="awards-tab">Awards</a>
+      <!-- <a href="#services" class="nav-tab" role="tab" id="services-tab">Services</a> -->
       <button id="btn-menu" aria-label="Open menu" on="tap:sidebar.toggle">
         <amp-img src="images/icons/menu.svg" width="20" height="20" layout="fixed" alt="Menus" style="filter: invert()"></amp-img>
       </button>
@@ -1647,7 +1669,9 @@
       <a href="#portfolio">Portfolios</a>
       <a href="#skills">Skills</a>
       <a href="#experiences">Experiences</a>
-      <a href="#services">Services</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#awards">Awards</a>
+      <!-- <a href="#services">Services</a> -->
       <!-- <hr> -->
       <!-- <a href="#">Privacy Policy</a> -->
       <!-- <a href="#">Terms of Use</a> -->
@@ -1672,8 +1696,9 @@
     </button>
   </amp-sidebar>
 
-  <main>
+  <main id="content" role="main">
     <section id="about">
+      <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor="1.15" width="1024" height="1536" layout="responsive" src="images/circuit-board-background.webp"></amp-img>
       <amp-position-observer
         on="enter:highlightAbout.start"
         layout="nodisplay">
@@ -1767,7 +1792,7 @@
         <h2>Portfolios</h2>
         <p>Here are some of my personal projects I'm most proud of.</p>
         <div class="portfolio">
-          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+          <div class="card" amp-fx="fade-in fly-in-bottom" data-duration="2000ms" data-color="#eb2165">
             <amp-img src="images/portfolio/cushier-pos.webp" width="192" height="108" layout="responsive" alt="Cushier"></amp-img>
             <div class="card-content">
               <h3>Cushier</h3>
@@ -2045,7 +2070,7 @@
                   layout="fixed"
                   alt="Service UI">
                 </amp-img>
-                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is high-performance, secure, and optimized for search engine. Solving INP, FCP, LCP issues and get 100/100 score on Page Speed Insight.</p>
+                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is high-performance, secure, and optimized for search engine. Solving INP, FCP, LCP issues and get 100/100 score on PageSpeed Insights.</p>
                 <p>See completed projects:</p>
                 <ul>
                   <li><a href="https://nurosoft.id/blog" target="_blank">Nurosoft Blog</a></li>
@@ -2058,7 +2083,7 @@
         <div class="skills">
           <h2>Skills</h2>
           <div class="tags">
-            <span class="tag" style="font-size: 100%">Mobile App Development</span>
+            <span class="tag" style="font-size: 100%">App Development</span>
             <span class="tag" style="font-size: 96%">Web Development</span>
             <span class="tag" style="font-size: 119%">Frontend</span>
             <span class="tag" style="font-size: 95%">Backend</span>
@@ -2068,7 +2093,6 @@
             <span class="tag" style="font-size: 113%">PHP</span>
             <span class="tag" style="font-size: 102%">JavaScript</span>
             <span class="tag" style="font-size: 97%">TypeScript</span>
-            <span class="tag" style="font-size: 95%">ECMAScript</span>
             <span class="tag" style="font-size: 98%">HTML</span>
             <span class="tag" style="font-size: 110%">CSS</span>
             <span class="tag" style="font-size: 97%">SCSS</span>
@@ -2086,7 +2110,6 @@
             <span class="tag" style="font-size: 103%">iOS</span>
             <span class="tag" style="font-size: 120%">Android</span>
             <span class="tag" style="font-size: 91%">UI/UX Design</span>
-            <span class="tag" style="font-size: 112%">Website</span>
             <span class="tag" style="font-size: 99%">Database</span>
             <span class="tag" style="font-size: 107%">API</span>
             <span class="tag" style="font-size: 99%">Express</span>
@@ -2094,19 +2117,18 @@
             <span class="tag" style="font-size: 98%">MariaDB</span>
             <span class="tag" style="font-size: 92%">MySQL</span>
             <span class="tag" style="font-size: 92%">Firebase</span>
-            <span class="tag" style="font-size: 99%">npm</span>
-            <span class="tag" style="font-size: 103%">Git</span>
+            <!-- <span class="tag" style="font-size: 99%">npm</span> -->
+            <!-- <span class="tag" style="font-size: 103%">Git</span> -->
             <span class="tag" style="font-size: 91%">WordPress</span>
             <span class="tag" style="font-size: 95%">SEO</span>
             <span class="tag" style="font-size: 97%">AMP</span>
             <span class="tag" style="font-size: 92%">Graphic Design</span>
             <span class="tag" style="font-size: 103%">Video Editing</span>
             <span class="tag" style="font-size: 84%">Chrome Extension</span>
-            <span class="tag" style="font-size: 86%">WebGL</span>
-            <span class="tag" style="font-size: 88%">Three.js</span>
-            <!-- <span class="tag" style="font-size: 83%">GSAP</span> -->
-            <span class="tag" style="font-size: 102%">Unity</span>
-            <span class="tag" style="font-size: 98%">Cocos Studio</span>
+            <!-- <span class="tag" style="font-size: 86%">WebGL</span> -->
+            <!-- <span class="tag" style="font-size: 88%">Three.js</span> -->
+            <!-- <span class="tag" style="font-size: 102%">Unity</span> -->
+            <!-- <span class="tag" style="font-size: 98%">Cocos Studio</span> -->
           </div>
         </div>
       </div>
@@ -2154,6 +2176,7 @@
     </section>
 
     <section id="certifications">
+      <amp-position-observer on="enter:highlightCertifications.start" layout="nodisplay"></amp-position-observer>
       <div class="content">
         <h2>Certifications</h2>
         <p>
@@ -2254,6 +2277,11 @@
           </amp-inline-gallery-pagination>
         </amp-inline-gallery>
       </div>
+    </section>
+
+    <section id="awards">
+      <amp-img class="image-bg" amp-fx="parallax fade-in-scroll" data-parallax-factor=".85" width="1" height="1" layout="responsive" src="images/me/taufik-nur-rahmanda.webp"></amp-img>
+      <amp-position-observer on="enter:highlightAwards.start" layout="nodisplay"></amp-position-observer>
       <div class="content">
         <h2>Awards
           <amp-img src="images/icons/award.svg" width="30" height="30" layout="fixed" alt="See awards"></amp-img>
@@ -2262,7 +2290,7 @@
           <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
             <div>
-              <h3>1ST RUNNER UP</h3>
+              <h3>1st Runner Up</h3>
               <h4>DYNAMIC WEB DEVELOPMENT COMPETITION JAVA-BALI</h4>
               <p>Universitas Negeri Malang</p>
               <p>Jan 2010</p>
@@ -2271,7 +2299,7 @@
           <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
             <div>
-              <h3>2ND WINNER</h3>
+              <h3>2nd Winner</h3>
               <h4>WEB PROGRAMMING COMPETITION</h4>
               <p>Vocational High School 5th Malang</p>
               <p>Jan 2010</p>
@@ -2280,7 +2308,7 @@
           <div class="experience" amp-fx="fade-in-scroll" data-repeat>
             <span class="dot"></span>
             <div>
-              <h3>3RD WINNER</h3>
+              <h3>3rd Winner</h3>
               <h4>PROGRAMMING COMPETTION</h4>
               <p>STIKI Malang</p>
               <p>Jan 2010</p>
@@ -2290,7 +2318,7 @@
       </div>
     </section>
 
-    <section id="testimonials">
+    <!-- <section id="testimonials">
       <div class="content">
         <h2 class="sr-only">Testimonials</h2>
         <p class="sr-only">What my clients say about me. I'm proud to have worked with some amazing companies and individuals over the years. Here are a few quotes from some of my satisfied clients.</p>
@@ -2350,34 +2378,9 @@
           </div>
         </amp-carousel>
       </div>
-    </section>
-    
-    <!-- <section id="faq">
-      <div class="content">
-        <amp-accordion animate expand-single-section>
-          <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <h4>
-              <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Mobile app development & design"></amp-img>
-              Mobile app development & design
-            </h4>
-            <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio,
-              odio arcu in eu wisi. </p>
-          </section>
-          <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <h4>Section 2</h4>
-            <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio,
-              odio arcu in eu wisi. </p>
-          </section>
-          <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-            <h4>Section 3</h4>
-            <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio,
-              odio arcu in eu wisi. </p>
-          </section>
-        </amp-accordion>
-      </div>
     </section> -->
 
-    <section id="services">
+    <!-- <section id="services">
       <amp-position-observer
         on="enter:highlightServices.start"
         layout="nodisplay">
@@ -2415,7 +2418,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <footer>
@@ -2547,13 +2550,25 @@
     </script>
   </amp-animation>
 
-  <!-- Highlight Services -->
-  <amp-animation id="highlightServices" layout="nodisplay">
+  <!-- Highlight Certifications -->
+  <amp-animation id="highlightCertifications" layout="nodisplay">
     <script type="application/json">
       {
         "animations": [
-          { "selector": "#services-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
-          { "selector": ".nav-tab:not(#services-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+          { "selector": "#certifications-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": ".nav-tab:not(#certifications-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
+        ]
+      }
+    </script>
+  </amp-animation>
+
+  <!-- Highlight Awards -->
+  <amp-animation id="highlightAwards" layout="nodisplay">
+    <script type="application/json">
+      {
+        "animations": [
+          { "selector": "#awards-tab", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "1" }] },
+          { "selector": ".nav-tab:not(#awards-tab)", "duration": "200ms", "fill": "both", "keyframes": [{ "opacity": "0.5" }] }
         ]
       }
     </script>
