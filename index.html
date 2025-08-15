@@ -532,7 +532,7 @@
       font-size: max(10vw, 3rem);
       font-weight: 600;
       line-height: max(10vw, 3rem);
-      color: rgba(255, 255, 255, .2);
+      color: rgba(255, 255, 255, .4);
     }
     #jobs > span > span {
       opacity: 0;
@@ -842,7 +842,7 @@
       flex-grow: 1;
     }
     #about .laptop {
-      margin: 3rem -1rem;
+      margin: 5rem -1rem;
       position: relative;
     }
     #about .laptop .about-text {
@@ -1116,7 +1116,7 @@
       position: relative;
       margin-top: 2rem;
     }
-    .experiences:before {
+    /* .experiences:before {
       content: '';
       position: absolute;
       left: calc(1.5rem / 2 - 1px);
@@ -1125,7 +1125,7 @@
       width: 2px;
       background: repeating-linear-gradient(to bottom, var(--button-color) 5.5rem 12.5rem, transparent 12.5rem 14.5rem);
       mask-image: linear-gradient(to bottom, transparent 1rem, black 4rem calc(100% - 4rem), transparent calc(100% - 1rem));
-    }
+    } */
     .experience {
       height: 12rem;
       padding: 1rem 0;
@@ -1133,6 +1133,22 @@
       flex-direction: row;
       gap: 2rem;
       align-items: center;
+      position: relative;
+    }
+    .experience:before {
+      content: '';
+      position: absolute;
+      left: calc(1.5rem / 2 - 1px);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--button-color) 0 calc(50% - 1rem), transparent calc(50% - 1rem) calc(50% + 1rem), var(--button-color) calc(50% + 1rem) 100%);
+    }
+    .experience:first-child:before {
+      mask-image: linear-gradient(to bottom, transparent, black 30%);
+    }
+    .experience:last-child:before {
+      mask-image: linear-gradient(to top, transparent, black 30%);
     }
     .experience amp-img {
       min-width: 80px;
@@ -1688,8 +1704,8 @@
           <amp-img
             media="(max-width: 767.5px)"
             src="images/mobile.webp"
-            width="3024"
-            height="4789"
+            width="1080"
+            height="1710"
             layout="responsive"
             alt="Mobile screen">
           </amp-img>
@@ -1706,9 +1722,10 @@
               <div id="jobs">
                 <span>><span>_</span></span>
                 <div class="cards">
-                  <div class="card"><header>Developer</header><p>Designs, develops, tests, and maintains software applications.</p></div>
+                  <!-- <div class="card"><header>Developer</header><p>Designs, develops, tests, and maintains software applications. Responsible for identifying and prioritizing project requirements, estimating task duration, and creating technical specifications. Collaborates with cross-functional teams to ensure successful project delivery. Proficient in using version control systems, such as Git, to manage code repositories.</p></div> -->
+                  <div class="card"><header>Developer</header><p>Designs, develops, tests, and maintains software applications. Responsible for identifying and prioritizing project requirements, estimating task duration, and creating technical specifications.</p></div>
                   <div class="card"><header>Designer</header><p>Creates visual concepts to communicate ideas that inspire, inform, or captivate consumers.</p></div>
-                  <div class="card"><header>Full-stack</header><p>Develops the front-end (client-side) and back-end (server-side) of a web application.</p></div>
+                  <div class="card"><header>Full-stack</header><p>Develops the front-end (client-side) and back-end (server-side) of a complete web or mobile application.</p></div>
                   <div class="card"><header>Software Engineer</header><p>Applies engineering principles to design, develop, test, and maintain software applications.</p></div>
                   <div class="card"><header>Programmer</header><p>Writes code in various programming languages to develop or maintain software applications.</p></div>
                 </div>
