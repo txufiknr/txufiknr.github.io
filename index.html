@@ -1119,11 +1119,12 @@
     .experiences:before {
       content: '';
       position: absolute;
-      left: 11.5px;
-      top: 30%;
-      bottom: 30%;
+      left: calc(1.5rem / 2 - 1px);
+      top: 0;
+      bottom: 0;
       width: 2px;
-      background-color: var(--button-color);
+      background: repeating-linear-gradient(to bottom, var(--button-color) 5.5rem 12.5rem, transparent 12.5rem 14.5rem);
+      mask-image: linear-gradient(to bottom, transparent 1rem, black 4rem calc(100% - 4rem), transparent calc(100% - 1rem));
     }
     .experience {
       height: 12rem;
@@ -1144,9 +1145,9 @@
       margin: 0;
     }
     .experience .dot {
-      min-width: 25px;
-      width: 25px;
-      height: 25px;
+      min-width: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
       border-radius: 50%;
       border: 2px solid var(--button-color);
       display: flex;
@@ -1155,9 +1156,9 @@
     }
     .experience .dot:before {
       content: '';
-      min-width: 15px;
-      width: 15px;
-      height: 15px;
+      min-width: 0.9rem;
+      width: 0.9rem;
+      height: 0.9rem;
       border-radius: 50%;
       background-color: var(--button-color);
     }
@@ -1905,76 +1906,11 @@
                 <p>I develop website, including web application, company profile, front page, and admin dashboard that fast, responsive, and secure. Whether it's a simple website or a complex application, I can help you create a website that meets your needs. I can develop website using PHP, Node.js + Vite, TypeScript, AMP, or even pure HTML, CSS & JavaScript.</p>
                 <p>See completed projects:</p>
                 <ul>
-                  <!-- <li><a href="index.php" target="_blank">My Second Personal Website</a></li> -->
+                  <li><a href="index.php" target="_blank">My Other Personal Website</a></li>
                   <li><a href="https://nurosoft.id/" target="_blank">Nurosoft.id Company Website</a></li>
                   <li><a href="https://flits.id/" target="_blank">Flits.id Company Website</a></li>
-                  <li><a href="https://app.niaga-logistics.com/" target="_blank">Niaga Logistics Customer Portal</a></li>
+                  <!-- <li><a href="https://app.niaga-logistics.com/" target="_blank">Niaga Logistics Customer Portal</a></li> -->
                 </ul>
-              </div>
-            </section>
-            <!-- <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <header>
-                <h4>
-                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
-                  Cross-platform app development
-                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-                </h4>
-              </header>
-              <div>
-                <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
-              </div>
-            </section> -->
-            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <header>
-                <h4>
-                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Backend & API development"></amp-img>
-                  Backend & API development
-                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-                </h4>
-              </header>
-              <div>
-                <amp-img
-                  src="images/icons/service-ui.svg"
-                  width="60"
-                  height="60"
-                  layout="fixed"
-                  alt="Service UI">
-                </amp-img>
-                <!-- <amp-img
-                  src="images/projects/flits.webp"
-                  width="150"
-                  height="150"
-                  layout="fixed"
-                  alt="Flits.id Driver app">
-                </amp-img> -->
-                <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, and secure backend that meets your business needs.</p>
-                <a class="btn" href="#" role="button">See example repo
-                  <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
-                </a>
-              </div>
-            </section>
-            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
-              <header>
-                <h4>
-                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="UI/UX, video & graphic design"></amp-img>
-                  UI/UX, video & graphic design
-                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
-                </h4>
-              </header>
-              <div>
-                <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design. I can comfortably work with Figma, PhotoShop, Canva, and Vegas Pro.</p>
-                <amp-video
-                  controls
-                  width="16"
-                  height="9"
-                  layout="responsive"
-                  poster="videos/cushier.png">
-                  <source src="videos/cushier.webm" type="video/webm" />
-                  <source src="videos/cushier.mp4" type="video/mp4" />
-                  <div fallback>
-                    <p>This browser does not support the video element.</p>
-                  </div>
-                </amp-video>
                 <div class="showcase">
                   <amp-img
                     src="images/projects/more/allware-web.jpg"
@@ -2002,9 +1938,74 @@
                     width="150"
                     height="150"
                     layout="responsive"
-                    alt="MumuPudding website">
+                    alt="Mumu Pudding website">
                   </amp-img>
                 </div>
+              </div>
+            </section>
+            <!-- <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Cross-platform development"></amp-img>
+                  Cross-platform app development
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
+              <div>
+                <p>I develop cross-platform app using Flutter (Dart) and Kotlin, providing a single codebase that secure, maintainable, and runs on multiple platforms, including Android, iOS, web, and desktop.</p>
+              </div>
+            </section> -->
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="UI/UX, video & graphic design"></amp-img>
+                  UI/UX, video & graphic design
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
+              <div>
+                <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design. I can comfortably work with Figma, PhotoShop, Canva, and Vegas Pro.</p>
+                <amp-video
+                  controls
+                  width="16"
+                  height="9"
+                  layout="responsive"
+                  poster="videos/cushier.png">
+                  <source src="videos/cushier.webm" type="video/webm" />
+                  <source src="videos/cushier.mp4" type="video/mp4" />
+                  <div fallback>
+                    <p>This browser does not support the video element.</p>
+                  </div>
+                </amp-video>
+              </div>
+            </section>
+            <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
+              <header>
+                <h4>
+                  <amp-img src="images/icons/check.svg" width="16" height="16" layout="fixed" alt="Backend & API development"></amp-img>
+                  Backend & API development
+                  <amp-img src="images/icons/chevron-down.svg" width="12" height="12" layout="fixed" class="arrow" alt="Expand or collapse"></amp-img>
+                </h4>
+              </header>
+              <div>
+                <amp-img
+                  src="images/icons/service-app.svg"
+                  width="60"
+                  height="60"
+                  layout="fixed"
+                  alt="Service app">
+                </amp-img>
+                <!-- <amp-img
+                  src="images/projects/flits.webp"
+                  width="150"
+                  height="150"
+                  layout="fixed"
+                  alt="Flits.id Driver app">
+                </amp-img> -->
+                <p>I develop backend & API using CodeIgniter and Node.js (Express) with PostgreSQL, MySQL, and MariaDB ORM, providing a robust, scalable, easy to maintain, fast, reliable, and secure backend that meets your business needs.</p>
+                <a class="btn" href="#" role="button">See example repo
+                  <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
+                </a>
               </div>
             </section>
             <section amp-fx="fade-in fly-in-bottom" data-duration="2000ms">
@@ -2017,13 +2018,13 @@
               </header>
               <div>
                 <amp-img
-                  src="images/icons/service-app.svg"
+                  src="images/icons/service-ui.svg"
                   width="60"
                   height="60"
                   layout="fixed"
-                  alt="Service app">
+                  alt="Service UI">
                 </amp-img>
-                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is secure, easy to maintain, and optimized for search engine.</p>
+                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is high-performance, secure, and optimized for search engine. I'll fight LCP problems and get 100/100 score on Page Speed Insight for your business website.</p>
                 <p>See completed projects:</p>
                 <ul>
                   <li><a href="https://nurosoft.id/blog" target="_blank">Nurosoft Blog</a></li>
@@ -2416,9 +2417,9 @@
         <div>
           <h4>Project Links</h4>
           <p><a href="index.php" target="_blank">Other Personal Website</a></p>
-          <p><a href="" target="_blank">Cushier POS</a></p>
-          <p><a href="" target="_blank">Dhikr Counter</a></p>
-          <p><a href="" target="_blank">Quran Recite</a></p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.cushier.pos" target="_blank">Cushier POS</a></p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.tarra.tasbih" target="_blank">Dhikr Counter</a></p>
+          <p><a href="https://play.google.com/store/apps/details?id=com.tarra.alquran" target="_blank">Qur'an Recite</a></p>
         </div>
         <div>
           <h4>Contact Links</h4>
