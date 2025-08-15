@@ -549,7 +549,6 @@
       display: none;
     }
     #jobs .cards .card {
-      /* background: rgba(255, 255, 255, .1); */
       background: rgba(35, 35, 35, .8);
       border-radius: 1rem;
       padding: 1rem;
@@ -571,13 +570,13 @@
     }
     #jobs .cards .card > p {
       text-overflow: ellipsis;
+      padding-top: 200px;
       opacity: 0;
-      transition: all 1.5s ease;
+      transition: opacity 1.5s cubic-bezier(0.1, 0.7, 1.0, 1.0);
     }
     #jobs .cards .card:hover {
       width: 100%;
-      /* background: rgba(255, 255, 255, .16); */
-      background: rgba(65, 65, 65, .8);
+      background: rgba(54, 54, 54, .9);
     }
     #jobs .cards .card:hover > header {
       transform: rotate(-90deg);
@@ -588,6 +587,7 @@
       display: block;
     }
     #jobs .cards .card:hover > p {
+      padding-top: 0;
       opacity: 1;
     }
 
@@ -821,24 +821,24 @@
       z-index: 0;
       max-width: 100vw;
     }
-    #about .experience {
+    #about .expertise {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
-    #about .experience > span {
+    #about .expertise > span {
       line-height: 1.5rem;
       text-align: right;
       width: 25%;
       min-width: 150px;
     }
-    #about .experience p {
+    #about .expertise p {
       font-size: 1.1rem;
       margin: 0;
     }
-    #about .experience > * {
+    #about .expertise > * {
       flex-grow: 1;
     }
     #about .laptop {
@@ -865,7 +865,7 @@
     #about .laptop .about-text address p {
       display: flex;
       flex-direction: row;
-      margin: 0;
+      margin: .25rem 0;
       align-items: center;
     }
     #about .laptop .about-text address p > amp-img {
@@ -1391,7 +1391,7 @@
       :root {
         --content-padding: 2rem;
       }
-      #about .experience {
+      #about .expertise {
         max-width: 600px;
       }
       #about .laptop .about-text {
@@ -1683,7 +1683,7 @@
           <h2>About Me</h2>
           <div>
             <h3 class="sr-only">Taufik Nur Rahmanda, S.Kom.</h3>
-            <div class="experience">
+            <div class="expertise">
               <div class="years">
                 <p class="counter">8+</p>
                 <span>Years</span>
@@ -1718,7 +1718,7 @@
             alt="Laptop screen">
           </amp-img>
           <div class="about-text" amp-fx="fade-in-scroll" data-repeat>
-            <div amp-fx="parallax" data-parallax-factor=".8">
+            <div amp-fx="parallax" data-parallax-factor=".85">
               <div id="jobs">
                 <span>><span>_</span></span>
                 <div class="cards">
@@ -1923,7 +1923,7 @@
                   layout="fixed"
                   alt="Nurosoft.id front page">
                 </amp-img>
-                <p>I develop website, including web application, company profile, front page, and admin dashboard that fast, responsive, and secure. Whether it's a simple website or a complex application, I can help you create a website that meets your needs. I can develop website using PHP, Node.js + Vite, TypeScript, AMP, or even pure HTML, CSS & JavaScript.</p>
+                <p>I develop fast, responsive, and appealing websites. Whether it's a simple website or a complex application, I can help you create a website that meets your needs. I can develop website using PHP, Node.js + Vite with TypeScript or JavaScript, or even pure HTML. Beautifully designed with Tailwind or pure CSS.</p>
                 <p>See completed projects:</p>
                 <ul>
                   <li><a href="index.php" target="_blank">My Other Personal Website</a></li>
@@ -1984,7 +1984,7 @@
                 </h4>
               </header>
               <div>
-                <p>I design application UI/UX, create video and graphic design, providing a visually appealing and user-friendly interface for your application, professional-looking promotional video and graphic design. I can comfortably work with Figma, PhotoShop, Canva, and Vegas Pro.</p>
+                <p>I design application UI/UX, create video and graphic design, providing a visually appealing, easy-to-use, and user-friendly interface for your application, professional-looking promotional video and graphic design. I can comfortably work with Figma, PhotoShop, Canva, and Vegas Pro.</p>
                 <amp-video
                   controls
                   width="16"
@@ -2044,7 +2044,7 @@
                   layout="fixed"
                   alt="Service UI">
                 </amp-img>
-                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is high-performance, secure, and optimized for search engine. I'll fight LCP problems and get 100/100 score on Page Speed Insight for your business website.</p>
+                <p>I optimize website for SEO, build AMP-compliant website, and WordPress, providing a website that is high-performance, secure, and optimized for search engine. Solving INP, FCP, LCP issues and get 100/100 score on Page Speed Insight.</p>
                 <p>See completed projects:</p>
                 <ul>
                   <li><a href="https://nurosoft.id/blog" target="_blank">Nurosoft Blog</a></li>
@@ -2069,18 +2069,21 @@
             <span class="tag" style="font-size: 97%">TypeScript</span>
             <span class="tag" style="font-size: 95%">ECMAScript</span>
             <span class="tag" style="font-size: 98%">HTML</span>
-            <span class="tag" style="font-size: 101%">CSS</span>
+            <span class="tag" style="font-size: 110%">CSS</span>
+            <span class="tag" style="font-size: 97%">SCSS</span>
+            <span class="tag" style="font-size: 100%">Bootstrap</span>
+            <span class="tag" style="font-size: 95%">Tailwind</span>
             <span class="tag" style="font-size: 110%">Node.js</span>
-            <span class="tag" style="font-size: 95%">Vite</span>
-            <span class="tag" style="font-size: 100%">React</span>
-            <span class="tag" style="font-size: 104%">Next.js</span>
+            <span class="tag" style="font-size: 98%">Vite</span>
+            <span class="tag" style="font-size: 108%">React</span>
+            <span class="tag" style="font-size: 114%">Next.js</span>
             <span class="tag" style="font-size: 109%">Vue.js</span>
             <span class="tag" style="font-size: 103%">Angular</span>
-            <span class="tag" style="font-size: 92%">Kotlin</span>
-            <span class="tag" style="font-size: 94%">XCode</span>
+            <span class="tag" style="font-size: 99%">Kotlin</span>
             <span class="tag" style="font-size: 104%">Android Studio</span>
-            <span class="tag" style="font-size: 120%">Android</span>
+            <span class="tag" style="font-size: 94%">XCode</span>
             <span class="tag" style="font-size: 103%">iOS</span>
+            <span class="tag" style="font-size: 120%">Android</span>
             <span class="tag" style="font-size: 91%">UI/UX Design</span>
             <span class="tag" style="font-size: 112%">Website</span>
             <span class="tag" style="font-size: 92%">Firebase</span>
@@ -2099,9 +2102,10 @@
             <span class="tag" style="font-size: 91%">WordPress</span>
             <span class="tag" style="font-size: 95%">SEO</span>
             <span class="tag" style="font-size: 86%">WebGL</span>
-            <!-- <span class="tag" style="font-size: 88%">Unity</span> -->
-            <!-- <span class="tag" style="font-size: 90%">Cocos Studio</span> -->
-            <!-- SCSS, GSAP, Three.js, Tailwind -->
+            <span class="tag" style="font-size: 88%">Three.js</span>
+            <span class="tag" style="font-size: 83%">GSAP</span>
+            <span class="tag" style="font-size: 102%">Unity</span>
+            <span class="tag" style="font-size: 98%">Cocos Studio</span>
           </div>
         </div>
       </div>
@@ -2403,7 +2407,7 @@
               alt="Graphic Design">
             </amp-img>
             <h3>Graphic Design</h3>
-            <p>I can help you to create a visually appealing and user-friendly interface for your app, website, app assets, app store graphics, or any other digital product.</p>
+            <p>I can help you to create a visually appealing, easy-to-use, and user-friendly interface for your app, website, app assets, app store graphics, or any other digital product.</p>
             <a href="#" target="_blank" class="btn">See examples
               <amp-img src="images/icons/arrow-right.svg" width="16" height="16" layout="fixed" alt="See portfolio" style="filter: invert()"></amp-img>
             </a>
