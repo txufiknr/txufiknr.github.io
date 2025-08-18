@@ -1,0 +1,119 @@
+# -------------------------------------
+# Enable Rewrite Engine, Force HTTPS, and Route All Requests to index.php
+# -------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect to HTTPS if not already (disable in localhost)
+  RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Force non-www (optional)
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # Route all requests to index.php if file/directory doesn't exist
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [L,QSA]
+</IfModule>
+
+# -------------------------------------
+# Keep-Alive Settings
+# Note: It doesn't do anything useful unless the server explicitly looks for those environment variables (rare).
+# -------------------------------------
+<IfModule mod_env.c>
+  SetEnv keep-alive-timeout 5
+  SetEnv keep-alive-requests 100
+</IfModule>
+
+# -------------------------------------
+# Compression (Brotli)
+# -------------------------------------
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
+  BrotliCompressionQuality 6
+</IfModule>
+
+# -------------------------------------
+# Compression (Gzip via mod_deflate)
+# -------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml image/svg+xml image/x-icon font/ttf font/otf font/woff font/woff2 application/vnd.ms-fontobject
+
+  # Browser-specific fixes (Handle browser quirks)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+# -------------------------------------
+# Caching Rules (Expires Headers)
+# -------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Dynamic files: cache 1 month, revalidate if modified
+  ExpiresByType text/html "access plus 1 month"
+  ExpiresByType application/x-httpd-php "access plus 1 month"
+  ExpiresByType application/json "access plus 1 month"
+
+  # Static files: cache for 1 year
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+
+  # Default cache
+  ExpiresDefault "access plus 1 day"
+</IfModule>
+
+# -------------------------------------
+# Cache-Control and ETag Headers
+# -------------------------------------
+<IfModule mod_headers.c>
+  # Static files: cache for 1 year
+  <FilesMatch "\.(jpe?g|png|gif|webp|svg|css|js|woff2)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+    # Remove ETag to avoid cache mismatch on multi-server setups
+    Header unset ETag
+  </FilesMatch>
+
+  # Dynamic files: cache for 1 month, revalidate if modified
+  <FilesMatch "\.(html?|php|json)$">
+    Header set Cache-Control "max-age=2592000, public, must-revalidate"
+    # Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Font files: allow cross-origin access
+  <FilesMatch "\.(woff2)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  # Keep Last-Modified so browsers can check freshness
+  FileETag None
+</IfModule>
+
+# -------------------------------------
+# Security Headers
+# -------------------------------------
+<IfModule mod_headers.c>
+  # Basic hardening against common web attacks
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # Enforce HTTPS for 1 year (HSTS) + preload list
+  # Only enable if your site is fully HTTPS!
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Modern CSP without Subresource Integrity
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self';"
+</IfModule>
