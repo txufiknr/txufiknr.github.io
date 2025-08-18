@@ -1,33 +1,48 @@
-Image Optimization:
-- Consider implementing WebP format with fallback
-- Use responsive images with srcset
-- Implement lazy loading for images below the fold
+<div align="center">
+  <h1>👋 Taufik Nur Rahmanda, S.Kom</h1>
+  <h3>Senior Software Engineer | Full-Stack Developer</h3>
+  
+  [![Portfolio](https://img.shields.io/badge/🌐-Portfolio-blue?style=for-the-badge&color=4B8BBE)](https://txufiknr.github.io)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/txufiknr)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/txufiknr)
 
-CSS Optimization:
-- Consider inlining critical CSS
-- Load non-critical CSS asynchronously
+  ---
+</div>
 
-Keep-Alive must be enabled at the server config level (httpd.conf or apache2.conf)
-httpd.conf:
-KeepAlive On
-KeepAliveTimeout 5
-MaxKeepAliveRequests 100
+## 🚀 About Me
 
+Professional software engineer, mobile & web app developer with over 8 years of experience in multiple software industries. Skilled in multi-platform app development for Android, iOS, web. Having strong knowledge in latest tech-stacks including Flutter (Dart), HTML, CSS, ES6+, PHP 8, Next.js, Vue, latest mobile technologies, game engines, frameworks, and SDK.
 
-speed test result:
-https://pagespeed.web.dev/analysis/https-birvee-com-portfolio/uffvfmxq6k?form_factor=mobile
+This is my personal portfolio website built with pure HTML, CSS, and vanilla JavaScript. It showcases my projects, skills, and professional journey.
 
-google search console:
-https://search.google.com/search-console?resource_id=sc-domain%3Ataufiknr.birvee.com
+## 🏆 Skills & Expertise
 
-hero
-https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU1MDAyNTN8&ixlib=rb-4.1.0&q=80&w=1080
-https://images.unsplash.com/photo-1663895064411-fff0ab8a9797?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU0ODQ3Mjh8&ixlib=rb-4.1.0&q=80&w=1080
-https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg3MjI2Njl8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg3MjQ1OTN8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg3MjUzNTh8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1597239450996-ea7c2c564412?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg3MjU4NDV8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1484807352052-23338990c6c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg3ODUwMzN8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1607705703571-c5a8695f18f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg3OTI1Mjd8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg5ODIyNDR8&ixlib=rb-4.0.3&q=80&w=1080
-https://images.unsplash.com/photo-1614624532983-4ce03382d63d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTkwNDMxODV8&ixlib=rb-4.0.3&q=80&w=1080
+### Frontend Development
+- **Languages**: HTML5, CSS3, JavaScript (ES6+), TypeScript
+- **Frameworks/Libraries**: Next.js, Vue.js, React, Tailwind CSS
+- **Mobile**: Flutter (Dart), React Native
+- **State Management**: Redux, Vuex, Provider
+- **Build Tools**: Webpack, Vite, npm, yarn
+
+### Backend Development
+- **Languages**: PHP 8, Node.js
+- **Frameworks**: Laravel, Express.js
+- **Databases**: MySQL, PostgreSQL, MongoDB
+- **APIs**: RESTful, GraphQL
+- **DevOps**: Docker, CI/CD, GitHub Actions
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📬 Contact
+
+- **Email**: [flias.test@gmail.com](mailto:flias.test@gmail.com)
+- **LinkedIn**: [Taufik Nur Rahmanda](https://www.linkedin.com/in/taufik-nur-rahmanda/)
+- **GitHub**: [@txufiknr](https://github.com/txufiknr)
+
+---
+
+<div align="center">
+  Made with ❤️ by Taufik Nur Rahmanda
+</div>
