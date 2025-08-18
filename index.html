@@ -181,6 +181,9 @@
       scroll-behavior: smooth;
     }
     html, body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-smooth: always;
       overflow-x: hidden;
     }
 
@@ -823,10 +826,9 @@
       border-bottom: 1px solid var(--accent-color);
       padding-bottom: 0.5rem;
     }
-    /* #about p {
-      font-size: 1.1rem;
-      margin: 2rem 0;
-    } */
+    #about .image-bg {
+      mask-image: linear-gradient(to top, transparent, rgba(0, 0, 0, .75));
+    }
     #about .content,
     #about .content > * {
       position: relative;
@@ -1587,8 +1589,22 @@
       white-space: nowrap;
       border: 0;
     }
-    /* .skip-link {} */
-    /* .skip-link:focus {} */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 100;
+      text-decoration: none;
+      font-weight: bold;
+      transition: top 0.3s ease;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 0;
+    }
   </style>
 </head>
 
