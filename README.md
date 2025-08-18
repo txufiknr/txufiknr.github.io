@@ -17,19 +17,12 @@ This is my personal portfolio website built with pure HTML, CSS, and vanilla Jav
 
 ## 🏆 Skills & Expertise
 
-### Frontend Development
-- **Languages**: HTML5, CSS3, JavaScript (ES6+), TypeScript
-- **Frameworks/Libraries**: Next.js, Vue.js, React, Tailwind CSS
-- **Mobile**: Flutter (Dart), React Native
-- **State Management**: Redux, Vuex, Provider
-- **Build Tools**: Webpack, Vite, npm, yarn
-
-### Backend Development
-- **Languages**: PHP 8, Node.js
-- **Frameworks**: Laravel, Express.js
-- **Databases**: MySQL, PostgreSQL, MongoDB
-- **APIs**: RESTful, GraphQL
-- **DevOps**: Docker, CI/CD, GitHub Actions
+- **Languages**: Dart, PHP 8, HTML5, CSS3, JavaScript (ES6+), TypeScript
+- **Frontend**: Vue, React, Next.js, Angular, HTML, CSS, Tailwind CSS, Bootstrap, WordPress
+- **Backend**: Node.js, Express.js, PHP, CodeIgniter, MySQL, PostgreSQL, Redis, Sequelize  
+- **Mobile**: Flutter, Kotlin, Java, Android Studio, XCode  
+- **Tools**: Git, Vite, npm, Firebase
+- **Others**: SEO, AMP, UI/UX Design, Photoshop, Vegas Pro
 
 ## 📄 License
 

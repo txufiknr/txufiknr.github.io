@@ -6,15 +6,17 @@
 
   <script>document.documentElement.classList.remove('no-js');</script>
   <title>Taufik Nur Rahmanda, S.Kom | Portfolio</title>
-  <base href="http://localhost/portfolio/">
 
   <!-- Pre-connects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
-  <!-- Pre-loads -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high">
+  <!-- Pre-load font -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block"></noscript>
+  
+  <!-- Pre-load assets -->
   <link rel="preload" href="assets/css/base.min.css?v=1" as="style" fetchpriority="high">
   <link rel="preload" href="assets/images/photo.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="https://images.unsplash.com/photo-1491472253230-a044054ca35f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU0ODY5NzB8&ixlib=rb-4.1.0&q=80&w=1080" as="image" type="image/jpeg" fetchpriority="high">
@@ -91,7 +93,6 @@
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block">
   <link rel="stylesheet" href="assets/css/base.min.css?v=1" media="screen">
   <link rel="stylesheet" href="assets/css/tablet.min.css?v=1" media="screen and (min-width: 768px)">
   <link rel="stylesheet" href="assets/css/desktop.min.css?v=1" media="screen and (min-width: 992px)">
@@ -115,19 +116,19 @@
       </p>
       <p>Professional software engineer, mobile & web app developer with over 8 years of experience in multiple software industries. Skilled in multi-platform app development for Android, iOS, web.<span class="d-tablet-inline"> Having strong knowledge in latest tech-stacks including Flutter (Dart), HTML, CSS, ES6+, PHP 8, Next.js, Vue, latest mobile technologies, game engines, frameworks, and SDK.</span></p>
       <div class="socials">
-        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank">
+        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" aria-label="Follow Taufik on LinkedIn">
           <img loading="lazy" alt="Follow on LinkedIn" src="assets/icons/linkedin.svg" fetchpriority="high">
         </a>
-        <a href="https://www.instagram.com/txufiknr" target="_blank">
+        <a href="https://www.instagram.com/txufiknr" target="_blank" aria-label="Follow Taufik on Instagram">
           <img loading="lazy" alt="Follow on Instagram" src="assets/icons/instagram.svg" fetchpriority="high">
         </a>
-        <a href="https://x.com/txufiknr" target="_blank">
+        <a href="https://x.com/txufiknr" target="_blank" aria-label="Follow Taufik on X">
           <img loading="lazy" alt="Follow on X" src="assets/icons/twitter-x.svg" fetchpriority="high">
         </a>
-        <a href="https://github.com/txufiknr" target="_blank">
+        <a href="https://github.com/txufiknr" target="_blank" aria-label="Follow Taufik on GitHub">
           <img loading="lazy" alt="Follow on Github" src="assets/icons/github.svg" fetchpriority="high">
         </a>
-        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank">
+        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank" aria-label="Visit Taufik's Google Play Store">
           <img loading="lazy" alt="Google Play Store" src="assets/icons/google-play.svg" fetchpriority="high">
         </a>
       </div>
@@ -283,19 +284,19 @@
         </div>
       </div>
       <div class="socials">
-        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank">
+        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" aria-label="Follow Taufik on LinkedIn">
           <img loading="lazy" alt="Follow on LinkedIn" src="assets/icons/linkedin.svg">
         </a>
-        <a href="https://www.instagram.com/txufiknr" target="_blank">
+        <a href="https://www.instagram.com/txufiknr" target="_blank" aria-label="Follow Taufik on Instagram">
           <img loading="lazy" alt="Follow on Instagram" src="assets/icons/instagram.svg">
         </a>
-        <a href="https://x.com/txufiknr" target="_blank">
+        <a href="https://x.com/txufiknr" target="_blank" aria-label="Follow Taufik on X">
           <img loading="lazy" alt="Follow on X" src="assets/icons/twitter-x.svg">
         </a>
-        <a href="https://github.com/txufiknr" target="_blank">
+        <a href="https://github.com/txufiknr" target="_blank" aria-label="Follow Taufik on Github">
           <img loading="lazy" alt="Follow on Github" src="assets/icons/github.svg">
         </a>
-        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank">
+        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank" aria-label="Visit Taufik's Google Play Store">
           <img loading="lazy" alt="Google Play Store" src="assets/icons/google-play.svg">
         </a>
       </div>

@@ -144,15 +144,17 @@ if ($isHome) {
 
   <script>document.documentElement.classList.remove('no-js');</script>
   <title><?=$pageTitle?></title>
-  <base href="<?=$baseURL?>">
 
   <!-- Pre-connects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
-  <!-- Pre-loads -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high">
+  <!-- Pre-load font -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block"></noscript>
+
+  <!-- Pre-load assets -->
   <link rel="preload" href="<?=$pathStyle?>" as="style" fetchpriority="high">
   <link rel="preload" href="<?=PATH_PHOTO?>" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="<?=$pathScript?>" as="script">
@@ -231,7 +233,6 @@ if ($isHome) {
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block">
   <link rel="stylesheet" href="<?=$pathStyle?>" media="screen">
   <link rel="stylesheet" href="<?=$pathStyleTablet?>" media="screen and (min-width: 768px)"<?=$isMobile?' disabled':''?>>
   <link rel="stylesheet" href="<?=$pathStyleDesktop?>" media="screen and (min-width: 992px)"<?=$isMobile?' disabled':''?>>

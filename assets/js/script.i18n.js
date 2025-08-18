@@ -46,12 +46,11 @@ function onPageLoaded() {
   document.querySelectorAll('#lang .menu a[data-value]').forEach((a) => {
     a.addEventListener('click', (e) => {
       e.preventDefault()
-      let languageCode = e.currentTarget.dataset.value
+      const languageCode = e.currentTarget.dataset.value
       console.log('set language', languageCode)
       setCookie('language', languageCode)
       document.querySelector('#lang .btn').innerText = languageCode.toUpperCase()
-      let redirect = `${baseURL}${languageCode}${pageName == 'home' ? '' : '/' + pageName}`
-      window.location.href = redirect
+      window.location.href = `${location.origin}${location.pathname}${languageCode}${pageName == 'home' ? '' : '/' + pageName}`
     })
   })
 
@@ -86,7 +85,6 @@ function onPageScroll() {
   }
 }
 
-const baseURL = document.querySelector('base').href // $baseURL
 const language = document.documentElement.lang // $lang
 const pageName = document.body.dataset.page // $page
 const pageHref = document.body.dataset.href // $href
