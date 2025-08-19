@@ -14,7 +14,6 @@
 
   <!-- Pre-load font -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block"></noscript>
   
   <!-- Pre-load assets -->
   <link rel="preload" href="assets/css/base.min.css?v=1" as="style" fetchpriority="high">
@@ -34,47 +33,13 @@
   <meta name="author" content="Taufik Nur Rahmanda, S.Kom">
   <meta name="copyright" content="Taufik Nur Rahmanda, S.Kom">
   
-  <!-- SEO -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="theme-color" content="#673AB7">
-  <meta name="color-scheme" content="dark light">
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Taufik Nur Rahmanda",
-      "jobTitle": "Software Engineer",
-      "url": "http://txufiknr.infinityfreeapp.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/taufik-nur-rahmanda/",
-        "https://github.com/txufiknr",
-        "https://x.com/txufiknr",
-        "https://play.google.com/store/apps/dev?id=7554821831783338570"
-      ],
-      "image": "http://txufiknr.infinityfreeapp.com/assets/images/photo.webp"
-    }
-  </script>
-  
-  <!-- Mobile App -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Taufik Nur Rahmanda, S.Kom">
-  <meta name="application-name" content="Taufik Nur Rahmanda, S.Kom">
-  
-  <!-- Performance -->
-  <meta name="format-detection" content="telephone=no">
-
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Taufik Nur Rahmanda, S.Kom | Portfolio">
   <meta property="og:description" content="Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.">
-  <meta property="og:url" content="http://txufiknr.infinityfreeapp.com">
-  <meta property="og:image" content="http://txufiknr.infinityfreeapp.com/assets/images/photo.webp">
+  <meta property="og:url" content="https://txufiknr.github.io">
+  <meta property="og:image" content="https://txufiknr.github.io/assets/images/photo.webp">
   <meta property="og:image:alt" content="Taufik's photo">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="1080">
@@ -85,14 +50,205 @@
   <meta name="twitter:creator" content="@txufiknr">
   <meta name="twitter:card" content="summary">
 
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#673AB7">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Performance -->
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://txufiknr.github.io#me",
+          "name": "Taufik Nur Rahmanda",
+          "alternateName": "txufiknr",
+          "legalName": "Taufik Nur Rahmanda, S.Kom",
+          "jobTitle": "Senior Software Engineer",
+          "worksFor": {
+            "@id": "https://nurosoft.id/#organization"
+          },
+          "hasOccupation": [
+            {
+              "@type": "Occupation",
+              "name": "Senior Software Engineer",
+              "occupationLocation": {
+                "@id": "https://nurosoft.id/#organization"
+              },
+              "skills": ["Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", "Kotlin", "Android Studio", "XCode"],
+              "startDate": "2019"
+            },
+            {
+              "@type": "Occupation",
+              "name": "Programmer",
+              "occupationLocation": {
+                "@id": "https://www.j-tech.co.id/#organization"
+              },
+              "skills": ["PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS", "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"],
+              "startDate": "2017",
+              "endDate": "2019"
+            }
+          ],
+          "url": "https://txufiknr.github.io",
+          "image": "https://txufiknr.github.io/assets/images/photo.webp",
+          "description": "Senior Software Engineer specializing in web development and mobile applications.",
+          "knowsAbout": [
+            "Web Development",
+            "Mobile Applications",
+            "Frontend Development",
+            "Backend Development",
+            "Full-stack Engineering",
+            "Cross-platform Development",
+            "Databases",
+            "APIs",
+            "UI/UX Design"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/taufik-nur-rahmanda/",
+            "https://github.com/txufiknr",
+            "https://x.com/txufiknr",
+            "https://play.google.com/store/apps/dev?id=7554821831783338570"
+          ],
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universitas Brawijaya",
+            "sameAs": "https://www.ub.ac.id/"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "ID"
+            }
+          },
+          "nationality": {
+            "@type": "Country",
+            "name": "Indonesia"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "WhatsApp",
+              "telephone": "+6285954479380",
+              "url": "https://wa.me/6285954479380",
+              "availableLanguage": ["en", "id"]
+            },
+            {
+              "@type": "ContactPoint",
+              "contactType": "Email",
+              "email": "flias.test@gmail.com",
+              "availableLanguage": ["en", "id"]
+            }
+          ],
+          "mainEntityOfPage": {
+            "@id": "https://txufiknr.github.io#webpage"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://txufiknr.github.io#website",
+          "name": "Taufik Nur Rahmanda Portfolio",
+          "url": "https://txufiknr.github.io",
+          "publisher": {
+            "@id": "https://txufiknr.github.io#me"
+          },
+          "hasPart": [
+            {
+              "@type": "CreativeWork",
+              "name": "GitHub Projects",
+              "url": "https://github.com/txufiknr",
+              "creator": {
+                "@id": "https://txufiknr.github.io#me"
+              }
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Android Apps by TARRA Soft",
+              "operatingSystem": "Android",
+              "applicationCategory": "MobileApplication",
+              "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
+              "creator": {
+                "@id": "https://txufiknr.github.io#me"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://txufiknr.github.io#webpage",
+          "name": "Taufik Nur Rahmanda | Portfolio",
+          "url": "https://txufiknr.github.io",
+          "description": "Portfolio of Taufik Nur Rahmanda, Senior Software Engineer specializing in web development, mobile applications, and open-source projects.",
+          "mainEntity": {
+            "@id": "https://txufiknr.github.io#me"
+          },
+          "publisher": {
+            "@id": "https://txufiknr.github.io#me"
+          },
+          "author": {
+            "@id": "https://txufiknr.github.io#me"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://nurosoft.id/#organization",
+          "name": "Nurosoft Consulting",
+          "legalName": "PT. Nuroho Software Consulting",
+          "url": "https://nurosoft.id/",
+          "sameAs": [
+            "https://id.linkedin.com/company/nurosoft"
+          ],
+          "foundingDate": "2014",
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Surabaya",
+              "addressCountry": "ID"
+            }
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.j-tech.co.id/#organization",
+          "name": "J-Tech Solusindo",
+          "legalName": "CV. Jaya Technology Solusindo",
+          "url": "https://www.j-tech.co.id/",
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Malang",
+              "addressCountry": "ID"
+            }
+          }
+        }
+      ]
+    }
+  </script>
+  
+  <!-- Mobile App -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Taufik Nur Rahmanda, S.Kom">
+  <meta name="application-name" content="Taufik Nur Rahmanda, S.Kom">
+  
   <!-- Canonical -->
-  <link rel="canonical" href="http://txufiknr.infinityfreeapp.com">
+  <link rel="canonical" href="https://txufiknr.github.io">
 
   <!-- Favicons -->
   <link href="favicon.png" rel="icon">
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
   
   <!-- Styles -->
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block"></noscript>
   <link rel="stylesheet" href="assets/css/base.min.css?v=1" media="screen">
   <link rel="stylesheet" href="assets/css/tablet.min.css?v=1" media="screen and (min-width: 768px)">
   <link rel="stylesheet" href="assets/css/desktop.min.css?v=1" media="screen and (min-width: 992px)">
@@ -201,7 +357,7 @@
         <p class="texts">
           Flutter (Dart)<br>
           PHP, CodeIgniter<br>
-          HTML/CSS/JS/ES/TS<br>
+          HTML/CSS/JS/TS<br>
           Bootstrap<br>
           jQuery<br>
           MySQL/MariaDB<br>

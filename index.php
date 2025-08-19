@@ -52,12 +52,13 @@ define('URL_INSTAGRAM', "https://www.instagram.com/txufiknr");
 define('URL_TWITTER', "https://x.com/txufiknr");
 define('URL_GITHUB', "https://github.com/txufiknr");
 define('URL_PLAYSTORE', "https://play.google.com/store/apps/dev?id=7554821831783338570");
-define('URL_WEBSITE', 'http://txufiknr.infinityfreeapp.com');
+define('URL_WEBSITE', 'https://txufiknr.github.io');
 define('URL_BASE', URL_WEBSITE.'/');
 define('LANGUAGE_OPTIONS', ['en', 'id']);
 define('LANGUAGE_DEFAULT', 'en');
 define('PATH_PHOTO', "assets/images/photo.webp");
-define('BIO_FULL_NAME', "Taufik Nur Rahmanda, S.Kom");
+define('BIO_FULL_NAME', "Taufik Nur Rahmanda");
+define('BIO_LEGAL_NAME', "Taufik Nur Rahmanda, S.Kom");
 define('BIO_FIRST_NAME', "Taufik");
 define('JOB_FIRST_YEAR', 2017);
 define('JOB_LANGUAGES', 10);
@@ -101,13 +102,13 @@ if (in_array($path_splitted[0], LANGUAGE_OPTIONS)) {
 
 // define variables for current page
 $tr = json_decode(file_get_contents("assets/lang/$lang.json"), true);
-$page = $page == '' ? 'home' : $page;
-$isHome = $page == 'home';
+$isHome = $page == '';
+$page = $isHome ? 'home' : $page;
 $href = $isHome ? './' : $page;
 $title = $tr['meta_title_'.$page] ?? $tr['meta_title'];
 $description = $tr['meta_description_'.$page] ?? $tr['meta_description'];
 $keyword = $tr['meta_keyword_'.$page] ?? $tr['meta_keyword'];
-$pageTitle = BIO_FULL_NAME.' | '.$title;
+$pageTitle = BIO_LEGAL_NAME.' | '.$title;
 $pageURL = $isHome ? '' : '/'.$page;
 $canonical = URL_WEBSITE.($langURL ? '/'.$langURL : '').$pageURL;
 $years = date('Y') - JOB_FIRST_YEAR;
@@ -168,43 +169,9 @@ if ($isHome) {
   <!-- Site Info -->
   <meta name="description" content="<?=$description?>">
   <meta name="keywords" content="<?=$keyword?>">
-  <meta name="author" content="<?=BIO_FULL_NAME?>">
-  <meta name="copyright" content="<?=BIO_FULL_NAME?>">
+  <meta name="author" content="<?=BIO_LEGAL_NAME?>">
+  <meta name="copyright" content="<?=BIO_LEGAL_NAME?>">
   
-  <!-- SEO -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="theme-color" content="#673AB7">
-  <meta name="color-scheme" content="dark light">
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Taufik Nur Rahmanda",
-      "jobTitle": "Software Engineer",
-      "url": "http://txufiknr.infinityfreeapp.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/taufik-nur-rahmanda/",
-        "https://github.com/txufiknr",
-        "https://x.com/txufiknr",
-        "https://play.google.com/store/apps/dev?id=7554821831783338570"
-      ],
-      "image": "http://txufiknr.infinityfreeapp.com/assets/images/photo.webp"
-    }
-  </script>
-
-  <!-- Mobile App -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="<?=BIO_FULL_NAME?>">
-  <meta name="application-name" content="<?=BIO_FULL_NAME?>">
-  
-  <!-- Performance -->
-  <meta name="format-detection" content="telephone=no">
-
   <!-- Open Graph -->
   <meta property="og:locale<?=$lang=='en'?'':':alternate'?>" content="en_US">
   <meta property="og:locale<?=$lang=='id'?'':':alternate'?>" content="id_ID" />
@@ -216,13 +183,34 @@ if ($isHome) {
   <meta property="og:image:alt" content="<?=BIO_FIRST_NAME?>'s photo">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="1080">
-  <meta property="og:site_name" content="<?=BIO_FULL_NAME?>">
+  <meta property="og:site_name" content="<?=BIO_LEGAL_NAME?>">
 
   <!-- Twitter Card -->
   <meta name="twitter:site" content="@txufiknr">
   <meta name="twitter:creator" content="@txufiknr">
   <meta name="twitter:card" content="summary">
 
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#673AB7">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Performance -->
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  <?php include 'schema.php'; ?>
+  </script>
+
+  <!-- Mobile App -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="<?=BIO_LEGAL_NAME?>">
+  <meta name="application-name" content="<?=BIO_LEGAL_NAME?>">
+  
   <!-- Canonical -->
   <link rel="alternate" href="<?=URL_WEBSITE.$pageURL?>" hreflang="en">
   <link rel="alternate" href="<?=URL_BASE.'id'.$pageURL?>" hreflang="id">
@@ -338,7 +326,7 @@ if ($isHome) {
       <p class="texts">
         Flutter (Dart)<br>
         PHP, CodeIgniter<br>
-        HTML/CSS/JS/ES/TS<br>
+        HTML/CSS/JS/TS<br>
         Bootstrap<br>
         jQuery<br>
         MySQL/MariaDB<br>
@@ -423,7 +411,7 @@ if ($isHome) {
     <?php include('components/socials.php'); ?>
   </section>
 
-  <footer>&copy;<?=date('Y')?> <?=BIO_FULL_NAME?></footer>
+  <footer>&copy;<?=date('Y')?> <?=BIO_LEGAL_NAME?></footer>
 
   <?php if (empty($_COOKIE['language'])) { ?>
   <div id="cookie-alert">
