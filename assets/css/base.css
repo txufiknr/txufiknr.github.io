@@ -1,4 +1,28 @@
+/* Fallback for Titillium Web 400 */
+/* @font-face {
+  font-family: 'Fallback Titillium Web';
+  font-weight: 400;
+  size-adjust: 107.06%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  src: local('Arial');
+} */
+
+/* Fallback for Titillium Web 600 */
+/* @font-face {
+  font-family: 'Fallback Titillium Web';
+  font-weight: 600;
+  size-adjust: 106.45%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  src: local('Arial');
+} */
+
 :root {
+  /* --font-family: 'Titillium Web', 'Fallback Titillium Web', system-ui, sans-serif; */
+  --font-family: "Titillium Web", sans-serif;
   --color-background: #130d14;
   --color-primary: #673AB7;
   --color-primary-light: #c285ff;
@@ -24,7 +48,7 @@ body {
   overflow-x: hidden;
 }
 body, button {
-  font-family: "Titillium Web", sans-serif;
+  font-family: var(--font-family);
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -955,7 +979,7 @@ body.scrolled #portfolio .title h2::before {
   padding: 8px 16px;
   z-index: 100;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: top 0.3s ease;
 }
 .skip-link:focus,

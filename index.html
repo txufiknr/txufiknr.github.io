@@ -13,11 +13,20 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
   <!-- Pre-load font -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
   
   <!-- Pre-load assets -->
   <link rel="preload" href="assets/css/base.min.css?v=1" as="style" fetchpriority="high">
-  <link rel="preload" href="assets/images/photo.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/images/me/taufik-nur-rahmanda.webp"
+    imagesrcset="
+      assets/images/me/taufik-nur-rahmanda-250.webp 250w,
+      assets/images/me/taufik-nur-rahmanda-550.webp 550w,
+      assets/images/me/taufik-nur-rahmanda.webp 720w"
+    imagesizes="(max-width: 600px) 100vw, 600px"
+    as="image"
+    type="image/webp"
+    fetchpriority="high">
+
   <link rel="preload" href="https://images.unsplash.com/photo-1491472253230-a044054ca35f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU0ODY5NzB8&ixlib=rb-4.1.0&q=80&w=1080" as="image" type="image/jpeg" fetchpriority="high">
   <link rel="preload" href="assets/js/script.min.js?v=1" as="script">
 
@@ -39,7 +48,7 @@
   <meta property="og:title" content="Taufik Nur Rahmanda, S.Kom | Portfolio">
   <meta property="og:description" content="Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.">
   <meta property="og:url" content="https://txufiknr.github.io">
-  <meta property="og:image" content="https://txufiknr.github.io/assets/images/photo.webp">
+  <meta property="og:image" content="https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp">
   <meta property="og:image:alt" content="Taufik's photo">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="1080">
@@ -96,7 +105,7 @@
             }
           ],
           "url": "https://txufiknr.github.io",
-          "image": "https://txufiknr.github.io/assets/images/photo.webp",
+          "image": "https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp",
           "description": "Senior Software Engineer specializing in web development and mobile applications.",
           "knowsAbout": [
             "Web Development",
@@ -248,7 +257,7 @@
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
   
   <!-- Styles -->
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block"></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=block"></noscript>
   <link rel="stylesheet" href="assets/css/base.min.css?v=1" media="screen">
   <link rel="stylesheet" href="assets/css/tablet.min.css?v=1" media="screen and (min-width: 768px)">
   <link rel="stylesheet" href="assets/css/desktop.min.css?v=1" media="screen and (min-width: 992px)">
@@ -257,12 +266,16 @@
 
 <body data-page="home" data-href="./">
   <div id="scroll-watcher"></div>
-  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="assets/images/photo.webp"></div>
+  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="assets/images/me/taufik-nur-rahmanda-250.webp"></div>
 
   <a class="skip-link" href="#content">Skip to content</a>
 
   <header id="hero">
-    <img alt="Taufik's photo" src="assets/images/photo.webp" fetchpriority="high">
+    <img alt="Taufik Nur Rahmanda" src="assets/images/me/taufik-nur-rahmanda.webp"
+      srcset="assets/images/me/taufik-nur-rahmanda-250.webp 250w, assets/images/me/taufik-nur-rahmanda-550.webp 550w, assets/images/me/taufik-nur-rahmanda.webp 720w"
+      sizes="(max-width: 600px) 100vw, 600px"
+      fetchpriority="high" decoding="async" loading="eager">
+
     <div id="particles-js"></div>
 
     <div class="container">
@@ -400,7 +413,9 @@
         <h2>Follow me</h2>
       </div>
       <div class="item" id="portfolio-1">
-        <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp">
+        <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp"
+          srcset="assets/images/portfolio/thumbs/qibla-150.webp 150w, assets/images/portfolio/qibla.webp 600w"
+          sizes="(max-width: 600px) 150px, 600px">
         <h2>Qibla Locator</h2>
         <div>
           <p>Perfect tool for Muslims around the world to easily and accurately determine the direction of the Qibla, the sacred direction towards the Kaaba in Mecca, for daily prayers (Salah). Whether you’re at home, traveling, or in a new location, this app ensures you can always align yourself with the correct direction for prayer.</p>
@@ -410,7 +425,9 @@
         </div>
       </div>
       <div class="item text-right" id="portfolio-2">
-        <img loading="lazy" alt="Quran Recite app screenshot" src="assets/images/portfolio/quran.webp">
+        <img loading="lazy" alt="Qur'an Recite app screenshot" src="assets/images/portfolio/quran.webp"
+          srcset="assets/images/portfolio/thumbs/quran-150.webp 150w, assets/images/portfolio/quran.webp 600w"
+          sizes="(max-width: 600px) 150px, 600px">
         <h2>Quran Recite</h2>
         <div>
           <p>An all-in-one comprehensive and customizable Holy Qur'an. Whether you're looking to read, listen, or learn, Qur'an Recite is the perfect companion for your spiritual journey. Packed with powerful features, this app provides a seamless way to interact with the Qur'an on your mobile device, offering translations, transliterations, and more.</p>
@@ -420,7 +437,9 @@
         </div>
       </div>
       <div class="item" id="portfolio-3">
-        <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp">
+        <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp"
+          srcset="assets/images/portfolio/thumbs/tasbih-150.webp 150w, assets/images/portfolio/tasbih.webp 600w"
+          sizes="(max-width: 600px) 150px, 600px">
         <h2>Dhikr Counter</h2>
         <div>
           <p>An intuitive, user-friendly mobile application designed to help you keep track of your dhikr (remembrance of Allah) digitally. Whether you are reciting prayers, invoking blessings, or seeking spiritual connection, this app is the perfect tool to assist you in counting and displaying dhikr text as you go.</p>
@@ -430,7 +449,9 @@
         </div>
       </div>
       <div class="item text-right" id="portfolio-4">
-        <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp">
+        <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp"
+          srcset="assets/images/portfolio/thumbs/zakat-150.webp 150w, assets/images/portfolio/zakat.webp 600w"
+          sizes="(max-width: 600px) 150px, 600px">
         <h2>Zakat Calculator</h2>
         <div>
           <p>An easy and user-friendly mobile app designed to simplify the process of calculating, tracking, and understanding Zakat obligations for every Muslim. With an intuitive interface and a range of thoughtful features, this application empowers users to calculate their Zakat, track their annual obligations, and access relevant Islamic guidance—all in one place.</p>

@@ -54,9 +54,12 @@ define('URL_GITHUB', "https://github.com/txufiknr");
 define('URL_PLAYSTORE', "https://play.google.com/store/apps/dev?id=7554821831783338570");
 define('URL_WEBSITE', 'https://txufiknr.github.io');
 define('URL_BASE', URL_WEBSITE.'/');
+define('URL_FONT', 'https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=block');
 define('LANGUAGE_OPTIONS', ['en', 'id']);
 define('LANGUAGE_DEFAULT', 'en');
-define('PATH_PHOTO', "assets/images/photo.webp");
+define('PATH_PHOTO', "assets/images/me/taufik-nur-rahmanda.webp");
+define('PATH_PHOTO_SMALL', "assets/images/me/taufik-nur-rahmanda-550.webp");
+define('PATH_PHOTO_TINY', "assets/images/me/taufik-nur-rahmanda-250.webp");
 define('BIO_FULL_NAME', "Taufik Nur Rahmanda");
 define('BIO_LEGAL_NAME', "Taufik Nur Rahmanda, S.Kom");
 define('BIO_FIRST_NAME', "Taufik");
@@ -152,12 +155,20 @@ if ($isHome) {
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
   <!-- Pre-load font -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=block"></noscript>
+  <link rel="preload" href="<?=URL_FONT?>" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- Pre-load assets -->
   <link rel="preload" href="<?=$pathStyle?>" as="style" fetchpriority="high">
-  <link rel="preload" href="<?=PATH_PHOTO?>" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="<?=PATH_PHOTO?>"
+    imagesrcset="
+      <?=PATH_PHOTO_TINY?> 250w,
+      <?=PATH_PHOTO_SMALL?> 550w,
+      <?=PATH_PHOTO?> 720w"
+    imagesizes="(max-width: 600px) 100vw, 600px"
+    as="image"
+    type="image/webp"
+    fetchpriority="high">
+
   <link rel="preload" href="<?=$pathScript?>" as="script">
 
   <!-- Deferred scripts -->
@@ -221,6 +232,7 @@ if ($isHome) {
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
   
   <!-- Styles -->
+  <noscript><link rel="stylesheet" href="<?=URL_FONT?>"></noscript>
   <link rel="stylesheet" href="<?=$pathStyle?>" media="screen">
   <link rel="stylesheet" href="<?=$pathStyleTablet?>" media="screen and (min-width: 768px)"<?=$isMobile?' disabled':''?>>
   <link rel="stylesheet" href="<?=$pathStyleDesktop?>" media="screen and (min-width: 992px)"<?=$isMobile?' disabled':''?>>
@@ -233,12 +245,16 @@ if ($isHome) {
 
 <body data-page="<?=$page?>" data-href="<?=$href?>">
   <div id="scroll-watcher"></div>
-  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="<?=PATH_PHOTO?>"></div>
+  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="<?=PATH_PHOTO_TINY?>"></div>
 
   <a class="skip-link" href="#skills">Skip to content</a>
 
-  <section id="hero">
-    <img alt="<?=BIO_FIRST_NAME?>'s photo" src="<?=PATH_PHOTO?>" fetchpriority="high">
+  <header id="hero">
+    <img alt="<?=BIO_FULL_NAME?>" src="<?=PATH_PHOTO?>"
+      srcset="<?=PATH_PHOTO_TINY?> 250w, <?=PATH_PHOTO_SMALL?> 550w, <?=PATH_PHOTO?> 720w"
+      sizes="(max-width: 600px) 100vw, 600px"
+      fetchpriority="high" decoding="async" loading="eager">
+
     <div id="particles-js"></div>
 
     <div class="container">
@@ -259,7 +275,7 @@ if ($isHome) {
         <a href="<?=$baseURL?>" data-value="id">Indonesian</a>
       </div>
     </div>
-  </section>
+  </header>
 
   <section id="skills">
     <div class="container">
@@ -369,7 +385,9 @@ if ($isHome) {
       <h2><?=$tr['follow_me']?></h2>
     </div>
     <div class="item" id="portfolio-1">
-      <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp">
+      <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp"
+        srcset="assets/images/portfolio/thumbs/qibla-150.webp 150w, assets/images/portfolio/qibla.webp 600w"
+        sizes="(max-width: 600px) 150px, 600px">
       <h2>Qibla Locator</h2>
       <div>
         <p><?=$tr['portfolio_qibla']?></p>
@@ -379,7 +397,9 @@ if ($isHome) {
       </div>
     </div>
     <div class="item text-right" id="portfolio-2">
-      <img loading="lazy" alt="Quran Recite app screenshot" src="assets/images/portfolio/quran.webp">
+      <img loading="lazy" alt="Qur'an Recite app screenshot" src="assets/images/portfolio/quran.webp"
+        srcset="assets/images/portfolio/thumbs/quran-150.webp 150w, assets/images/portfolio/quran.webp 600w"
+        sizes="(max-width: 600px) 150px, 600px">
       <h2>Quran Recite</h2>
       <div>
         <p><?=$tr['portfolio_quran']?></p>
@@ -389,7 +409,9 @@ if ($isHome) {
       </div>
     </div>
     <div class="item" id="portfolio-3">
-      <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp">
+      <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp"
+        srcset="assets/images/portfolio/thumbs/tasbih-150.webp 150w, assets/images/portfolio/tasbih.webp 600w"
+        sizes="(max-width: 600px) 150px, 600px">
       <h2>Dhikr Counter</h2>
       <div>
         <p><?=$tr['portfolio_tasbih']?></p>
@@ -399,7 +421,9 @@ if ($isHome) {
       </div>
     </div>
     <div class="item text-right" id="portfolio-4">
-      <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp">
+      <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp"
+        srcset="assets/images/portfolio/thumbs/zakat-150.webp 150w, assets/images/portfolio/zakat.webp 600w"
+        sizes="(max-width: 600px) 150px, 600px">
       <h2>Zakat Calculator</h2>
       <div>
         <p><?=$tr['portfolio_zakat']?></p>
