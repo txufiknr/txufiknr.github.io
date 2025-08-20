@@ -28,13 +28,13 @@
     fetchpriority="high">
 
   <link rel="preload" href="https://images.unsplash.com/photo-1491472253230-a044054ca35f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU0ODY5NzB8&ixlib=rb-4.1.0&q=80&w=1080" as="image" type="image/jpeg" fetchpriority="high">
-  <link rel="preload" href="assets/js/script.js?v=1" as="script">
+  <link rel="preload" href="assets/js/script.min.js?v=1" as="script">
 
   <!-- Deferred scripts -->
   <!-- <script src="assets/vendor/counterup2/counterup2.js" defer></script> -->
   <!-- <script src="assets/vendor/particles/particles.min.js" defer></script> -->
   <!-- <script src="assets/vendor/typewrite/typewrite.min.js" defer></script> -->
-  <!-- <script src="assets/js/script.js?v=1" defer></script> -->
+  <!-- <script src="assets/js/script.min.js?v=1" defer></script> -->
 
   <!-- Site Info -->
   <meta name="description" content="Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.">
@@ -374,7 +374,9 @@
         document.head.appendChild(el);
       });
 
-    // Lazy-load non-essential JS: Only load animation libraries after the page is interactive
+    // Lazy-load non-essential JS
+    let scriptsLoaded = false;
+
     async function loadScript(src) {
       return new Promise((resolve, reject) => {
         const s = document.createElement('script');
@@ -385,7 +387,14 @@
       });
     }
 
-    window.requestIdleCallback(async () => {
+    async function lazyLoadScripts() {
+      if (scriptsLoaded) return;
+      scriptsLoaded = true;
+
+      // Remove listeners to avoid re-calling
+      window.removeEventListener('scroll', lazyLoadScripts);
+      window.removeEventListener('mousemove', lazyLoadScripts);
+
       try {
         // Load third-party libraries in parallel
         await Promise.all([
@@ -395,11 +404,22 @@
         ]);
 
         // Load the main script after dependencies are ready
-        await loadScript('assets/js/script.js?v=1');
+        await loadScript('assets/js/script.min.js?v=1');
       } catch (err) {
         console.error('Failed to load scripts:', err);
       }
-    });
+    }
+
+    // Lazy-init: delay scripts until user starts interacting with the page
+    window.addEventListener('scroll', lazyLoadScripts);
+    window.addEventListener('mousemove', lazyLoadScripts);
+
+    // Only load animation libraries after the page is interactive
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(lazyLoadScripts);
+    } else {
+      lazyLoadScripts();
+    }
   </script>
   </body>
 </html>

@@ -383,7 +383,17 @@ body.scrolled #scroll-to-top::before {
   animation: fade-in linear forwards;
   animation-timeline: view();
 }
-  
+
+/* This CSS property allows the browser to skip rendering offscreen content until needed. */
+/* #portfolio {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+} */
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 96px;
+}
+
 #portfolio {
   background: linear-gradient(to top, var(--color-primary-dark), transparent);
   position: relative;
