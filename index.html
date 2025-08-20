@@ -78,29 +78,50 @@
           "@id": "https://txufiknr.github.io#me",
           "name": "Taufik Nur Rahmanda",
           "alternateName": "txufiknr",
-          "legalName": "Taufik Nur Rahmanda, S.Kom",
           "jobTitle": "Senior Software Engineer",
           "worksFor": { "@id": "https://nurosoft.id/#organization" },
           "url": "https://txufiknr.github.io",
-          "image": "https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp",
+          "image": "https://txufiknr.github.io/assets/images/photo.webp",
           "description": "Senior Software Engineer specializing in web development and mobile applications.",
           "sameAs": [
             "https://www.linkedin.com/in/taufik-nur-rahmanda/",
             "https://github.com/txufiknr",
-            "https://x.com/txufiknr",
-            "https://play.google.com/store/apps/dev?id=7554821831783338570"
+            "https://x.com/txufiknr"
           ],
-          "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "Universitas Brawijaya",
-            "sameAs": "https://www.ub.ac.id/"
-          },
-          "homeLocation": {
-            "@type": "Place",
-            "address": { "@type": "PostalAddress", "addressCountry": "ID" }
-          },
-          "nationality": { "@type": "Country", "name": "Indonesia" },
-          "mainEntityOfPage": { "@id": "https://txufiknr.github.io#webpage" }
+          "knowsAbout": [
+            "Web Development",
+            "Mobile Applications",
+            "Frontend Development",
+            "Backend Development",
+            "Full-stack Development",
+            "Cross-platform Development",
+            "Flutter",
+            "React",
+            "Node.js",
+            "PHP",
+            "JavaScript",
+            "Databases",
+            "APIs",
+            "UI/UX Design"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "WhatsApp",
+              "telephone": "+6285954479380",
+              "url": "https://wa.me/6285954479380",
+              "availableLanguage": ["en", "id"]
+            },
+            {
+              "@type": "ContactPoint",
+              "contactType": "Email",
+              "email": "flias.test@gmail.com",
+              "availableLanguage": ["en", "id"]
+            }
+          ],
+          "mainEntityOfPage": {
+            "@id": "https://txufiknr.github.io#webpage"
+          }
         },
         {
           "@type": "WebSite",
@@ -118,6 +139,23 @@
           "mainEntity": { "@id": "https://txufiknr.github.io#me" },
           "publisher": { "@id": "https://txufiknr.github.io#me" },
           "author": { "@id": "https://txufiknr.github.io#me" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://nurosoft.id/#organization",
+          "name": "Nurosoft Consulting",
+          "legalName": "PT. Nuroho Software Consulting",
+          "url": "https://nurosoft.id/",
+          "sameAs": ["https://id.linkedin.com/company/nurosoft"],
+          "foundingDate": "2014",
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Surabaya",
+              "addressCountry": "ID"
+            }
+          }
         }
       ]
     }
@@ -162,7 +200,7 @@
     <div class="container">
       <h1><span>Taufik</span> Nur Rahmanda, S.Kom</h1>
       <p class="typewrite" data-period="4000" data-type='["I`ve created high quality web & apps projects", "CEO & Founder of TARRA Co", "I always keep up with the latest technology!"]'>
-        <span class="wrap"></span>
+        <span class="wrap">I`ve created high quality web & apps projects</span>
       </p>
       <p>Professional software engineer, mobile & web app developer with over 8 years of experience in multiple software industries. Skilled in multi-platform app development for Android, iOS, web.<span class="d-tablet-inline"> Having strong knowledge in latest tech-stacks including Flutter (Dart), HTML, CSS, ES6+, PHP 8, Next.js, Vue, latest mobile technologies, game engines, frameworks, and SDK.</span></p>
       <div class="socials">
@@ -365,7 +403,7 @@
 
   <script>
     // Fetch extra JSON-LD dynamically
-    fetch('assets/json/profile-extras.jsonld')
+    fetch('assets/json/schema-extras.jsonld')
       .then(res => res.text())
       .then(data => {
         const el = document.createElement('script');
@@ -381,8 +419,9 @@
       return new Promise((resolve, reject) => {
         const s = document.createElement('script');
         s.src = src;
+        s.async = true;
         s.onload = resolve;
-        s.onerror = reject;
+        s.onerror = () => reject(new Error('Failed to load ' + src));
         document.body.appendChild(s);
       });
     }
@@ -394,10 +433,11 @@
       // Remove listeners to avoid re-calling
       window.removeEventListener('scroll', lazyLoadScripts);
       window.removeEventListener('mousemove', lazyLoadScripts);
+      window.removeEventListener('keydown', lazyLoadScripts);
 
       try {
         // Load third-party libraries in parallel
-        await Promise.all([
+        await Promise.allSettled([
           loadScript('assets/vendor/counterup2/counterup2.js'),
           loadScript('assets/vendor/particles/particles.min.js'),
           loadScript('assets/vendor/typewrite/typewrite.min.js')
@@ -411,8 +451,9 @@
     }
 
     // Lazy-init: delay scripts until user starts interacting with the page
-    window.addEventListener('scroll', lazyLoadScripts);
-    window.addEventListener('mousemove', lazyLoadScripts);
+    window.addEventListener('scroll', lazyLoadScripts, { once: true });
+    window.addEventListener('mousemove', lazyLoadScripts, { once: true });
+    window.addEventListener('keydown', lazyLoadScripts, { once: true });
 
     // Only load animation libraries after the page is interactive
     if ('requestIdleCallback' in window) {

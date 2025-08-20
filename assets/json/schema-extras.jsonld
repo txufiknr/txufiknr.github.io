@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Occupation",
+      "name": "Senior Software Engineer",
+      "occupationLocation": { "@id": "https://nurosoft.id/#organization" },
+      "skills": [
+        "Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", 
+        "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", 
+        "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", 
+        "Kotlin", "Android Studio", "XCode"
+      ],
+      "startDate": "2019"
+    },
+    {
+      "@type": "Occupation",
+      "name": "Programmer",
+      "occupationLocation": {
+        "@type": "Organization",
+        "name": "J-Tech Solusindo",
+        "legalName": "CV. Jaya Technology Solusindo",
+        "url": "https://www.j-tech.co.id/",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Malang",
+            "addressCountry": "ID"
+          }
+        }
+      },
+      "skills": [
+        "PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS",
+        "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"
+      ],
+      "startDate": "2017",
+      "endDate": "2019"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "GitHub Projects",
+      "url": "https://github.com/txufiknr",
+      "creator": { "@id": "https://txufiknr.github.io#me" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Android Apps by TARRA Soft",
+      "operatingSystem": "Android",
+      "applicationCategory": "MobileApplication",
+      "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
+      "creator": { "@id": "https://txufiknr.github.io#me" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://txufiknr.github.io#me",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universitas Brawijaya",
+        "sameAs": "https://www.ub.ac.id/"
+      },
+      "nationality": { "@type": "Country", "name": "Indonesia" }
+    }
+  ]
+}
