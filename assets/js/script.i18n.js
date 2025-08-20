@@ -36,7 +36,7 @@ function onPageLoaded() {
   document.documentElement.scrollLeft = 0
   document.body.scrollLeft = 0
 
-  // Internationalization
+  // Language menu
   if (document.getElementById('cookie-alert')) {
     document.getElementById('lang').addEventListener('click', showCookieAlert)
     document.getElementById('lang').addEventListener('mouseenter', showCookieAlert)
@@ -92,12 +92,19 @@ const pageHref = document.body.dataset.href // $href
 let counted = false
 let ticking = false
 
-document.addEventListener('DOMContentLoaded', onPageLoaded)
 document.getElementById('scroll-to-top').addEventListener('click', scrollToTop)
 document.getElementById('scroll-down').addEventListener('click', scrollDown)
-
-window.addEventListener('load', onPageScroll)
+// document.addEventListener('DOMContentLoaded', onPageLoaded)
+// window.addEventListener('load', onPageScroll)
 // window.addEventListener('scroll', onPageScroll)
+
+function initScripts() {
+  onPageLoaded();
+  onPageScroll();
+}
+
+// All dependencies are guaranteed to be loaded
+initScripts();
 
 // Use requestAnimationFrame for smoother scroll handling
 window.addEventListener('scroll', () => {

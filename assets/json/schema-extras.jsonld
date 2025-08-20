@@ -59,6 +59,10 @@
         "name": "Universitas Brawijaya",
         "sameAs": "https://www.ub.ac.id/"
       },
+      "homeLocation": {
+        "@type": "Place",
+        "address": { "@type": "PostalAddress", "addressCountry": "ID" }
+      },
       "nationality": { "@type": "Country", "name": "Indonesia" }
     }
   ]
