@@ -18,11 +18,7 @@
           "occupationLocation": {
             "@id": "https://nurosoft.id/#organization"
           },
-          "skills": [
-            "Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", "TypeScript",
-            "Node.js", "Next.js", "Express", "Sequelize", "Redis", "PostgreSQL", "Vite",
-            "HTML", "CSS", "SCSS", "Kotlin", "Android Studio", "XCode"
-          ],
+          "skills": ["Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", "Kotlin", "Android Studio", "XCode"],
           "startDate": "2019"
         },
         {
@@ -31,10 +27,7 @@
           "occupationLocation": {
             "@id": "https://www.j-tech.co.id/#organization"
           },
-          "skills": [
-            "PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS",
-            "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"
-          ],
+          "skills": ["PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS", "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"],
           "startDate": "2017",
           "endDate": "2019"
         }

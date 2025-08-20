@@ -59,12 +59,27 @@ function onPageScroll() {
 let counted = false
 let ticking = false
 
-document.addEventListener('DOMContentLoaded', onPageLoaded)
 document.getElementById('scroll-to-top').addEventListener('click', scrollToTop)
 document.getElementById('scroll-down').addEventListener('click', scrollDown)
-
-window.addEventListener('load', onPageScroll)
+// document.addEventListener('DOMContentLoaded', onPageLoaded)
+// window.addEventListener('load', onPageScroll)
 // window.addEventListener('scroll', onPageScroll)
+
+function initScripts() {
+  onPageLoaded();
+  onPageScroll();
+}
+
+// All dependencies are guaranteed to be loaded
+initScripts();
+
+// Safely handle if DOM/window has already loaded
+// if (document.readyState === 'complete') {
+//   initScripts();
+// } else {
+//   document.addEventListener('DOMContentLoaded', onPageLoaded);
+//   window.addEventListener('load', onPageScroll);
+// }
 
 // Use requestAnimationFrame for smoother scroll handling
 window.addEventListener('scroll', () => {

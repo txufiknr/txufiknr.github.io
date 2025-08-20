@@ -1,0 +1,87 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Occupation",
+      "name": "Senior Software Engineer",
+      "occupationLocation": {
+        "@id": "https://nurosoft.id/#organization"
+      },
+      "skills": ["Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", "Kotlin", "Android Studio", "XCode"],
+      "startDate": "2019"
+    },
+    {
+      "@type": "Occupation",
+      "name": "Programmer",
+      "occupationLocation": {
+        "@id": "https://www.j-tech.co.id/#organization"
+      },
+      "skills": ["PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS", "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"],
+      "startDate": "2017",
+      "endDate": "2019"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "WhatsApp",
+      "telephone": "+6285954479380",
+      "url": "https://wa.me/6285954479380",
+      "availableLanguage": ["en", "id"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "Email",
+      "email": "flias.test@gmail.com",
+      "availableLanguage": ["en", "id"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nurosoft.id/#organization",
+      "name": "Nurosoft Consulting",
+      "legalName": "PT. Nuroho Software Consulting",
+      "url": "https://nurosoft.id/",
+      "sameAs": ["https://id.linkedin.com/company/nurosoft"],
+      "foundingDate": "2014",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Surabaya",
+          "addressCountry": "ID"
+        }
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.j-tech.co.id/#organization",
+      "name": "J-Tech Solusindo",
+      "legalName": "CV. Jaya Technology Solusindo",
+      "url": "https://www.j-tech.co.id/",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Malang",
+          "addressCountry": "ID"
+        }
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "GitHub Projects",
+      "url": "https://github.com/txufiknr",
+      "creator": {
+        "@id": "https://txufiknr.github.io#me"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Android Apps by TARRA Soft",
+      "operatingSystem": "Android",
+      "applicationCategory": "MobileApplication",
+      "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
+      "creator": {
+        "@id": "https://txufiknr.github.io#me"
+      }
+    }
+  ]
+}
