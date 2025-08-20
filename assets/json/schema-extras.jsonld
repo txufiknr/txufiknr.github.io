@@ -2,56 +2,6 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Occupation",
-      "name": "Senior Software Engineer",
-      "occupationLocation": { "@id": "https://nurosoft.id/#organization" },
-      "skills": [
-        "Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", 
-        "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", 
-        "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", 
-        "Kotlin", "Android Studio", "XCode"
-      ],
-      "startDate": "2019"
-    },
-    {
-      "@type": "Occupation",
-      "name": "Programmer",
-      "occupationLocation": {
-        "@type": "Organization",
-        "name": "J-Tech Solusindo",
-        "legalName": "CV. Jaya Technology Solusindo",
-        "url": "https://www.j-tech.co.id/",
-        "location": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Malang",
-            "addressCountry": "ID"
-          }
-        }
-      },
-      "skills": [
-        "PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS",
-        "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"
-      ],
-      "startDate": "2017",
-      "endDate": "2019"
-    },
-    {
-      "@type": "CreativeWork",
-      "name": "GitHub Projects",
-      "url": "https://github.com/txufiknr",
-      "creator": { "@id": "https://txufiknr.github.io#me" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Android Apps by TARRA Soft",
-      "operatingSystem": "Android",
-      "applicationCategory": "MobileApplication",
-      "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
-      "creator": { "@id": "https://txufiknr.github.io#me" }
-    },
-    {
       "@type": "Person",
       "@id": "https://txufiknr.github.io#me",
       "alumniOf": {
@@ -61,9 +11,77 @@
       },
       "homeLocation": {
         "@type": "Place",
-        "address": { "@type": "PostalAddress", "addressCountry": "ID" }
+        "address": { "@type": "PostalAddress", "addressLocality": "Malang", "addressCountry": "ID" }
       },
-      "nationality": { "@type": "Country", "name": "Indonesia" }
+      "nationality": { "@type": "Country", "name": "Indonesia" },
+      "hasOccupation": [
+        {
+          "@type": "Role",
+          "roleName": "Senior Software Engineer",
+          "startDate": "2019",
+          "worksFor": { "@id": "https://nurosoft.id/#organization" },
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Senior Software Engineer",
+            "occupationLocation": { "@type": "PostalAddress", "addressLocality": "Surabaya", "addressCountry": "ID" },
+            "responsibilities": "Develop web, mobile & cross-platform app",
+            "skills": [
+              "Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", 
+              "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", 
+              "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", 
+              "Kotlin", "Android Studio", "XCode"
+            ]
+          }
+        },
+        {
+          "@type": "Role",
+          "roleName": "Programmer",
+          "startDate": "2017",
+          "endDate": "2019",
+          "worksFor": { "@id": "https://www.j-tech.co.id/#organization" },
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Programmer",
+            "occupationLocation": { "@type": "PostalAddress", "addressLocality": "Malang", "addressCountry": "ID" },
+            "responsibilities": "Develop web & Android app",
+            "skills": [
+              "PHP", "JavaScript", "jQuery", "Bootstrap", "HTML", "CSS",
+              "CodeIgniter", "MySQL", "MariaDB", "Java", "Android Studio"
+            ]
+          }
+        }
+      ],
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "GitHub Projects",
+          "url": "https://github.com/txufiknr",
+          "creator": { "@id": "https://txufiknr.github.io#me" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Android Apps by TARRA Soft",
+          "operatingSystem": "Android",
+          "applicationCategory": "MobileApplication",
+          "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
+          "creator": { "@id": "https://txufiknr.github.io#me" }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.j-tech.co.id/#organization",
+      "name": "J-Tech Solusindo",
+      "legalName": "CV. Jaya Technology Solusindo",
+      "url": "https://www.j-tech.co.id/",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Malang",
+          "addressCountry": "ID"
+        }
+      }
     }
   ]
 }
