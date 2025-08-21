@@ -48,7 +48,7 @@ footer {
 #hero h1:hover::after {
   transform: translateX(100%);
 }
-#hero h1 span {
+#hero h1 span:first-child {
   display: block;
   font-size: 150%;
 }
@@ -114,9 +114,6 @@ footer {
   animation-direction: normal !important;
   scale: 2;
   opacity: 0;
-}
-body.scrolled #portfolio .title h2::after {
-  transform: translateX(100%);
 }
 #portfolio .item {
   max-width: 25rem;

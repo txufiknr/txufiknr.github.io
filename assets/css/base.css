@@ -86,6 +86,12 @@ footer {
   animation: glow-text 2s ease infinite alternate;
 }
 #hero h1 span {
+  font-family: var(--font-family);
+  font-display: block;
+  display: inline-block;
+  opacity: 0;
+}
+#hero h1 span:first-child {
   color: var(--color-primary-light);
   font-size: 125%;
 }
@@ -172,19 +178,6 @@ footer {
   height: auto;
 }
 
-#scroll-watcher {
-  width: 100%;
-  height: 2px;
-  position: fixed;
-  background: var(--color-primary-light);
-  top: 0;
-  z-index: 1000;
-  scale: 0 1;
-  transform-origin: left;
-  animation: scroll-watcher linear;
-  animation-timeline: scroll();
-  filter: drop-shadow(0 0 8px rgba(255, 66, 232, 1));
-}
 #scroll-down {
   filter: invert();
   animation: scroll-down 2s ease-in-out infinite alternate;
@@ -215,41 +208,6 @@ footer {
   animation: fade-in-up ease-in-out forwards;
   animation-timeline: view();
   animation-range: entry 150vh 200vh;
-}
-#scroll-to-top img {
-  filter: brightness(0.6);
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  object-fit: cover;
-}
-#scroll-to-top::before {
-  content: url(../icons/chevron-up.svg);
-  position: absolute;
-  top: 0;
-  filter: invert(1);
-  margin-top: 0;
-  opacity: 0;
-  scale: 1.5;
-  transition: all .25s ease-out;
-}
-#scroll-to-top:hover {
-  background: rgba(255, 255, 255, .3);
-}
-#scroll-to-top:hover img {
-  filter: brightness(.9);
-}
-#scroll-to-top:hover::before {
-  margin-top: -2rem;
-  opacity: .7;
-}
-body.scrolled #scroll-to-top {
-  width: 4rem;
-  height: 4rem;
-  right: 1rem;
-}
-body.scrolled #scroll-to-top::before {
-  display: none;
 }
 
 #skills {
@@ -441,9 +399,6 @@ footer {
   animation-range: entry 30vh 100vh;
   animation-timeline: view();
 }
-body.scrolled #portfolio .title {
-  animation-direction: reverse;
-}
 #portfolio .title h1 {
   position: absolute;
   top: calc(50% - 2.75rem);
@@ -488,10 +443,6 @@ body.scrolled #portfolio .title {
   background: var(--color-primary-light);
   transform: translateX(-105%);
   transition: all 0.3s cubic-bezier(0.2, 1, 0.2, 1);
-}
-body.scrolled #portfolio .title h2::before {
-  transform: translateX(0);
-  transition-delay: 0.2s;
 }
 #portfolio .item {
   border-radius: 1rem;
@@ -587,208 +538,6 @@ body.scrolled #portfolio .title h2::before {
 #portfolio .socials a img {
   margin: 0 1rem;
 }
-#singularity {
-	position: sticky;
-	top: 50%;
-	opacity: 0;
-	pointer-events: none;
-	transform: translateY(-50%);
-	animation: fade-in ease-in-out forwards;
-	animation-timeline: view();
-	animation-range: entry 100vh;
-}
-#blackhole {
-	width: 200px;
-	height: 200px;
-	filter: blur(10px);
-	position: absolute;
-	left: calc(50% - 100px);
-	top: calc(50% - 100px);
-}
-#blackhole::before {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: rebeccapurple;
-	border-radius: 45% 55% 43% 57% / 41% 39% 61% 59%;
-	box-shadow: -3px -1px 0 15px rebeccapurple, 0px 3px 0 18px rebeccapurple;
-	transform: rotate(426deg);
-	animation: rotate 20s linear infinite, radius 20s linear infinite;
-	left: 0;
-}
-#blackhole::after {
-	content: '';
-	position: absolute;
-	background: var(--color-background);
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	left: 0;
-}
-#radiation {
-	position: absolute;
-	z-index: -1;
-	bottom: 50px;
-	margin: auto;
-	background-color: rebeccapurple;
-	width: 70px;
-	height: 50px;
-	border-radius: 45% 55% 48% 52% / 56% 43% 57% 44%;
-	filter: blur(10px);
-	animation: radius 8s linear infinite;
-	left: calc(50% - 35px);
-}
-#radiation::after {
-  content: '';
-  border-radius: 45% 55% 48% 52% / 56% 43% 57% 44%;
-  position: absolute;
-  background-color: rebeccapurple;
-  width: 70px;
-  height: 50px;
-  bottom: -8px;
-  left: -25px;
-  animation: radius 7s linear infinite;
-  animation-delay: 2s;
-}
-#radiation::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: 0;
-  animation: radiation 7s forwards infinite, radius 20s linear infinite;
-}
-#radiation i:nth-child(1)::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: 10px;
-  animation: radiation 4s forwards infinite, radius 10s linear infinite;
-}
-#radiation i:nth-child(1)::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: 30px;
-  transform: scale(0.8);
-  animation: radiation 5s forwards infinite, radius 10s linear infinite;
-  animation-delay: 1s;
-}
-#radiation i:nth-child(2)::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: 20px;
-  animation: radiation 6s forwards infinite, radius 10s linear infinite;
-  animation-delay: 2s;
-}
-#radiation i:nth-child(2)::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: -20px;
-  transform: scale(0.9);
-  animation: radiation2 7s forwards infinite, radius 10s linear infinite;
-  animation-delay: 3s;
-}
-#radiation i:nth-child(3)::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: 35px;
-  animation: radiation3 3s forwards infinite, radius 10s linear infinite;
-  animation-delay: 4s;
-}
-#radiation i:nth-child(3)::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: -20px;
-  transform: scale(1.1);
-  animation: radiation3 5s forwards infinite, radius 6s linear infinite;
-  animation-delay: 5s;
-}
-#radiation i:nth-child(4)::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: 45px;
-  animation: radiation4 9s forwards infinite, radius 10s linear infinite;
-  animation-delay: 5s;
-}
-#radiation i:nth-child(4)::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  filter: blur(10px);
-  bottom: 0;
-  left: -20px;
-  transform: scale(1.1);
-  animation: radiation4 9s forwards infinite, radius 6s linear infinite;
-  animation-delay: 6s;
-}
-
-#cookie-alert {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  z-index: 999;
-  opacity: 0;
-  bottom: -10rem;
-  transition: all .5s ease-out;
-}
-#cookie-alert p {
-  max-width: 40rem;
-  margin: 0;
-  font-size: .9rem;
-  padding: 1rem 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
-  background: rgba(255, 255, 255, .1);
-  backdrop-filter: blur(10px);
-  line-height: 1.35;
-  margin-left: auto;
-}
-#cookie-alert.show {
-  bottom: 0;
-  opacity: 1;
-}
 
 .d-tablet, .d-desktop, .d-tablet-inline {
   display: none;
@@ -859,9 +608,6 @@ body.scrolled #portfolio .title h2::before {
 }
 @keyframes rotate-3d {
   to { transform: rotate3d(1, 1, 1, 0deg); }
-}
-@keyframes scroll-watcher {
-  to { scale: 1 1; opacity: 1; }
 }
 @keyframes scroll-half {
   to { transform: translateY(-50vh); }

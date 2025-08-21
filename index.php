@@ -212,8 +212,8 @@ if ($isHome) {
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="<?=BIO_LEGAL_NAME?>">
-  <meta name="application-name" content="<?=BIO_LEGAL_NAME?>">
+  <meta name="apple-mobile-web-app-title" content="<?=BIO_FULL_NAME?>">
+  <meta name="application-name" content="<?=BIO_FULL_NAME?>">
   
   <!-- Canonical -->
   <link rel="alternate" href="<?=URL_WEBSITE.$pageURL?>" hreflang="en">
@@ -229,9 +229,44 @@ if ($isHome) {
   <link rel="stylesheet" href="<?=$pathStyle?>" media="screen">
   <link rel="stylesheet" href="<?=$pathStyleTablet?>" media="screen and (min-width: 768px)"<?=$isMobile?' disabled':''?>>
   <link rel="stylesheet" href="<?=$pathStyleDesktop?>" media="screen and (min-width: 992px)"<?=$isMobile?' disabled':''?>>
-  <?php if (isset($hero)) { ?>
-  <style>#hero { background-image: url(<?=$hero?>); }</style>
-  <?php } ?>
+
+  <!-- Inline critical CSS -->
+  <style>
+    <?php if (isset($hero)) { ?>
+    #hero { background-image: url(<?=$hero?>); }
+    <?php } ?>
+    #cookie-alert {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1rem;
+      z-index: 999;
+      opacity: 0;
+      bottom: -10rem;
+      transition: all .5s ease-out;
+    }
+    #cookie-alert p {
+      max-width: 40rem;
+      margin: 0;
+      font-size: .9rem;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(10px);
+      line-height: 1.35;
+      margin-left: auto;
+    }
+    #cookie-alert.show {
+      bottom: 0;
+      opacity: 1;
+    }
+  </style>
+
+  <!-- Defer full CSS -->
+  <link rel="preload" href="assets/css/defer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/defer.min.css"></noscript>
 </head>
 
 <?php ob_flush();?>
@@ -251,7 +286,13 @@ if ($isHome) {
     <div id="particles-js"></div>
 
     <div class="container">
-      <h1><span>Taufik</span> Nur Rahmanda, S.Kom</h1>
+      <!-- <h1><span>Taufik</span> Nur Rahmanda, S.Kom</h1> -->
+      <h1>
+        <span style="animation-delay: .2s;">Taufik</span>
+        <span style="animation-delay: .4s;">Nur</span>
+        <span style="animation-delay: .6s;">Rahmanda,</span>
+        <span style="animation-delay: .8s;">S.Kom</span>
+      </h1>
       <p class="typewrite" data-period="4000" data-type='["<?=$tr['intro_1']?>", "<?=$tr['intro_2']?>", "<?=$tr['intro_3']?>"]'>
         <span class="wrap"></span>
       </p>
