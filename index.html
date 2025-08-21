@@ -77,12 +77,12 @@
           "@id": "https://txufiknr.github.io#me",
           "name": "Taufik Nur Rahmanda",
           "alternateName": "txufiknr",
-          "legalName": "Taufik Nur Rahmanda, S.Kom",
           "jobTitle": "Senior Software Engineer",
           "worksFor": { "@id": "https://nurosoft.id/#organization" },
           "url": "https://txufiknr.github.io",
           "image": "https://txufiknr.github.io/assets/images/photo.webp",
           "description": "Senior Software Engineer specializing in web development and mobile applications.",
+          "disambiguatingDescription": "Co-founder of TARRA Co",
           "sameAs": [
             "https://www.linkedin.com/in/taufik-nur-rahmanda/",
             "https://github.com/txufiknr",
@@ -128,7 +128,23 @@
           "@id": "https://txufiknr.github.io#website",
           "name": "Taufik Nur Rahmanda Portfolio",
           "url": "https://txufiknr.github.io",
-          "publisher": { "@id": "https://txufiknr.github.io#me" }
+          "publisher": { "@id": "https://txufiknr.github.io#me" },
+          "hasPart": [
+            {
+              "@type": "CreativeWork",
+              "name": "GitHub Projects",
+              "url": "https://github.com/txufiknr",
+              "creator": { "@id": "https://txufiknr.github.io#me" }
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Android Apps by TARRA Soft",
+              "operatingSystem": "Android",
+              "applicationCategory": "MobileApplication",
+              "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
+              "creator": { "@id": "https://txufiknr.github.io#me" }
+            }
+          ]
         },
         {
           "@type": "WebPage",
@@ -150,11 +166,7 @@
           "foundingDate": "2014",
           "location": {
             "@type": "Place",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Surabaya",
-              "addressCountry": "ID"
-            }
+            "address": { "@type": "PostalAddress", "addressLocality": "Surabaya", "addressCountry": "ID" }
           }
         }
       ]

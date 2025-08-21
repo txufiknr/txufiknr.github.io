@@ -13,10 +13,16 @@
         "@type": "Place",
         "address": { "@type": "PostalAddress", "addressLocality": "Malang", "addressCountry": "ID" }
       },
+      "birthPlace": {
+        "@type": "Place",
+        "address": { "@type": "PostalAddress", "addressLocality": "Malang", "addressCountry": "ID" }
+      },
+      "address": { "@type": "PostalAddress", "addressLocality": "Malang", "addressCountry": "ID" },
       "nationality": { "@type": "Country", "name": "Indonesia" },
+      "gender": "Male",
       "hasOccupation": [
         {
-          "@type": "Role",
+          "@type": "EmployeeRole",
           "roleName": "Senior Software Engineer",
           "startDate": "2019",
           "hasOccupation": {
@@ -34,7 +40,7 @@
           }
         },
         {
-          "@type": "Role",
+          "@type": "EmployeeRole",
           "roleName": "Programmer",
           "startDate": "2017",
           "endDate": "2019",
@@ -50,21 +56,11 @@
             ]
           }
         }
+      ],
+      "affiliation": [
+        { "@id": "https://nurosoft.id/#organization" },
+        { "@id": "https://www.j-tech.co.id/#organization" }
       ]
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "GitHub Projects",
-      "url": "https://github.com/txufiknr",
-      "creator": { "@id": "https://txufiknr.github.io#me" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Android Apps by TARRA Soft",
-      "operatingSystem": "Android",
-      "applicationCategory": "MobileApplication",
-      "url": "https://play.google.com/store/apps/dev?id=7554821831783338570",
-      "creator": { "@id": "https://txufiknr.github.io#me" }
     },
     {
       "@type": "Organization",
