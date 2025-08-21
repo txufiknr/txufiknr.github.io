@@ -205,7 +205,7 @@ if ($isHome) {
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
-  <?php include 'schema.php'; ?>
+  <?php include 'schema.min.php'; ?>
   </script>
 
   <!-- Mobile App -->
@@ -479,7 +479,7 @@ if ($isHome) {
 
   <script>
     // Fetch extra JSON-LD dynamically
-    fetch('assets/json/schema-extras.jsonld')
+    fetch('assets/json/schema-extras.min.jsonld')
       .then(res => res.text())
       .then(data => {
         const el = document.createElement('script');
