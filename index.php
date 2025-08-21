@@ -6,13 +6,14 @@ if (extension_loaded('zlib') && !ini_get('zlib.output_compression') && !ob_get_l
 
 // Detect environments
 $isLocalhost = in_array($_SERVER['HTTP_HOST'], ['localhost', '192.168.1.71']) || in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
-$isMobile = isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile|android|iphone|ipod|ipad|blackberry|webos|hpwos|opera mini|windows phone/i', $_SERVER['HTTP_USER_AGENT']);
+// $isMobile = isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile|android|iphone|ipod|ipad|blackberry|webos|hpwos|opera mini|windows phone/i', $_SERVER['HTTP_USER_AGENT']);
 
 // Define important file paths
 define('PATH_SCRIPT', "assets/js/script.i18n".($isLocalhost?"":".min").".js");
-define('PATH_STYLE', "assets/css/base".($isLocalhost?"":".min").".css");
-define('PATH_STYLE_TABLET', "assets/css/tablet".($isLocalhost?"":".min").".css");
-define('PATH_STYLE_DESKTOP', "assets/css/desktop".($isLocalhost?"":".min").".css");
+define('PATH_STYLE', "assets/css/main".($isLocalhost?"":".min").".css");
+// define('PATH_STYLE', "assets/css/base".($isLocalhost?"":".min").".css");
+// define('PATH_STYLE_TABLET', "assets/css/tablet".($isLocalhost?"":".min").".css");
+// define('PATH_STYLE_DESKTOP', "assets/css/desktop".($isLocalhost?"":".min").".css");
 
 // Timestamp of important file change
 $filesToCheck = [
@@ -20,10 +21,10 @@ $filesToCheck = [
   __DIR__.'/'.PATH_STYLE,
   __DIR__.'/'.PATH_SCRIPT,
 ];
-if ($isMobile) {
-  $filesToCheck[] = __DIR__.'/'.PATH_STYLE_TABLET;
-  $filesToCheck[] = __DIR__.'/'.PATH_STYLE_DESKTOP;
-}
+// if ($isMobile) {
+//   $filesToCheck[] = __DIR__.'/'.PATH_STYLE_TABLET;
+//   $filesToCheck[] = __DIR__.'/'.PATH_STYLE_DESKTOP;
+// }
 
 $modifiedTimes = array_map('filemtime', $filesToCheck);
 $lastModified = max($modifiedTimes);
@@ -115,13 +116,13 @@ $pageTitle = BIO_LEGAL_NAME.' | '.$title;
 $pageURL = $isHome ? '' : '/'.$page;
 $canonical = URL_WEBSITE.($langURL ? '/'.$langURL : '').$pageURL;
 $years = date('Y') - JOB_FIRST_YEAR;
-$isMobile = $isMobile || is_mobile();
+// $isMobile = $isMobile || is_mobile();
 
 // set scripts and styles paths with cache busting
 $pathScript = PATH_SCRIPT.'?'.filemtime(PATH_SCRIPT);
 $pathStyle = PATH_STYLE.'?'.filemtime(PATH_STYLE);
-$pathStyleTablet = PATH_STYLE_TABLET.'?'.filemtime(PATH_STYLE_TABLET);
-$pathStyleDesktop = PATH_STYLE_DESKTOP.'?'.filemtime(PATH_STYLE_DESKTOP);
+// $pathStyleTablet = PATH_STYLE_TABLET.'?'.filemtime(PATH_STYLE_TABLET);
+// $pathStyleDesktop = PATH_STYLE_DESKTOP.'?'.filemtime(PATH_STYLE_DESKTOP);
 
 // fetch hero image in home page
 if ($isHome) {
@@ -224,17 +225,213 @@ if ($isHome) {
   <link href="favicon.png" rel="icon">
   <link href="apple-touch-icon.png" rel="apple-touch-icon">
   
-  <!-- Styles -->
+  <!-- Google Font -->
   <noscript><link rel="stylesheet" href="<?=URL_FONT?>"></noscript>
-  <link rel="stylesheet" href="<?=$pathStyle?>" media="screen">
-  <link rel="stylesheet" href="<?=$pathStyleTablet?>" media="screen and (min-width: 768px)"<?=$isMobile?' disabled':''?>>
-  <link rel="stylesheet" href="<?=$pathStyleDesktop?>" media="screen and (min-width: 992px)"<?=$isMobile?' disabled':''?>>
 
   <!-- Inline critical CSS -->
   <style>
-    <?php if (isset($hero)) { ?>
-    #hero { background-image: url(<?=$hero?>); }
-    <?php } ?>
+    :root {
+      --font-family: "Titillium Web", sans-serif;
+      --color-background: #130d14;
+      --color-primary: #673AB7;
+      --color-primary-light: #c285ff;
+      --color-primary-dark: #310345;
+      --color-secondary-dark: #1c0a3c;
+      --color-accent: rebeccapurple;
+      --glow: rgba(244, 66, 232, 1);
+      --padding-side: max(3rem, 13vw);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+    }
+    html, body {
+      font-smooth: always;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      margin: 0;
+      background: var(--color-background);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    body, button {
+      font-family: var(--font-family);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    #hero {
+      <?php if (isset($hero)) echo 'background-image: url('.$hero.');'; ?>
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 100%);
+      z-index: 2;
+      padding: 5rem var(--padding-side);
+      min-height: 100vh;
+      margin-bottom: -4rem;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, .9);
+    }
+    #hero .container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #hero .socials a:last-child {
+      display: none;
+    }
+    #hero > img:first-child {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100vh;
+      opacity: 0.5;
+      mask: linear-gradient(to right, transparent, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .5) 60%, black);
+    }
+    #hero h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0;
+      animation: glow-text 2s ease infinite alternate;
+    }
+    #hero h1 span {
+      font-family: var(--font-family);
+      font-display: block;
+      display: inline-block;
+      opacity: 0;
+    }
+    #hero h1 span:first-child {
+      color: var(--color-primary-light);
+      font-size: 125%;
+    }
+    #hero p {
+      margin: 2rem 0;
+    }
+    #hero p.typewrite {
+      margin-bottom: 0;
+      line-height: 1.5;
+      min-height: 1.5em;
+      font-weight: 600;
+      opacity: .5;
+    }
+
+    #scroll-down {
+      filter: invert();
+      animation: scroll-down 2s ease-in-out infinite alternate;
+      scale: 3;
+      align-self: center;
+      opacity: .5;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+
+    /* Tablet */
+    @media screen and (min-width: 768px) {
+    #hero {
+      margin-bottom: -2rem;
+    }
+    #hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      overflow: visible !important;
+      opacity: .85;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 1, 0.2, 1);
+    }
+    #hero h1::before, #hero h1::after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--color-primary-light);
+      transform: translateX(-105%);
+      transition: all 0.3s cubic-bezier(0.2, 1, 0.2, 1);
+    }
+    #hero h1 span:first-child {
+      display: block;
+      font-size: 150%;
+    }
+    }
+
+    /* Desktop */
+    @media screen and (min-width: 992px) {
+    #hero .container {
+      margin-right: 15vw;
+    }
+    }
+
+    /* i18n */
+    #lang {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    #lang .btn {
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      border-radius: .5rem;
+      clip-path: border-box;
+      padding: 0 1rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      transition: all .5s ease;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(29px);
+      border: none;
+    }
+    #lang .btn::after {
+      content: url(../icons/triangle-fill.svg);
+      margin: 0 -.3rem 0 .4rem;
+      filter: invert();
+      transform: rotate(180deg);
+      display: inline-block;
+      scale: .6;
+    }
+    #lang .menu {
+      pointer-events: none;
+      opacity: 0;
+      height: 0;
+      transition: opacity .5s ease, margin-top .25s ease-out;
+      border-radius: .5rem;
+      clip-path: border-box;
+      margin-top: 0;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(29px);
+    }
+    #lang .menu a {
+      display: block;
+      padding: .5rem 1rem;
+      text-align: right;
+      text-decoration: none;
+      color: #fff;
+      transition: all .5s ease;
+    }
     #cookie-alert {
       position: fixed;
       left: 0;
@@ -263,6 +460,12 @@ if ($isHome) {
       opacity: 1;
     }
   </style>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="<?=$pathStyle?>">
+  <!-- <link rel="stylesheet" href="<?=$pathStyle?>" media="screen"> -->
+  <!-- <link rel="stylesheet" href="<?=$pathStyleTablet?>" media="screen and (min-width: 768px)"<?=$isMobile?' disabled':''?>> -->
+  <!-- <link rel="stylesheet" href="<?=$pathStyleDesktop?>" media="screen and (min-width: 992px)"<?=$isMobile?' disabled':''?>> -->
 
   <!-- Defer full CSS -->
   <link rel="preload" href="assets/css/defer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
