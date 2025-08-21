@@ -273,7 +273,7 @@ if ($isHome) {
 
 <body data-page="<?=$page?>" data-href="<?=$href?>">
   <div id="scroll-watcher"></div>
-  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="<?=PATH_PHOTO_TINY?>"></div>
+  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="assets/images/me/taufik-nur-rahmanda-64.webp"></div>
 
   <a class="skip-link" href="#skills">Skip to content</a>
 
@@ -421,7 +421,7 @@ if ($isHome) {
     <div class="item" id="portfolio-1">
       <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp"
         srcset="assets/images/portfolio/thumbs/qibla-150.webp 150w, assets/images/portfolio/qibla.webp 600w"
-        sizes="(max-width: 600px) 150px, 600px">
+        sizes="(max-width: 600px) 35vw, 600px">
       <h2>Qibla Locator</h2>
       <div>
         <p><?=$tr['portfolio_qibla']?></p>
@@ -433,7 +433,7 @@ if ($isHome) {
     <div class="item text-right" id="portfolio-2">
       <img loading="lazy" alt="Qur'an Recite app screenshot" src="assets/images/portfolio/quran.webp"
         srcset="assets/images/portfolio/thumbs/quran-150.webp 150w, assets/images/portfolio/quran.webp 600w"
-        sizes="(max-width: 600px) 150px, 600px">
+        sizes="(max-width: 600px) 25vw, 600px">
       <h2>Quran Recite</h2>
       <div>
         <p><?=$tr['portfolio_quran']?></p>
@@ -445,7 +445,7 @@ if ($isHome) {
     <div class="item" id="portfolio-3">
       <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp"
         srcset="assets/images/portfolio/thumbs/tasbih-150.webp 150w, assets/images/portfolio/tasbih.webp 600w"
-        sizes="(max-width: 600px) 150px, 600px">
+        sizes="(max-width: 600px) 25vw, 600px">
       <h2>Dhikr Counter</h2>
       <div>
         <p><?=$tr['portfolio_tasbih']?></p>
@@ -457,7 +457,7 @@ if ($isHome) {
     <div class="item text-right" id="portfolio-4">
       <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp"
         srcset="assets/images/portfolio/thumbs/zakat-150.webp 150w, assets/images/portfolio/zakat.webp 600w"
-        sizes="(max-width: 600px) 150px, 600px">
+        sizes="(max-width: 600px) 25vw, 600px">
       <h2>Zakat Calculator</h2>
       <div>
         <p><?=$tr['portfolio_zakat']?></p>
