@@ -242,6 +242,14 @@ body.scrolled #scroll-to-top::before {
 }
 
 /* Animations */
+.typewrite .wrap {
+  border-right: 4px solid transparent;
+  animation: text-cursor .5s infinite alternate-reverse;
+}
+.blink {
+  animation: blink 1s infinite;
+}
+
 @keyframes scroll-watcher {
   to { scale: 1 1; opacity: 1; }
 }
@@ -251,4 +259,10 @@ body.scrolled #scroll-to-top::before {
     filter: blur(0);
     transform: translateY(0);
   }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@keyframes text-cursor {
+  to { border-right-color: #fff; }
 }

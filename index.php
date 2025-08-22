@@ -268,7 +268,7 @@ if ($isHome) {
         <span style="animation-delay: .8s;">S.Kom</span>
       </h1>
       <p class="typewrite" data-period="4000" data-type='["<?=$tr['intro_1']?>", "<?=$tr['intro_2']?>", "<?=$tr['intro_3']?>"]'>
-        <span class="wrap"></span>
+        <span class="wrap"><?=$tr['intro_1']?></span>
       </p>
       <p><?="$tr[bio_1] $years $tr[bio_2]"?><span class="d-tablet-inline"> <?=$tr['bio_3']?></span></p>
       <?php include('components/socials.php'); ?>

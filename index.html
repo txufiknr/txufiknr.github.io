@@ -69,7 +69,7 @@
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://txufiknr.github.io#me","name":"Taufik Nur Rahmanda","alternateName":"txufiknr","jobTitle":"Senior Software Engineer","worksFor":{"@id":"https://nurosoft.id/#organization"},"url":"https://txufiknr.github.io","image":"https://txufiknr.github.io/assets/images/photo.webp","description":"Senior Software Engineer specializing in web development and mobile applications.","disambiguatingDescription":"Co-founder of TARRA Co","sameAs":["https://www.linkedin.com/in/taufik-nur-rahmanda/","https://github.com/txufiknr","https://x.com/txufiknr"],"knowsAbout":["Web Development","Mobile Applications","Frontend Development","Backend Development","Full-stack Development","Cross-platform Development","Flutter","React","Node.js","PHP","JavaScript","Databases","APIs","UI/UX Design"],"contactPoint":[{"@type":"ContactPoint","contactType":"WhatsApp","telephone":"+6285954479380","url":"https://wa.me/6285954479380","availableLanguage":["en","id"]},{"@type":"ContactPoint","contactType":"Email","email":"flias.test@gmail.com","availableLanguage":["en","id"]}],"mainEntityOfPage":{"@id":"https://txufiknr.github.io#webpage"}},{"@type":"WebSite","@id":"https://txufiknr.github.io#website","name":"Taufik Nur Rahmanda Portfolio","url":"https://txufiknr.github.io","publisher":{"@id":"https://txufiknr.github.io#me"},"hasPart":[{"@type":"CreativeWork","name":"GitHub Projects","url":"https://github.com/txufiknr","creator":{"@id":"https://txufiknr.github.io#me"}},{"@type":"SoftwareApplication","name":"Android Apps by TARRA Soft","operatingSystem":"Android","applicationCategory":"MobileApplication","url":"https://play.google.com/store/apps/dev?id=7554821831783338570","creator":{"@id":"https://txufiknr.github.io#me"}}]},{"@type":"WebPage","@id":"https://txufiknr.github.io#webpage","name":"Taufik Nur Rahmanda | Portfolio","url":"https://txufiknr.github.io","description":"Portfolio of Taufik Nur Rahmanda, Senior Software Engineer specializing in web development, mobile applications, and open-source projects.","mainEntity":{"@id":"https://txufiknr.github.io#me"},"publisher":{"@id":"https://txufiknr.github.io#me"},"author":{"@id":"https://txufiknr.github.io#me"}},{"@type":"Organization","@id":"https://nurosoft.id/#organization","name":"Nurosoft Consulting","legalName":"PT. Nuroho Software Consulting","url":"https://nurosoft.id/","sameAs":["https://id.linkedin.com/company/nurosoft"],"foundingDate":"2014","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Surabaya","addressCountry":"ID"}}}]}
+    {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://txufiknr.github.io/#me","name":"Taufik Nur Rahmanda","alternateName":"txufiknr","description":"Taufik Nur Rahmanda is a professional software engineer specializing in mobile and web application development. With strong expertise in full-stack development, scalable system architecture, and modern frameworks, he enjoys building reliable, multi-platform solutions that make technology more accessible and effective.","url":"https://txufiknr.github.io","image":"https://txufiknr.github.io/assets/images/photo.webp","jobTitle":"Senior Software Engineer","worksFor":{"@type":"Organization","@id":"https://nurosoft.id/#organization","name":"Nurosoft Consulting","url":"https://nurosoft.id"},"sameAs":["https://www.linkedin.com/in/taufik-nur-rahmanda/","https://github.com/txufiknr","https://x.com/txufiknr","https://play.google.com/store/apps/dev?id=7554821831783338570"],"gender":"Male","nationality":{"@type":"Country","name":"Indonesia"},"knowsLanguage":["en","id"],"knowsAbout":["Web Development","Mobile Applications","Frontend Development","Backend Development","Full-stack Development","Cross-platform Development","Flutter","React","Node.js","PHP","JavaScript"],"contactPoint":[{"@type":"ContactPoint","contactType":"Portfolio Contact","email":"flias.test@gmail.com","url":"https://wa.me/6285954479380"}],"mainEntityOfPage":{"@id":"https://txufiknr.github.io/#webpage"}},{"@type":"WebSite","@id":"https://txufiknr.github.io/#website","url":"https://txufiknr.github.io","name":"Taufik Nur Rahmanda | Portfolio","publisher":{"@id":"https://txufiknr.github.io/#me"}},{"@type":"WebPage","@id":"https://txufiknr.github.io/#webpage","url":"https://txufiknr.github.io","name":"Taufik Nur Rahmanda | Portfolio","description":"Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.","about":{"@id":"https://txufiknr.github.io/#me"},"mainEntity":{"@id":"https://txufiknr.github.io/#me"},"isPartOf":{"@id":"https://txufiknr.github.io/#website"}}]}
   </script>
   
   <!-- Mobile App -->
@@ -258,9 +258,15 @@
         <h2>Follow me</h2>
       </div>
       <div class="item" id="portfolio-1">
-        <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp"
-          srcset="assets/images/portfolio/thumbs/qibla-150.webp 150w, assets/images/portfolio/qibla.webp 600w"
-          sizes="(max-width: 600px) 35vw, 600px">
+        <img
+          loading="lazy"
+          alt="Qibla Locator app screenshot"
+          src="assets/images/portfolio/qibla.webp"
+          srcset="
+            assets/images/portfolio/thumbs/qibla-150.webp 150w,
+            assets/images/portfolio/thumbs/qibla-400.webp 400w,
+            assets/images/portfolio/qibla.webp 600w"
+          sizes="(min-width: 768px) 23vw, 34.5vw">
         <h2>Qibla Locator</h2>
         <div>
           <p>Perfect tool for Muslims around the world to easily and accurately determine the direction of the Qibla, the sacred direction towards the Kaaba in Mecca, for daily prayers (Salah). Whether you’re at home, traveling, or in a new location, this app ensures you can always align yourself with the correct direction for prayer.</p>
@@ -270,9 +276,15 @@
         </div>
       </div>
       <div class="item text-right" id="portfolio-2">
-        <img loading="lazy" alt="Qur'an Recite app screenshot" src="assets/images/portfolio/quran.webp"
-          srcset="assets/images/portfolio/thumbs/quran-150.webp 150w, assets/images/portfolio/quran.webp 600w"
-          sizes="(max-width: 600px) 25vw, 600px">
+        <img
+          loading="lazy"
+          alt="Qur'an Recite app screenshot"
+          src="assets/images/portfolio/quran.webp"
+          srcset="
+            assets/images/portfolio/thumbs/quran-150.webp 150w,
+            assets/images/portfolio/thumbs/quran-400.webp 400w,
+            assets/images/portfolio/quran.webp 600w"
+          sizes="(min-width: 768px) 17vw, 25.5vw">
         <h2>Quran Recite</h2>
         <div>
           <p>An all-in-one comprehensive and customizable Holy Qur'an. Whether you're looking to read, listen, or learn, Qur'an Recite is the perfect companion for your spiritual journey. Packed with powerful features, this app provides a seamless way to interact with the Qur'an on your mobile device, offering translations, transliterations, and more.</p>
@@ -282,9 +294,15 @@
         </div>
       </div>
       <div class="item" id="portfolio-3">
-        <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp"
-          srcset="assets/images/portfolio/thumbs/tasbih-150.webp 150w, assets/images/portfolio/tasbih.webp 600w"
-          sizes="(max-width: 600px) 25vw, 600px">
+        <img
+          loading="lazy"
+          alt="Dhikr Counter app screenshot"
+          src="assets/images/portfolio/tasbih.webp"
+          srcset="
+            assets/images/portfolio/thumbs/tasbih-150.webp 150w,
+            assets/images/portfolio/thumbs/tasbih-400.webp 400w,
+            assets/images/portfolio/tasbih.webp 600w"
+          sizes="(min-width: 768px) 16.6vw, 25vw">
         <h2>Dhikr Counter</h2>
         <div>
           <p>An intuitive, user-friendly mobile application designed to help you keep track of your dhikr (remembrance of Allah) digitally. Whether you are reciting prayers, invoking blessings, or seeking spiritual connection, this app is the perfect tool to assist you in counting and displaying dhikr text as you go.</p>
@@ -294,9 +312,15 @@
         </div>
       </div>
       <div class="item text-right" id="portfolio-4">
-        <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp"
-          srcset="assets/images/portfolio/thumbs/zakat-150.webp 150w, assets/images/portfolio/zakat.webp 600w"
-          sizes="(max-width: 600px) 25vw, 600px">
+        <img
+          loading="lazy"
+          alt="Zakat Calculator app screenshot"
+          src="assets/images/portfolio/zakat.webp"
+          srcset="
+            assets/images/portfolio/thumbs/zakat-150.webp 150w,
+            assets/images/portfolio/thumbs/zakat-400.webp 400w,
+            assets/images/portfolio/zakat.webp 600w"
+          sizes="(min-width: 768px) 16vw, 24vw">
         <h2>Zakat Calculator</h2>
         <div>
           <p>An easy and user-friendly mobile app designed to simplify the process of calculating, tracking, and understanding Zakat obligations for every Muslim. With an intuitive interface and a range of thoughtful features, this application empowers users to calculate their Zakat, track their annual obligations, and access relevant Islamic guidance—all in one place.</p>

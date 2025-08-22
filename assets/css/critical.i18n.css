@@ -22,7 +22,7 @@
   border: none;
 }
 #lang .btn::after {
-  content: url(../icons/triangle-fill.svg);
+  content: url(assets/icons/triangle-fill.svg);
   margin: 0 -.3rem 0 .4rem;
   filter: invert();
   transform: rotate(180deg);

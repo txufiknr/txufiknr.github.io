@@ -6,7 +6,6 @@
       "@id": "https://txufiknr.github.io#me",
       "name": "Taufik Nur Rahmanda",
       "alternateName": "txufiknr",
-      "legalName": "Taufik Nur Rahmanda, S.Kom",
       "jobTitle": "Senior Software Engineer",
       "worksFor": {
         "@id": "https://nurosoft.id/#organization"
@@ -69,10 +68,12 @@
           "addressCountry": "ID"
         }
       },
+      "gender": "Male",
       "nationality": {
         "@type": "Country",
         "name": "Indonesia"
       },
+      "knowsLanguage": ["en", "id"],
       "contactPoint": [
         {
           "@type": "ContactPoint",

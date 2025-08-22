@@ -391,21 +391,8 @@ footer {
 .text-right {
   text-align: right;
 }
-.typewrite .wrap {
-  border-right: 4px solid transparent;
-  animation: text-cursor .5s infinite alternate-reverse;
-}
-.blink {
-  animation: blink 1s infinite;
-}
 
 /* Animations */
-@keyframes blink {
-  50% { opacity: 0; }
-}
-@keyframes text-cursor {
-  to { border-right-color: #fff; }
-}
 @keyframes scrolling {
   to { transform: translate(-280rem); }
 }
