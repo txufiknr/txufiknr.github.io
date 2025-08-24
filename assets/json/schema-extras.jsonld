@@ -9,41 +9,39 @@
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Alibaba Cloud Associate Cloud Computing Certification",
-          "credentialCategory": "Professional Certification",
           "dateCreated": "2024",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Alibaba Cloud"
-          }
+          "credentialCategory": "Professional Certification",
+          "credentialIssuer": { "@type": "Organization", "name": "Alibaba Cloud" },
+          "recognizedBy": { "@id": "https://nurosoft.id/#organization" }
         },
         {
           "@type": "EducationalOccupationalCredential", 
           "name": "Certificate of Completion (Code Igniter)",
-          "credentialCategory": "Professional Certification",
           "dateCreated": "2017",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Karisma Academy"
-          }
+          "credentialCategory": "Professional Certification",
+          "credentialIssuer": { "@type": "Organization", "name": "Karisma Academy" }
         },
         {
           "@type": "EducationalOccupationalCredential", 
           "name": "IC3 Digital Literacy Certification",
-          "credentialCategory": "Professional Certification",
           "dateCreated": "2015",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Pearson VUE"
-          }
+          "credentialCategory": "Professional Certification",
+          "credentialIssuer": { "@type": "Organization", "name": "Pearson VUE" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "name": "Odoo Functional Certificate of Achievement",
+          "dateCreated": "2024",
+          "credentialCategory": "Professional Certification",
+          "credentialIssuer": { "@type": "Organization", "name": "Odoo S.A." },
+          "recognizedBy": { "@id": "https://nurosoft.id/#organization" }
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Bachelor of Information System",
-          "credentialCategory": "Degree",
           "dateCreated": "2016",
-          "recognizedBy": {
-            "@id": "https://www.ub.ac.id/#organization"
-          }
+          "credentialCategory": "Degree",
+          "credentialIssuer": { "@id": "https://www.ub.ac.id/#organization" }
         }
       ],
       "hasOccupation": [
