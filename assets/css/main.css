@@ -11,28 +11,6 @@ footer {
   justify-content: center;
 }
 
-#lang .menu a.active {
-  background: rgba(255, 255, 255, .2);
-}
-#lang .menu a:hover {
-  background: rgba(255, 255, 255, .3);
-}
-#lang .btn:focus,
-#lang .btn:active,
-#lang:focus .btn,
-#lang:active .btn {
-  border-color: #fff;
-}
-#lang .btn:focus + .menu,
-#lang .btn:active + .menu,
-#lang:focus .btn + .menu,
-#lang:active .btn + .menu {
-  margin-top: .5rem;
-  pointer-events: auto;
-  opacity: 1;
-  height: auto;
-}
-
 #scroll-to-top {
   position: fixed;
   right: calc(50% - 2.5rem);
@@ -396,9 +374,6 @@ footer {
 @keyframes scrolling {
   to { transform: translate(-280rem); }
 }
-@keyframes pop-in {
-  to { scale: 1; }
-}
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -437,47 +412,6 @@ footer {
 @keyframes scroll-up {
   from { transform: translateY(var(--scroll-start)); }
   to   { transform: translateY(var(--scroll-end)); }
-}
-@keyframes scroll-down {
-  to { transform: translateY(15px); }
-}
-@keyframes glow-text {
-  from { text-shadow: 0 0 0 var(--glow); }
-  to { text-shadow: 0 0 20px var(--glow); }
-}
-@keyframes radiation {
-  0% {
-    box-shadow: 20px -3vh 0 10px var(--color-accent);
-  }
-  100% {
-    border-radius: 45% 55% 48% 52% / 56% 43% 57% 44%;
-    box-shadow: 40px -43vh 0 20px var(--color-accent);
-    transform: scale(1);
-  }
-}
-@keyframes radiation2 {
-  0% {
-    box-shadow: 10px -5vh 0 10px var(--color-accent);
-  }
-  100% {
-    box-shadow: 20px -45vh 0 20px var(--color-accent);
-  }
-}
-@keyframes radiation3 {
-  0% {
-    box-shadow: 9px -7vh 0 6px var(--color-accent);
-  }
-  100% {
-    box-shadow: 14px -45vh 0 15px var(--color-accent);
-  }
-}
-@keyframes radiation4 {
-  0% {
-    box-shadow: 9px -7vh 0 7px var(--color-accent);
-  }
-  100% {
-    box-shadow: 14px -45vh 0 14px var(--color-accent);
-  }
 }
 @keyframes rotate {
   from {
@@ -554,16 +488,6 @@ footer {
   transform: translateX(100%);
 }
 
-#lang:hover .btn {
-  border-color: #fff;
-}
-#lang:hover .menu {
-  margin-top: .5rem;
-  pointer-events: auto;
-  opacity: 1;
-  height: auto;
-}
-
 #scroll-down {
   margin-top: 0;
 }
@@ -637,9 +561,6 @@ footer {
 }
 #portfolio .socials {
   padding-top: 18rem;
-}
-#blackhole {
-	scale: 2;
 }
 }
 

@@ -9,7 +9,7 @@ echo <<<JSON
       "@id": "{URL_WEBSITE}#me",
       "name": "{BIO_FULL_NAME}",
       "alternateName": "txufiknr",
-      "description": "{BIO_FULL_NAME} is a professional software engineer specializing in mobile and web application development. With strong expertise in full-stack development, scalable system architecture, and modern frameworks, he enjoys building reliable, multi-platform solutions that make technology more accessible and effective.",
+      "description": "{BIO_FULL_NAME} is a professional software engineer specializing in mobile and web application development. He enjoys building reliable, user-friendly, multi-platform solutions that make technology more accessible and effective.",
       "url": "{URL_WEBSITE}",
       "image": "{URL_WEBSITE}/{PATH_PHOTO}",
       "jobTitle": "Senior Software Engineer",

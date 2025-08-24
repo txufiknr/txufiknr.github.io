@@ -75,7 +75,7 @@ body, button {
   font-size: 3rem;
   line-height: 1.1;
   margin: 0;
-  animation: glow-text 2s ease infinite alternate;
+  animation: glow-text 4s ease infinite;
 }
 #hero h1 span {
   font-family: var(--font-family);
@@ -100,7 +100,7 @@ body, button {
 
 #scroll-down {
   filter: invert();
-  animation: scroll-down 2s ease-in-out infinite alternate;
+  animation: scroll-down 4s ease-in-out infinite;
   scale: 3;
   align-self: center;
   opacity: .5;
@@ -146,4 +146,13 @@ body, button {
 #hero .container {
   margin-right: 15vw;
 }
+}
+
+/* Animations */
+@keyframes scroll-down {
+  50% { transform: translateY(15px); }
+}
+@keyframes glow-text {
+  0% { text-shadow: 0 0 0 var(--glow); }
+  50% { text-shadow: 0 0 20px var(--glow); }
 }

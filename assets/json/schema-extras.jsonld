@@ -5,6 +5,47 @@
       "@type": "Person",
       "@id": "https://txufiknr.github.io/#me",
       "alumniOf": { "@id": "https://www.ub.ac.id/#organization" },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Alibaba Cloud Associate Cloud Computing Certification",
+          "credentialCategory": "Professional Certification",
+          "dateCreated": "2024",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Alibaba Cloud"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "name": "Certificate of Completion (Code Igniter)",
+          "credentialCategory": "Professional Certification",
+          "dateCreated": "2017",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Karisma Academy"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "name": "IC3 Digital Literacy Certification",
+          "credentialCategory": "Professional Certification",
+          "dateCreated": "2015",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Pearson VUE"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Bachelor of Information System",
+          "credentialCategory": "Degree",
+          "dateCreated": "2016",
+          "recognizedBy": {
+            "@id": "https://www.ub.ac.id/#organization"
+          }
+        }
+      ],
       "hasOccupation": [
         {
           "@type": "EmployeeRole",

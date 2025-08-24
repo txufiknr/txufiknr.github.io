@@ -11,6 +11,7 @@ $isLocalhost = in_array($_SERVER['HTTP_HOST'], ['localhost', '192.168.1.71']) ||
 // Define important file paths
 define('PATH_SCRIPT', "assets/js/script.i18n".($isLocalhost?"":".min").".js");
 define('PATH_STYLE', "assets/css/main".($isLocalhost?"":".min").".css");
+define('PATH_STYLE_DEFER', "assets/css/defer".($isLocalhost?"":".min").".css");
 // define('PATH_STYLE', "assets/css/base".($isLocalhost?"":".min").".css");
 // define('PATH_STYLE_TABLET', "assets/css/tablet".($isLocalhost?"":".min").".css");
 // define('PATH_STYLE_DESKTOP', "assets/css/desktop".($isLocalhost?"":".min").".css");
@@ -19,6 +20,7 @@ define('PATH_STYLE', "assets/css/main".($isLocalhost?"":".min").".css");
 $filesToCheck = [
   __FILE__,
   __DIR__.'/'.PATH_STYLE,
+  __DIR__.'/'.PATH_STYLE_DEFER,
   __DIR__.'/'.PATH_SCRIPT,
 ];
 // if ($isMobile) {
@@ -121,6 +123,7 @@ $years = date('Y') - JOB_FIRST_YEAR;
 // set scripts and styles paths with cache busting
 $pathScript = PATH_SCRIPT.'?'.filemtime(PATH_SCRIPT);
 $pathStyle = PATH_STYLE.'?'.filemtime(PATH_STYLE);
+$pathStyleDefer = PATH_STYLE_DEFER.'?'.filemtime(PATH_STYLE_DEFER);
 // $pathStyleTablet = PATH_STYLE_TABLET.'?'.filemtime(PATH_STYLE_TABLET);
 // $pathStyleDesktop = PATH_STYLE_DESKTOP.'?'.filemtime(PATH_STYLE_DESKTOP);
 
@@ -239,8 +242,8 @@ if ($isHome) {
   <link rel="stylesheet" href="<?=$pathStyle?>">
 
   <!-- Defer full CSS -->
-  <link rel="preload" href="assets/css/defer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/css/defer.min.css"></noscript>
+  <link rel="preload" href="<?=$pathStyleDefer?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="<?=$pathStyleDefer?>"></noscript>
 </head>
 
 <?php ob_flush();?>
@@ -268,7 +271,7 @@ if ($isHome) {
         <span style="animation-delay: .8s;">S.Kom</span>
       </h1>
       <p class="typewrite" data-period="4000" data-type='["<?=$tr['intro_1']?>", "<?=$tr['intro_2']?>", "<?=$tr['intro_3']?>"]'>
-        <span class="wrap"><?=$tr['intro_1']?></span>
+        <?=$tr['intro_1']?>
       </p>
       <p><?="$tr[bio_1] $years $tr[bio_2]"?><span class="d-tablet-inline"> <?=$tr['bio_3']?></span></p>
       <?php include('components/socials.php'); ?>
@@ -389,7 +392,7 @@ if ($isHome) {
       <div id="radiation"><i></i><i></i><i></i><i></i></div>
     </div>
     <div class="title">
-      <h1><?=$tr['What_i_have']?><br><span class="typewrite" data-period="4000" data-type='["<?=$tr['created']?>", "<?=$tr['built']?>", "<?=$tr['published']?>"]'><span class="wrap"></span></span></h1>
+      <h1><?=$tr['What_i_have']?><br><span class="typewrite" data-period="4000" data-type='["<?=$tr['created']?>", "<?=$tr['built']?>", "<?=$tr['published']?>"]'></span></h1>
       <h2><?=$tr['follow_me']?></h2>
     </div>
     <div class="item" id="portfolio-1">
@@ -488,7 +491,7 @@ if ($isHome) {
       try {
         // Load third-party libraries in parallel
         await Promise.allSettled([
-          loadScript('assets/vendor/counterup2/counterup2.js'),
+          loadScript('assets/vendor/counterup2/counterup2.min.js'),
           loadScript('assets/vendor/particles/particles.min.js'),
           loadScript('assets/vendor/typewrite/typewrite.min.js')
         ]);
@@ -508,9 +511,9 @@ if ($isHome) {
     // Only load animation libraries after the page is interactive
     if ('requestIdleCallback' in window) {
       requestIdleCallback(lazyLoadScripts);
-    } else {
-      lazyLoadScripts();
+      // requestIdleCallback(lazyLoadScripts, { timeout: 5000 });
     }
+    setTimeout(lazyLoadScripts, 5000);
   </script>
 </body>
 </html>
