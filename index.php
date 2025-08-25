@@ -169,7 +169,7 @@ if ($isHome) {
       <?=PATH_PHOTO_TINY?> 250w,
       <?=PATH_PHOTO_SMALL?> 550w,
       <?=PATH_PHOTO?> 720w"
-    imagesizes="(max-width: 600px) 100vw, 600px"
+    imagesizes="(max-width: 600px) 100vw, 550px"
     as="image"
     type="image/webp"
     fetchpriority="high">
@@ -262,7 +262,7 @@ if ($isHome) {
   <header id="hero">
     <img alt="<?=BIO_FULL_NAME?>" src="<?=PATH_PHOTO?>"
       srcset="<?=PATH_PHOTO_TINY?> 250w, <?=PATH_PHOTO_SMALL?> 550w, <?=PATH_PHOTO?> 720w"
-      sizes="(max-width: 600px) 100vw, calc(100vh * 0.6667)"
+      sizes="(max-width: 600px) 100vw, 550px"
       fetchpriority="high" decoding="async" loading="eager">
 
     <div id="particles-js"></div>
