@@ -16,40 +16,153 @@ function setCookie(cname, cvalue, cdays = 365) {
   expDate.setDate(expDate.getDate() + cdays)
   document.cookie = `${cname}=${cvalue}; expires=${expDate.toUTCString()}; path=/`
 }
-function initParticles() {
-  const particlesConfig = {
-    particles: {
-      number: { value: 40 },
-      color: { value: "#48485b" },
-      shape: { type: "circle", "stroke": { "width": 5, "color": "#7d7d98" } },
-      opacity: { value: 0.5 },
-      size: { value: 3, random: true },
-      line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-      move: { enable: true, speed: 2, random: true, out_mode: "out" }
-    },
-    interactivity: {
-      events: {
-        onhover: { enable: true, mode: "grab" },
-        onclick: { enable: true, mode: "push" },
-        resize: true
-      },
-      modes: {
-        grab: { distance: 100, line_linked: { opacity: 1 } },
-        push: { particles_nb: 1 }
-      }
-    },
-    retina_detect: true
+function simpleParticles(containerId, options = {}) {
+  const container = document.getElementById(containerId);
+  const canvas = document.createElement("canvas");
+  canvas.style.display = "block";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  container.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+
+  let width, height, dpr;
+  function resize() {
+    dpr = options.retina_detect ? window.devicePixelRatio || 1 : 1;
+    width = container.clientWidth * dpr;
+    height = container.clientHeight * dpr;
+    canvas.width = width;
+    canvas.height = height;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
+  window.addEventListener("resize", resize);
+  resize();
+
+  const settings = Object.assign({
+    count: 20,
+    speed: .6,
+    size: 2,
+    strokeWidth: 3,
+    lineColor: "#ffffff",
+    lineOpacity: 0.2,
+    lineWidth: .75,
+    // baseColor: "#48485b",
+    // opacity: 0.5,
+    strokeColor: "#7d7d98",
+    randomSize: true,
+    lineDistance: 150,
+    randomSpeed: true,
+    retina_detect: true
+  }, options);
+
+  // Convert hex to rgba string with alpha
+  function rgba(hex, alpha) {
+    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!m) return hex;
+    return `rgba(${parseInt(m[1],16)},${parseInt(m[2],16)},${parseInt(m[3],16)},${alpha})`;
+  }
+
+  const particles = Array.from({ length: settings.count }, () => {
+    const r = settings.randomSize
+      ? settings.size * (0.5 + Math.random()) // random around base size
+      : settings.size;
+    const speed = settings.randomSpeed
+      ? (Math.random() * settings.speed)
+      : settings.speed;
+    const angle = Math.random() * 2 * Math.PI;
+    return {
+      x: Math.random() * width / dpr,
+      y: Math.random() * height / dpr,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      r
+    };
+  });
+
+  const mouse = { x: null, y: null };
+  canvas.addEventListener("mousemove", e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  canvas.addEventListener("mouseleave", () => { mouse.x = null; mouse.y = null; });
+  canvas.addEventListener("click", e => {
+    const rect = canvas.getBoundingClientRect();
+    particles.push({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      vx: (Math.random() - 0.5) * settings.speed,
+      vy: (Math.random() - 0.5) * settings.speed,
+      r: settings.size
+    });
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let p of particles) {
+      // move
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > width / dpr) p.vx *= -1;
+      if (p.y < 0 || p.y > height / dpr) p.vy *= -1;
+
+      // circle with fill+stroke
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      // ctx.fillStyle = rgba(settings.baseColor, settings.opacity);
+      ctx.fillStyle = rgba(0,0,0,0);
+      ctx.fill();
+      ctx.lineWidth = settings.strokeWidth;
+      ctx.strokeStyle = settings.strokeColor;
+      ctx.stroke();
+
+      // links
+      for (let q of particles) {
+        let dx = p.x - q.x, dy = p.y - q.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < settings.lineDistance) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = rgba(settings.lineColor, settings.lineOpacity);
+          ctx.lineWidth = settings.lineWidth;
+          ctx.stroke();
+        }
+      }
+
+      // hover grab
+      if (mouse.x !== null) {
+        let dx = p.x - mouse.x, dy = p.y - mouse.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < settings.lineDistance) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = rgba(settings.lineColor, 1);
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}
+function initParticles() {
+  // const particlesConfig = 'assets/vendor/particles/particlesjs-config.min.json'
+  // particlesJS.load('particles-js', particlesConfig)
+  // particlesJS.load('particles-js2', particlesConfig)
 
   const target = document.getElementById("particles-js2");
   const observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
-      particlesJS('particles-js2', particlesConfig);
+      simpleParticles('particles-js2');
       observer.disconnect();
     }
   });
   observer.observe(target);
-  particlesJS('particles-js', particlesConfig);
+  simpleParticles('particles-js');
 }
 function initTypewriters() {
   const a = document.querySelector("#hero .typewrite");

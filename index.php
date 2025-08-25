@@ -497,7 +497,6 @@ if ($isHome) {
         // Load third-party libraries in parallel
         await Promise.allSettled([
           loadScript('assets/vendor/counterup2/counterup2.min.js'),
-          loadScript('assets/vendor/particles/particles.min.js'),
           loadScript('assets/vendor/typewrite/typewrite.min.js')
         ]);
 
