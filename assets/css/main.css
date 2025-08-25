@@ -449,10 +449,11 @@ footer {
   left: 0;
   background: #000;
   color: #fff;
-  padding: 8px 16px;
+  padding: 0 16px;
   z-index: 100;
   text-decoration: none;
   font-weight: 600;
+  line-height: 40px;
   transition: top 0.3s ease;
 }
 .skip-link:focus,

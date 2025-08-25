@@ -17,13 +17,28 @@ function simpleParticles(containerId, options = {}) {
   const ctx = canvas.getContext("2d");
 
   let width, height, dpr;
+
   function resize() {
-    dpr = options.retina_detect ? window.devicePixelRatio || 1 : 1;
-    width = container.clientWidth * dpr;
-    height = container.clientHeight * dpr;
-    canvas.width = width;
-    canvas.height = height;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dpr = options.retina_detect ? (window.devicePixelRatio || 1) : 1;
+
+    // CSS size
+    const cssWidth = container.clientWidth;
+    const cssHeight = container.clientHeight;
+
+    // High-res backing buffer
+    canvas.width = cssWidth * dpr;
+    canvas.height = cssHeight * dpr;
+
+    // Keep CSS size normal
+    canvas.style.width = cssWidth + "px";
+    canvas.style.height = cssHeight + "px";
+
+    // Reset and scale for retina
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+
+    width = cssWidth;
+    height = cssHeight;
   }
   window.addEventListener("resize", resize);
   resize();
@@ -32,20 +47,20 @@ function simpleParticles(containerId, options = {}) {
     count: 20,
     speed: .6,
     size: 2,
-    strokeWidth: 3,
     lineColor: "#ffffff",
+    lineDistance: 150,
     lineOpacity: 0.2,
     lineWidth: .75,
     // baseColor: "#48485b",
     // opacity: 0.5,
     strokeColor: "#7d7d98",
+    strokeWidth: 3,
     randomSize: true,
-    lineDistance: 150,
     randomSpeed: true,
     retina_detect: true
   }, options);
 
-  // Convert hex to rgba string with alpha
+  // Convert hex to rgba with alpha
   function rgba(hex, alpha) {
     const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     if (!m) return hex;
@@ -54,15 +69,15 @@ function simpleParticles(containerId, options = {}) {
 
   const particles = Array.from({ length: settings.count }, () => {
     const r = settings.randomSize
-      ? settings.size * (0.5 + Math.random()) // random around base size
+      ? settings.size * (0.5 + Math.random())
       : settings.size;
     const speed = settings.randomSpeed
       ? (Math.random() * settings.speed)
       : settings.speed;
     const angle = Math.random() * 2 * Math.PI;
     return {
-      x: Math.random() * width / dpr,
-      y: Math.random() * height / dpr,
+      x: Math.random() * width,
+      y: Math.random() * height,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
       r
@@ -94,8 +109,8 @@ function simpleParticles(containerId, options = {}) {
       // move
       p.x += p.vx;
       p.y += p.vy;
-      if (p.x < 0 || p.x > width / dpr) p.vx *= -1;
-      if (p.y < 0 || p.y > height / dpr) p.vy *= -1;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
 
       // circle with fill+stroke
       ctx.beginPath();
@@ -116,7 +131,7 @@ function simpleParticles(containerId, options = {}) {
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
           ctx.strokeStyle = rgba(settings.lineColor, settings.lineOpacity);
-          ctx.lineWidth = settings.lineWidth;
+          ctx.lineWidth = 1;
           ctx.stroke();
         }
       }
@@ -141,10 +156,6 @@ function simpleParticles(containerId, options = {}) {
   draw();
 }
 function initParticles() {
-  // const particlesConfig = 'assets/vendor/particles/particlesjs-config.min.json'
-  // particlesJS.load('particles-js', particlesConfig)
-  // particlesJS.load('particles-js2', particlesConfig)
-
   const target = document.getElementById("particles-js2");
   const observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
@@ -156,10 +167,6 @@ function initParticles() {
   simpleParticles('particles-js');
 }
 function initTypewriters() {
-  // document.querySelectorAll('.typewrite').forEach((t) => {
-  //   if (t.dataset.type) new TxtType(t, JSON.parse(t.dataset.type), t.dataset.period)
-  // })
-
   const a = document.querySelector("#hero .typewrite");
   const b = document.querySelector("#portfolio .typewrite");
   const observer = new IntersectionObserver(entries => {
