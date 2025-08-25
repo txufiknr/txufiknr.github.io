@@ -188,12 +188,17 @@ if ($isHome) {
   <meta property="og:description" content="<?=$description?>">
   <meta property="og:url" content="<?=$canonical?>">
   <meta property="og:image" content="<?=URL_BASE.PATH_PHOTO?>">
-  <meta property="og:image:alt" content="<?=BIO_FIRST_NAME?>'s photo">
+  <meta property="og:image:alt" content="Portrait of <?=BIO_FULL_NAME?>">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="1080">
   <meta property="og:site_name" content="<?=BIO_LEGAL_NAME?>">
 
   <!-- Twitter Card -->
+  <meta name="twitter:url" content="<?=$canonical?>"/>
+  <meta name="twitter:title" content="<?=$pageTitle?>"/>
+  <meta name="twitter:description" content="<?=$description?>"/>
+  <meta name="twitter:image" content="<?=URL_BASE.PATH_PHOTO?>"/>
+  <meta name="twitter:image:alt" content="Portrait of <?=BIO_FULL_NAME?>"/>
   <meta name="twitter:site" content="@txufiknr">
   <meta name="twitter:creator" content="@txufiknr">
   <meta name="twitter:card" content="summary">

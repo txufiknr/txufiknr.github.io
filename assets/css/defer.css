@@ -265,7 +265,7 @@ body.scrolled #scroll-to-top::before {
 }
 
 /* Animations */
-.typewrite {
+.typewrite span {
   border-right: 4px solid transparent;
   animation: text-cursor .5s infinite alternate-reverse;
 }

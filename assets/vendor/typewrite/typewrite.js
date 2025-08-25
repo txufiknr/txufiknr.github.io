@@ -6,6 +6,8 @@ class TxtType {
     this.loopNum = 0;
     this.txt = '';
     this.isDeleting = false;
+    this.wrap = document.createElement("span");
+    this.el.replaceChildren(this.wrap);
     this.tick();
   }
 
@@ -17,7 +19,7 @@ class TxtType {
       ? fullTxt.substring(0, this.txt.length - 1)
       : fullTxt.substring(0, this.txt.length + 1);
   
-    this.el.textContent = this.txt;
+    this.wrap.textContent = this.txt;
   
     let delta = 200 - Math.random() * 100;
     if (this.isDeleting) delta /= 2;
