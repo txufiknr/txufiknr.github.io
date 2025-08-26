@@ -24,7 +24,7 @@ function simpleParticles(containerId, options = {}) {
     size: 2,
     lineColor: "#ffffff",
     lineDistance: 150,
-    lineOpacity: 0.2,
+    lineOpacity: 0.1,
     lineWidth: .75,
     // baseColor: "#48485b",
     // opacity: 0.5,
@@ -36,7 +36,7 @@ function simpleParticles(containerId, options = {}) {
   }, options);
 
   function resize() {
-    dpr = settings.retina_detect ? (window.devicePixelRatio || 1) : 1;
+    dpr = (settings.retina_detect ? (window.devicePixelRatio || 1) : 1) * 1.5;
 
     // CSS size
     const cssWidth = container.clientWidth;
