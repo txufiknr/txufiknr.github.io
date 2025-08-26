@@ -402,8 +402,11 @@ if ($isHome) {
     </div>
     <div class="item" id="portfolio-1">
       <img loading="lazy" alt="Qibla Locator app screenshot" src="assets/images/portfolio/qibla.webp"
-        srcset="assets/images/portfolio/thumbs/qibla-150.webp 150w, assets/images/portfolio/qibla.webp 600w"
-        sizes="(max-width: 600px) 35vw, 600px">
+        srcset="
+          assets/images/portfolio/thumbs/qibla-150.webp 150w,
+          assets/images/portfolio/thumbs/qibla-400.webp 400w,
+          assets/images/portfolio/qibla.webp 600w"
+        sizes="(min-width: 768px) 23vw, 34.5vw">
       <h2>Qibla Locator</h2>
       <div>
         <p><?=$tr['portfolio_qibla']?></p>
@@ -414,8 +417,11 @@ if ($isHome) {
     </div>
     <div class="item text-right" id="portfolio-2">
       <img loading="lazy" alt="Qur'an Recite app screenshot" src="assets/images/portfolio/quran.webp"
-        srcset="assets/images/portfolio/thumbs/quran-150.webp 150w, assets/images/portfolio/quran.webp 600w"
-        sizes="(max-width: 600px) 25vw, 600px">
+        srcset="
+          assets/images/portfolio/thumbs/quran-150.webp 150w,
+          assets/images/portfolio/thumbs/quran-400.webp 400w,
+          assets/images/portfolio/quran.webp 600w"
+        sizes="(min-width: 768px) 17vw, 25.5vw">
       <h2>Quran Recite</h2>
       <div>
         <p><?=$tr['portfolio_quran']?></p>
@@ -426,8 +432,11 @@ if ($isHome) {
     </div>
     <div class="item" id="portfolio-3">
       <img loading="lazy" alt="Dhikr Counter app screenshot" src="assets/images/portfolio/tasbih.webp"
-        srcset="assets/images/portfolio/thumbs/tasbih-150.webp 150w, assets/images/portfolio/tasbih.webp 600w"
-        sizes="(max-width: 600px) 25vw, 600px">
+        srcset="
+          assets/images/portfolio/thumbs/tasbih-150.webp 150w,
+          assets/images/portfolio/thumbs/tasbih-400.webp 400w,
+          assets/images/portfolio/tasbih.webp 600w"
+        sizes="(min-width: 768px) 16.6vw, 25vw">
       <h2>Dhikr Counter</h2>
       <div>
         <p><?=$tr['portfolio_tasbih']?></p>
@@ -438,8 +447,11 @@ if ($isHome) {
     </div>
     <div class="item text-right" id="portfolio-4">
       <img loading="lazy" alt="Zakat Calculator app screenshot" src="assets/images/portfolio/zakat.webp"
-        srcset="assets/images/portfolio/thumbs/zakat-150.webp 150w, assets/images/portfolio/zakat.webp 600w"
-        sizes="(max-width: 600px) 25vw, 600px">
+        srcset="
+          assets/images/portfolio/thumbs/zakat-150.webp 150w,
+          assets/images/portfolio/thumbs/zakat-400.webp 400w,
+          assets/images/portfolio/zakat.webp 600w"
+        sizes="(min-width: 768px) 16vw, 24vw">
       <h2>Zakat Calculator</h2>
       <div>
         <p><?=$tr['portfolio_zakat']?></p>
@@ -461,14 +473,14 @@ if ($isHome) {
 
   <script>
     // Fetch extra JSON-LD dynamically
-    fetch('assets/json/schema-extras.min.jsonld')
-      .then(res => res.text())
-      .then(data => {
-        const el = document.createElement('script');
-        el.type = 'application/ld+json';
-        el.text = data;
-        document.head.appendChild(el);
-      });
+    // fetch('assets/json/schema-extras.min.jsonld')
+    //   .then(res => res.text())
+    //   .then(data => {
+    //     const el = document.createElement('script');
+    //     el.type = 'application/ld+json';
+    //     el.text = data;
+    //     document.head.appendChild(el);
+    //   });
 
     // Lazy-load non-essential JS
     let scriptsLoaded = false;
