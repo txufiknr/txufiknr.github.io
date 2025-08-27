@@ -3,7 +3,7 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://txufiknr.github.io/#me",
+      "@id": "https://txufiknr.pages.dev/#me",
       "alumniOf": { "@id": "https://www.ub.ac.id/#organization" },
       "hasCredential": [
         {
@@ -11,7 +11,7 @@
           "name": "Alibaba Cloud Associate Cloud Computing Certification",
           "dateCreated": "2024",
           "credentialCategory": "Professional Certification",
-          "credentialIssuer": { "@type": "Organization", "name": "Alibaba Cloud" },
+          "publisher": { "@type": "Organization", "name": "Alibaba Cloud" },
           "recognizedBy": { "@id": "https://nurosoft.id/#organization" }
         },
         {
@@ -19,29 +19,30 @@
           "name": "Certificate of Completion (Code Igniter)",
           "dateCreated": "2017",
           "credentialCategory": "Professional Certification",
-          "credentialIssuer": { "@type": "Organization", "name": "Karisma Academy" }
+          "publisher": { "@type": "Organization", "name": "Karisma Academy" }
         },
         {
           "@type": "EducationalOccupationalCredential", 
           "name": "IC3 Digital Literacy Certification",
           "dateCreated": "2015",
           "credentialCategory": "Professional Certification",
-          "credentialIssuer": { "@type": "Organization", "name": "Pearson VUE" }
+          "publisher": { "@type": "Organization", "name": "Pearson VUE" }
         },
         {
           "@type": "EducationalOccupationalCredential", 
           "name": "Odoo Functional Certificate of Achievement",
           "dateCreated": "2024",
           "credentialCategory": "Professional Certification",
-          "credentialIssuer": { "@type": "Organization", "name": "Odoo S.A." },
+          "publisher": { "@type": "Organization", "name": "Odoo S.A." },
           "recognizedBy": { "@id": "https://nurosoft.id/#organization" }
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Bachelor of Information System",
           "dateCreated": "2016",
+          "educationalLevel": "Bachelor's degree",
           "credentialCategory": "Degree",
-          "credentialIssuer": { "@id": "https://www.ub.ac.id/#organization" }
+          "publisher": { "@id": "https://www.ub.ac.id/#organization" }
         }
       ],
       "hasOccupation": [

@@ -27,38 +27,13 @@ function simpleParticles(containerId, options = {}) {
 
   let width, height, dpr;
 
-  function resize() {
-    dpr = options.retina_detect ? (window.devicePixelRatio || 1) : 1;
-
-    // CSS size
-    const cssWidth = container.clientWidth;
-    const cssHeight = container.clientHeight;
-
-    // High-res backing buffer
-    canvas.width = cssWidth * dpr;
-    canvas.height = cssHeight * dpr;
-
-    // Keep CSS size normal
-    canvas.style.width = cssWidth + "px";
-    canvas.style.height = cssHeight + "px";
-
-    // Reset and scale for retina
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
-
-    width = cssWidth;
-    height = cssHeight;
-  }
-  window.addEventListener("resize", resize);
-  resize();
-
   const settings = Object.assign({
     count: 20,
     speed: .6,
     size: 2,
     lineColor: "#ffffff",
     lineDistance: 150,
-    lineOpacity: 0.2,
+    lineOpacity: 0.1,
     lineWidth: .75,
     // baseColor: "#48485b",
     // opacity: 0.5,
@@ -66,8 +41,33 @@ function simpleParticles(containerId, options = {}) {
     strokeWidth: 3,
     randomSize: true,
     randomSpeed: true,
-    retina_detect: true
+    retinaDetect: true
   }, options);
+
+  function resize() {
+    dpr = (settings.retinaDetect ? (window.devicePixelRatio || 1) : 1) * 1.5;
+
+    // CSS size
+    const cssWidth = container.clientWidth;
+    const cssHeight = container.clientHeight;
+  
+    // Set internal buffer higher resolution
+    canvas.width = cssWidth * dpr;
+    canvas.height = cssHeight * dpr;
+  
+    // Force CSS size back to normal
+    canvas.style.width = cssWidth + "px";
+    canvas.style.height = cssHeight + "px";
+  
+    // Reset transform then scale drawing units
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    width = cssWidth;
+    height = cssHeight;
+  }
+  
+  window.addEventListener("resize", resize);
+  resize();
 
   // Convert hex to rgba with alpha
   function rgba(hex, alpha) {

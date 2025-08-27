@@ -32,11 +32,11 @@ function simpleParticles(containerId, options = {}) {
     strokeWidth: 3,
     randomSize: true,
     randomSpeed: true,
-    retina_detect: true
+    retinaDetect: true
   }, options);
 
   function resize() {
-    dpr = (settings.retina_detect ? (window.devicePixelRatio || 1) : 1) * 1.5;
+    dpr = (settings.retinaDetect ? (window.devicePixelRatio || 1) : 1) * 1.5;
 
     // CSS size
     const cssWidth = container.clientWidth;

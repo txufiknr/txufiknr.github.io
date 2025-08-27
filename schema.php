@@ -9,6 +9,7 @@ echo <<<JSON
       "@id": "{URL_WEBSITE}#me",
       "name": "{BIO_FULL_NAME}",
       "alternateName": "txufiknr",
+      "honorificSuffix": "S.Kom.",
       "description": "{BIO_FULL_NAME} is a professional software engineer specializing in mobile and web application development. He enjoys building reliable, user-friendly, multi-platform solutions that make technology more accessible and effective.",
       "url": "{URL_WEBSITE}",
       "image": "{URL_WEBSITE}/{PATH_PHOTO}",
@@ -70,7 +71,7 @@ echo <<<JSON
       "about": { "@id": "{URL_WEBSITE}#me" },
       "mainEntity": { "@id": "{URL_WEBSITE}#me" },
       "isPartOf": { "@id": "{URL_WEBSITE}#website" },
-      "inLanguage": {LANGUAGE_OPTIONS}
+      "inLanguage": "{$lang}"
     }
   ]
 }

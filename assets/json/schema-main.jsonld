@@ -3,12 +3,13 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://txufiknr.github.io/#me",
+      "@id": "https://txufiknr.pages.dev/#me",
       "name": "Taufik Nur Rahmanda",
       "alternateName": "txufiknr",
+      "honorificSuffix": "S.Kom.",
       "description": "Taufik Nur Rahmanda is a professional software engineer specializing in mobile and web application development. He enjoys building reliable, user-friendly, multi-platform solutions that make technology more accessible and effective.",
-      "url": "https://txufiknr.github.io",
-      "image": "https://txufiknr.github.io/assets/images/photo.webp",
+      "url": "https://txufiknr.pages.dev",
+      "image": "https://txufiknr.pages.dev/assets/images/me/taufik-nur-rahmanda.webp",
       "jobTitle": "Senior Software Engineer",
       "worksFor": {
         "@type": "Organization",
@@ -47,25 +48,25 @@
         }
       ],
       "mainEntityOfPage": {
-        "@id": "https://txufiknr.github.io/#webpage"
+        "@id": "https://txufiknr.pages.dev/#webpage"
       }
     },
     {
       "@type": "WebSite",
-      "@id": "https://txufiknr.github.io/#website",
-      "url": "https://txufiknr.github.io",
+      "@id": "https://txufiknr.pages.dev/#website",
+      "url": "https://txufiknr.pages.dev",
       "name": "Taufik Nur Rahmanda | Portfolio",
-      "publisher": { "@id": "https://txufiknr.github.io/#me" }
+      "publisher": { "@id": "https://txufiknr.pages.dev/#me" }
     },
     {
       "@type": "WebPage",
-      "@id": "https://txufiknr.github.io/#webpage",
-      "url": "https://txufiknr.github.io",
+      "@id": "https://txufiknr.pages.dev/#webpage",
+      "url": "https://txufiknr.pages.dev",
       "name": "Taufik Nur Rahmanda | Portfolio",
       "description": "Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.",
-      "about": { "@id": "https://txufiknr.github.io/#me" },
-      "mainEntity": { "@id": "https://txufiknr.github.io/#me" },
-      "isPartOf": { "@id": "https://txufiknr.github.io/#website" }
+      "about": { "@id": "https://txufiknr.pages.dev/#me" },
+      "mainEntity": { "@id": "https://txufiknr.pages.dev/#me" },
+      "isPartOf": { "@id": "https://txufiknr.pages.dev/#website" }
     }
   ]
 }

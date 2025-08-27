@@ -64,7 +64,7 @@ define('PATH_PHOTO', "assets/images/me/taufik-nur-rahmanda.webp");
 define('PATH_PHOTO_SMALL', "assets/images/me/taufik-nur-rahmanda-550.webp");
 define('PATH_PHOTO_TINY', "assets/images/me/taufik-nur-rahmanda-250.webp");
 define('BIO_FULL_NAME', "Taufik Nur Rahmanda");
-define('BIO_LEGAL_NAME', "Taufik Nur Rahmanda, S.Kom");
+define('BIO_LEGAL_NAME', "Taufik Nur Rahmanda, S.Kom.");
 define('BIO_FIRST_NAME', "Taufik");
 define('JOB_FIRST_YEAR', 2017);
 define('JOB_LANGUAGES', 10);
@@ -268,12 +268,11 @@ if ($isHome) {
     <div id="particles-js"></div>
 
     <div class="container">
-      <!-- <h1><span>Taufik</span> Nur Rahmanda, S.Kom</h1> -->
       <h1>
         <span style="animation-delay: .2s;">Taufik</span>
         <span style="animation-delay: .4s;">Nur</span>
         <span style="animation-delay: .6s;">Rahmanda,</span>
-        <span style="animation-delay: .8s;">S.Kom</span>
+        <span style="animation-delay: .8s;">S.Kom.</span>
       </h1>
       <p class="typewrite" data-period="4000" data-type='["<?=$tr['intro_1']?>", "<?=$tr['intro_2']?>", "<?=$tr['intro_3']?>"]'>
         <?=$tr['intro_1']?>
@@ -472,64 +471,7 @@ if ($isHome) {
   <?php } ?>
 
   <script>
-    // Fetch extra JSON-LD dynamically
-    // fetch('assets/json/schema-extras.min.jsonld')
-    //   .then(res => res.text())
-    //   .then(data => {
-    //     const el = document.createElement('script');
-    //     el.type = 'application/ld+json';
-    //     el.text = data;
-    //     document.head.appendChild(el);
-    //   });
-
-    // Lazy-load non-essential JS
-    let scriptsLoaded = false;
-
-    async function loadScript(src) {
-      return new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        s.src = src;
-        s.async = true;
-        s.onload = resolve;
-        s.onerror = () => reject(new Error('Failed to load ' + src));
-        document.body.appendChild(s);
-      });
-    }
-
-    async function lazyLoadScripts() {
-      if (scriptsLoaded) return;
-      scriptsLoaded = true;
-
-      // Remove listeners to avoid re-calling
-      window.removeEventListener('scroll', lazyLoadScripts);
-      window.removeEventListener('mousemove', lazyLoadScripts);
-      window.removeEventListener('keydown', lazyLoadScripts);
-
-      try {
-        // Load third-party libraries in parallel
-        await Promise.allSettled([
-          loadScript('assets/vendor/counterup2/counterup2.min.js'),
-          loadScript('assets/vendor/typewrite/typewrite.min.js')
-        ]);
-
-        // Load the main script after dependencies are ready
-        await loadScript('<?=$pathScript?>');
-      } catch (err) {
-        console.error('Failed to load scripts:', err);
-      }
-    }
-
-    // Lazy-init: delay scripts until user starts interacting with the page
-    window.addEventListener('scroll', lazyLoadScripts, { once: true });
-    window.addEventListener('mousemove', lazyLoadScripts, { once: true });
-    window.addEventListener('keydown', lazyLoadScripts, { once: true });
-
-    // Only load animation libraries after the page is interactive
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(lazyLoadScripts);
-      // requestIdleCallback(lazyLoadScripts, { timeout: 5000 });
-    }
-    setTimeout(lazyLoadScripts, 5000);
+    ((e="<?=$pathScript?>")=>{let t=!1;async function n(e){return new Promise((t,n)=>{let r=document.createElement("script");r.src=e,r.async=!0,r.onload=t,r.onerror=()=>n(Error("Failed to load "+e)),document.body.appendChild(r)})}async function r(){if(!t){t=!0,window.removeEventListener("scroll",r),window.removeEventListener("mousemove",r),window.removeEventListener("keydown",r);try{await Promise.allSettled([n("assets/vendor/counterup2/counterup2.min.js"),n("assets/vendor/typewrite/typewrite.min.js")]),await n(e)}catch(s){console.error("Failed to load scripts:",s)}}}window.addEventListener("scroll",r,{once:!0}),window.addEventListener("mousemove",r,{once:!0}),window.addEventListener("keydown",r,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(r),setTimeout(r,5e3)})();
   </script>
 </body>
 </html>
