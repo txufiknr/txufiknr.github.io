@@ -2,23 +2,24 @@
 <html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-
-  <script>document.documentElement.classList.remove('no-js');</script>
   <title>Taufik Nur Rahmanda, S.Kom. | Portfolio</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,viewport-fit=cover">
 
-  <!-- Pre-connects -->
+  <!-- Inline critical JS -->
+  <script>document.documentElement.classList.remove('no-js');</script>
+
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
-  <!-- Pre-load font -->
+  <!-- Preload font -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
 
-  <!-- Pre-load assets -->
+  <!-- Preload assets -->
   <link rel="preload" href="assets/css/main.min.css?v=1" as="style" fetchpriority="high">
   <link rel="preload" href="assets/js/script.min.js?v=1" as="script">
-  <link rel="preload" href="https://images.unsplash.com/photo-1491472253230-a044054ca35f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU0ODY5NzB8&ixlib=rb-4.1.0&q=80&w=1080" as="image" type="image/jpeg" fetchpriority="high">
+  <link rel="preload" href="assets/images/hero.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="assets/images/me/taufik-nur-rahmanda.webp"
     imagesrcset="
       assets/images/me/taufik-nur-rahmanda-250.webp 250w,
@@ -63,8 +64,6 @@
   <meta name="googlebot" content="index, follow">
   <meta name="theme-color" content="#673AB7">
   <meta name="color-scheme" content="dark light">
-
-  <!-- Performance -->
   <meta name="format-detection" content="telephone=no">
 
   <!-- Structured Data (JSON-LD) -->
@@ -91,14 +90,13 @@
 
   <!-- Inline critical CSS -->
   <style>
-    #hero h1 span,body,button{font-family:var(--font-family)}:root{--font-family:"Titillium Web",sans-serif;--color-background:#130d14;--color-primary:#673AB7;--color-primary-light:#c285ff;--color-primary-dark:#310345;--color-secondary-dark:#1c0a3c;--color-accent:rebeccapurple;--glow:rgba(244, 66, 232, 1);--padding-side:max(3rem, 13vw)}*{box-sizing:border-box}a{text-decoration:none}body,html{font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body{margin:0;background:var(--color-background);color:#fff;overflow-x:hidden}body,button{font-size:1rem;line-height:1.75}#hero{background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;mask:linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 30%,rgba(0,0,0,1) 100%);z-index:2;padding:5rem var(--padding-side);min-height:100vh;margin-bottom:-4rem}#hero::before{content:'';position:absolute;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.9)}#hero .container{position:relative;display:flex;flex-direction:column;align-items:flex-start}#hero .socials a:last-child{display:none}#hero>img:first-child{position:absolute;right:0;top:0;height:100vh;opacity:.5;mask:linear-gradient(to right,transparent,rgba(0,0,0,.2) 30%,rgba(0,0,0,.5) 60%,black)}#hero h1{font-size:3rem;line-height:1.1;margin:0;animation:4s infinite glow-text}#hero h1 span{font-display:block;display:inline-block;opacity:0}#hero h1 span:first-child{color:var(--color-primary-light);font-size:125%}#hero p{margin:2rem 0}#hero p.typewrite{margin-bottom:0;line-height:1.5;min-height:1.5em;font-weight:600;opacity:.5}#scroll-down{filter:invert();animation:4s ease-in-out infinite scroll-down;scale:3;align-self:center;opacity:.5;cursor:pointer;margin-top:2rem}@media screen and (min-width:768px){#hero h1,#hero h1::after,#hero h1::before{transition:.3s cubic-bezier(.2, 1, .2, 1)}#hero{margin-bottom:-2rem}#hero h1{font-size:3.5rem;line-height:1.15;overflow:visible!important;opacity:.85;display:inline-block;position:relative}#hero h1::after,#hero h1::before{content:"";position:absolute;bottom:-1rem;left:0;display:block;width:100%;height:1px;background:var(--color-primary-light);transform:translateX(-105%)}#hero h1 span:first-child{display:block;font-size:150%}}@media screen and (min-width:992px){#hero .container{margin-right:15vw}}@keyframes scroll-down{50%{transform:translateY(15px)}}@keyframes glow-text{0%{text-shadow:0 0 0 var(--glow)}50%{text-shadow:0 0 20px var(--glow)}}
-    #hero { background-image: url(https://images.unsplash.com/photo-1491472253230-a044054ca35f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjU0ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTU0ODY5NzB8&ixlib=rb-4.1.0&q=80&w=1080); }
+  #hero h1 span,body,button{font-family:var(--font-family)}:root{--font-family:"Titillium Web",sans-serif;--color-background:#130d14;--color-primary:#673AB7;--color-primary-light:#c285ff;--color-primary-dark:#310345;--color-secondary-dark:#1c0a3c;--color-accent:rebeccapurple;--glow:rgba(244, 66, 232, 1);--padding-side:max(3rem, 13vw)}*{box-sizing:border-box}a{text-decoration:none}body,html{font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body{background:var(--color-background);color:#fff;overflow-x:hidden;margin:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}body,button{font-size:1rem;line-height:1.75}#hero{background-image:url(assets/images/hero.webp);background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;mask:linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 30%,rgba(0,0,0,1) 100%);z-index:2;padding:5rem var(--padding-side);min-height:100vh;margin-bottom:-4rem}#hero::before{content:'';position:absolute;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.9)}#hero .container{position:relative;display:flex;flex-direction:column;align-items:flex-start}#hero .socials a:last-child{display:none}#hero>img:first-child{position:absolute;right:0;top:0;height:100vh;opacity:.5;mask:linear-gradient(to right,transparent,rgba(0,0,0,.2) 30%,rgba(0,0,0,.5) 60%,black)}#hero h1{font-size:3rem;line-height:1.1;margin:0;animation:4s infinite glow-text}#hero h1 span{font-display:block;display:inline-block;opacity:0}#hero h1 span:first-child{color:var(--color-primary-light);font-size:125%}#hero p{margin:2rem 0}#hero p.typewrite{margin-bottom:0;line-height:1.5;min-height:1.5em;font-weight:600;opacity:.5}#scroll-down{filter:invert();animation:4s ease-in-out infinite scroll-down;scale:3;align-self:center;opacity:.5;cursor:pointer;margin-top:2rem}@media screen and (min-width:768px){#hero h1,#hero h1::after,#hero h1::before{transition:.3s cubic-bezier(.2, 1, .2, 1)}#hero{margin-bottom:-2rem}#hero h1{font-size:3.5rem;line-height:1.15;overflow:visible!important;opacity:.85;display:inline-block;position:relative}#hero h1::after,#hero h1::before{content:"";position:absolute;bottom:-1rem;left:0;display:block;width:100%;height:1px;background:var(--color-primary-light);transform:translateX(-105%)}#hero h1 span:first-child{display:block;font-size:150%}}@media screen and (min-width:992px){#hero .container{margin-right:15vw}}@keyframes scroll-down{50%{transform:translateY(15px)}}@keyframes glow-text{0%{text-shadow:0 0 0 var(--glow)}50%{text-shadow:0 0 20px var(--glow)}}
   </style>
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/main.min.css?v=1">
 
-  <!-- Defer full CSS -->
+  <!-- Defer non-critical CSS -->
   <link rel="preload" href="assets/css/defer.min.css?v=1" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="assets/css/defer.min.css?v=1"></noscript>
 </head>
@@ -351,7 +349,8 @@
   <footer>&copy;2025 Taufik Nur Rahmanda, S.Kom.</footer>
 
   <script>
-    ((e="assets/js/script.min.js?v=1")=>{let t=!1;async function n(e){return new Promise((t,n)=>{let r=document.createElement("script");r.src=e,r.async=!0,r.onload=t,r.onerror=()=>n(Error("Failed to load "+e)),document.body.appendChild(r)})}async function r(){if(!t){t=!0,window.removeEventListener("scroll",r),window.removeEventListener("mousemove",r),window.removeEventListener("keydown",r);try{await Promise.allSettled([n("assets/vendor/counterup2/counterup2.min.js"),n("assets/vendor/typewrite/typewrite.min.js")]),await n(e)}catch(s){console.error("Failed to load scripts:",s)}}}window.addEventListener("scroll",r,{once:!0}),window.addEventListener("mousemove",r,{once:!0}),window.addEventListener("keydown",r,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(r),setTimeout(r,5e3)})();
+  function initJS(e="assets/js/script.min.js?v=1"){let r=!1;async function t(e){return new Promise((r,t)=>{let n=document.createElement("script");n.src=e,n.async=!0,n.onload=r,n.onerror=()=>t(Error("Failed to load "+e)),document.body.appendChild(n)})}async function n(){if(!r){r=!0,window.removeEventListener("scroll",n),window.removeEventListener("mousemove",n),window.removeEventListener("keydown",n);try{await Promise.allSettled([t("assets/vendor/counterup2/counterup2.min.js"),t("assets/vendor/typewrite/typewrite.min.js")]),await t(e)}catch(o){console.error("Failed to load scripts:",o)}}}window.addEventListener("scroll",n,{once:!0}),window.addEventListener("mousemove",n,{once:!0}),window.addEventListener("keydown",n,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(n),setTimeout(n,5e3),"serviceWorker"in navigator&&navigator.serviceWorker.register("sw.js").then(e=>(console.log("Service worker registered with scope:",e.scope),navigator.serviceWorker.ready)).then(e=>{navigator.serviceWorker.controller?console.log("Service worker is active and controlling:",e.scope):console.warn("Service worker is not controlling this page!")}).catch(e=>{console.error("Service worker failed:",e)})}
+  initJS();
   </script>
   </body>
 </html>

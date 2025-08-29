@@ -139,7 +139,7 @@ if ($isHome) {
 
     $hero = $result['urls']['regular']; // full
   } catch(Exception $e) {
-    $hero = 'assets/images/hero.webp'; // fallback image
+    // use default hero image from css
   }
 }
 ?>
@@ -471,7 +471,8 @@ if ($isHome) {
   <?php } ?>
 
   <script>
-    ((e="<?=$pathScript?>")=>{let t=!1;async function n(e){return new Promise((t,n)=>{let r=document.createElement("script");r.src=e,r.async=!0,r.onload=t,r.onerror=()=>n(Error("Failed to load "+e)),document.body.appendChild(r)})}async function r(){if(!t){t=!0,window.removeEventListener("scroll",r),window.removeEventListener("mousemove",r),window.removeEventListener("keydown",r);try{await Promise.allSettled([n("assets/vendor/counterup2/counterup2.min.js"),n("assets/vendor/typewrite/typewrite.min.js")]),await n(e)}catch(s){console.error("Failed to load scripts:",s)}}}window.addEventListener("scroll",r,{once:!0}),window.addEventListener("mousemove",r,{once:!0}),window.addEventListener("keydown",r,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(r),setTimeout(r,5e3)})();
+    <?php include('assets/js/inline.min.js'); ?>
+    initJS("<?=$pathScript?>");
   </script>
 </body>
 </html>

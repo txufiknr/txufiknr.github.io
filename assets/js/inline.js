@@ -1,5 +1,5 @@
-// Lazy-load non-essential JS
-((mainJS = 'assets/js/script.min.js?v=1') => {
+function initJS(mainJS = 'assets/js/script.min.js?v=1') {
+  // Lazy-load non-essential JS
   let scriptsLoaded = false;
 
   async function loadScript(src) {
@@ -47,4 +47,27 @@
     // requestIdleCallback(lazyLoadScripts, { timeout: 5000 });
   }
   setTimeout(lazyLoadScripts, 5000);
-})();
+
+  // Register the Service Worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+
+    // Optional logging
+    .then((reg) => {
+      console.log("Service worker registered with scope:", reg.scope);
+
+      // Wait until the SW is active and controlling
+      return navigator.serviceWorker.ready;
+    })
+    .then((reg) => {
+      if (!navigator.serviceWorker.controller) {
+        console.warn("Service worker is not controlling this page!");
+      } else {
+        console.log("Service worker is active and controlling:", reg.scope);
+      }
+    })
+    .catch((err) => {
+      console.error("Service worker failed:", err);
+    });
+  }
+}
