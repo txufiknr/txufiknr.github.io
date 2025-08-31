@@ -2,6 +2,7 @@ const CACHE_STATIC = "static-cache-v1";
 const CACHE_FONT = "font-cache-v1";
 
 const FONT_ORIGINS = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"];
+const FALLBACK_IMAGE = 'assets/images/loader.gif';
 
 const PRECACHE_URLS = [
   // html
@@ -52,6 +53,8 @@ const PRECACHE_URLS = [
   "assets/icons/twitter-x.svg",
   "assets/icons/github.svg",
   "assets/icons/google-play.svg",
+
+  FALLBACK_IMAGE
 ];
 
 // Install event → cache core files
@@ -80,7 +83,7 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.filter((cacheName) => ![CACHE_STATIC, CACHE_RUNTIME, CACHE_FONT].includes(cacheName)).map((cacheName) => caches.delete(cacheName))
+        cacheNames.filter((cacheName) => ![CACHE_STATIC, CACHE_FONT].includes(cacheName)).map((cacheName) => caches.delete(cacheName))
       );
     })
   );
@@ -91,9 +94,9 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
-  const isFont = FONT_ORIGINS.includes(url.origin);
   const isStatic = url.pathname.match(/\.(css|js|webp|png|svg|woff2?)$/i);
   const isImage = url.pathname.match(/\.(webp|png|svg)$/i);
+  const isFont = FONT_ORIGINS.includes(url.origin);
 
   // Skip non-GET and chrome-extension requests
   if (request.method !== 'GET' || url.protocol === 'chrome-extension:') return;
@@ -117,7 +120,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Static assets & fonts: get from cache → fallback to network (stale-while-revalidate)
+  // Static assets & fonts: get from cache → fallback to network
   if (isStatic || isFont) {
     event.respondWith((async () => {
       const cache = await caches.open(isFont ? CACHE_FONT : CACHE_STATIC);
@@ -128,17 +131,25 @@ self.addEventListener("fetch", (event) => {
         if (response.ok) cache.put(event.request, response.clone());
         return response;
       }).catch(() => null);
-  
+
       if (cached) {
         // Return cached immediately (stale), update runs in background
         return cached;
       }
+
+      // cache-first → wait for network → fallback
+      if (isImage) {
+        return (await networkFetch) || caches.match(FALLBACK_IMAGE);
+      }
+
+      // true stale-while-revalidate
+      return networkFetch;
   
-      // No cached → wait for network or fallback
-      return (await networkFetch) || (isImage
-        ? caches.match(FALLBACK_IMAGE)
-        : new Response("Not found", { status: 404 })
-      );
+      // Return cached immediately (stale) → wait for network or fallback
+      // return cached || (await networkFetch) || (isImage
+      //   ? caches.match(FALLBACK_IMAGE)
+      //   : new Response("Not found", { status: 404 })
+      // );
     })());
   }
 
