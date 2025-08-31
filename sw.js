@@ -92,48 +92,55 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
   const isFont = FONT_ORIGINS.includes(url.origin);
-  const isStatic = url.pathname.match(/\.(css|js|webp|png|svg|woff2?)$/);
+  const isStatic = url.pathname.match(/\.(css|js|webp|png|svg|woff2?)$/i);
+  const isImage = url.pathname.match(/\.(webp|png|svg)$/i);
 
   // Skip non-GET and chrome-extension requests
-  if (request.method !== 'GET' || url.protocol === 'chrome-extension:') {
-    return;
-  }
-  
+  if (request.method !== 'GET' || url.protocol === 'chrome-extension:') return;
+
   console.log("[SW] Fetching", url);
 
   // Navigation: fetch from network → fallback to index.html
   if (request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          return await fetch(request);
-        } catch (e) {
-          console.warn("[SW] Fetch failed:", e);
-          return (
-            (await caches.match("/")) ||
-            (await caches.match("index.html")) ||
-            new Response("Offline", { status: 503 })
-          );
-        }
-      })()
-    );
+    event.respondWith((async () => {
+      try {
+        return await fetch(request);
+      } catch (e) {
+        console.warn("[SW] Navigation failed:", e);
+        return (
+          (await caches.match("/")) ||
+          (await caches.match("index.html")) ||
+          new Response("Offline", { status: 503 })
+        );
+      }
+    })());
     return;
   }
 
   // Static assets & fonts: get from cache → fallback to network (stale-while-revalidate)
   if (isStatic || isFont) {
-    event.respondWith(
-      (async () => {
-        const cache = await caches.open(isFont ? CACHE_FONT : CACHE_STATIC);
-        const cached = await cache.match(request);
-        const networkFetch = fetch(request).then(response => {
-          if (response.ok) cache.put(request, response.clone());
-          return response;
-        }).catch(() => null);
-        return cached || networkFetch || new Response("Not found", { status: 404 });
-      })()
-    );
+    event.respondWith((async () => {
+      const cache = await caches.open(isFont ? CACHE_FONT : CACHE_STATIC);
+      const cached = await cache.match(event.request);
+  
+      // Start background fetch & update cache
+      const networkFetch = fetch(event.request).then((response) => {
+        if (response.ok) cache.put(event.request, response.clone());
+        return response;
+      }).catch(() => null);
+  
+      if (cached) {
+        // Return cached immediately (stale), update runs in background
+        return cached;
+      }
+  
+      // No cached → wait for network or fallback
+      return (await networkFetch) || (isImage
+        ? caches.match(FALLBACK_IMAGE)
+        : new Response("Not found", { status: 404 })
+      );
+    })());
   }
 
-  // Others: let them pass through
+  // Others: let them pass through naturally
 });
