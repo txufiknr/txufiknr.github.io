@@ -121,11 +121,15 @@ $years = date('Y') - JOB_FIRST_YEAR;
 // $isMobile = $isMobile || is_mobile();
 
 // set scripts and styles paths with cache busting
-$pathScript = PATH_SCRIPT.'?'.filemtime(PATH_SCRIPT);
-$pathStyle = PATH_STYLE.'?'.filemtime(PATH_STYLE);
-$pathStyleDefer = PATH_STYLE_DEFER.'?'.filemtime(PATH_STYLE_DEFER);
+// $pathScript = PATH_SCRIPT.'?'.filemtime(PATH_SCRIPT);
+// $pathStyle = PATH_STYLE.'?'.filemtime(PATH_STYLE);
+// $pathStyleDefer = PATH_STYLE_DEFER.'?'.filemtime(PATH_STYLE_DEFER);
 // $pathStyleTablet = PATH_STYLE_TABLET.'?'.filemtime(PATH_STYLE_TABLET);
 // $pathStyleDesktop = PATH_STYLE_DESKTOP.'?'.filemtime(PATH_STYLE_DESKTOP);
+
+$pathScript = PATH_SCRIPT;
+$pathStyle = PATH_STYLE;
+$pathStyleDefer = PATH_STYLE_DEFER;
 
 // fetch hero image in home page
 if ($isHome) {

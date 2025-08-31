@@ -1,6 +1,5 @@
 const CACHE_STATIC = "static-cache-v1";
 const CACHE_FONT = "font-cache-v1";
-const CACHE_RUNTIME = "runtime-cache-v1";
 
 const FONT_ORIGINS = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"];
 
@@ -56,13 +55,6 @@ const PRECACHE_URLS = [
 ];
 
 // Install event → cache core files
-// self.addEventListener("install", (event) => {
-//   event.waitUntil(
-//     caches.open(CACHE_STATIC).then((cache) => cache.addAll(PRECACHE_URLS))
-//   );
-//   self.skipWaiting();
-// });
-
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_STATIC).then((cache) => {
@@ -95,67 +87,12 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Cleanup expired runtime cache
-// self.addEventListener("periodicSync", (event) => {
-//   if (event.tag === "cleanup-runtime-cache") {
-//     event.waitUntil(
-//       caches.open(CACHE_RUNTIME).then((cache) => {
-//         return cache.keys().then((requests) => {
-//           return Promise.all(
-//             requests.map((request) => {
-//               const url = new URL(request.url);
-//               if (!PRECACHE_URLS.includes(url.pathname)) {
-//                 return cache.delete(request);
-//               }
-//               return Promise.resolve();
-//             })
-//           );
-//         });
-//       })
-//     );
-//   }
-// });
-
-// Periodic sync registration
-// self.addEventListener("sync", (event) => {
-//   if (event.tag === "cleanup-runtime-cache") {
-//     event.waitUntil(self.registration.periodicSync.register("cleanup-runtime-cache"));
-//   }
-// });
-
-// Background sync registration
-// self.addEventListener("backgroundFetchSuccess", (event) => {
-//   if (event.registration.tag === "background-fetch") {
-//     event.waitUntil(self.registration.sync.register("background-fetch"));
-//   }
-// });
-
-// Background sync event
-// self.addEventListener("sync", (event) => {
-//   if (event.tag === "background-fetch") {
-//     event.waitUntil(
-//       backgroundFetch.getAll("background-fetch").then((fetches) => {
-//         return Promise.all(
-//           fetches.map((fetch) => {
-//             return fetch.submit().then(() => {
-//               console.info("[SW] Background fetch submitted:", fetch.request.url);
-//             }).catch((error) => {
-//               console.error("[SW] Background fetch failed:", fetch.request.url, error);
-//             });
-//           })
-//         );
-//       })
-//     );
-//   }
-// });
-
 // Fetch event
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
   const isFont = FONT_ORIGINS.includes(url.origin);
   const isStatic = url.pathname.match(/\.(css|js|webp|png|svg|woff2?)$/);
-  const isSameOrigin = url.origin === self.location.origin;
 
   // Skip non-GET and chrome-extension requests
   if (request.method !== 'GET' || url.protocol === 'chrome-extension:') {
@@ -164,15 +101,7 @@ self.addEventListener("fetch", (event) => {
   
   console.log("[SW] Fetching", url);
 
-  // pages: fetch from network → fallback to index.html
-  // if (event.request.mode === "navigate") {
-  //   event.respondWith(
-  //     fetch(event.request).catch(() => caches.match("index.html"))
-  //   );
-  //   return;
-  // }
-
-  // Navigation requests: network-first → fallback to cached index.html
+  // Navigation: fetch from network → fallback to index.html
   if (request.mode === "navigate") {
     event.respondWith(
       (async () => {
@@ -191,21 +120,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // static assets & google fonts: get from cache → fallback to network (stale-while-revalidate)
-  // if (isStatic || isFont) {
-  //   event.respondWith(
-  //     caches.open(isFont ? CACHE_FONT : CACHE_STATIC).then(async (cache) => {
-  //       const cached = await cache.match(request);
-  //       const networkFetch = fetch(request).then((response) => {
-  //         cache.put(request, response.clone());
-  //         return response;
-  //       }).catch(() => null);
-  //       return cached || networkFetch;
-  //     })
-  //   );
-  //   return;
-  // }
-
+  // Static assets & fonts: get from cache → fallback to network (stale-while-revalidate)
   if (isStatic || isFont) {
     event.respondWith(
       (async () => {
@@ -220,36 +135,5 @@ self.addEventListener("fetch", (event) => {
     );
   }
 
-  // Runtime caching for same-origin requests
-  if (isSameOrigin) {
-    event.respondWith(
-      (async () => {
-        const cache = await caches.open(CACHE_RUNTIME);
-        const cached = await cache.match(request);
-        
-        if (cached) {
-          // Background update
-          fetch(request).then(response => {
-            if (response.ok) {
-              cache.put(request, response.clone());
-            }
-          }).catch(() => {});
-          return cached;
-        }
-        
-        try {
-          const response = await fetch(request);
-          if (response.ok) {
-            cache.put(request, response.clone());
-          }
-          return response;
-        } catch (error) {
-          return new Response("Network error", { status: 503 });
-        }
-      })()
-    );
-    return;
-  }
-  
-  // others: let them pass through
+  // Others: let them pass through
 });
