@@ -1,4 +1,4 @@
-const CACHE_STATIC = "static-cache-v1";
+const CACHE_STATIC = "static-cache-v2";
 const CACHE_FONT = "font-cache-v1";
 
 const FONT_ORIGINS = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"];
@@ -46,6 +46,9 @@ const PRECACHE_URLS = [
   "assets/images/portfolio/zakat.webp",
   "assets/images/portfolio/thumbs/zakat-150.webp",
   "assets/images/portfolio/thumbs/zakat-400.webp",
+
+  // icons
+  "assets/icons/chevron-compact-down.svg",
 
   // social icons
   "assets/icons/linkedin.svg",
@@ -101,7 +104,7 @@ self.addEventListener("fetch", (event) => {
   // Skip non-GET and chrome-extension requests
   if (request.method !== 'GET' || url.protocol === 'chrome-extension:') return;
 
-  console.log("[SW] Fetching", url);
+  console.info("[SW] Fetching", req.destination, url);
 
   // Navigation: fetch from network → fallback to index.html
   if (request.mode === "navigate") {

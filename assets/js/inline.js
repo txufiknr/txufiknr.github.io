@@ -1,4 +1,4 @@
-function initJS(mainJS = 'assets/js/script.min.js?v=1') {
+function initJS(mainJS = 'assets/js/script.min.js') {
   // Lazy-load non-essential JS
   let scriptsLoaded = false;
 
