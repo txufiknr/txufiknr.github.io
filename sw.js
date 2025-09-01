@@ -132,24 +132,14 @@ self.addEventListener("fetch", (event) => {
         return response;
       }).catch(() => null);
 
-      if (cached) {
-        // Return cached immediately (stale), update runs in background
-        return cached;
-      }
+      // Return cached immediately (stale), update runs in background
+      if (cached) return cached;
 
-      // cache-first → wait for network → fallback
-      if (isImage) {
-        return (await networkFetch) || caches.match(FALLBACK_IMAGE);
-      }
+      // Wait for network → fallback to default image
+      if (isImage) return (await networkFetch) || caches.match(FALLBACK_IMAGE);
 
-      // true stale-while-revalidate
+      // True stale-while-revalidate
       return networkFetch;
-  
-      // Return cached immediately (stale) → wait for network or fallback
-      // return cached || (await networkFetch) || (isImage
-      //   ? caches.match(FALLBACK_IMAGE)
-      //   : new Response("Not found", { status: 404 })
-      // );
     })());
   }
 
