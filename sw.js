@@ -60,16 +60,16 @@ const PRECACHE_URLS = [
   FALLBACK_IMAGE
 ];
 
-// Install event → cache core files
+// Install event → cache core files (bypass browser HTTP cache)
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_STATIC).then((cache) => {
       return Promise.all(
         PRECACHE_URLS.map((url) =>
-          fetch(url).then((response) => {
+          fetch(url, { cache: "reload" }).then((response) => {
             if (response.ok) {
               console.info("[SW] Added to cache:", url);
-              return cache.put(url, response);
+              return cache.put(url, response.clone());
             }
           }).catch(() => {
             console.warn("[SW] Failed to cache:", url);
