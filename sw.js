@@ -131,7 +131,10 @@ self.addEventListener("fetch", (event) => {
   
       // Start background fetch & update cache
       const networkFetch = fetch(event.request).then((response) => {
-        if (response.ok) cache.put(event.request, response.clone());
+        if (response.ok) {
+          console.log(`[SW] Cache static ${request.destination}`, request.url);
+          cache.put(event.request, response.clone());
+        }
         return response;
       }).catch(() => null);
 
