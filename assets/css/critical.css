@@ -63,7 +63,7 @@ body, button {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 100%);
+  mask: linear-gradient(to top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 100%);
   z-index: 2;
   padding: 5rem var(--padding-side);
   min-height: 100vh;
@@ -93,7 +93,7 @@ body, button {
   top: 0;
   height: 100vh;
   opacity: 0.5;
-  mask: linear-gradient(to right, transparent, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .5) 60%, black);
+  mask: linear-gradient(to right, transparent, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .5) 60%, #000);
 }
 #hero h1 {
   font-size: 3rem;

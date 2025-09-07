@@ -104,7 +104,7 @@ self.addEventListener("fetch", (event) => {
   // Skip non-GET and chrome-extension requests
   if (request.method !== 'GET' || url.protocol === 'chrome-extension:') return;
 
-  console.info("[SW] Fetching", req.destination, url);
+  console.info("[SW] Fetching", request.destination, url);
 
   // Navigation: fetch from network → fallback to index.html
   if (request.mode === "navigate") {

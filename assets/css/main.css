@@ -1,7 +1,4 @@
 footer {
-  /* This CSS property allows the browser to skip rendering offscreen content until needed. */
-  content-visibility: auto;
-  contain-intrinsic-size: 96px;
   padding: 0 2rem;
   font-size: .9rem;
   opacity: .6;
@@ -9,6 +6,23 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* This CSS property allows the browser to skip rendering offscreen content until needed. */
+  content-visibility: auto;
+  contain-intrinsic-size: 96px;
+  contain: strict;
+}
+
+/* @supports (contain-intrinsic-size: auto 1px) {
+  footer {
+    contain-intrinsic-size: auto 96px;
+  }
+} */
+
+header, .counter, .texts {
+  contain: content;
+}
+section {
+  contain: style;
 }
 
 #scroll-to-top {
@@ -73,7 +87,7 @@ footer {
   z-index: 1;
   width: 100%;
   padding: 3rem 0;
-  color: white;
+  color: #fff;
 }
 #skills .stats,
 #skills .title {
@@ -94,7 +108,7 @@ footer {
 #skills .texts {
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(to bottom, transparent 20vh, white, transparent);
+  background-image: linear-gradient(to bottom, transparent 20vh, #fff, transparent);
   background-attachment: fixed;
   margin: 0;
   padding: 0 0 15vh 50%;
@@ -116,7 +130,7 @@ footer {
 #skills .vendors div {
   display: flex;
   transform: rotate3d(1, 1, 1, -11deg);
-  mask: linear-gradient(90deg, transparent, white 20% 80%, transparent);
+  mask: linear-gradient(90deg, transparent, #fff 20% 80%, transparent);
   animation: rotate-3d linear forwards;
   animation-timeline: scroll();
   animation-range: 100vh 180vh;
@@ -142,7 +156,7 @@ footer {
   right: 0;
   top: 0;
   bottom: 0;
-  mask: linear-gradient(to left, transparent, white 50%);
+  mask: linear-gradient(to left, transparent, #fff 50%);
   animation: scroll-half linear forwards;
   animation-timeline: scroll();
   animation-range: 0 100vh;
@@ -154,16 +168,10 @@ footer {
   right: 0;
   height: 80vh;
   clip-path: border-box;
-  mask: linear-gradient(to bottom, transparent, white 50%);
+  mask: linear-gradient(to bottom, transparent, #fff 50%);
   animation: fade-in linear forwards;
   animation-timeline: view();
 }
-
-/* This CSS property allows the browser to skip rendering offscreen content until needed. */
-/* #portfolio {
-  content-visibility: auto;
-  contain-intrinsic-size: 1000px;
-} */
 
 #portfolio {
   background: linear-gradient(to top, var(--color-primary-dark), transparent);
@@ -173,7 +181,7 @@ footer {
   max-width: 100vw;
 }
 #portfolio, #particles-js2 {
-  border-radius: 0% 0% 1500vw 2500vw / 0% 0% 30vw 1500vw;
+  border-radius: 0 0 1500vw 2500vw / 0 0 30vw 1500vw;
 }
 #portfolio::before {
   content: '';
@@ -329,7 +337,6 @@ footer {
 #portfolio .item.active > img {
   transform: rotate(-6deg) translateX(16vw) !important;
   scale: .75;
-  /* margin: -10vw 0; */
   margin: -12vw 0 -8vw;
 }
 #portfolio .item.text-right.active > img {
