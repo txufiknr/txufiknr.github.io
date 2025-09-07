@@ -1,4 +1,4 @@
-const CACHE_STATIC = "static-cache-v2";
+const CACHE_STATIC = "static-cache-v3";
 const CACHE_FONT = "font-cache-v1";
 
 const FONT_ORIGINS = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"];
