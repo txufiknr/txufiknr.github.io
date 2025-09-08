@@ -167,7 +167,6 @@ if ($isHome) {
 
   <!-- Pre-load assets -->
   <link rel="preload" href="<?=$pathStyle?>" as="style" fetchpriority="high">
-  <link rel="preload" href="<?=$pathScript?>" as="script">
   <link rel="preload" href="<?=PATH_PHOTO?>"
     imagesrcset="
       <?=PATH_PHOTO_TINY?> 250w,

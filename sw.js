@@ -60,6 +60,8 @@ const PRECACHE_URLS = [
   FALLBACK_IMAGE
 ];
 
+const IS_DEBUG = self.location.origin.includes('localhost');
+
 // Install event → cache core files (bypass browser HTTP cache)
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -68,11 +70,11 @@ self.addEventListener("install", (event) => {
         PRECACHE_URLS.map((url) =>
           fetch(url, { cache: "reload" }).then((response) => {
             if (response.ok) {
-              console.info("[SW] Added to cache:", url);
+              if (IS_DEBUG) console.info("[SW] Added to cache:", url);
               return cache.put(url, response.clone());
             }
           }).catch(() => {
-            console.warn("[SW] Failed to cache:", url);
+            if (IS_DEBUG) console.warn("[SW] Failed to cache:", url);
           })
         )
       );
@@ -104,7 +106,7 @@ self.addEventListener("fetch", (event) => {
   // Skip non-GET and chrome-extension requests
   if (request.method !== 'GET' || url.protocol === 'chrome-extension:') return;
 
-  console.info(`[SW] Fetching ${request.destination}:`, request.url);
+  if (IS_DEBUG) console.info(`[SW] Fetching ${request.destination}:`, request.url);
 
   // Navigation: fetch from network → fallback to index.html
   if (request.mode === "navigate") {
@@ -112,7 +114,7 @@ self.addEventListener("fetch", (event) => {
       try {
         return await fetch(request);
       } catch (e) {
-        console.warn("[SW] Navigation failed:", e);
+        if (IS_DEBUG) console.warn("[SW] Navigation failed:", e);
         return (
           (await caches.match("/")) ||
           (await caches.match("index.html")) ||
@@ -132,7 +134,7 @@ self.addEventListener("fetch", (event) => {
       // Start background fetch & update cache
       const networkFetch = fetch(event.request).then((response) => {
         if (response.ok) {
-          console.log(`[SW] Cache static ${request.destination}`, request.url);
+          if (IS_DEBUG) console.log(`[SW] Cache static ${request.destination}`, request.url);
           cache.put(event.request, response.clone());
         }
         return response;

@@ -18,7 +18,6 @@
 
   <!-- Preload assets -->
   <link rel="preload" href="assets/css/main.min.css" as="style" fetchpriority="high">
-  <link rel="preload" href="assets/js/script.min.js" as="script">
   <link rel="preload" href="assets/images/hero.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="assets/images/me/taufik-nur-rahmanda.webp"
     imagesrcset="
@@ -349,7 +348,7 @@
   <footer>&copy;2025 Taufik Nur Rahmanda, S.Kom.</footer>
 
   <script>
-  function initJS(e="assets/js/script.min.js"){let r=!1;async function t(e){return new Promise((r,t)=>{let n=document.createElement("script");n.src=e,n.async=!0,n.onload=r,n.onerror=()=>t(Error("Failed to load "+e)),document.body.appendChild(n)})}async function n(){if(!r){r=!0,window.removeEventListener("scroll",n),window.removeEventListener("mousemove",n),window.removeEventListener("keydown",n);try{await Promise.allSettled([t("assets/vendor/counterup2/counterup2.min.js"),t("assets/vendor/typewrite/typewrite.min.js")]),await t(e)}catch(o){console.error("Failed to load scripts:",o)}}}window.addEventListener("scroll",n,{once:!0}),window.addEventListener("mousemove",n,{once:!0}),window.addEventListener("keydown",n,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(n),setTimeout(n,5e3),"serviceWorker"in navigator&&navigator.serviceWorker.register("sw.js").then(e=>(console.log("Service worker registered with scope:",e.scope),navigator.serviceWorker.ready)).then(e=>{navigator.serviceWorker.controller?console.log("Service worker is active and controlling:",e.scope):console.warn("Service worker is not controlling this page!")}).catch(e=>{console.error("Service worker failed:",e)})}
+  function initJS(e="assets/js/script.min.js"){let r=setTimeout(o,5e3),t=!1;function n(e){return new Promise((r,t)=>{let n=document.createElement("script");n.src=e,n.async=!0,n.onload=r,n.onerror=()=>t(Error("Failed to load "+e)),document.body.appendChild(n)})}async function o(){t||(t=!0,window.removeEventListener("scroll",o),window.removeEventListener("mousemove",o),window.removeEventListener("keydown",o),clearTimeout(r),await Promise.allSettled([n("assets/vendor/counterup2/counterup2.min.js"),n("assets/vendor/typewrite/typewrite.min.js")]),await n(e))}window.addEventListener("scroll",o,{once:!0,passive:!0}),window.addEventListener("mousemove",o,{once:!0}),window.addEventListener("keydown",o,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(o),"serviceWorker"in navigator&&navigator.serviceWorker.register("sw.js").then(e=>(console.log("Service worker registered:",e.scope),navigator.serviceWorker.ready)).then(e=>{navigator.serviceWorker.controller?console.log("Service worker active:",e.scope):console.warn("Service worker not controlling this page yet!")}).catch(e=>console.error("Service worker failed:",e))}
   initJS();
   </script>
   </body>
