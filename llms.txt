@@ -1,0 +1,73 @@
+# Taufik Nur Rahmanda, S.Kom
+
+> Senior Software Engineer | Full-Stack Developer | Mobile & Web Specialist
+
+## Professional Summary
+Professional software engineer with over 8 years of experience in building high-quality web and mobile applications. Specializing in multi-platform development with a strong focus on clean architecture, performance optimization, and user experience. Proven track record of delivering 50+ projects across various industries.
+
+## Technical Expertise
+
+### Frontend Development
+- **Languages**: HTML5, CSS3, JavaScript (ES6+), TypeScript
+- **Frameworks**: Vue, React, Next.js, Angular
+- **UI/UX**: Tailwind CSS, Bootstrap, Responsive Design
+- **Tools**: Vite, npm, pnpm, Webpack
+
+### Backend Development
+- **Languages**: PHP 8, JavaScript
+- **Frameworks**: CodeIgniter, Express.js
+- **Databases**: MySQL, PostgreSQL, Redis
+- **APIs**: RESTful, GraphQL
+- **ORM**: Sequelize
+
+### Mobile Development
+- **Cross-Platform**: Flutter, Dart
+- **Native**: Kotlin, Java
+- **Tools**: Android Studio, XCode
+
+### DevOps & Cloud
+- **Version Control**: Git, GitHub
+- **Hosting**: Firebase, Vercel, Netlify
+- **CI/CD**: GitHub Actions
+- **Cloud Services**: AWS, GCP (Basic)
+
+## Featured Projects
+
+### 1. Portfolio Website
+- Built a high-performance, responsive portfolio using vanilla JavaScript, HTML, and CSS
+- Optimized for SEO and performance with perfect Lighthouse scores
+- Implemented modern UI/UX principles for optimal user experience
+
+### 2. Mobile Applications
+- Developed and published multiple applications on Google Play Store
+- Specialized in Flutter for cross-platform mobile development
+- Focus on clean architecture and state management
+
+## Professional Experience
+
+### CEO & Founder
+**TARRA Co**  
+Leading software development company specializing in custom web and mobile solutions.
+
+### Senior Software Engineer
+**Nurosoft Consulting**  
+Developed and maintained enterprise-level applications for various clients.
+
+## Education
+- **Bachelor of Computer Science**  
+  Brawijaya University, 2011-2016
+  Specialization: Information System
+
+## Certifications
+- Alibaba Cloud Associate Cloud Computing Certification (2024)
+- Odoo Functional Certificate of Achievement (2024)
+- Certificate of Completion (Code Igniter) from Karisma Academy (2017)
+- IC3 Digital Literacy Certification from Pearson VUE (2015)
+- Bachelor of Information System (2016)
+
+## Contact & Online Presence
+- **Website**: https://txufiknr.pages.dev/
+- **GitHub**: github.com/txufiknr
+- **LinkedIn**: linkedin.com/in/taufik-nur-rahmanda
+- **Email**: flias.test@gmail.com
+- **Google Play**: Play Store Developer
