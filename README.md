@@ -11,26 +11,22 @@
 
 ## 🚀 About Me
 
-Professional software engineer, mobile & web app developer with over 8 years of experience in multiple software industries. Skilled in multi-platform app development for Android, iOS, web. Having strong knowledge in latest tech-stacks including Flutter (Dart), HTML, CSS, ES6+, PHP 8, Next.js, Vue, latest mobile technologies, game engines, frameworks, and SDK.
+Software Engineer with 8+ years of experience. Building scalable, high-performance applications across Android, iOS, and web platforms. Proficient in modern technologies including Flutter (Dart), TypeScript, JavaScript, Node.js, React, Next.js, Vue, Angular. Passionate about building efficient systems and leveraging AI technologies.
 
 This is my personal portfolio website built with pure HTML, CSS, and vanilla JavaScript. It showcases my projects, skills, and professional journey.
 
 ## 🏆 Skills & Expertise
 
-- **Languages**: Dart, PHP 8, HTML5, CSS3, JavaScript (ES6+), TypeScript
-- **Frontend**: Vue, React, Next.js, Angular, HTML, CSS, Tailwind CSS, Bootstrap, WordPress
-- **Backend**: Node.js, Express.js, PHP, CodeIgniter, MySQL, PostgreSQL, Redis, Sequelize  
-- **Mobile**: Flutter, Kotlin, Java, Android Studio, XCode  
-- **Tools**: Git, Vite, npm, Firebase
-- **Others**: SEO, AMP, UI/UX Design, Photoshop, Vegas Pro
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **Languages**: TypeScript, JavaScript, Dart, PHP 8, Kotlin, Java, HTML, CSS
+- **Frontend**: React, Next.js, Vue, Angular, PHP, HTML5, CSS3, Tailwind CSS, Bootstrap, Responsive Design
+- **Backend**: Node.js, Express.js, CodeIgniter, MySQL/MariaDB, PostgreSQL, Redis, Sequelize, Drizzle, Neon
+- **Mobile**: Flutter, Kotlin, Java, Android Studio, XCode
+- **Tools & DevOps**: Git, Vite, npm, pnpm, Firebase, Vercel, GitHub Actions, Google Cloud
+- **Others**: WordPress, SEO, UI/UX Design, Photoshop, Vegas Pro, Canva
 
 ## 📬 Contact
 
-- **Email**: [flias.test@gmail.com](mailto:flias.test@gmail.com)
+- **Email**: [taufik.nur.rahmanda93@gmail.com](mailto:taufik.nur.rahmanda93@gmail.com)
 - **LinkedIn**: [Taufik Nur Rahmanda](https://www.linkedin.com/in/taufik-nur-rahmanda/)
 - **GitHub**: [@txufiknr](https://github.com/txufiknr)
 
