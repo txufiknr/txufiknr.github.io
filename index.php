@@ -338,19 +338,19 @@ if ($isHome) {
             'image' => 'https://media.licdn.com/dms/image/v2/C5603AQHfnRgfz99DwQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1667990362732?e=1778716800&v=beta&t=e3ciNsqR9SDHCKjTxYG4eIMPIKhGiKp6tYXVhhvENRs'
           ],
           [
-            'quote' => 'It has been a genuine pleasure working alongside Mas Taufik at Nurosoft. Throughout our collaboration on the Nurosoft website, with a particular focus on technical SEO and overall web performance. Mas taufik consistently demonstrated a proactive approach to problem-solving.',
+            'quote' => 'Working alongside Mas Taufik at Nurosoft was a genuine pleasure. He consistently demonstrated a proactive approach to problem-solving, especially in technical SEO and web performance.',
             'name' => 'Mukhammad Nur Khabibulloh',
             'title' => '5+ Years in Design & Digital Marketing',
             'image' => 'https://media.licdn.com/dms/image/v2/D5635AQFglXA6_jqE0A/profile-framedphoto-shrink_100_100/B56Zwmq1i1HQAk-/0/1770175289842?e=1777467600&v=beta&t=YObSHS6EKr3CEbSXhNXr4t7WkXeSIVH0De_YGwNmY7M'
           ],
           [
-            'quote' => 'I had the pleasure of working with Taufik at Nurosoft since 2022. He consistently delivered outstanding performance, especially in R&D, app development with Flutter, and website development. Taufik is a fast learner, detail-oriented, and always brings innovative solutions to complex problems.',
+            'quote' => 'I worked with Taufik at Nurosoft since 2022. He consistently delivered outstanding performance in R&D, Flutter app development, and website development. He\'s a fast learner, detail-oriented, and brings innovative solutions.',
             'name' => 'Muhammad Bima Nur Sya\'bani',
             'title' => 'Sr. HRGA at Nurosoft Consulting',
             'image' => 'https://media.licdn.com/dms/image/v2/D5603AQEmKRgFIwtZCA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1702461296135?e=1778716800&v=beta&t=uS647l4qoSPqlxD-MFY0Lvh64fEJ-V-uEihIaZSk_Cc'
           ],
           [
-            'quote' => 'Mas Taufik is one of the best developers I have collaborated with. His programming knowledge is solid, especially in Web Developer (Wordpress, etc). In addition, he also has strong expertise in application development. Communication is an important skill in collaboration, and Mas Taufik performs well in this area.',
+            'quote' => 'Mas Taufik is one of the best developers I\'ve collaborated with. His programming knowledge is solid in web development and application development. He communicates well and excels in collaboration.',
             'name' => 'Mohammad Alfi Rizzi',
             'title' => 'Software Quality Assurance',
             'image' => 'https://media.licdn.com/dms/image/v2/C5603AQHmmqqbvWpWRw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1659086785954?e=1778716800&v=beta&t=RBrgcPXmv8X-39wfTUGAyXAdi401ZI57-TYUlf5Wy2c'
@@ -395,7 +395,7 @@ if ($isHome) {
       <p class="texts">
         Flutter (Dart)<br>
         PHP, CodeIgniter<br>
-        HTML/CSS/JS/TS<br>
+        HTML & CSS<br>
         Bootstrap<br>
         jQuery<br>
         MySQL/MariaDB<br>
@@ -411,16 +411,16 @@ if ($isHome) {
         Git<br>
         Firebase<br>
         Node.js<br>
-        Photoshop<br>
-        Vegas Pro<br>
+        JavaScript<br>
+        TypeScript<br>
         <!-- Cocos Creator<br> -->
         <!-- Unity<br> -->
         Express.js<br>
         Sequelize<br>
         Redis<br>
         WordPress<br>
-        SEO, AMP<br>
-        WebGL<br>
+        SEO<br>
+        AI & LLM<br>
         UI/UX<br>
       </p>
     </div>
