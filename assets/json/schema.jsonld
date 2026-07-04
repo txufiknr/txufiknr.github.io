@@ -18,7 +18,8 @@
             "@id": "https://nurosoft.id/#organization"
           },
           "skills": ["Flutter", "Dart", "React", "Vue.js", "Angular", "JavaScript", "TypeScript", "Node.js", "Next.js", "Express", "Sequelize", "Redis", "PostgreSQL", "Vite", "HTML", "CSS", "SCSS", "Kotlin", "Android Studio", "XCode"],
-          "startDate": "2019"
+          "startDate": "2019",
+          "endDate": "2026"
         },
         {
           "@type": "Occupation",
@@ -33,21 +34,23 @@
       ],
       "url": "https://txufiknr.github.io",
       "image": "https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp",
-      "description": "Senior Software Engineer specializing in web development and mobile applications.",
+      "description": "Senior Software Engineer specializing in AI, website, and mobile applications development.",
       "knowsAbout": [
         "Web Development",
         "Mobile Applications",
         "Frontend Development",
         "Backend Development",
-        "Full-stack Development",
-        "Cross-platform Development",
+        "Full-Stack Development",
+        "Cross-Platform Development",
+        "AI/LLM Engineering",
         "Flutter",
         "React",
         "Node.js",
-        "PHP",
+        "TypeScript",
         "JavaScript",
         "Databases",
         "APIs",
+        "PHP",
         "UI/UX Design"
       ],
       "sameAs": [

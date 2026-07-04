@@ -1,4 +1,4 @@
-const CACHE_STATIC = "static-cache-v3";
+const CACHE_STATIC = "static-cache-v4";
 const CACHE_FONT = "font-cache-v1";
 
 const FONT_ORIGINS = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"];
@@ -46,6 +46,13 @@ const PRECACHE_URLS = [
   "assets/images/portfolio/zakat.webp",
   "assets/images/portfolio/thumbs/zakat-150.webp",
   "assets/images/portfolio/thumbs/zakat-400.webp",
+
+  // testimonials
+  "assets/images/testimony/kern.jfif",
+  "assets/images/testimony/khabib.jfif",
+  "assets/images/testimony/bima.jfif",
+  "assets/images/testimony/rizzi.jfif",
+  "assets/images/testimony/tahta.jfif",
 
   // icons
   "assets/icons/chevron-compact-down.svg",
