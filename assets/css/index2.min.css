@@ -186,9 +186,13 @@ img { max-width: 100%; height: auto; display: block }
 .hero-actions { display: flex; gap: .85rem; flex-wrap: nowrap; margin-top: .5rem }
 /* Increase button radius */
 .btn { border-radius: var(--radius-lg); }
+/* Hero buttons: 1 line, no wrapping */
+.portfolio-btn, .about-btn { white-space: nowrap }
+.portfolio-btn { max-width: 300px; padding-right: 0 }
+.about-btn { white-space: nowrap }
 .btn-primary { display: inline-flex; align-items: center; gap: 0; background: var(--clr-primary); color: var(--clr-white); overflow: hidden }
 .btn-primary:hover { background: var(--clr-primary-light); box-shadow: 0 8px 32px var(--clr-glow) }
-.btn-primary .btn-text { padding: .75rem 0 .75rem 1.25rem }
+.btn-primary .btn-text { padding: .75rem 0 }
 .btn-primary .btn-marquee { display: inline-flex; align-items: center; gap: .35rem; padding: 0 1rem 0 .6rem; overflow: hidden; mask: linear-gradient(90deg, transparent 2%, #000 15%, #000 85%, transparent 98%); -webkit-mask: linear-gradient(90deg, transparent 2%, #000 15%, #000 85%, transparent 98%) }
 .btn-primary .btn-marquee-inner { display: flex; gap: .35rem; animation: btnMarquee 10s linear infinite }
 .btn-primary .btn-marquee img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1.5px solid rgba(255,255,255,.3) }
@@ -348,12 +352,13 @@ img { max-width: 100%; height: auto; display: block }
 .testimonial-card q { font-style: italic; color: var(--clr-text-muted); font-size: .9rem; line-height: 1.7; display: block; margin-bottom: 1.25rem }
 .testimonial-card .attribution { display: flex; align-items: center; gap: .85rem }
 .testimonial-card .attribution img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--clr-primary); flex-shrink: 0 }
-.testimonial-card .attribution .name { font-size: .88rem; font-weight: 600 }
-.testimonial-card .attribution .role { font-size: .75rem; color: var(--clr-text-dim) }
-/* Expand LinkedIn icon on hover (no CLS: use transform scale, reserve space with 0->auto width trick) */
-.attribution-linkedin { margin-left: auto; flex-shrink: 0; width: 0; overflow: hidden; transition: width .35s ease, opacity .3s; opacity: 0; display: flex; align-items: center }
-.attribution-linkedin svg { width: 20px; height: 20px; fill: var(--clr-primary-light); flex-shrink: 0 }
-.testimonial-card:hover .attribution-linkedin { width: 28px; opacity: 1 }
+.testimonial-card .attribution > div { flex: 1; min-width: 0; overflow: hidden }
+.testimonial-card .attribution .name { font-size: .88rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.testimonial-card .attribution .role { font-size: .75rem; color: var(--clr-text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+/* LinkedIn icon: absolute positioned to avoid CLS on hover */
+.attribution-linkedin { position: absolute; right: 1.25rem; bottom: 1rem; opacity: 0; transform: translateX(10px); transition: all .35s cubic-bezier(.34,1.56,.64,1); display: flex; align-items: center }
+.attribution-linkedin svg { width: 20px; height: 20px; fill: var(--clr-primary-light); filter: drop-shadow(0 0 4px rgba(124,58,237,.3)) }
+.testimonial-card:hover .attribution-linkedin { opacity: 1; transform: translateX(0) }
 .testimonial-card .attribution-linkedin:hover svg { fill: var(--clr-white) }
 
 /* === CTA === */
@@ -361,6 +366,12 @@ img { max-width: 100%; height: auto; display: block }
 #cta h2 { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 800; margin-bottom: .75rem }
 #cta p { color: var(--clr-text-muted); max-width: 480px; margin: 0 auto 2rem auto; font-size: 1.05rem }
 .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap }
+/* CTA buttons: show icon on hover */
+.cta-linkedin, .cta-github { display: inline-flex; align-items: center; gap: .5rem; overflow: hidden }
+.cta-linkedin .cta-btn-text, .cta-github .cta-btn-text { transition: transform .3s ease }
+.cta-linkedin .cta-btn-icon, .cta-github .cta-btn-icon { width: 20px; height: 20px; opacity: 0; transform: translateX(-8px); transition: all .35s ease; flex-shrink: 0 }
+.cta-linkedin:hover .cta-btn-icon, .cta-github:hover .cta-btn-icon { opacity: 1; transform: translateX(0) }
+.cta-linkedin:hover .cta-btn-text, .cta-github:hover .cta-btn-text { transform: translateX(-2px) }
 
 /* === Sticky footer reveal === */
 .main-wrapper {
@@ -451,8 +462,9 @@ img { max-width: 100%; height: auto; display: block }
   .hero-visual .profile-wrapper { width: clamp(160px, 40vw, 220px) }
   .scroll-indicator { display: none }
   .btn-primary { flex-wrap: wrap; justify-content: center }
-  .btn-primary .btn-text { padding: .6rem 1rem .6rem 1rem; width: 100%; text-align: center }
+  .btn-primary .btn-text { padding: .6rem 1rem; width: 100%; text-align: center }
   .btn-primary .btn-marquee { padding: 0 1rem .6rem; width: 100%; justify-content: center }
+  .portfolio-btn { max-width: none; padding-right: inherit }
   .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center }
   .footer-brand p { margin-left: auto; margin-right: auto }
   .footer-bottom { flex-direction: column }
