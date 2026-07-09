@@ -1,359 +1,507 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
-  <title>Taufik Nur Rahmanda, S.Kom. | Portfolio</title>
+  <title>Taufik Nur Rahmanda, S.Kom. | Senior Full-Stack Engineer &amp; AI/LLM Developer</title>
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,viewport-fit=cover">
-
-  <!-- Inline critical JS -->
   <script>document.documentElement.classList.remove('no-js');</script>
-
-  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-
-  <!-- Preload font -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=block" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
-
-  <!-- Preload assets -->
-  <link rel="preload" href="assets/css/main.min.css" as="style" fetchpriority="high">
-  <link rel="preload" href="assets/images/hero.webp" as="image" type="image/webp" fetchpriority="high">
-  <link rel="preload" href="assets/images/me/taufik-nur-rahmanda.webp"
-    imagesrcset="
-      assets/images/me/taufik-nur-rahmanda-250.webp 250w,
-      assets/images/me/taufik-nur-rahmanda-550.webp 550w,
-      assets/images/me/taufik-nur-rahmanda.webp 720w"
-    imagesizes="(max-width: 600px) 100vw, 550px"
-    as="image"
-    type="image/webp"
-    fetchpriority="high">
-
-  <!-- Site Info -->
-  <meta name="description" content="Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.">
-  <meta name="keywords" content="software engineer, web developer, mobile developer, app developer, android developer, ios developer, flutter, dart, php, html, css, codeigniter, javascript, vue, react, angular, framework, programmer, portfolio, personal website, cv, resume">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/images/me/taufik-nur-rahmanda.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="prefetch" href="https://github.com/txufiknr" as="document">
+  <link rel="prefetch" href="https://linkedin.com/in/taufik-nur-rahmanda" as="document">
+  <meta name="description" content="Senior Full-Stack Software Engineer (8+ yrs) specializing in React, Next.js, Flutter, Node.js, TypeScript, and AI/LLM. Founder of TARRA Soft.">
+  <meta name="keywords" content="taufik nur rahmanda, software engineer, full-stack, react, nextjs, flutter, typescript, ai engineer, portfolio">
   <meta name="author" content="Taufik Nur Rahmanda, S.Kom.">
-  <meta name="copyright" content="Taufik Nur Rahmanda, S.Kom.">
-
-  <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Taufik Nur Rahmanda, S.Kom. | Portfolio">
-  <meta property="og:description" content="Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.">
-  <meta property="og:url" content="https://txufiknr.github.io">
+  <meta property="og:title" content="Taufik Nur Rahmanda | Senior Full-Stack Engineer &amp; AI/LLM Developer">
+  <meta property="og:description" content="8+ years building scalable web, mobile &amp; AI systems. React, Next.js, Flutter, Node.js, TypeScript, AI/LLM.">
+  <meta property="og:url" content="https://txufiknr.github.io/index2.html">
   <meta property="og:image" content="https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp">
-  <meta property="og:image:alt" content="Portrait of Taufik Nur Rahmanda">
-  <meta property="og:image:type" content="image/webp">
-  <meta property="og:image:width" content="720">
-  <meta property="og:image:height" content="1080">
-  <meta property="og:site_name" content="Taufik Nur Rahmanda, S.Kom.">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:url" content="https://txufiknr.github.io"/>
-  <meta name="twitter:title" content="Taufik Nur Rahmanda, S.Kom. | Portfolio"/>
-  <meta name="twitter:description" content="Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more."/>
-  <meta name="twitter:image" content="https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp"/>
-  <meta name="twitter:image:alt" content="Portrait of Taufik Nur Rahmanda"/>
+  <meta property="og:image:alt" content="Taufik Nur Rahmanda">
+  <meta property="og:site_name" content="Taufik Nur Rahmanda">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@txufiknr">
   <meta name="twitter:creator" content="@txufiknr">
-  <meta name="twitter:card" content="summary">
-
-  <!-- SEO -->
+  <meta name="twitter:title" content="Taufik Nur Rahmanda | Senior Full-Stack Engineer &amp; AI/LLM Developer">
+  <meta name="twitter:description" content="8+ years building scalable web, mobile &amp; AI systems.">
+  <meta name="twitter:image" content="https://txufiknr.github.io/assets/images/me/taufik-nur-rahmanda.webp">
   <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="theme-color" content="#673AB7">
-  <meta name="color-scheme" content="dark light">
-  <meta name="format-detection" content="telephone=no">
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://txufiknr.pages.dev/#me","name":"Taufik Nur Rahmanda","alternateName":"txufiknr","honorificSuffix":"S.Kom.","description":"Taufik Nur Rahmanda is a professional software engineer specializing in mobile and web application development. He enjoys building reliable, user-friendly, multi-platform solutions that make technology more accessible and effective.","url":"https://txufiknr.pages.dev","image":"https://txufiknr.pages.dev/assets/images/me/taufik-nur-rahmanda.webp","jobTitle":"Senior Software Engineer","worksFor":{"@type":"Organization","@id":"https://nurosoft.id/#organization","name":"Nurosoft Consulting","url":"https://nurosoft.id"},"sameAs":["https://www.linkedin.com/in/taufik-nur-rahmanda/","https://github.com/txufiknr","https://x.com/txufiknr","https://play.google.com/store/apps/dev?id=7554821831783338570"],"gender":"Male","nationality":{"@type":"Country","name":"Indonesia"},"knowsLanguage":["en","id"],"knowsAbout":["Web Development","Mobile Applications","Frontend Development","Backend Development","Full-stack Development","Cross-platform Development","Flutter","React","Node.js","PHP","JavaScript"],"contactPoint":[{"@type":"ContactPoint","contactType":"Portfolio Contact","email":"flias.test@gmail.com","url":"https://wa.me/6285954479380"}],"mainEntityOfPage":{"@id":"https://txufiknr.pages.dev/#webpage"}},{"@type":"WebSite","@id":"https://txufiknr.pages.dev/#website","url":"https://txufiknr.pages.dev","name":"Taufik Nur Rahmanda | Portfolio","publisher":{"@id":"https://txufiknr.pages.dev/#me"}},{"@type":"WebPage","@id":"https://txufiknr.pages.dev/#webpage","url":"https://txufiknr.pages.dev","name":"Taufik Nur Rahmanda | Portfolio","description":"Professional software engineer, mobile & web app developer. Skilled in multi-platform app development for Android, iOS, web, and more.","about":{"@id":"https://txufiknr.pages.dev/#me"},"mainEntity":{"@id":"https://txufiknr.pages.dev/#me"},"isPartOf":{"@id":"https://txufiknr.pages.dev/#website"}}]}
-  </script>
-  
-  <!-- Mobile App -->
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="color-scheme" content="dark">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Taufik Nur Rahmanda">
-  <meta name="application-name" content="Taufik Nur Rahmanda">
-  
-  <!-- Canonical -->
-  <link rel="canonical" href="https://txufiknr.github.io">
-
-  <!-- Favicons -->
-  <link href="favicon.png" rel="icon">
-  <link href="apple-touch-icon.png" rel="apple-touch-icon">
-  
-  <!-- Google Font -->
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=block"></noscript>
-
-  <!-- Inline critical CSS -->
-  <style>
-  #hero h1 span,body,button{font-family:var(--font-family)}:root{--font-family:"Titillium Web",sans-serif;--color-background:#130d14;--color-primary:#673AB7;--color-primary-light:#c285ff;--color-primary-dark:#310345;--color-secondary-dark:#1c0a3c;--color-accent:rebeccapurple;--glow:rgba(244, 66, 232, 1);--padding-side:max(3rem, 13vw)}*{box-sizing:border-box}a{text-decoration:none}body,html{font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body{background:var(--color-background);color:#fff;overflow-x:hidden;margin:0;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}body,button{font-size:1rem;line-height:1.75}#hero{background-image:url(assets/images/hero.webp);background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;mask:linear-gradient(to top,rgba(0,0,0,0) 0,rgba(0,0,0,1) 30%,rgba(0,0,0,1) 100%);z-index:2;padding:5rem var(--padding-side);min-height:100vh;margin-bottom:-4rem}#hero::before{content:'';position:absolute;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,.9)}#hero .container{position:relative;display:flex;flex-direction:column;align-items:flex-start}#hero .socials a:last-child{display:none}#hero>img:first-child{position:absolute;right:0;top:0;height:100vh;opacity:.5;mask:linear-gradient(to right,transparent,rgba(0,0,0,.2) 30%,rgba(0,0,0,.5) 60%,#000)}#hero h1{font-size:3rem;line-height:1.1;margin:0;animation:4s infinite glow-text}#hero h1 span{font-display:block;display:inline-block;opacity:0}#hero h1 span:first-child{color:var(--color-primary-light);font-size:125%}#hero p{margin:2rem 0}#hero p.typewrite{margin-bottom:0;line-height:1.5;min-height:1.5em;font-weight:600;opacity:.5}#scroll-down{filter:invert();animation:4s ease-in-out infinite scroll-down;scale:3;align-self:center;opacity:.5;cursor:pointer;margin-top:2rem}@media screen and (min-width:768px){#hero h1,#hero h1::after,#hero h1::before{transition:.3s cubic-bezier(.2, 1, .2, 1)}#hero{margin-bottom:-2rem}#hero h1{font-size:3.5rem;line-height:1.15;overflow:visible!important;opacity:.85;display:inline-block;position:relative}#hero h1::after,#hero h1::before{content:"";position:absolute;bottom:-1rem;left:0;display:block;width:100%;height:1px;background:var(--color-primary-light);transform:translateX(-105%)}#hero h1 span:first-child{display:block;font-size:150%}}@media screen and (min-width:992px){#hero .container{margin-right:15vw}}@keyframes scroll-down{50%{transform:translateY(15px)}}@keyframes glow-text{0%{text-shadow:0 0 0 var(--glow)}50%{text-shadow:0 0 20px var(--glow)}}
-  </style>
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/main.min.css">
-
-  <!-- Defer non-critical CSS -->
-  <link rel="preload" href="assets/css/defer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/css/defer.min.css"></noscript>
+  <meta name="apple-mobile-web-app-title" content="Taufik R">
+  <link rel="canonical" href="https://txufiknr.github.io/index2.html">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","name":"Taufik Nur Rahmanda","alternateName":"txufiknr","jobTitle":"Senior Software Engineer &amp; AI Engineer","url":"https://txufiknr.github.io/index2.html","sameAs":["https://linkedin.com/in/taufik-nur-rahmanda","https://github.com/txufiknr","https://x.com/txufiknr"]}]</script>
+  <link rel="stylesheet" href="assets/css/index2.min.css">
+  <link rel="preload" href="assets/css/index2-defer.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/index2-defer.min.css"></noscript>
 </head>
-
-<body data-page="home" data-href="./">
-  <div id="scroll-watcher"></div>
-  <div id="scroll-to-top" role="button" aria-label="Scroll to top"><img alt="Scroll to top" src="assets/images/me/taufik-nur-rahmanda-64.webp"></div>
-
-  <a class="skip-link" href="#content">Skip to content</a>
-
-  <header id="hero">
-    <img alt="Taufik Nur Rahmanda" src="assets/images/me/taufik-nur-rahmanda.webp"
-      srcset="assets/images/me/taufik-nur-rahmanda-250.webp 250w, assets/images/me/taufik-nur-rahmanda-550.webp 550w, assets/images/me/taufik-nur-rahmanda.webp 720w"
-      sizes="(max-width: 600px) 100vw, 550px"
-      fetchpriority="high" decoding="async" loading="eager">
-
-    <div id="particles-js"></div>
-
-    <div class="container">
-      <h1>
-        <span style="animation-delay: .2s;">Taufik</span>
-        <span style="animation-delay: .4s;">Nur</span>
-        <span style="animation-delay: .6s;">Rahmanda,</span>
-        <span style="animation-delay: .8s;">S.Kom.</span>
-      </h1>
-      <p class="typewrite" data-period="4000" data-type='["I`ve created high quality web & apps projects", "CEO & Founder of TARRA Co", "I always keep up with the latest technology!"]'>
-        <span class="wrap">I`ve created high quality web & apps projects</span>
-      </p>
-      <p>Software Engineer with 8+ years of experience. Building scalable, high-performance applications across Android, iOS, and web platforms.<span class="d-tablet-inline"> Proficient in modern technologies including Flutter (Dart), TypeScript, JavaScript, Node.js, React, Next.js, Vue, Angular. Passionate about building efficient systems and leveraging AI technologies.</span></p>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" aria-label="Follow Taufik on LinkedIn">
-          <img loading="lazy" alt="Follow on LinkedIn" src="assets/icons/linkedin.svg" fetchpriority="high">
+<body>
+<div id="scroll-watcher"></div>
+<a class="skip-link" href="#portfolio">Skip to content</a>
+<div class="main-wrapper" id="mainWrapper">
+<!-- Nav -->
+<nav id="navbar" role="navigation" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">txufik<span>nr</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<!-- Hero -->
+<header id="hero">
+  <div class="hero-grid">
+    <div class="hero-content" data-anim>
+      <div class="hero-badge">Open for work &amp; collaborations</div>
+      <h1 class="hero-name">Hi, I'm <span class="highlight">Taufik Nur Rahmanda</span></h1>
+      <p class="hero-title"><span>Senior Full-Stack Engineer</span> &amp; AI/LLM Developer<br>8+ years building high-performance web, mobile &amp; AI systems</p>
+      <div class="hero-actions">
+        <a href="#portfolio" class="btn btn-primary portfolio-btn">
+          <span class="btn-text">View Portfolio</span>
+          <span class="btn-marquee" aria-hidden="true">
+            <span class="btn-marquee-inner">
+            <img src="assets/images/portfolio/logo/twistloom.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/manufax.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/muslimdigest.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/quran.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/qibla.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/flits.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/twistloom.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/manufax.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/muslimdigest.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/quran.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/qibla.png" alt="" width="40" height="40" loading="lazy">
+            <img src="assets/images/portfolio/logo/flits.png" alt="" width="40" height="40" loading="lazy">
+            </span>
+          </span>
         </a>
-        <a href="https://www.instagram.com/txufiknr" target="_blank" aria-label="Follow Taufik on Instagram">
-          <img loading="lazy" alt="Follow on Instagram" src="assets/icons/instagram.svg" fetchpriority="high">
-        </a>
-        <a href="https://x.com/txufiknr" target="_blank" aria-label="Follow Taufik on X">
-          <img loading="lazy" alt="Follow on X" src="assets/icons/twitter-x.svg" fetchpriority="high">
-        </a>
-        <a href="https://github.com/txufiknr" target="_blank" aria-label="Follow Taufik on GitHub">
-          <img loading="lazy" alt="Follow on Github" src="assets/icons/github.svg" fetchpriority="high">
-        </a>
-        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank" aria-label="Visit Taufik's Google Play Store">
-          <img loading="lazy" alt="Google Play Store" src="assets/icons/google-play.svg" fetchpriority="high">
-        </a>
+        <a href="#testimonials" class="btn btn-outline about-btn">About Me</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/txufiknr" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a href="https://linkedin.com/in/taufik-nur-rahmanda" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://x.com/txufiknr" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank" rel="noopener" aria-label="Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg></a>
+        <a href="https://stackoverflow.com/users/5060513/taufik-nur-rahmanda" target="_blank" rel="noopener" aria-label="Stack Overflow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.24 19.399v-4.804h1.6V21H4.381v-6.405h1.598v4.804H17.24zM7.582 17.8h8.055v-1.604H7.582V17.8zm.402-3.674l7.892 1.644.328-1.588-7.892-1.644-.328 1.588zm1.02-3.828l7.308 3.303.656-1.48-7.308-3.303-.656 1.48zm2.052-3.635l6.19 4.948.984-1.256-6.19-4.948-.984 1.256zM15.36 2.48L14.032 3.78l4.82 5.726 1.328-1.3-4.82-5.726zM7.524 16.203v1.6h8.055v-1.6H7.524z"/></svg></a>
       </div>
     </div>
-    <img alt="Scroll down" src="assets/icons/chevron-compact-down.svg" id="scroll-down">
-  </header>
+    <div class="hero-visual" data-anim="scale">
+      <div class="profile-wrapper">
+        <div class="profile-glow"></div>
+        <img src="assets/images/me/taufik-nur-rahmanda.webp" alt="Taufik Nur Rahmanda" width="340" height="453" loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true"><div class="mouse"></div><span>Scroll</span></div>
+</header>
+<!-- Tech Stack -->
+<section id="tech-stack" aria-label="Technologies I use">
+  <p class="tech-label">Technologies &amp; tools I work with</p>
+  <div class="tech-marquee">
+    <div class="tech-track">
+      <img src="assets/icons/vendors/react-svgrepo-com.svg" alt="React" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/nextjs-icon-svgrepo-com.svg" alt="Next.js" width="40" height="40" loading="lazy" style="filter:invert(.6)">
+      <img src="assets/icons/vendors/vue-svgrepo-com.svg" alt="Vue" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/angular-icon-svgrepo-com.svg" alt="Angular" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/flutter-svgrepo-com.svg" alt="Flutter" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/dart-svgrepo-com.svg" alt="Dart" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/typescript-icon-svgrepo-com.svg" alt="TypeScript" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/nodejs-icon-svgrepo-com.svg" alt="Node.js" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/kotlin-svgrepo-com.svg" alt="Kotlin" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/php-alt-svgrepo-com.svg" alt="PHP" width="40" height="40" loading="lazy" style="filter:invert()">
+      <img src="assets/icons/vendors/python-svgrepo-com.svg" alt="Python" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/firebase-svgrepo-com.svg" alt="Firebase" width="40" height="40" loading="lazy" style="filter:grayscale(1)brightness(1)">
+      <img src="assets/icons/vendors/mysql-svgrepo-com.svg" alt="MySQL" width="40" height="40" loading="lazy" style="filter:grayscale(1)brightness(3)">
+      <img src="assets/icons/vendors/git-svgrepo-com.svg" alt="Git" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/css-3-official-svgrepo-com.svg" alt="CSS3" width="40" height="40" loading="lazy" style="filter:grayscale(1)brightness(2)">
+      <img src="assets/icons/vendors/bootstrap-svgrepo-com.svg" alt="Bootstrap" width="40" height="40" loading="lazy" style="filter:grayscale(1)brightness(1.5)">
+      <!-- duplicate for seamless loop -->
+      <img src="assets/icons/vendors/react-svgrepo-com.svg" alt="React" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/nextjs-icon-svgrepo-com.svg" alt="Next.js" width="40" height="40" loading="lazy" style="filter:invert(.6)">
+      <img src="assets/icons/vendors/vue-svgrepo-com.svg" alt="Vue" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/angular-icon-svgrepo-com.svg" alt="Angular" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/flutter-svgrepo-com.svg" alt="Flutter" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/dart-svgrepo-com.svg" alt="Dart" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/typescript-icon-svgrepo-com.svg" alt="TypeScript" width="40" height="40" loading="lazy">
+      <img src="assets/icons/vendors/nodejs-icon-svgrepo-com.svg" alt="Node.js" width="40" height="40" loading="lazy">
+    </div>
+  </div>
+</section>
+<!-- Stats -->
+<section id="stats" aria-label="My statistics" data-stagger>
+  <div class="stat-item" data-counter="50">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <p class="stat-label">Projects Completed</p>
+  </div>
+  <div class="stat-item" data-counter="15">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <p class="stat-label">Programming Languages</p>
+  </div>
+  <div class="stat-item" data-counter="8">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v6"/><path d="M8 21h8"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <p class="stat-label">Years Experience</p>
+  </div>
+  <div class="stat-item" data-counter="9">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <p class="stat-label">AI/LLM Providers</p>
+  </div>
+</section>
+<!-- Portfolio -->
+<section id="portfolio" class="section" aria-label="Portfolio projects">
+  <div class="container">
+    <h2 class="section-title">Featured Work</h2>
+    <p class="section-subtitle">Projects I've designed, built, and shipped across web, mobile &amp; AI</p>
+    <div class="portfolio-filter" role="tablist" aria-label="Filter projects">
+      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-btn" data-filter="web" role="tab">Web</button>
+      <button class="filter-btn" data-filter="mobile" role="tab">Mobile</button>
+      <button class="filter-btn" data-filter="ai" role="tab">AI / LLM</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid" data-stagger>
+      <!-- Twistloom -->
+      <article class="project-card" data-category="ai web">
+        <img class="card-img" src="assets/images/portfolio/twistloom.jpg" alt="Twistloom" loading="lazy" width="400" height="225">
+        <div class="card-body" style="padding-top:2rem">
+          <div class="card-tags"><span class="card-tag">Next.js 16</span><span class="card-tag">AI/LLM</span><span class="card-tag">PostgreSQL</span></div>
+          <h3 class="card-title">Twistloom</h3>
+          <p class="card-desc">AI-powered psychological horror interactive fiction platform. Multi-LLM waterfall with 9 providers, narrative momentum engine, and adaptive health systems.</p>
+          <div class="card-links"><a href="https://twistloom-web.vercel.app" target="_blank" rel="noopener">Live Demo &rarr;</a></div>
+        </div>
+      </article>
+      <!-- Manufax -->
+      <article class="project-card" data-category="web ai">
+        <!-- <img class="card-img" src="assets/images/portfolio/manufax.jpg" alt="Manufax" loading="lazy" width="400" height="225"> -->
+        <div class="card-body">
+          <div class="card-tags"><span class="card-tag">AI/LLM</span><span class="card-tag">React</span><span class="card-tag">Node.js</span></div>
+          <h3 class="card-title">Manufax</h3>
+          <p class="card-desc">AI-Powered Manufacturing Platform integrating advanced LLM capabilities to automate complex operational workflows and increase production reporting efficiency.</p>
+          <div class="card-links"><a href="https://manufax.nurosoft.id/" target="_blank" rel="noopener">Live Demo &rarr;</a></div>
+        </div>
+      </article>
+      <!-- Muslim Digest -->
+      <article class="project-card" data-category="mobile ai">
+        <!-- <img class="card-img" src="assets/images/portfolio/muslimdigest.webp" alt="Muslim Digest" loading="lazy" width="400" height="225"> -->
+        <div class="card-body">
+          <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">AI/LLM</span><span class="card-tag">RAG</span></div>
+          <h3 class="card-title">Muslim Digest</h3>
+          <p class="card-desc">Cross-platform mobile app with RAG-based content summarization using pgvector embeddings. Aggregates Muslim news into a single accessible platform.</p>
+          <div class="card-links"><a href="https://play.google.com/store/apps/details?id=com.tarra.muslimdigest" target="_blank" rel="noopener">Play Store &rarr;</a></div>
+        </div>
+      </article>
+      <!-- Quran Recite -->
+      <article class="project-card" data-category="mobile">
+        <img class="card-img" src="assets/images/portfolio/quran.webp" alt="Quran Recite" loading="lazy" width="400" height="225">
+        <div class="card-body">
+          <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">Mobile</span></div>
+          <h3 class="card-title">Quran Recite</h3>
+          <p class="card-desc">All-in-one Holy Quran app with translations, transliterations, and audio recitations across Android and iOS.</p>
+          <div class="card-links"><a href="https://play.google.com/store/apps/details?id=com.tarra.alquran" target="_blank" rel="noopener">Play Store &rarr;</a></div>
+        </div>
+      </article>
+      <!-- Qibla Locator -->
+      <article class="project-card" data-category="mobile">
+        <img class="card-img" src="assets/images/portfolio/qibla.webp" alt="Qibla Locator" loading="lazy" width="400" height="225">
+        <div class="card-body">
+          <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">Mobile</span></div>
+          <h3 class="card-title">Qibla Locator</h3>
+          <p class="card-desc">Accurate Qibla direction finder for Muslims worldwide using GPS and compass sensors.</p>
+          <div class="card-links"><a href="https://play.google.com/store/apps/details?id=com.tarra.qibla" target="_blank" rel="noopener">Play Store &rarr;</a></div>
+        </div>
+      </article>
+      <!-- Flits.id -->
+      <article class="project-card" data-category="web mobile">
+        <div class="card-body">
+          <div class="card-tags"><span class="card-tag">Next.js</span><span class="card-tag">Flutter</span></div>
+          <h3 class="card-title">Flits.id</h3>
+          <p class="card-desc">Modern fleet management software and ERP system. One platform for sales, tracking, invoicing, and accounting.</p>
+          <div class="card-links"><a href="https://play.google.com/store/apps/details?id=com.nurosoft.lorrydrivertest" target="_blank" rel="noopener">Play Store &rarr;</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- Skills -->
+<section id="skills" class="section" aria-label="Tech Stack">
+  <div class="container">
+    <h2 class="section-title">Tech Stack</h2>
+    <p class="section-subtitle">Core competencies across the full development stack</p>
+    <div class="skills-grid">
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>
+        <h3 class="cat-title">Frontend</h3>
+        <p class="cat-sub">Web &amp; UI engineering</p>
+        <ul class="cat-list">
+          <li>React</li><li>Next.js</li><li>Vue</li><li>Angular</li><li>TypeScript</li><li>Tailwind CSS</li><li>Vite</li><li>HTML/CSS</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        <h3 class="cat-title">Backend</h3>
+        <p class="cat-sub">Server &amp; API architecture</p>
+        <ul class="cat-list">
+          <li>Node.js</li><li>Express.js</li><li>PHP 8</li><li>MERN Stack</li><li>PostgreSQL</li><li>MySQL</li><li>Redis</li><li>Drizzle</li><li>Neon</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <h3 class="cat-title">Mobile</h3>
+        <p class="cat-sub">Cross-platform &amp; native apps</p>
+        <ul class="cat-list">
+          <li>Flutter</li><li>Dart</li><li>Kotlin</li><li>Jetpack Compose</li><li>Java</li><li>Android Studio</li><li>Xcode</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>
+        <h3 class="cat-title">AI / LLM</h3>
+        <p class="cat-sub">Intelligent systems &amp; integration</p>
+        <ul class="cat-list">
+          <li>Gemini</li><li>Mistral</li><li>Groq</li><li>Cohere</li><li>Cerebras</li><li>NVIDIA NIM</li><li>OpenRouter</li><li>Cloudflare Workers AI</li><li>RAG</li><li>pgvector</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <h3 class="cat-title">Cloud &amp; Architecture</h3>
+        <p class="cat-sub">Infrastructure, deployment &amp; scaling</p>
+        <ul class="cat-list">
+          <li>Vercel</li><li>Cloudflare</li><li>Firebase</li><li>Google Cloud</li><li>Serverless</li><li>Microservices</li><li>CI/CD</li><li>System Design</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h3 class="cat-title">DevOps &amp; Tools</h3>
+        <p class="cat-sub">Version control, automation &amp; monitoring</p>
+        <ul class="cat-list">
+          <li>Git</li><li>GitHub Actions</li><li>Docker</li><li>pnpm</li><li>npm</li><li>Webpack</li><li>Vite</li><li>SEO</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Testimonials -->
+<section id="testimonials" aria-label="Testimonials">
+  <h2 class="section-title">What People Say</h2>
+  <p class="section-subtitle">Kind words from colleagues and collaborators</p>
+  <div class="testimonial-track">
+    <blockquote class="testimonial-card" data-anim="timeline">
+      <q>Taufik is highly skilled in Front End development and Flutter, is always open to learn, is detail oriented, and collabs well with his team member. It's great to have him on the team!</q>
+      <div class="attribution">
+        <img src="assets/images/testimony/kern.jfif" alt="Kern Nuroho" loading="lazy" width="40" height="40">
+        <div><div class="name">Kern Nuroho</div><div class="role">CTO / Co-Founder, Nurosoft Consulting</div></div>
+        <a href="https://www.linkedin.com/in/knuroho/" target="_blank" rel="noopener" class="attribution-linkedin" aria-label="Kern's LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+    </blockquote>
+    <blockquote class="testimonial-card" data-anim="timeline">
+      <q>Working alongside Mas Taufik at Nurosoft was a genuine pleasure. He consistently demonstrated a proactive approach to problem-solving, especially in technical SEO and web performance.</q>
+      <div class="attribution">
+        <img src="assets/images/testimony/khabib.jfif" alt="Mukhammad Nur Khabibulloh" loading="lazy" width="40" height="40">
+        <div><div class="name">Mukhammad Nur Khabibulloh</div><div class="role">Design &amp; Digital Marketing</div></div>
+        <a href="https://www.linkedin.com/in/mukhammadnurkhabibulloh/" target="_blank" rel="noopener" class="attribution-linkedin" aria-label="Khabib's LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+    </blockquote>
+    <blockquote class="testimonial-card" data-anim="timeline">
+      <q>I worked with Taufik at Nurosoft since 2022. He consistently delivered outstanding performance in R&D, Flutter app development, and website development. A fast learner with innovative solutions.</q>
+      <div class="attribution">
+        <img src="assets/images/testimony/bima.jfif" alt="Muhammad Bima Nur Syabani" loading="lazy" width="40" height="40">
+        <div><div class="name">Muhammad Bima Nur Syabani</div><div class="role">Sr. HRGA, Nurosoft Consulting</div></div>
+        <a href="https://www.linkedin.com/in/muhammad-bima-nur-sya-bani-5818701ba/" target="_blank" rel="noopener" class="attribution-linkedin" aria-label="Bima's LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+    </blockquote>
+  </div>
+</section>
+<!-- CTA -->
+<section id="cta" class="contact-section" aria-label="Call to action">
+  <h2>Let's Build Something Great</h2>
+  <p>Open for collaboration, freelance projects, and full-time opportunities.</p>
+  <div class="cta-actions">
+    <a href="https://linkedin.com/in/taufik-nur-rahmanda" target="_blank" rel="noopener" class="btn btn-primary cta-linkedin">
+      <span class="cta-btn-text">Connect on LinkedIn</span>
+      <svg class="cta-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="https://github.com/txufiknr" target="_blank" rel="noopener" class="btn btn-outline cta-github">
+      <span class="cta-btn-text">View GitHub</span>
+      <svg class="cta-btn-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+  </div>
+</section>
+</div><!-- /main-wrapper -->
+<!-- Footer -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">txufik<span>nr</span></a>
+      <p>Senior Full-Stack Engineer &amp; AI/LLM Developer. 8+ years building high-performance web, mobile, and intelligent systems.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:taufik.nur.rahmanda93@gmail.com">Email Me</a></li>
+        <li><a href="https://linkedin.com/in/taufik-nur-rahmanda" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/txufiknr" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Taufik Nur Rahmanda, S.Kom. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="https://github.com/txufiknr" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      <a href="https://linkedin.com/in/taufik-nur-rahmanda" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://x.com/txufiknr" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    </div>
+  </div>
+</footer>
+<!-- Deferred JS -->
+<script defer>
+// Main application logic
+(function() {
+  "use strict";
+  // Counter animation — finds all [data-counter] and animates them
+  function animateCounters(container) {
+    container = container || document;
+    var els = container.hasAttribute("data-counter") ? [container] : [];
+    container.querySelectorAll("[data-counter]").forEach(function(e) { els.push(e); });
+    els.forEach(function(el) {
+      var target = parseInt(el.getAttribute("data-counter"), 10);
+      if (!target || el.dataset.counted) return;
+      el.dataset.counted = "true";
+      var current = 0;
+      var step = Math.max(1, Math.floor(target / 30));
+      var valSpan = el.querySelector(".stat-value");
+      var interval = setInterval(function() {
+        current += step;
+        if (current >= target) { current = target; clearInterval(interval); }
+        if (valSpan) valSpan.textContent = current;
+      }, 30);
+    });
+  }
+  // Scroll entrance animations using IntersectionObserver
+  function setupScrollAnim() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        // If the entry itself or any descendant has data-counter, fire counter
+        if (entry.target.hasAttribute("data-counter") || entry.target.querySelector("[data-counter]")) {
+          animateCounters(entry.target);
+        }
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll("[data-anim]").forEach(function(el) { observer.observe(el); });
+    // Also directly observe staggered children
+    document.querySelectorAll("[data-stagger] > *").forEach(function(el, i) {
+      el.style.setProperty("--i", i);
+      observer.observe(el);
+    });
+  }
+  // Nav mobile toggle
+  function setupNav() {
+    var toggle = document.getElementById("navToggle");
+    var links = document.getElementById("navLinks");
+    if (toggle) {
+      toggle.addEventListener("click", function() {
+        links.classList.toggle("open");
+        toggle.classList.toggle("active");
+        toggle.setAttribute("aria-expanded", links.classList.contains("open"));
+      });
+      links.querySelectorAll("a").forEach(function(a) {
+        a.addEventListener("click", function() { links.classList.remove("open"); toggle.classList.remove("active"); toggle.setAttribute("aria-expanded","false"); });
+      });
+    }
+    // Active link on scroll
+    var sections = document.querySelectorAll("section[id], header[id]");
+    window.addEventListener("scroll", function() {
+      var scrollY = window.scrollY + 120;
+      var activeId = "";
+      sections.forEach(function(s) {
+        if (s.offsetTop <= scrollY && s.offsetTop + s.offsetHeight > scrollY) activeId = s.id;
+      });
+      links.querySelectorAll("a").forEach(function(a) {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + activeId);
+      });
+    }, { passive: true });
+  }
+  // Portfolio filter
+  function setupFilter() {
+    var buttons = document.querySelectorAll(".filter-btn");
+    var items = document.querySelectorAll(".project-card");
+    buttons.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        buttons.forEach(function(b) { b.classList.remove("active"); b.setAttribute("aria-selected","false"); });
+        btn.classList.add("active"); btn.setAttribute("aria-selected","true");
+        var filter = btn.getAttribute("data-filter");
+        items.forEach(function(item) {
+          var cats = item.getAttribute("data-category");
+          item.style.display = (filter === "all" || cats.indexOf(filter) !== -1) ? "flex" : "none";
+        });
+      });
+    });
+  }
+  // Parallax helper: subtle mouse-follow on hero
+  function setupParallax() {
+    var hero = document.getElementById("hero");
+    if (!hero) return;
+    hero.addEventListener("mousemove", function(e) {
+      var x = (e.clientX / window.innerWidth - 0.5) * 6;
+      var y = (e.clientY / window.innerHeight - 0.5) * 6;
+      hero.style.setProperty("--parallax-x", x + "px");
+      hero.style.setProperty("--parallax-y", y + "px");
+    });
+  }
+  // Service worker
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw2.js").then(function() {}).catch(function() {});
+  }
+  // Sticky footer: set --footer-h dynamically (skip on mobile)
+  function setFooterHeight() {
+    var wrapper = document.getElementById("mainWrapper");
+    if (window.innerWidth < 769) {
+      if (wrapper) wrapper.style.marginBottom = "";
+      return;
+    }
+    var footer = document.getElementById("footer");
+    var wrapper = document.getElementById("mainWrapper");
+    if (footer && wrapper) {
+      var h = footer.offsetHeight;
+      document.documentElement.style.setProperty("--footer-h", h + "px");
+      wrapper.style.marginBottom = h + "px";
+    }
+  }
+  window.addEventListener("resize", setFooterHeight);
+  setFooterHeight();
+  setupScrollAnim(); setupNav(); setupFilter(); setupParallax();
+  // Immediate counter if stats already in view on load
+  var statsSec = document.getElementById("stats");
+  if (statsSec && statsSec.getBoundingClientRect().top < window.innerHeight) {
+    animateCounters(statsSec);
+  }
+})();
+</script></body></html>
 
-  <main id="content">
-    <section id="skills">
-      <div class="container">
-        <div class="vendors">
-          <div>
-            <img width="64" height="64" loading="lazy" alt="react" src="assets/icons/vendors/react-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="vue" src="assets/icons/vendors/vue-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="angular" src="assets/icons/vendors/angular-icon-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="nextjs" src="assets/icons/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);">
-            <img width="64" height="64" loading="lazy" alt="android" src="assets/icons/vendors/android-icon-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);">
-            <img width="64" height="64" loading="lazy" alt="apple" src="assets/icons/vendors/apple-svgrepo-com.svg" style="filter: invert(.8);">
-            <img width="64" height="64" loading="lazy" alt="firebase" src="assets/icons/vendors/firebase-svgrepo-com.svg" style="filter: grayscale(1) brightness(1);">
-            <img width="64" height="64" loading="lazy" alt="kotlin" src="assets/icons/vendors/kotlin-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="flutter" src="assets/icons/vendors/flutter-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="dart" src="assets/icons/vendors/dart-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="php" src="assets/icons/vendors/php-alt-svgrepo-com.svg" style="filter: invert();">
-            <img width="64" height="64" loading="lazy" alt="codeigniter" src="assets/icons/vendors/codeigniter-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);">
-            <img width="64" height="64" loading="lazy" alt="mysql" src="assets/icons/vendors/mysql-svgrepo-com.svg" style="filter: grayscale(1) brightness(3);">
-            <img width="64" height="64" loading="lazy" alt="bootstrap" src="assets/icons/vendors/bootstrap-svgrepo-com.svg" style="filter: grayscale(1) brightness(1.5);">
-            <img width="64" height="64" loading="lazy" alt="css" src="assets/icons/vendors/css-3-official-svgrepo-com.svg" style="filter: grayscale(1) brightness(2);">
-            <img width="64" height="64" loading="lazy" alt="es6" src="assets/icons/vendors/es6-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="typescript" src="assets/icons/vendors/typescript-icon-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="nodejs" src="assets/icons/vendors/nodejs-icon-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="python" src="assets/icons/vendors/python-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="unity" src="assets/icons/vendors/unity-svgrepo-com.svg" style="filter: invert(.7);">
-  
-            <img width="64" height="64" loading="lazy" alt="react" src="assets/icons/vendors/react-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="vue" src="assets/icons/vendors/vue-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="angular" src="assets/icons/vendors/angular-icon-svgrepo-com.svg">
-            <img width="64" height="64" loading="lazy" alt="nextjs" src="assets/icons/vendors/nextjs-icon-svgrepo-com.svg" style="filter: invert(.6);">
-          </div>
-        </div>
-  
-        <div class="testimonies d-desktop">
-          <div class="testimony"><q>Taufik is highly skilled in Front End development and Flutter, is always open to learn, is detail oriented, and collabs well with his team member. It's great to have him on the team!</q><p>&mdash; Kern Nuroho, CTO / Co-Founder of Nurosoft Consulting</p><img loading="lazy" alt="Kern Nuroho" src="assets/images/testimony/kern.jfif"></div>
-          <div class="testimony"><q>Working alongside Mas Taufik at Nurosoft was a genuine pleasure. He consistently demonstrated a proactive approach to problem-solving, especially in technical SEO and web performance.</q><p>&mdash; Mukhammad Nur Khabibulloh, 5+ Years in Design & Digital Marketing</p><img loading="lazy" alt="Mukhammad Nur Khabibulloh" src="assets/images/testimony/khabib.jfif"></div>
-          <div class="testimony"><q>I worked with Taufik at Nurosoft since 2022. He consistently delivered outstanding performance in R&D, Flutter app development, and website development. He's a fast learner, detail-oriented, and brings innovative solutions.</q><p>&mdash; Muhammad Bima Nur Sya'bani, Sr. HRGA at Nurosoft Consulting</p><img loading="lazy" alt="Muhammad Bima Nur Sya'bani" src="assets/images/testimony/bima.jfif"></div>
-          <div class="testimony"><q>Mas Taufik is one of the best developers I've collaborated with. His programming knowledge is solid in web development and application development. He communicates well and excels in collaboration.</q><p>&mdash; Mohammad Alfi Rizzi, Software Quality Assurance</p><img loading="lazy" alt="Mohammad Alfi Rizzi" src="assets/images/testimony/rizzi.jfif"></div>
-          <div class="testimony"><q>I have worked with him on a few projects, and the collaboration has always been smooth and enjoyable. He is easy to communicate with and makes teamwork feel simple. He is also reliable and consistent in delivering good results.</q><p>&mdash; Tahta Failah Mubarak, Never tired of learning new things</p><img loading="lazy" alt="Tahta Failah Mubarak" src="assets/images/testimony/tahta.jfif"></div>
-        </div>
-  
-        <div class="title-container">
-          <div class="title">
-            <h1>My Skills</h1>
-            <pre>&gt;<span class="blink">_</span></pre>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <p class="counter">50+</p>
-              <p>Projects</p>
-            </div>
-            <div class="stat d-desktop">
-              <p class="counter">10+</p>
-              <p>Languages</p>
-            </div>
-            <div class="stat">
-              <p class="counter">8+</p>
-              <p>Years</p>
-            </div>
-          </div>
-        </div>
-  
-        <p class="texts">
-          Flutter (Dart)<br>
-          AI/LLM<br>
-          React.js<br>
-          Next.js<br>
-          Vue<br>
-          Angular<br>
-          Node.js<br>
-          JavaScript<br>
-          TypeScript<br>
-          Neon/Drizzle<br>
-          MySQL/MariaDB<br>
-          PostgreSQL<br>
-          Git<br>
-          Kotlin<br>
-          Java<br>
-          XCode<br>
-          Android Studio<br>
-          <!-- Firebase<br> -->
-          <!-- Cocos Creator<br> -->
-          <!-- Unity<br> -->
-          Express.js<br>
-          Sequelize<br>
-          Redis<br>
-          Vercel<br>
-          PHP 8<br>
-          HTML/CSS<br>
-          WordPress<br>
-          SEO<br>
-          Tailwind CSS<br>
-          UI/UX<br>
-          <!-- CodeIgniter<br> -->
-          <!-- Bootstrap<br> -->
-          <!-- jQuery<br> -->
-        </p>
-      </div>
-    </section>
-  
-    <section id="portfolio">
-      <h1 class="portfolio-title">Portfolio</h1>
-      <div id="particles-js2"></div>
-      <div id="singularity">
-        <div id="blackhole"></div>
-        <div id="radiation"><i></i><i></i><i></i><i></i></div>
-      </div>
-      <div class="title">
-        <h1>What I have<br><span class="typewrite" data-period="4000" data-type='["created", "built", "published"]'><span class="wrap"></span></span></h1>
-        <h2>Follow me</h2>
-      </div>
-      <div class="item" id="portfolio-1">
-        <img
-          loading="lazy"
-          alt="Qibla Locator app screenshot"
-          src="assets/images/portfolio/qibla.webp"
-          srcset="
-            assets/images/portfolio/thumbs/qibla-150.webp 150w,
-            assets/images/portfolio/thumbs/qibla-400.webp 400w,
-            assets/images/portfolio/qibla.webp 600w"
-          sizes="(min-width: 768px) 23vw, 34.5vw">
-        <h2>Qibla Locator</h2>
-        <div>
-          <p>Perfect tool for Muslims around the world to easily and accurately determine the direction of the Qibla, the sacred direction towards the Kaaba in Mecca, for daily prayers (Salah). Whether you’re at home, traveling, or in a new location, this app ensures you can always align yourself with the correct direction for prayer.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.tarra.qibla" target="_blank" title="Download on Play Store">
-            <img loading="lazy" alt="android" src="assets/icons/vendors/android-icon-svgrepo-com.svg">
-          </a>
-        </div>
-      </div>
-      <div class="item text-right" id="portfolio-2">
-        <img
-          loading="lazy"
-          alt="Qur'an Recite app screenshot"
-          src="assets/images/portfolio/quran.webp"
-          srcset="
-            assets/images/portfolio/thumbs/quran-150.webp 150w,
-            assets/images/portfolio/thumbs/quran-400.webp 400w,
-            assets/images/portfolio/quran.webp 600w"
-          sizes="(min-width: 768px) 17vw, 25.5vw">
-        <h2>Quran Recite</h2>
-        <div>
-          <p>An all-in-one comprehensive and customizable Holy Qur'an. Whether you're looking to read, listen, or learn, Qur'an Recite is the perfect companion for your spiritual journey. Packed with powerful features, this app provides a seamless way to interact with the Qur'an on your mobile device, offering translations, transliterations, and more.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.tarra.alquran" target="_blank" title="Download on Play Store">
-            <img loading="lazy" alt="android" src="assets/icons/vendors/android-icon-svgrepo-com.svg">
-          </a>
-        </div>
-      </div>
-      <div class="item" id="portfolio-3">
-        <img
-          loading="lazy"
-          alt="Dhikr Counter app screenshot"
-          src="assets/images/portfolio/tasbih.webp"
-          srcset="
-            assets/images/portfolio/thumbs/tasbih-150.webp 150w,
-            assets/images/portfolio/thumbs/tasbih-400.webp 400w,
-            assets/images/portfolio/tasbih.webp 600w"
-          sizes="(min-width: 768px) 16.6vw, 25vw">
-        <h2>Dhikr Counter</h2>
-        <div>
-          <p>An intuitive, user-friendly mobile application designed to help you keep track of your dhikr (remembrance of Allah) digitally. Whether you are reciting prayers, invoking blessings, or seeking spiritual connection, this app is the perfect tool to assist you in counting and displaying dhikr text as you go.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.tarra.tasbih" target="_blank" title="Download on Play Store">
-            <img loading="lazy" alt="android" src="assets/icons/vendors/android-icon-svgrepo-com.svg">
-          </a>
-        </div>
-      </div>
-      <div class="item text-right" id="portfolio-4">
-        <img
-          loading="lazy"
-          alt="Zakat Calculator app screenshot"
-          src="assets/images/portfolio/zakat.webp"
-          srcset="
-            assets/images/portfolio/thumbs/zakat-150.webp 150w,
-            assets/images/portfolio/thumbs/zakat-400.webp 400w,
-            assets/images/portfolio/zakat.webp 600w"
-          sizes="(min-width: 768px) 16vw, 24vw">
-        <h2>Zakat Calculator</h2>
-        <div>
-          <p>An easy and user-friendly mobile app designed to simplify the process of calculating, tracking, and understanding Zakat obligations for every Muslim. With an intuitive interface and a range of thoughtful features, this application empowers users to calculate their Zakat, track their annual obligations, and access relevant Islamic guidance—all in one place.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.tarra.zakat" target="_blank" title="Download on Play Store">
-            <img loading="lazy" alt="android" src="assets/icons/vendors/android-icon-svgrepo-com.svg">
-          </a>
-        </div>
-      </div>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/taufik-nur-rahmanda/" target="_blank" aria-label="Follow Taufik on LinkedIn">
-          <img loading="lazy" alt="Follow on LinkedIn" src="assets/icons/linkedin.svg">
-        </a>
-        <a href="https://www.instagram.com/txufiknr" target="_blank" aria-label="Follow Taufik on Instagram">
-          <img loading="lazy" alt="Follow on Instagram" src="assets/icons/instagram.svg">
-        </a>
-        <a href="https://x.com/txufiknr" target="_blank" aria-label="Follow Taufik on X">
-          <img loading="lazy" alt="Follow on X" src="assets/icons/twitter-x.svg">
-        </a>
-        <a href="https://github.com/txufiknr" target="_blank" aria-label="Follow Taufik on Github">
-          <img loading="lazy" alt="Follow on Github" src="assets/icons/github.svg">
-        </a>
-        <a href="https://play.google.com/store/apps/dev?id=7554821831783338570" target="_blank" aria-label="Visit Taufik's Google Play Store">
-          <img loading="lazy" alt="Google Play Store" src="assets/icons/google-play.svg">
-        </a>
-      </div>
-    </section>
-  </main>
 
-  <footer>&copy;2026 Taufik Nur Rahmanda, S.Kom.</footer>
 
-  <script>
-  function initJS(e="assets/js/script.min.js"){let r=setTimeout(o,5e3),t=!1;function n(e){return new Promise((r,t)=>{let n=document.createElement("script");n.src=e,n.async=!0,n.onload=r,n.onerror=()=>t(Error("Failed to load "+e)),document.body.appendChild(n)})}async function o(){t||(t=!0,window.removeEventListener("scroll",o),window.removeEventListener("mousemove",o),window.removeEventListener("keydown",o),clearTimeout(r),await Promise.allSettled([n("assets/vendor/counterup2/counterup2.min.js"),n("assets/vendor/typewrite/typewrite.min.js")]),await n(e))}window.addEventListener("scroll",o,{once:!0,passive:!0}),window.addEventListener("mousemove",o,{once:!0}),window.addEventListener("keydown",o,{once:!0}),"requestIdleCallback"in window&&requestIdleCallback(o),"serviceWorker"in navigator&&navigator.serviceWorker.register("sw.js").then(e=>(console.log("Service worker registered:",e.scope),navigator.serviceWorker.ready)).then(e=>{navigator.serviceWorker.controller?console.log("Service worker active:",e.scope):console.warn("Service worker not controlling this page yet!")}).catch(e=>console.error("Service worker failed:",e))}
-  initJS();
-  </script>
-  </body>
-</html>
+
