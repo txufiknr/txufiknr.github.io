@@ -46,6 +46,7 @@
 <body>
 <div id="scroll-watcher"></div>
 <a class="skip-link" href="#portfolio">Skip to content</a>
+<div class="main-wrapper" id="mainWrapper">
 <!-- Nav -->
 <nav id="navbar" role="navigation" aria-label="Primary">
   <div class="nav-inner">
@@ -68,7 +69,25 @@
       <h1 class="hero-name">Hi, I'm <span class="highlight">Taufik Nur Rahmanda</span></h1>
       <p class="hero-title"><span>Senior Full-Stack Engineer</span> &amp; AI/LLM Developer<br>8+ years building high-performance web, mobile &amp; AI systems</p>
       <div class="hero-actions">
-        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+        <a href="#portfolio" class="btn btn-primary">
+          <span class="btn-text">View Portfolio</span>
+          <span class="btn-marquee" aria-hidden="true">
+            <span class="btn-marquee-inner">
+            <img src="assets/images/me/taufik-nur-rahmanda-64.webp" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/kern.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/khabib.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/bima.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/rizzi.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/tahta.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/me/taufik-nur-rahmanda-64.webp" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/kern.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/khabib.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/bima.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/rizzi.jfif" alt="" width="28" height="28" loading="lazy">
+            <img src="assets/images/testimony/tahta.jfif" alt="" width="28" height="28" loading="lazy">
+            </span>
+          </span>
+        </a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
       <div class="hero-socials">
@@ -123,25 +142,25 @@
   </div>
 </section>
 <!-- Stats -->
-<section id="stats" aria-label="My statistics">
-  <div class="stat-card" data-anim="timeline">
-    <span class="stat-icon">🚀</span>
-    <div class="stat-number" data-counter="50"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+<section id="stats" aria-label="My statistics" data-stagger>
+  <div class="stat-item" data-counter="50">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2s6 4 6 10c0 4-6 8-6 8s-6-4-6-8 6-10 6-10z"/><circle cx="12" cy="10" r="2"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
     <p class="stat-label">Projects Completed</p>
   </div>
-  <div class="stat-card" data-anim="timeline">
-    <span class="stat-icon">💻</span>
-    <div class="stat-number" data-counter="15"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+  <div class="stat-item" data-counter="15">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
     <p class="stat-label">Programming Languages</p>
   </div>
-  <div class="stat-card" data-anim="timeline">
-    <span class="stat-icon">🏆</span>
-    <div class="stat-number" data-counter="8"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+  <div class="stat-item" data-counter="8">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v6"/><path d="M8 21h8"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
     <p class="stat-label">Years Experience</p>
   </div>
-  <div class="stat-card" data-anim="timeline">
-    <span class="stat-icon">🤖</span>
-    <div class="stat-number" data-counter="9"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+  <div class="stat-item" data-counter="9">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M2 12h20"/><ellipse cx="12" cy="12" rx="4" ry="10"/></svg>
+    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
     <p class="stat-label">AI/LLM Providers</p>
   </div>
 </section>
@@ -156,9 +175,9 @@
       <button class="filter-btn" data-filter="mobile" role="tab">Mobile</button>
       <button class="filter-btn" data-filter="ai" role="tab">AI / LLM</button>
     </div>
-    <div class="portfolio-grid" id="portfolioGrid">
+    <div class="portfolio-grid" id="portfolioGrid" data-stagger>
       <!-- Twistloom -->
-      <article class="project-card" data-category="ai web" data-anim="timeline">
+      <article class="project-card" data-category="ai web">
         <div class="card-body" style="padding-top:2rem">
           <div class="card-tags"><span class="card-tag">Next.js 16</span><span class="card-tag">AI/LLM</span><span class="card-tag">PostgreSQL</span></div>
           <h3 class="card-title">Twistloom</h3>
@@ -167,7 +186,7 @@
         </div>
       </article>
       <!-- Manufax -->
-      <article class="project-card" data-category="web ai" data-anim="timeline">
+      <article class="project-card" data-category="web ai">
         <div class="card-body">
           <div class="card-tags"><span class="card-tag">AI/LLM</span><span class="card-tag">React</span><span class="card-tag">Node.js</span></div>
           <h3 class="card-title">Manufax</h3>
@@ -175,7 +194,7 @@
         </div>
       </article>
       <!-- Muslim Digest -->
-      <article class="project-card" data-category="mobile ai" data-anim="timeline">
+      <article class="project-card" data-category="mobile ai">
         <div class="card-body">
           <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">AI/LLM</span><span class="card-tag">RAG</span></div>
           <h3 class="card-title">Muslim Digest</h3>
@@ -183,7 +202,7 @@
         </div>
       </article>
       <!-- Quran Recite -->
-      <article class="project-card" data-category="mobile" data-anim="timeline">
+      <article class="project-card" data-category="mobile">
         <img class="card-img" src="assets/images/portfolio/quran.webp" alt="Quran Recite" loading="lazy" width="400" height="225">
         <div class="card-body">
           <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">Mobile</span></div>
@@ -193,7 +212,7 @@
         </div>
       </article>
       <!-- Qibla Locator -->
-      <article class="project-card" data-category="mobile" data-anim="timeline">
+      <article class="project-card" data-category="mobile">
         <img class="card-img" src="assets/images/portfolio/qibla.webp" alt="Qibla Locator" loading="lazy" width="400" height="225">
         <div class="card-body">
           <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">Mobile</span></div>
@@ -203,7 +222,7 @@
         </div>
       </article>
       <!-- Flits.id -->
-      <article class="project-card" data-category="web mobile" data-anim="timeline">
+      <article class="project-card" data-category="web mobile">
         <div class="card-body">
           <div class="card-tags"><span class="card-tag">Next.js</span><span class="card-tag">Flutter</span></div>
           <h3 class="card-title">Flits.id</h3>
@@ -215,13 +234,13 @@
   </div>
 </section>
 <!-- Skills -->
-<section id="skills" class="section" aria-label="Skills categories">
+<section id="skills" class="section" aria-label="Tech Stack">
   <div class="container">
-    <h2 class="section-title">Skill Categories</h2>
+    <h2 class="section-title">Tech Stack</h2>
     <p class="section-subtitle">Core competencies across the full development stack</p>
     <div class="skills-grid">
       <div class="skill-category" data-anim="timeline">
-        <span class="cat-icon">🌐</span>
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>
         <h3 class="cat-title">Frontend</h3>
         <p class="cat-sub">Web &amp; UI engineering</p>
         <ul class="cat-list">
@@ -229,7 +248,7 @@
         </ul>
       </div>
       <div class="skill-category" data-anim="timeline">
-        <span class="cat-icon">⚙️</span>
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <h3 class="cat-title">Backend</h3>
         <p class="cat-sub">Server &amp; API architecture</p>
         <ul class="cat-list">
@@ -237,7 +256,7 @@
         </ul>
       </div>
       <div class="skill-category" data-anim="timeline">
-        <span class="cat-icon">📱</span>
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         <h3 class="cat-title">Mobile</h3>
         <p class="cat-sub">Cross-platform &amp; native apps</p>
         <ul class="cat-list">
@@ -245,11 +264,27 @@
         </ul>
       </div>
       <div class="skill-category" data-anim="timeline">
-        <span class="cat-icon">🤖</span>
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M2 12h20"/><ellipse cx="12" cy="12" rx="4" ry="10"/></svg>
         <h3 class="cat-title">AI / LLM</h3>
         <p class="cat-sub">Intelligent systems &amp; integration</p>
         <ul class="cat-list">
           <li>Gemini</li><li>Mistral</li><li>Groq</li><li>Cohere</li><li>Cerebras</li><li>NVIDIA NIM</li><li>OpenRouter</li><li>Cloudflare Workers AI</li><li>RAG</li><li>pgvector</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <h3 class="cat-title">Cloud &amp; Architecture</h3>
+        <p class="cat-sub">Infrastructure, deployment &amp; scaling</p>
+        <ul class="cat-list">
+          <li>Vercel</li><li>Cloudflare</li><li>Firebase</li><li>Google Cloud</li><li>Serverless</li><li>Microservices</li><li>CI/CD</li><li>System Design</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-anim="timeline">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h3 class="cat-title">DevOps &amp; Tools</h3>
+        <p class="cat-sub">Version control, automation &amp; monitoring</p>
+        <ul class="cat-list">
+          <li>Git</li><li>GitHub Actions</li><li>Docker</li><li>pnpm</li><li>npm</li><li>Webpack</li><li>Vite</li><li>SEO</li>
         </ul>
       </div>
     </div>
@@ -292,6 +327,7 @@
     <a href="https://github.com/txufiknr" target="_blank" rel="noopener" class="btn btn-outline">View GitHub</a>
   </div>
 </section>
+</div><!-- /main-wrapper -->
 <!-- Footer -->
 <footer id="footer">
   <div class="footer-grid">
@@ -330,36 +366,42 @@
 // Main application logic
 (function() {
   "use strict";
-  var hasAnimated = false;
-  // Counter animation
-  function animateCounters() {
-    if (hasAnimated) return;
-    hasAnimated = true;
-    document.querySelectorAll("[data-counter]").forEach(function(el) {
+  // Counter animation — finds all [data-counter] and animates them
+  function animateCounters(container) {
+    container = container || document;
+    container.querySelectorAll("[data-counter]").forEach(function(el) {
       var target = parseInt(el.getAttribute("data-counter"), 10);
+      if (!target || el.dataset.counted) return;
+      el.dataset.counted = "true";
       var current = 0;
-      var step = Math.max(1, Math.floor(target / 40));
+      var step = Math.max(1, Math.floor(target / 30));
+      var valSpan = el.querySelector(".stat-value");
       var interval = setInterval(function() {
         current += step;
         if (current >= target) { current = target; clearInterval(interval); }
-        el.textContent = current;
-        var plus = el.querySelector(".stat-plus");
-        if (plus) { el.textContent = ""; el.appendChild(document.createTextNode(current)); el.appendChild(plus); }
-      }, 40);
+        if (valSpan) valSpan.textContent = current;
+      }, 30);
     });
   }
-  // Scroll animations
+  // Scroll entrance animations using IntersectionObserver
   function setupScrollAnim() {
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          if (entry.target.hasAttribute("data-counter")) animateCounters();
-          observer.unobserve(entry.target);
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        // If the entry itself or any descendant has data-counter, fire counter
+        if (entry.target.hasAttribute("data-counter") || entry.target.querySelector("[data-counter]")) {
+          animateCounters(entry.target);
         }
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
     document.querySelectorAll("[data-anim]").forEach(function(el) { observer.observe(el); });
+    // Also directly observe staggered children
+    document.querySelectorAll("[data-stagger] > *").forEach(function(el, i) {
+      el.style.setProperty("--i", i);
+      observer.observe(el);
+    });
   }
   // Nav mobile toggle
   function setupNav() {
@@ -404,16 +446,43 @@
       });
     });
   }
+  // Parallax helper: subtle mouse-follow on hero
+  function setupParallax() {
+    var hero = document.getElementById("hero");
+    if (!hero) return;
+    hero.addEventListener("mousemove", function(e) {
+      var x = (e.clientX / window.innerWidth - 0.5) * 6;
+      var y = (e.clientY / window.innerHeight - 0.5) * 6;
+      hero.style.setProperty("--parallax-x", x + "px");
+      hero.style.setProperty("--parallax-y", y + "px");
+    });
+  }
   // Service worker
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw2.js").then(function() {}).catch(function() {});
   }
-  setupScrollAnim(); setupNav(); setupFilter();
-  // Immediate counter if stats already visible
+  // Sticky footer: set --footer-h dynamically (skip on mobile)
+  function setFooterHeight() {
+    if (window.innerWidth < 769) return;
+    var footer = document.getElementById("footer");
+    var wrapper = document.getElementById("mainWrapper");
+    if (footer && wrapper) {
+      var h = footer.offsetHeight;
+      document.documentElement.style.setProperty("--footer-h", h + "px");
+      wrapper.style.marginBottom = h + "px";
+    }
+  }
+  window.addEventListener("resize", setFooterHeight);
+  setFooterHeight();
+  setupScrollAnim(); setupNav(); setupFilter(); setupParallax();
+  // Immediate counter if stats already in view on load
   var statsSec = document.getElementById("stats");
-  if (statsSec && statsSec.getBoundingClientRect().top < window.innerHeight) animateCounters();
+  if (statsSec && statsSec.getBoundingClientRect().top < window.innerHeight) {
+    animateCounters(statsSec);
+  }
 })();
 </script></body></html>
+
 
 
 

@@ -9,8 +9,8 @@ A modern, animated personal portfolio website replicating the structure and desi
 | Hero | Name, title, subtitle, social links |
 | Trusted by top teams | Tech stack marquee (React, Next.js, Flutter...) |
 | Ways to use Codex | Counter stats (projects, languages, years, AI providers) |
-| Get work done faster | Portfolio project cards with filtering |
-| Choose a plan | Skills categories (Frontend, Backend, Mobile, AI/LLM) |
+| Get work done faster | Portfolio project cards with filtering (staggered masonry) |
+| Choose a plan | Tech Stack (Frontend, Backend, Mobile, AI/LLM, Cloud/Architecture, DevOps/Tools) |
 | Same agent everywhere | Testimonials from colleagues |
 | Try today / Footer | CTA + contact + copyright |
 
@@ -33,8 +33,13 @@ A modern, animated personal portfolio website replicating the structure and desi
 - `prefers-reduced-motion` support
 
 ### Animations & Interactivity
-- **Counters**: Animate on scroll into viewport (IntersectionObserver)
-- **Scroll entrance**: Fade-in-up via both JS (IntersectionObserver) and native CSS view-timeline
+- **Counters**: Animate on scroll into viewport (IntersectionObserver, `data-counter` on elements)
+- **Scroll entrance**: Fade-in-up via IntersectionObserver + CSS `animation-timeline: view()`
+- **Staggered entrance**: `data-stagger` attribute cascades children with `--i` index delays
+- **Parallax**: Mouse-follow parallax on hero (JS + CSS custom properties), scroll-based parallax on sections via `animation-timeline`
+- **Blur reveal**: `data-anim="blur"` for smooth blur-to-clear entrance
+- **Zoom/rotate**: `data-anim="zoom"` for scale+rotate entrance
+- **Particle float**: CSS-only animated background particles on hero via `@keyframes`
 - **Tech marquee**: Infinite horizontal scroll, pauses on hover
 - **Nav**: Mobile hamburger toggle, active section highlighting
 - **Portfolio filter**: Tab-based filtering by category
