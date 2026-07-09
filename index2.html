@@ -382,7 +382,9 @@
   // Counter animation — finds all [data-counter] and animates them
   function animateCounters(container) {
     container = container || document;
-    container.querySelectorAll("[data-counter]").forEach(function(el) {
+    var els = container.hasAttribute("data-counter") ? [container] : [];
+    container.querySelectorAll("[data-counter]").forEach(function(e) { els.push(e); });
+    els.forEach(function(el) {
       var target = parseInt(el.getAttribute("data-counter"), 10);
       if (!target || el.dataset.counted) return;
       el.dataset.counted = "true";
@@ -476,7 +478,11 @@
   }
   // Sticky footer: set --footer-h dynamically (skip on mobile)
   function setFooterHeight() {
-    if (window.innerWidth < 769) return;
+    var wrapper = document.getElementById("mainWrapper");
+    if (window.innerWidth < 769) {
+      if (wrapper) wrapper.style.marginBottom = "";
+      return;
+    }
     var footer = document.getElementById("footer");
     var wrapper = document.getElementById("mainWrapper");
     if (footer && wrapper) {

@@ -370,7 +370,7 @@ img { max-width: 100%; height: auto; display: block }
 .cta-linkedin, .cta-github { display: inline-flex; align-items: center; gap: 0 }
 .cta-linkedin .cta-btn-icon, .cta-github .cta-btn-icon { width: 0; height: 20px; opacity: 0; transform: translateX(-8px); transition: all .35s ease; flex-shrink: 0; overflow: hidden }
 .cta-linkedin:hover .cta-btn-icon, .cta-github:hover .cta-btn-icon { width: 20px; opacity: 1; transform: translateX(0); margin-left: .5rem }
-.cta-github:hover { transform: none }
+.cta-linkedin:hover, .cta-github:hover { transform: none }
 
 /* === Sticky footer reveal === */
 .main-wrapper {
@@ -453,7 +453,7 @@ img { max-width: 100%; height: auto; display: block }
 /* === Responsive === */
 @media (max-width: 768px) {
   #hero { padding-top: calc(var(--nav-height) + 1.5rem); text-align: center }
-  .hero-grid { grid-template-columns: 1fr; gap: 2rem }
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; width: 100% }
   .hero-content { align-items: center }
   .hero-actions, .hero-socials { justify-content: center }
   .hero-actions { flex-wrap: wrap }
@@ -464,7 +464,7 @@ img { max-width: 100%; height: auto; display: block }
   .btn-primary { justify-content: center }
   .btn-primary .btn-text { padding: .6rem 0 }
   .btn-primary .btn-marquee { padding: 0 .75rem 0 .4rem }
-  .portfolio-btn { max-width: none; padding-right: 0 }
+  .portfolio-btn { padding-right: 0 }
   .btn-marquee img { width: 32px; height: 32px }
   .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center }
   .footer-brand p { margin-left: auto; margin-right: auto }
