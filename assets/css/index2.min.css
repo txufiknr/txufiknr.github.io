@@ -367,9 +367,9 @@ img { max-width: 100%; height: auto; display: block }
 #cta p { color: var(--clr-text-muted); max-width: 480px; margin: 0 auto 2rem auto; font-size: 1.05rem }
 .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap }
 /* CTA buttons: fit text, expand width on hover */
-.cta-linkedin, .cta-github { display: inline-flex; align-items: center; gap: .5rem }
-.cta-linkedin .cta-btn-icon, .cta-github .cta-btn-icon { width: 0; height: 20px; opacity: 0; transition: all .35s ease; flex-shrink: 0; overflow: hidden }
-.cta-linkedin:hover .cta-btn-icon, .cta-github:hover .cta-btn-icon { width: 20px; opacity: 1 }
+.cta-linkedin, .cta-github { display: inline-flex; align-items: center; gap: 0 }
+.cta-linkedin .cta-btn-icon, .cta-github .cta-btn-icon { width: 0; height: 20px; opacity: 0; transform: translateX(-8px); transition: all .35s ease; flex-shrink: 0; overflow: hidden }
+.cta-linkedin:hover .cta-btn-icon, .cta-github:hover .cta-btn-icon { width: 20px; opacity: 1; transform: translateX(0); margin-left: .5rem }
 .cta-github:hover { transform: none }
 
 /* === Sticky footer reveal === */
@@ -459,11 +459,13 @@ img { max-width: 100%; height: auto; display: block }
   .hero-actions { flex-wrap: wrap }
   .hero-visual { order: -1 }
   .hero-visual .profile-wrapper { width: clamp(160px, 40vw, 220px) }
+  .main-wrapper { margin-bottom: 0 }
   .scroll-indicator { display: none }
-  .btn-primary { flex-wrap: wrap; justify-content: center }
-  .btn-primary .btn-text { padding: .6rem 1rem; width: 100%; text-align: center }
-  .btn-primary .btn-marquee { padding: 0 1rem .6rem; width: 100%; justify-content: center }
-  .portfolio-btn { max-width: none; padding-right: inherit }
+  .btn-primary { justify-content: center }
+  .btn-primary .btn-text { padding: .6rem 0 }
+  .btn-primary .btn-marquee { padding: 0 .75rem 0 .4rem }
+  .portfolio-btn { max-width: none; padding-right: 0 }
+  .btn-marquee img { width: 32px; height: 32px }
   .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center }
   .footer-brand p { margin-left: auto; margin-right: auto }
   .footer-bottom { flex-direction: column }
@@ -473,7 +475,6 @@ img { max-width: 100%; height: auto; display: block }
   .project-card:nth-child(5) { grid-row: span 1 }
   .skills-grid { grid-template-columns: 1fr 1fr }
   #footer { height: auto; position: relative }
-  .main-wrapper { margin-bottom: 0 }
   #testimonials { padding: 3rem 1rem }
 }
 @media (max-width: 480px) {
