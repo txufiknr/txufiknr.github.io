@@ -183,8 +183,9 @@ img { max-width: 100%; height: auto; display: block }
   font-weight: 500; line-height: 1.5; max-width: 540px;
 }
 .hero-title span { color: var(--clr-primary-light); font-weight: 600 }
-.hero-actions { display: flex; gap: .85rem; flex-wrap: wrap; margin-top: .5rem }
-/* Button with profile image marquee */
+.hero-actions { display: flex; gap: .85rem; flex-wrap: nowrap; margin-top: .5rem }
+/* Increase button radius */
+.btn { border-radius: var(--radius-lg); }
 .btn-primary { display: inline-flex; align-items: center; gap: 0; background: var(--clr-primary); color: var(--clr-white); overflow: hidden }
 .btn-primary:hover { background: var(--clr-primary-light); box-shadow: 0 8px 32px var(--clr-glow) }
 .btn-primary .btn-text { padding: .75rem 0 .75rem 1.25rem }
@@ -346,9 +347,14 @@ img { max-width: 100%; height: auto; display: block }
 }
 .testimonial-card q { font-style: italic; color: var(--clr-text-muted); font-size: .9rem; line-height: 1.7; display: block; margin-bottom: 1.25rem }
 .testimonial-card .attribution { display: flex; align-items: center; gap: .85rem }
-.testimonial-card .attribution img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--clr-primary) }
+.testimonial-card .attribution img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--clr-primary); flex-shrink: 0 }
 .testimonial-card .attribution .name { font-size: .88rem; font-weight: 600 }
 .testimonial-card .attribution .role { font-size: .75rem; color: var(--clr-text-dim) }
+/* Expand LinkedIn icon on hover (no CLS: use transform scale, reserve space with 0->auto width trick) */
+.attribution-linkedin { margin-left: auto; flex-shrink: 0; width: 0; overflow: hidden; transition: width .35s ease, opacity .3s; opacity: 0; display: flex; align-items: center }
+.attribution-linkedin svg { width: 20px; height: 20px; fill: var(--clr-primary-light); flex-shrink: 0 }
+.testimonial-card:hover .attribution-linkedin { width: 28px; opacity: 1 }
+.testimonial-card .attribution-linkedin:hover svg { fill: var(--clr-white) }
 
 /* === CTA === */
 #cta { text-align: center; padding: 5rem max(1.5rem, 5vw); background: radial-gradient(ellipse 80% 50% at 50% 100%, var(--clr-purple-deep), transparent) }
@@ -368,8 +374,6 @@ img { max-width: 100%; height: auto; display: block }
   background: var(--clr-purple-dark);
   border-top: 1px solid rgba(124, 58, 237, .1);
   padding: 3rem max(1.5rem, 5vw) 1.5rem;
-  height: var(--footer-h, 220px);
-  overflow-y: auto;
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; max-width: var(--max-width); margin: 0 auto }
 .footer-brand p { color: var(--clr-text-muted); font-size: .85rem; max-width: 320px; margin-top: .5rem }
@@ -442,6 +446,7 @@ img { max-width: 100%; height: auto; display: block }
   .hero-grid { grid-template-columns: 1fr; gap: 2rem }
   .hero-content { align-items: center }
   .hero-actions, .hero-socials { justify-content: center }
+  .hero-actions { flex-wrap: wrap }
   .hero-visual { order: -1 }
   .hero-visual .profile-wrapper { width: clamp(160px, 40vw, 220px) }
   .scroll-indicator { display: none }
