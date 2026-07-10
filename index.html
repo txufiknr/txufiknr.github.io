@@ -474,8 +474,8 @@
     var btn = document.querySelector(".portfolio-btn");
     if (!hero || !btn) return;
     hero.addEventListener("mousemove", function(e) {
-      var x = (e.clientX / window.innerWidth - 0.5) * 10;
-      var y = (e.clientY / window.innerHeight - 0.5) * -10;
+      var x = (e.clientX / window.innerWidth - 0.5) * 20;
+      var y = (e.clientY / window.innerHeight - 0.5) * -20;
       hero.style.setProperty("--parallax-x", (e.clientX / window.innerWidth - 0.5) * 10 + "px");
       hero.style.setProperty("--parallax-y", (e.clientY / window.innerHeight - 0.5) * 10 + "px");
       btn.style.setProperty("--rotate-x", y + "deg");
