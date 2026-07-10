@@ -404,12 +404,13 @@ img { max-width: 100%; height: auto; display: block }
 .footer-col ul a { font-size: .85rem; color: var(--clr-text-muted); transition: color .3s }
 .footer-col ul a:hover { color: var(--clr-primary-light) }
 .footer-bottom {
-  text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(124, 58, 237, .08);
-  font-size: .8rem; color: var(--clr-text-dim);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  margin-top: 2rem; border-top: 1px solid rgba(124, 58, 237, .08);
+  font-size: .8rem; color: var(--clr-text-dim); text-align: left;
   max-width: var(--max-width); margin-left: auto; margin-right: auto;
+  padding: 2rem 4rem;
+  text-align: center;
 }
-.footer-socials { display: flex; gap: .6rem }
+.footer-socials { display: flex; gap: .6rem; margin: 1rem 0 }
 .footer-socials a {
   display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
   border-radius: 50%; background: rgba(124, 58, 237, .1); transition: all .3s;
@@ -510,7 +511,7 @@ img { max-width: 100%; height: auto; display: block }
   .btn-marquee img { width: 32px; height: 32px }
   .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center }
   .footer-brand p { margin-left: auto; margin-right: auto }
-  .footer-bottom { flex-direction: column }
+  .footer-brand .footer-socials { justify-content: center }
   .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: auto }
   .project-card:nth-child(1),
   .project-card:nth-child(4),
