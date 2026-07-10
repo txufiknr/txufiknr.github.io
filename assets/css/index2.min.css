@@ -277,7 +277,7 @@ img { max-width: 100%; height: auto; display: block }
 #tech-stack { padding: 3rem max(1.5rem, 5vw); border-top: 1px solid rgba(124, 58, 237, .06); border-bottom: 1px solid rgba(124, 58, 237, .06) }
 .tech-label { text-align: center; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--clr-text-dim); margin-bottom: 1.5rem; font-weight: 600 }
 .tech-marquee { overflow: clip; position: relative; mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent) }
-.tech-track { display: flex; gap: 2.5rem; width: max-content; animation: techScroll 30s linear infinite }
+.tech-track { display: flex; gap: 2.5rem; width: max-content; padding: 1rem 0; animation: techScroll 30s linear infinite }
 .tech-track:hover { animation-play-state: paused }
 .tech-track img { height: clamp(28px, 3vw, 40px); width: auto; opacity: .35; filter: grayscale(1) brightness(1.5); transition: all .4s }
 .tech-track img:hover { opacity: 1; filter: grayscale(0) brightness(1); transform: scale(1.15) }
