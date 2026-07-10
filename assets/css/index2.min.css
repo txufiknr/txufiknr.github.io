@@ -318,7 +318,7 @@ img { max-width: 100%; height: auto; display: block }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
   gap: 1.5rem;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
 }
 /* Stagger: taller cards span 2 rows, smaller ones span 1 */
 .project-card {
@@ -327,10 +327,7 @@ img { max-width: 100%; height: auto; display: block }
   overflow: hidden; transition: all .4s; display: flex; flex-direction: column;
   grid-row: span 1;
 }
-.project-card:nth-child(1),
-.project-card:nth-child(4),
-.project-card:nth-child(5) { grid-row: span 2 }
-.project-card:nth-child(5) .card-body { justify-content: center }
+.project-card.tall { grid-row: span 2 }
 .project-card:hover { transform: translateY(-8px); border-color: rgba(124, 58, 237, .25); box-shadow: 0 16px 48px rgba(124, 58, 237, .1) }
 .project-card .card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-bottom: 1px solid rgba(124, 58, 237, .08) }
 .project-card .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column }
@@ -530,9 +527,7 @@ img { max-width: 100%; height: auto; display: block }
   .footer-brand p { margin-left: auto; margin-right: auto }
   .footer-brand .footer-socials { justify-content: center }
   .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: auto }
-  .project-card:nth-child(1),
-  .project-card:nth-child(4),
-  .project-card:nth-child(5) { grid-row: span 1 }
+  .project-card.tall { grid-row: span 1 }
   .skills-grid { grid-template-columns: 1fr 1fr }
   #footer { height: auto; position: relative }
   #testimonials { padding: 3rem 1rem }
