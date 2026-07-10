@@ -126,7 +126,7 @@ img { max-width: 100%; height: auto; display: block }
   }
   .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto }
   .nav-links > li { opacity: 0; transform: translateY(24px); transition: opacity .5s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.08s), transform .5s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.08s) }
-  .nav-links.open > li { opacity: 1; transform: translateY(0) }
+  .nav-links.open > li { opacity: 1; transform: translateY(0); margin-bottom: 1rem }
   .nav-links a { padding: .65rem 1.5rem; border-radius: var(--radius-lg); font-size: 1.35rem; font-weight: 600 }
   .nav-hamburger { display: flex }
   .nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg) }
