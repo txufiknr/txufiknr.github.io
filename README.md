@@ -1,37 +1,88 @@
-<div align="center">
-  <h1>👋 Taufik Nur Rahmanda, S.Kom</h1>
-  <h3>Senior Software Engineer | Full-Stack Developer</h3>
-  
-  [![Portfolio](https://img.shields.io/badge/🌐-Portfolio-blue?style=for-the-badge&color=4B8BBE)](https://txufiknr.github.io)
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/txufiknr)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/txufiknr)
+# Taufik Nur Rahmanda — Portfolio v2 (index2.html)
 
-  ---
-</div>
+A modern, animated personal portfolio website replicating the structure and design language of [Codex](https://chatgpt.com/codex/) with a distinctive **purple + black** theme.
 
-## 🚀 About Me
+## Overview
 
-Software Engineer with 8+ years of experience. Building scalable, high-performance applications across Android, iOS, and web platforms. Proficient in modern technologies including Flutter (Dart), TypeScript, JavaScript, Node.js, React, Next.js, Vue, Angular. Passionate about building efficient systems and leveraging AI technologies.
+| Section (Codex) | My Adaptation |
+|---|---|
+| Hero | Name, title, subtitle, social links |
+| Trusted by top teams | Tech stack marquee (React, Next.js, Flutter...) |
+| Ways to use Codex | Counter stats (projects, languages, years, AI providers) |
+| Get work done faster | Portfolio project cards with filtering (staggered masonry) |
+| Choose a plan | Tech Stack (Frontend, Backend, Mobile, AI/LLM, Cloud/Architecture, DevOps/Tools) |
+| Same agent everywhere | Testimonials from colleagues |
+| Try today / Footer | CTA + contact + copyright |
 
-This is my personal portfolio website built with pure HTML, CSS, and vanilla JavaScript. It showcases my projects, skills, and professional journey.
+## Design
 
-## 🏆 Skills & Expertise
+- **Shape**: Rounded elements (`border-radius: 8px–36px`)
+- **Color**: Purple primary (`#7c3aed`), black background (`#0a0015`)
+- **Font**: Inter (Google Fonts, preloaded)
+- **Layout**: CSS Grid + Flexbox, fully responsive
 
-- **Languages**: TypeScript, JavaScript, Dart, PHP 8, Kotlin, Java, HTML, CSS
-- **Frontend**: React, Next.js, Vue, Angular, PHP, HTML5, CSS3, Tailwind CSS, Bootstrap, Responsive Design
-- **Backend**: Node.js, Express.js, CodeIgniter, MySQL/MariaDB, PostgreSQL, Redis, Sequelize, Drizzle, Neon
-- **Mobile**: Flutter, Kotlin, Java, Android Studio, XCode
-- **Tools & DevOps**: Git, Vite, npm, pnpm, Firebase, Vercel, GitHub Actions, Google Cloud
-- **Others**: WordPress, SEO, UI/UX Design, Photoshop, Vegas Pro, Canva
+## Features
 
-## 📬 Contact
+### Modern CSS (zero JS for layout/animation)
+- `animation-timeline: view()` for scroll-driven entrance animations (Chrome 115+)
+- `animation-timeline: scroll()` for scroll-progress bar
+- `@supports` progressive enhancement
+- `clamp()` for fluid typography
+- CSS custom properties for theming
+- `backdrop-filter: blur()` for glass nav
+- `prefers-reduced-motion` support
 
-- **Email**: [taufik.nur.rahmanda93@gmail.com](mailto:taufik.nur.rahmanda93@gmail.com)
-- **LinkedIn**: [Taufik Nur Rahmanda](https://www.linkedin.com/in/taufik-nur-rahmanda/)
-- **GitHub**: [@txufiknr](https://github.com/txufiknr)
+### Animations & Interactivity
+- **Counters**: Animate on scroll into viewport (IntersectionObserver, `data-counter` on elements)
+- **Scroll entrance**: Fade-in-up via IntersectionObserver + CSS `animation-timeline: view()`
+- **Staggered entrance**: `data-stagger` attribute cascades children with `--i` index delays
+- **Parallax**: Mouse-follow parallax on hero (JS + CSS custom properties), scroll-based parallax on sections via `animation-timeline`
+- **Blur reveal**: `data-anim="blur"` for smooth blur-to-clear entrance
+- **Zoom/rotate**: `data-anim="zoom"` for scale+rotate entrance
+- **Particle float**: CSS-only animated background particles on hero via `@keyframes`
+- **Tech marquee**: Infinite horizontal scroll, pauses on hover
+- **Nav**: Mobile hamburger toggle, active section highlighting
+- **Portfolio filter**: Tab-based filtering by category
 
----
+### Performance
+- Preconnect to Google Fonts
+- Preload critical font + hero image
+- Prefetch linked profiles
+- Deferred non-critical CSS (`index2-defer.min.css`)
+- Deferred inline JS
+- Service worker (stale-while-revalidate, offline fallback)
+- Responsive images via `loading="lazy"`
+- `fetchpriority="high"` on LCP elements
 
-<div align="center">
-  Made with ❤️ by Taufik Nur Rahmanda
-</div>
+### SEO
+- Semantic HTML (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+- JSON-LD structured data (Person, WebSite)
+- Open Graph + Twitter Card meta
+- Canonical URL
+- Meta description + keywords
+- `aria-label`, `role`, skip-to-content link
+
+### PWA
+- Service worker (`sw2.js`)
+- `apple-mobile-web-app-capable`
+- `theme-color`
+- Favicon + apple-touch-icon
+
+## Files
+
+| File | Purpose |
+|---|---|
+| `index2.html` | Main HTML document (SEO, preloads, inline CSS, defer JS) |
+| `assets/css/index2.min.css` | Full stylesheet (complete CSS) |
+| `assets/css/index2-defer.min.css` | Non-critical styles (loaded async) |
+| `sw2.js` | Service worker for caching + offline |
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- View-timeline features are progressive — fall back to IntersectionObserver JS
+- `prefers-reduced-motion` respected
+
+## License
+
+MIT © 2026 Taufik Nur Rahmanda
