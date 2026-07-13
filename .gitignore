@@ -1,3 +1,4 @@
 backup/
 notes.txt
 sw*.js
+!sw2.js

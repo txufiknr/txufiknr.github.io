@@ -1,4 +1,4 @@
-# Taufik Nur Rahmanda — Portfolio v2 (index2.html)
+# Taufik Nur Rahmanda — Portfolio
 
 A modern, animated personal portfolio website replicating the structure and design language of [Codex](https://chatgpt.com/codex/) with a distinctive **purple + black** theme.
 
