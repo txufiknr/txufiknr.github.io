@@ -28,12 +28,13 @@
   50% { border-color: rgba(124, 58, 237, 0.4); }
 }
 
+.skill-category:hover,
 .skill-category:focus-within {
   animation: borderGlow 2s ease-in-out infinite;
 }
 
 /* Decorative particles background (pure CSS) */
-#hero::after {
+/* #hero::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -48,7 +49,7 @@
     radial-gradient(1px 1px at 45% 45%, rgba(167, 139, 250, 0.1), transparent);
   pointer-events: none;
   z-index: 0;
-}
+} */
 
 /* Print styles */
 @media print {
