@@ -523,12 +523,14 @@
         }
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.01, rootMargin: "0px 0px -120px 0px" });
+    }, { threshold: 0.01, rootMargin: "0px 0px 250px 0px" });
     document.querySelectorAll("[data-anim]").forEach(function(el) { observer.observe(el); });
-    // Also directly observe staggered children
-    document.querySelectorAll("[data-stagger] > *").forEach(function(el, i) {
-      el.style.setProperty("--i", i);
-      observer.observe(el);
+    // Observe staggered children, reset index per section
+    document.querySelectorAll("[data-stagger]").forEach(function(parent) {
+      parent.querySelectorAll(":scope > *").forEach(function(el, i) {
+        el.style.setProperty("--i", i);
+        observer.observe(el);
+      });
     });
   }
   // Nav mobile toggle
