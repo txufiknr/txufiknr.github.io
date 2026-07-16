@@ -129,6 +129,7 @@
 <section id="tech-stack" aria-label="Technologies I use">
   <p class="tech-label">Technologies &amp; tools I work with</p>
   <div class="tech-marquee">
+    <div class="tech-magnifier" aria-hidden="true"></div>
     <div class="tech-track">
       <img src="assets/icons/vendors/react-svgrepo-com.svg" alt="React" width="40" height="40" loading="lazy">
       <img src="assets/icons/vendors/nextjs-icon-svgrepo-com.svg" alt="Next.js" width="40" height="40" loading="lazy" style="filter:invert(.6)">
@@ -597,6 +598,16 @@
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw2.js").then(function() {}).catch(function() {});
   }
+  // Magnifier: mouse follower on tech marquee
+  function setupMagnifier() {
+    var el = document.querySelector('.tech-marquee');
+    if (!el) return;
+    el.addEventListener('mousemove', function(e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  }
   // Sticky footer: set --footer-h dynamically (skip on mobile)
   function setFooterHeight() {
     var wrapper = document.getElementById("mainWrapper");
@@ -614,7 +625,7 @@
   }
   window.addEventListener("resize", setFooterHeight);
   setFooterHeight();
-  setupScrollAnim(); setupNav(); setupFilter(); setupParallax();
+  setupScrollAnim(); setupNav(); setupFilter(); setupParallax(); setupMagnifier();
   // Immediate counter if stats already in view on load
   var statsSec = document.getElementById("stats");
   if (statsSec && statsSec.getBoundingClientRect().top < window.innerHeight) {
