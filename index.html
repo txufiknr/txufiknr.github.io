@@ -611,18 +611,38 @@
       });
     });
   }
-  // Parallax helper: 3D tilt on portfolio button based on mouse position
+  // Hero buttons: 3D tilt on portfolio button + cursor-follow drift on both hero buttons
   function setupParallax() {
     var hero = document.getElementById("hero");
-    var btn = document.querySelector(".portfolio-btn");
-    if (!hero || !btn) return;
-    hero.addEventListener("mousemove", function(e) {
-      var x = (e.clientX / window.innerWidth - 0.5) * 20;
-      var y = (e.clientY / window.innerHeight - 0.5) * -20;
-      hero.style.setProperty("--parallax-x", (e.clientX / window.innerWidth - 0.5) * 10 + "px");
-      hero.style.setProperty("--parallax-y", (e.clientY / window.innerHeight - 0.5) * 10 + "px");
-      btn.style.setProperty("--rotate-x", y + "deg");
-      btn.style.setProperty("--rotate-y", x + "deg");
+    var pBtn = document.querySelector(".portfolio-btn");
+    var aBtn = document.querySelector(".about-btn");
+    if (!hero) return;
+    // 3D tilt (portfolio button only) driven by cursor over the whole hero
+    if (pBtn) {
+      hero.addEventListener("mousemove", function(e) {
+        var x = (e.clientX / window.innerWidth - 0.5) * 20;
+        var y = (e.clientY / window.innerHeight - 0.5) * -20;
+        hero.style.setProperty("--parallax-x", (e.clientX / window.innerWidth - 0.5) * 10 + "px");
+        hero.style.setProperty("--parallax-y", (e.clientY / window.innerHeight - 0.5) * 10 + "px");
+        pBtn.style.setProperty("--rotate-x", y + "deg");
+        pBtn.style.setProperty("--rotate-y", x + "deg");
+      });
+    }
+    // Cursor-follow drift: each button translates toward the cursor within its own bounds
+    var MAX = 10; // max drift in px
+    [pBtn, aBtn].forEach(function(btn) {
+      if (!btn) return;
+      btn.addEventListener("mousemove", function(e) {
+        var r = btn.getBoundingClientRect();
+        var dx = ((e.clientX - r.left) / r.width - 0.5) * 2;  // -1 .. 1
+        var dy = ((e.clientY - r.top) / r.height - 0.5) * 2;  // -1 .. 1
+        btn.style.setProperty("--drift-x", (dx * MAX) + "px");
+        btn.style.setProperty("--drift-y", (dy * MAX) + "px");
+      });
+      btn.addEventListener("mouseleave", function() {
+        btn.style.setProperty("--drift-x", "0px");
+        btn.style.setProperty("--drift-y", "0px");
+      });
     });
   }
   // Service worker

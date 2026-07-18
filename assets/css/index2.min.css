@@ -81,14 +81,22 @@ img { max-width: 100%; height: auto; display: block }
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: .75rem 1.75rem; border-radius: var(--radius-md); font-weight: 600;
   font-size: .95rem; transition: all .3s ease; cursor: pointer; border: none; font-family: inherit;
+  /* Cursor-follow drift: smooth translate driven by --drift-x/y (set in JS) */
+  --drift-x: 0px; --drift-y: 0px;
+  transform: translate3d(var(--drift-x), var(--drift-y), 0);
+  transition: background .3s ease, box-shadow .3s ease, color .3s ease, border-color .3s ease,
+              transform .4s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
 }
+/* Hover lift preserves the cursor-follow drift */
+.btn:hover { transform: translate3d(var(--drift-x), calc(var(--drift-y) - 2px), 0) }
 .btn-primary { background: var(--clr-primary); color: var(--clr-white) }
 .btn-primary:hover {
-  background: var(--clr-primary-light); transform: translateY(-2px);
+  background: var(--clr-primary-light);
   box-shadow: 0 8px 32px var(--clr-glow);
 }
 .btn-outline { background: transparent; color: var(--clr-text); border: 1px solid var(--clr-primary-light) }
-.btn-outline:hover { background: var(--clr-primary); border-color: var(--clr-primary); transform: translateY(-2px) }
+.btn-outline:hover { background: var(--clr-primary); border-color: var(--clr-primary) }
 
 /* === Nav === */
 #navbar {
@@ -164,8 +172,12 @@ img { max-width: 100%; height: auto; display: block }
   display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
   align-items: center; position: relative; z-index: 1;
 }
-/* 3D tilt on portfolio button based on mouse position */
-.portfolio-btn { transform: perspective(800px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)); transition: transform 0.15s ease-out }
+/* 3D tilt + cursor-follow drift on hero buttons (combined so they don't conflict) */
+.portfolio-btn {
+  transform: translate3d(var(--drift-x, 0px), var(--drift-y, 0px), 0)
+             perspective(800px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  transition: transform .4s cubic-bezier(.22,1,.36,1), background-position .4s ease, box-shadow .3s ease;
+}
 .hero-content { display: flex; flex-direction: column; gap: 1.25rem }
 .hero-badge {
   display: inline-flex; align-items: center; gap: .5rem; padding: .35rem 1rem;
@@ -193,8 +205,17 @@ img { max-width: 100%; height: auto; display: block }
 .btn-primary { display: inline-flex; align-items: center; gap: 0; background: var(--clr-primary); color: var(--clr-white); overflow: hidden }
 .btn-primary:hover { background: var(--clr-primary-light); box-shadow: 0 8px 32px var(--clr-glow) }
 /* Portfolio button: gradient bg with animated position on hover */
-.portfolio-btn.btn-primary { background: linear-gradient(135deg, #0e235b, #5c25ba, #49142f); background-size: 200%; background-position: 0% 50%; transition: background-position .4s ease, box-shadow .3s ease, transform .3s ease }
-.portfolio-btn.btn-primary:hover { background-position: 100% 50%; box-shadow: 0 8px 32px var(--clr-glow); transform: translateY(-2px) }
+.portfolio-btn.btn-primary { background: linear-gradient(135deg, #0e235b, #5c25ba, #49142f); background-size: 200%; background-position: 0% 50%; transition: background-position .4s ease, box-shadow .3s ease, transform .4s cubic-bezier(.22,1,.36,1) }
+/* Hover lift keeps the 3D tilt + cursor drift intact */
+.portfolio-btn.btn-primary:hover,
+.portfolio-btn:hover {
+  background-position: 100% 50%; box-shadow: 0 8px 32px var(--clr-glow);
+  transform: translate3d(var(--drift-x, 0px), calc(var(--drift-y, 0px) - 2px), 0)
+             perspective(800px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+}
+/* About button: cursor-follow drift + hover lift */
+.about-btn { transform: translate3d(var(--drift-x, 0px), var(--drift-y, 0px), 0); transition: transform .4s cubic-bezier(.22,1,.36,1), background .3s ease, color .3s ease, border-color .3s ease }
+.about-btn:hover { transform: translate3d(var(--drift-x, 0px), calc(var(--drift-y, 0px) - 2px), 0) }
 .btn-primary .btn-text { padding: .75rem 0 }
 .btn-primary .btn-marquee { display: inline-flex; align-items: center; gap: .35rem; padding: 0 1rem 0 .6rem; overflow: hidden; mask: linear-gradient(90deg, transparent 2%, #000 8%, #000 92%, transparent 98%); -webkit-mask: linear-gradient(90deg, transparent 2%, #000 8%, #000 92%, transparent 98%) }
 .btn-primary .btn-marquee-inner { display: flex; gap: .35rem; animation: btnMarquee 20s linear infinite }
