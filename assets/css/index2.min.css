@@ -394,6 +394,8 @@ img { max-width: 100%; height: auto; display: block }
 .card-linkedin:hover { background: rgba(124, 58, 237, .25) }
 
 /* === FAQ === */
+/* Smooth auto-height animation for <details> (modern browsers) */
+html { interpolate-size: allow-keywords; }
 #faq { padding: 5rem max(1.5rem, 5vw); max-width: 820px; margin: 0 auto }
 .faq-list { display: flex; flex-direction: column; gap: 1rem }
 .faq-item {
@@ -420,10 +422,17 @@ img { max-width: 100%; height: auto; display: block }
 .faq-icon::before { width: 16px; height: 2px }
 .faq-icon::after { width: 2px; height: 16px }
 .faq-item[open] .faq-icon { transform: rotate(135deg) }
-.faq-a {
-  display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.22,1,.36,1);
+/* Modern: animate native details-content to/from auto height */
+.faq-item::details-content {
+  height: 0; overflow: hidden;
+  transition: height .35s cubic-bezier(.22,1,.36,1), content-visibility .35s allow-discrete;
 }
-.faq-item[open] .faq-a { grid-template-rows: 1fr }
+.faq-item[open]::details-content { height: auto; }
+/* Fallback: grid-rows trick for browsers without ::details-content support */
+@supports not (height: calc(0px + 1lh)) {
+  .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.22,1,.36,1) }
+  .faq-item[open] .faq-a { grid-template-rows: 1fr }
+}
 .faq-a > p {
   overflow: hidden; margin: 0; padding: 0 1.5rem;
   color: var(--clr-text-muted); font-size: .92rem; line-height: 1.7;
