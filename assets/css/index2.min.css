@@ -367,12 +367,11 @@ img { max-width: 100%; height: auto; display: block }
 .skill-category:hover,
 .project-card:hover { background: rgba(124, 58, 237, .12); border-color: rgba(124, 58, 237, .25); box-shadow: 0 8px 32px rgba(124, 58, 237, .15) }
 
+/* 3D tilt on hover — uses `transform` only, which is independent from the
+   `translate` property the stagger entrance animates, so they never conflict. */
 [data-stagger] > .skill-category:hover,
 [data-stagger] > .project-card:hover,
-[data-stagger] > .testimonial-card:hover,
-.skill-category:hover,
-.project-card:hover,
-.testimonial-card:hover {
+[data-stagger] > .testimonial-card:hover {
   transform: perspective(900px)
              rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
              translateY(var(--lift, 0));
@@ -416,9 +415,8 @@ img { max-width: 100%; height: auto; display: block }
   --tilt-x: 0deg; --tilt-y: 0deg;
   position: relative;
   transform-style: preserve-3d;
-  /* Default resting transform; JS sets --tilt-x/y, :hover adds the lift */
-  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  transition: transform .25s cubic-bezier(.22,1,.36,1), background .4s, border-color .4s, box-shadow .4s;
+  /* NOTE: no `transform`/`transition` here — the [data-stagger] entrance owns both until
+     .visible. The .visible rule below then supplies the snappy tilt transition. */
   will-change: transform;
 }
 .skill-category::after,
@@ -604,10 +602,18 @@ html { interpolate-size: allow-keywords; }
 [data-anim='down'] { transform: translateY(-30px) }
 [data-anim='down'].visible { transform: translateY(0) }
 
-/* Staggered children: each child delays by its index */
-[data-stagger] > * { opacity: 0; transform: translateY(30px); filter: blur(8px); transition: opacity .6s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.1s), transform .6s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.1s), filter .6s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.1s) }
+/* Staggered children: each child delays by its index.
+   Uses the independent `translate` property for the entrance so it NEVER collides
+   with the 3D `transform` tilt applied on hover (separate properties). */
+[data-stagger] > * {
+  opacity: 0; translate: 0 30px; filter: blur(8px);
+  transition: opacity .6s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.1s),
+              translate .6s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.1s),
+              filter .6s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 0.1s),
+              transform .25s cubic-bezier(.22,1,.36,1);
+}
 [data-stagger].visible > *,
-[data-stagger] > *.visible { opacity: 1; transform: translateY(0); filter: blur(0) }
+[data-stagger] > *.visible { opacity: 1; translate: 0 0; filter: blur(0) }
 
 /* Different speed parallax on scroll for sections */
 #tech-stack { view-timeline-name: --tech; animation: parallaxFade linear; animation-timeline: view(); animation-range: entry 0% entry 60% }
