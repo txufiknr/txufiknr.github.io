@@ -187,8 +187,15 @@ img { max-width: 100%; height: auto; display: block }
 }
 .hero-name { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -.03em }
 .hero-name .highlight {
-  background: linear-gradient(135deg, var(--clr-primary-light), var(--clr-white));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  background: linear-gradient(110deg, var(--clr-primary) 0%, var(--clr-accent) 25%, var(--clr-primary-light) 50%, var(--clr-accent) 75%, var(--clr-primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: nameShine 5s linear infinite;
+}
+@keyframes nameShine {
+  0% { background-position: 0% 50% }
+  100% { background-position: 200% 50% }
 }
 .hero-title {
   font-size: clamp(1rem, 2vw, 1.35rem); color: var(--clr-text-muted);
