@@ -395,6 +395,28 @@ img { max-width: 100%; height: auto; display: block }
 }
 .testimonial-card .card-content { flex: 1; transition: transform .4s cubic-bezier(.22,1,.36,1); transform: translateY(40px); }
 .testimonial-card:hover .card-content { transform: translateY(-10px) }
+
+/* === Cursor-follow radial spotlight (DRY: shared across cards) === */
+.skill-category,
+.project-card,
+.testimonial-card {
+  --mx: 50%; --my: 50%;
+  position: relative;
+}
+.skill-category::after,
+.project-card::after,
+.testimonial-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  border-radius: inherit; opacity: 0; transition: opacity .35s ease;
+  background: radial-gradient(220px circle at var(--mx) var(--my), rgba(124, 58, 237, .22), transparent 65%);
+}
+/* Keep interactive content above the overlay */
+.skill-category > *,
+.project-card > *,
+.testimonial-card > * { position: relative; z-index: 2 }
+.skill-category:hover::after,
+.project-card:hover::after,
+.testimonial-card:hover::after { opacity: 1 }
 .testimonial-card .card-content q { font-style: italic; color: var(--clr-text-muted); font-size: .9rem; line-height: 1.7; display: block; margin-bottom: 1.25rem }
 .testimonial-card .attribution { display: flex; align-items: center; gap: .85rem }
 .testimonial-card .attribution img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--clr-primary); flex-shrink: 0 }

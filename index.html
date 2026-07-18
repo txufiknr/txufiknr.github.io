@@ -676,7 +676,20 @@
   }
   window.addEventListener("resize", setFooterHeight);
   setFooterHeight();
-  setupScrollAnim(); setupNav(); setupFilter(); setupParallax(); setupMagnifier();
+  setupScrollAnim(); setupNav(); setupFilter(); setupParallax(); setupMagnifier(); setupCardSpotlight();
+
+  // Cursor-follow radial spotlight on cards (tech stack, portfolio, testimonials)
+  function setupCardSpotlight() {
+    var cards = document.querySelectorAll(".skill-category, .project-card, .testimonial-card");
+    cards.forEach(function(card) {
+      card.addEventListener("mousemove", function(e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+  }
+
   // Immediate counter if stats already in view on load
   var statsSec = document.getElementById("stats");
   if (statsSec && statsSec.getBoundingClientRect().top < window.innerHeight) {
