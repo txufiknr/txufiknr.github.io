@@ -436,10 +436,11 @@ img { max-width: 100%; height: auto; display: block }
   padding-bottom: 2.75rem;
 }
 .testimonial-track {
-  display: flex; gap: 1.5rem;
+  flex: 1 1 0; min-width: 0;
+  display: flex;
   overflow-x: auto; scroll-snap-type: x mandatory;
   scroll-marker-group: after;
-  padding-bottom: 1rem; scroll-padding: 0 1rem;
+  padding-bottom: 1rem; scroll-padding: 0;
   scrollbar-width: none; -ms-overflow-style: none;
 }
 .testimonial-track::-webkit-scrollbar { display: none; width: 0; height: 0 }
@@ -461,12 +462,15 @@ img { max-width: 100%; height: auto; display: block }
   .slider-arrow { display: none }
 }
 .testimonial-card {
-  /* Responsive slides: 3 per view on desktop, 2 on tablet, 1 on mobile */
-  flex: 0 0 calc((100% - 2 * 1.5rem) / 3);
+  /* Responsive slides: 3 per view on desktop, 2 on tablet, 1 on mobile.
+     Exact percentage width (no flex gap) so cards never truncate. The visual
+     gutter comes from horizontal padding instead of a layout gap. */
+  --per-view: 3;
+  flex: 0 0 calc(100% / var(--per-view));
   scroll-snap-align: start;
   background: linear-gradient(160deg, rgba(124, 58, 237, .04), rgba(20, 0, 46, .8));
   border: 1px solid rgba(124, 58, 237, .08); border-radius: var(--radius-xl);
-  padding: 2rem 2rem 1rem; position: relative; display: flex; flex-direction: column;
+  padding: 2rem 1.5rem 1rem; position: relative; display: flex; flex-direction: column;
   transition: border-color .4s, transform .4s, box-shadow .4s;
 }
 /* Auto dot navigation (scroll-marker — Chrome 129+; graceful no-op elsewhere) */
@@ -750,7 +754,7 @@ html { interpolate-size: allow-keywords; }
   #testimonials { padding: 3rem 1rem }
   #faq { padding: 3rem 1rem }
   /* Slider: 2 slides per view on tablet */
-  .testimonial-card { flex-basis: calc((100% - 1.5rem) / 2) }
+  .testimonial-card { --per-view: 2 }
 }
 @media (max-width: 480px) {
   .skills-grid { grid-template-columns: 1fr }
@@ -758,7 +762,7 @@ html { interpolate-size: allow-keywords; }
   .hero-name { font-size: clamp(1.6rem, 8vw, 2.2rem) }
   .hero-title { font-size: .95rem }
   /* Slider: 1 slide per view on mobile */
-  .testimonial-card { flex-basis: 100% }
+  .testimonial-card { --per-view: 1 }
   #stats { padding: 2rem 1rem }
   .stat-item { padding: 1rem .75rem }
 }
