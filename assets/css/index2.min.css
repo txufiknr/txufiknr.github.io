@@ -299,6 +299,16 @@ img { max-width: 100%; height: auto; display: block }
 .tech-marquee:hover .tech-magnifier { opacity: 1; transform: translate(-50%,-50%) scale(1) }
 
 /* === Stats === */
+/* === Pure-CSS count-up (no JS) === */
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+@keyframes statCount {
+  from { --num: 0 }
+  to   { --num: var(--target) }
+}
 #stats {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
   padding: 3rem max(1.5rem, 5vw); max-width: var(--max-width); margin: 0 auto;
@@ -312,8 +322,26 @@ img { max-width: 100%; height: auto; display: block }
 .stat-item:hover { transform: translateY(-3px) }
 .stat-icon { width: 32px; height: 32px; stroke: var(--clr-primary-light); margin: 0 auto .6rem; display: block; opacity: .8 }
 .stat-number { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.1 }
-.stat-number .stat-value { background: linear-gradient(135deg, var(--clr-white), var(--clr-primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+.stat-number .stat-value {
+  background: linear-gradient(135deg, var(--clr-white), var(--clr-primary-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  /* Pure-CSS counter: render the animatable --num integer as text */
+  counter-reset: num var(--num);
+}
+.stat-number .stat-value::after { content: counter(num) }
 .stat-plus { font-size: clamp(1rem, 1.5vw, 1.25rem); color: var(--clr-primary-light) }
+.stat-item {
+  /* Default to the target so the number is correct even if the animation never runs */
+  --num: var(--target);
+  /* Animate --num from 0 to --target, driven by scroll into view */
+  animation: statCount 2.4s cubic-bezier(.22,1,.36,1) forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+/* Fallback for browsers without animation-timeline: run on load (time-based) */
+@supports not (animation-timeline: view()) {
+  .stat-item { animation: statCount 2.4s cubic-bezier(.22,1,.36,1) forwards; }
+}
 .stat-label { font-size: .8rem; color: var(--clr-text-dim); margin-top: .25rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em }
 @media (max-width: 640px) {
   #stats { grid-template-columns: repeat(2, 1fr) }

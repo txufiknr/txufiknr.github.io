@@ -161,24 +161,24 @@
 </section>
 <!-- Stats -->
 <section id="stats" aria-label="My statistics" data-stagger>
-  <div class="stat-item" data-counter="50">
+  <div class="stat-item" style="--target: 50">
     <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/></svg>
-    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <div class="stat-number"><span class="stat-value"></span><span class="stat-plus">+</span></div>
     <p class="stat-label">Projects Completed</p>
   </div>
-  <div class="stat-item" data-counter="15">
+  <div class="stat-item" style="--target: 15">
     <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <div class="stat-number"><span class="stat-value"></span><span class="stat-plus">+</span></div>
     <p class="stat-label">Programming Languages</p>
   </div>
-  <div class="stat-item" data-counter="8">
-    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v6"/><path d="M8 21h8"/></svg>
-    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+  <div class="stat-item" style="--target: 8">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9H4a2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v6"/><path d="M8 21h8"/></svg>
+    <div class="stat-number"><span class="stat-value"></span><span class="stat-plus">+</span></div>
     <p class="stat-label">Years Experience</p>
   </div>
-  <div class="stat-item" data-counter="9">
+  <div class="stat-item" style="--target: 9">
     <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>
-    <div class="stat-number"><span class="stat-value">0</span><span class="stat-plus">+</span></div>
+    <div class="stat-number"><span class="stat-value"></span><span class="stat-plus">+</span></div>
     <p class="stat-label">AI/LLM Providers</p>
   </div>
 </section>
@@ -524,35 +524,12 @@
 // Main application logic
 (function() {
   "use strict";
-  // Counter animation — finds all [data-counter] and animates them
-  function animateCounters(container) {
-    container = container || document;
-    var els = container.hasAttribute("data-counter") ? [container] : [];
-    container.querySelectorAll("[data-counter]").forEach(function(e) { els.push(e); });
-    els.forEach(function(el) {
-      var target = parseInt(el.getAttribute("data-counter"), 10);
-      if (!target || el.dataset.counted) return;
-      el.dataset.counted = "true";
-      var current = 0;
-      var step = Math.max(1, Math.floor(target / 30));
-      var valSpan = el.querySelector(".stat-value");
-      var interval = setInterval(function() {
-        current += step;
-        if (current >= target) { current = target; clearInterval(interval); }
-        if (valSpan) valSpan.textContent = current;
-      }, 30);
-    });
-  }
   // Scroll entrance animations using IntersectionObserver
   function setupScrollAnim() {
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("visible");
-        // If the entry itself or any descendant has data-counter, fire counter
-        if (entry.target.hasAttribute("data-counter") || entry.target.querySelector("[data-counter]")) {
-          animateCounters(entry.target);
-        }
         observer.unobserve(entry.target);
       });
     }, { threshold: 0.01, rootMargin: "0px 0px 250px 0px" });
@@ -698,12 +675,6 @@
         card.style.setProperty("--tilt-y", "0deg");
       });
     });
-  }
-
-  // Immediate counter if stats already in view on load
-  var statsSec = document.getElementById("stats");
-  if (statsSec && statsSec.getBoundingClientRect().top < window.innerHeight) {
-    animateCounters(statsSec);
   }
 })();
 </script></body></html>
