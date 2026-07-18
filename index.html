@@ -678,14 +678,24 @@
   setFooterHeight();
   setupScrollAnim(); setupNav(); setupFilter(); setupParallax(); setupMagnifier(); setupCardSpotlight();
 
-  // Cursor-follow radial spotlight on cards (tech stack, portfolio, testimonials)
+  // Cursor-follow radial spotlight + 3D tilt on cards (tech stack, portfolio, testimonials)
   function setupCardSpotlight() {
+    var MAX = 8; // max tilt in degrees
     var cards = document.querySelectorAll(".skill-category, .project-card, .testimonial-card");
     cards.forEach(function(card) {
       card.addEventListener("mousemove", function(e) {
         var r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+        var px = (e.clientX - r.left) / r.width;   // 0..1
+        var py = (e.clientY - r.top) / r.height;   // 0..1
+        card.style.setProperty("--mx", (px * 100) + "%");
+        card.style.setProperty("--my", (py * 100) + "%");
+        // Tilt: cursor right -> rotateY+, cursor down -> rotateX-
+        card.style.setProperty("--tilt-y", ((px - 0.5) * 2 * MAX) + "deg");
+        card.style.setProperty("--tilt-x", ((0.5 - py) * 2 * MAX) + "deg");
+      });
+      card.addEventListener("mouseleave", function() {
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
       });
     });
   }

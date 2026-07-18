@@ -367,8 +367,19 @@ img { max-width: 100%; height: auto; display: block }
 .skill-category:hover,
 .project-card:hover { background: rgba(124, 58, 237, .12); border-color: rgba(124, 58, 237, .25); box-shadow: 0 8px 32px rgba(124, 58, 237, .15) }
 
-.skill-category:hover { transform: translateY(-4px) }
-.project-card:hover { transform: translateY(-8px) }
+[data-stagger] > .skill-category:hover,
+[data-stagger] > .project-card:hover,
+[data-stagger] > .testimonial-card:hover,
+.skill-category:hover,
+.project-card:hover,
+.testimonial-card:hover {
+  transform: perspective(900px)
+             rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+             translateY(var(--lift, 0));
+}
+.skill-category:hover { --lift: -4px }
+.project-card:hover { --lift: -8px }
+.testimonial-card:hover { --lift: -4px }
 .skill-category .cat-icon { width: 28px; height: 28px; stroke: var(--clr-primary-light); margin-bottom: 1rem; display: block }
 .skill-category .cat-title { font-size: 1.15rem; font-weight: 700; margin-bottom: .15rem }
 .skill-category .cat-sub { font-size: .82rem; color: var(--clr-text-dim); margin-bottom: 1rem }
@@ -388,7 +399,7 @@ img { max-width: 100%; height: auto; display: block }
   padding: 2rem 2rem 1rem; position: relative; display: flex; flex-direction: column;
   transition: border-color .4s, transform .4s, box-shadow .4s;
 }
-.testimonial-card:hover { border-color: rgba(124, 58, 237, .2); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(124, 58, 237, .08) }
+.testimonial-card:hover { border-color: rgba(124, 58, 237, .2); box-shadow: 0 8px 32px rgba(124, 58, 237, .08) }
 .testimonial-card::before {
   content: '\201C'; position: absolute; top: .75rem; right: 1.5rem;
   font-size: 4rem; line-height: 1; color: var(--clr-primary); opacity: .12; font-weight: 800;
@@ -396,12 +407,19 @@ img { max-width: 100%; height: auto; display: block }
 .testimonial-card .card-content { flex: 1; transition: transform .4s cubic-bezier(.22,1,.36,1); transform: translateY(40px); }
 .testimonial-card:hover .card-content { transform: translateY(-10px) }
 
-/* === Cursor-follow radial spotlight (DRY: shared across cards) === */
-.skill-category,
-.project-card,
-.testimonial-card {
+/* === Cursor-follow radial spotlight + 3D tilt (DRY: shared across cards) === */
+/* Higher-specificity selectors so they beat [data-stagger] > *.visible (which sets transform: translateY(0)) */
+[data-stagger] > .skill-category,
+[data-stagger] > .project-card,
+[data-stagger] > .testimonial-card {
   --mx: 50%; --my: 50%;
+  --tilt-x: 0deg; --tilt-y: 0deg;
   position: relative;
+  transform-style: preserve-3d;
+  /* Default resting transform; JS sets --tilt-x/y, :hover adds the lift */
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform .25s cubic-bezier(.22,1,.36,1), background .4s, border-color .4s, box-shadow .4s;
+  will-change: transform;
 }
 .skill-category::after,
 .project-card::after,
