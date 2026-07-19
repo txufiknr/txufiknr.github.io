@@ -280,8 +280,7 @@ img { max-width: 100%; height: auto; display: block }
   3%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
   5%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
   20%  { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
-  27%  { opacity: .5; transform: scale(0)  translate(20px, 100px) rotate(0) }
-  100% { opacity: 0; transform: scale(0)   translate(-30px, 0)    rotate(15deg) }
+  27%  { opacity: .5; transform: scale(0)  translate(-20px, 50px) rotate(0) }
 }
 @media (max-width: 480px) {
   .dropping-texts { width: 6.5em }
@@ -359,7 +358,7 @@ img { max-width: 100%; height: auto; display: block }
 .tech-marquee { cursor: none; overflow: clip; position: relative; mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent) }
 .tech-track { display: flex; gap: 2.5rem; width: max-content; padding: 1rem 0; animation: techScroll 30s linear infinite }
 .tech-track:hover { animation-play-state: paused }
-.tech-track img { height: clamp(28px, 3vw, 40px); width: auto; opacity: .35; filter: grayscale(1) brightness(1.5); transition: all .4s }
+.tech-track img { height: clamp(28px, 3vw, 40px); width: auto; opacity: .35; filter: grayscale(1) brightness(1.5); transition: all .4s cubic-bezier(.34, 1.56, .64, 1) }
 .tech-track img:hover { opacity: 1; filter: grayscale(0) brightness(1); transform: scale(1.15) }
 @keyframes techScroll { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
 .tech-magnifier {
@@ -370,7 +369,7 @@ img { max-width: 100%; height: auto; display: block }
   background: radial-gradient(circle,rgba(124,58,237,.12) 0%,rgba(124,58,237,.04) 40%,transparent 70%);
   border: 1.5px solid rgba(124,58,237,.12);
   box-shadow: 0 0 30px rgba(124,58,237,.08), inset 0 0 30px rgba(124,58,237,.04);
-  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  /* -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); */
   transition: opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
 }
 .tech-marquee:hover .tech-magnifier { opacity: 1; transform: translate(-50%,-50%) scale(1) }

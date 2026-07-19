@@ -20,6 +20,9 @@ call `scrollBy`/`scrollIntoView` (no animation logic lives in JS).
 5. [Animated gradient text (hero name)](#5-animated-gradient-text)
 6. [Pure-CSS stats counter](#6-pure-css-stats-counter)
 7. [Responsive pure-CSS slider carousel](#7-responsive-pure-css-slider)
+8. [Hero backdrop: floating boxes](#8-hero-backdrop-floating-boxes)
+9. [Hero backdrop: drifting particles](#9-hero-backdrop-drifting-particles)
+10. [Switching `dropping-texts` on the About Me button](#10-switching-dropping-texts)
 
 ---
 
@@ -524,6 +527,180 @@ function setupTestimonialSlider() {
 
 ---
 
+## 8. Hero backdrop: floating boxes
+
+Three soft purple rounded squares drift gently behind the hero content,
+replicating the old AMP site's floating boxes. They sit in a `.hero-bg`
+layer at `z-index: 0` (the hero content is `z-index: 1`), so they're purely
+decorative and never capture pointer events.
+
+### HTML
+```html
+<section id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-box"></div>
+    <div class="hero-box"></div>
+    <div class="hero-box"></div>
+  </div>
+  <!-- …hero content / .hero-grid… -->
+</section>
+```
+
+### CSS
+```css
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.hero-bg .hero-box {
+  position: absolute;
+  border-radius: 28%;
+  background: linear-gradient(135deg, rgba(124, 58, 237, .12), rgba(167, 139, 250, .04));
+  box-shadow: 0 0 40px rgba(124, 58, 237, .12);
+}
+.hero-bg .hero-box:nth-child(1) { width: 7vmin;  height: 7vmin;  left: 66%; top: 24%; opacity: .55 }
+.hero-bg .hero-box:nth-child(2) { width: 13vmin; height: 13vmin; left: 82%; top: 30%; opacity: .4 }
+.hero-bg .hero-box:nth-child(3) { width: 24vmin; height: 24vmin; left: 55%; top: 70%; opacity: .28 }
+.hero-bg .hero-box::after {                 /* animates so the parent keeps its layout box */
+  content: ''; display: block; width: 100%; height: 100%; border-radius: inherit;
+  border: 1px solid rgba(167, 139, 250, .25);
+  background: inherit;
+  animation: heroFloat 7s ease-in-out infinite;
+}
+.hero-bg .hero-box:nth-child(2)::after { animation-duration: 9s }   /* staggered drift */
+.hero-bg .hero-box:nth-child(3)::after { animation-duration: 11s }
+@keyframes heroFloat { 50% { transform: translateY(-34px) } }
+```
+
+**Why animate `::after`, not the box itself?** The float is a vertical
+`translateY`. Putting it on `.hero-box` would also move its positioning
+context; animating `::after` (which fills the box) keeps the box anchored
+while only the visual drifts. Staggered `animation-duration` (7/9/11s) stops
+the three boxes from moving in lockstep.
+
+> Sizes use `vmin` so the boxes scale with the viewport; `overflow: hidden`
+> on `.hero-bg` clips any drift that reaches an edge.
+
+---
+
+## 9. Hero backdrop: drifting particles
+
+Eight glowing dots float across the hero, each fading in, drifting along a
+per-particle vector, slowly rotating, then fading out — looping forever. Like
+the boxes, they live in `.hero-bg` (`z-index: 0`, `pointer-events: none`) and
+are `aria-hidden`.
+
+### HTML (continues inside `.hero-bg`)
+```html
+<div class="hero-bg" aria-hidden="true">
+  <!-- …3 × .hero-box… -->
+  <div class="particle"></div>   <!-- ×8 -->
+</div>
+```
+
+### CSS
+```css
+.hero-bg .particle {
+  position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(167, 139, 250, .55);
+  box-shadow: 0 0 8px rgba(124, 58, 237, .5);
+  animation: heroParticle 6s linear infinite;
+}
+/* Each particle: a drift vector (--mx/--my), a start position, and a
+   negative animation-delay so they're already mid-flight on first paint. */
+.hero-bg .particle:nth-child(4)  { --mx: -120px; --my: 160px;  left: 12%; top: 30%; animation-delay: -.3s }
+.hero-bg .particle:nth-child(5)  { --mx:  140px; --my: -110px; left: 30%; top: 55%; animation-delay: -.9s }
+.hero-bg .particle:nth-child(6)  { --mx: -160px; --my: -130px; left: 50%; top: 25%; animation-delay: -1.5s }
+.hero-bg .particle:nth-child(7)  { --mx:  150px; --my: 180px;  left: 68%; top: 40%; animation-delay: -2.1s }
+.hero-bg .particle:nth-child(8)  { --mx: -140px; --my: -150px; left: 85%; top: 60%; animation-delay: -2.7s }
+.hero-bg .particle:nth-child(9)  { --mx:  120px; --my: 150px;  left: 22%; top: 75%; animation-delay: -3.3s }
+.hero-bg .particle:nth-child(10) { --mx: -170px; --my: -160px; left: 44%; top: 12%; animation-delay: -3.9s }
+.hero-bg .particle:nth-child(11) { --mx:  160px; --my: 140px;  left: 72%; top: 80%; animation-delay: -4.5s }
+
+@keyframes heroParticle {
+  0%   { transform: translate3d(0, 0, 0) rotate(0);        opacity: 0 }
+  15%  { opacity: 1 }
+  85%  { opacity: 1 }
+  100% { transform: translate3d(var(--mx, 100px), var(--my, 100px), 0) rotate(220deg); opacity: 0 }
+}
+```
+
+**Notes**
+- The drift vector is per-particle via `--mx` / `--my`; the `var(--mx, 100px)`
+  fallback keeps the keyframe valid if a particle omits the custom property.
+- Negative `animation-delay` values stagger the particles so the field looks
+  alive immediately instead of all spawning at `0%`.
+- Each particle fades `0 → 1 → 1 → 0` over the loop, so it disappears cleanly
+  before the next cycle re-spawns it — no popping.
+
+---
+
+## 10. Switching `dropping-texts` on the About Me button
+
+The outline "About Me" button swaps its label through four phrases
+(*About Me → Get to know → My story → Who I am*) on a loop. Each phrase scales
+and rotates in from the left, holds upright, then scales/rotates out — exactly
+like the old site's `.dropping-texts` rotator. The visible text is replaced by
+the rotating spans, so the button keeps an accessible `aria-label="About Me"`.
+
+### HTML
+```html
+<a href="#testimonials" class="btn btn-outline about-btn">
+  <span class="dropping-texts" aria-label="About Me">
+    <span>About Me</span>
+    <span>Get to know</span>
+    <span>My story</span>
+    <span>Who I am</span>
+  </span>
+</a>
+```
+
+### CSS
+```css
+.dropping-texts {
+  display: inline-block; position: relative;
+  height: 1.2em; line-height: 1.2em; width: 7.5em;
+  overflow: visible; vertical-align: middle; text-align: left;
+}
+.dropping-texts > span {
+  position: absolute; left: 0; top: 0; width: 100%;
+  white-space: nowrap; transform-origin: left center;
+  font: inherit; font-weight: inherit;
+  opacity: 0; transform: scale(0) translate(-30px, 0) rotate(-25deg);
+  animation: dropRoll 9s linear infinite;
+}
+/* Staggered entry: each phrase starts 2.25s after the previous (9s / 4) */
+.dropping-texts > span:nth-child(1) { animation-delay: 0s }
+.dropping-texts > span:nth-child(2) { animation-delay: 2.25s }
+.dropping-texts > span:nth-child(3) { animation-delay: 4.5s }
+.dropping-texts > span:nth-child(4) { animation-delay: 6.75s }
+
+@keyframes dropRoll {
+  0%   { opacity: 0; transform: scale(0)   translate(-30px, 0)    rotate(-25deg) }
+  3%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
+  5%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
+  20%  { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
+  27%  { opacity: .5; transform: scale(0)  translate(20px, 50px) rotate(0) }
+}
+```
+
+**Why all four spans share one `dropRoll`?** In an earlier version the last
+phrase used a separate `dropRoll2` that zoomed huge (`scale(8)`) and faded —
+it stacked on top of the next phrase and flew off-center. We removed that
+special-case exit and gave every phrase the same in-place scale/rotate
+transition, so the loop is seamless and the last phrase behaves like the rest.
+
+**Layout trick:** the container is `position: relative` with a fixed
+`height: 1.2em`, and every child is `position: absolute` stacked on top of
+each other. Only the currently-animating child is `opacity: 1`, so they
+overlap invisibly between transitions.
+
+> `overflow: visible` lets the scale/rotate spill slightly outside the button
+> bounds for the drop-in effect; `prefers-reduced-motion` disables it via the
+> global rule.
+
+---
+
 ## Browser-support cheat sheet
 
 | Feature | Modern support | Fallback |
@@ -536,6 +713,9 @@ function setupTestimonialSlider() {
 | Slider `scroll-snap` | All modern | native scroll |
 | Slider `scroll-marker` dots | Chromium 129+ | hidden; arrows/wheel still work |
 | Slider scroll-driven stats | Chromium 115+ | time-based on load |
+| Hero floating boxes | All modern | none needed (CSS keyframes) |
+| Hero drifting particles | All modern | none needed (CSS keyframes) |
+| `dropping-texts` rotator | All modern | static `aria-label` text |
 
 All features respect `prefers-reduced-motion` via the global rule at the bottom
 of the stylesheet.
