@@ -740,10 +740,19 @@
   function setupCardSpotlight() {
     var MAX = 8; // max tilt in degrees
     var cards = document.querySelectorAll(".skill-category, .project-card, .testimonial-card");
-    // TODO: this also listens hover/mouse move on ::scroll-marker dots, how to make in only on cards slide (not on dots)?
     cards.forEach(function(card) {
       card.addEventListener("mousemove", function(e) {
         var r = card.getBoundingClientRect();
+        // The scroll-marker dots render below the cards (in the absolutely
+        // positioned marker group). Events there bubble to the card, so ignore
+        // any cursor position outside the card's own bounding box — keeps the
+        // tilt/spotlight on the card surface only, while dots stay clickable.
+        if (e.clientX < r.left || e.clientX > r.right ||
+            e.clientY < r.top || e.clientY > r.bottom) {
+          card.style.setProperty("--tilt-x", "0deg");
+          card.style.setProperty("--tilt-y", "0deg");
+          return;
+        }
         var px = (e.clientX - r.left) / r.width;   // 0..1
         var py = (e.clientY - r.top) / r.height;   // 0..1
         card.style.setProperty("--mx", (px * 100) + "%");
