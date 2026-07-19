@@ -709,18 +709,18 @@
     if (prev) prev.addEventListener("click", function () { track.scrollBy({ left: -step(), behavior: "smooth" }); });
     if (next) next.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });
 
-    // Mouse-wheel over the slider scrolls it horizontally (doesn't trap page scroll at the ends)
-    track.addEventListener("wheel", function (e) {
-      if (e.deltaY === 0) return;
-      var max = track.scrollWidth - track.clientWidth;
-      var atStart = track.scrollLeft <= 0;
-      var atEnd = track.scrollLeft >= max - 1;
-      var canScroll = (e.deltaY < 0 && !atStart) || (e.deltaY > 0 && !atEnd);
-      if (canScroll) {
-        e.preventDefault();
-        track.scrollLeft += e.deltaY;
-      }
-    }, { passive: false });
+    // // Mouse-wheel over the slider scrolls it horizontally (doesn't trap page scroll at the ends)
+    // track.addEventListener("wheel", function (e) {
+    //   if (e.deltaY === 0) return;
+    //   var max = track.scrollWidth - track.clientWidth;
+    //   var atStart = track.scrollLeft <= 0;
+    //   var atEnd = track.scrollLeft >= max - 1;
+    //   var canScroll = (e.deltaY < 0 && !atStart) || (e.deltaY > 0 && !atEnd);
+    //   if (canScroll) {
+    //     e.preventDefault();
+    //     track.scrollLeft += e.deltaY;
+    //   }
+    // }, { passive: false });
 
     // Clicking a scroll-marker dot focuses it (and its card); defocus so no
     // persistent focus ring / active state is left behind on the dot or card.
