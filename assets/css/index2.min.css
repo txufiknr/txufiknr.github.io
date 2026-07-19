@@ -24,7 +24,7 @@
   --radius-lg: 20px;
   --radius-xl: 28px;
   --radius-2xl: 36px;
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: InterVariable, Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
   --max-width: 1200px;
   --nav-height: 64px;
   --parallax-x: 0px;
@@ -45,6 +45,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height) }
 body {
+  font-feature-settings: "salt";
   font-family: var(--font-family); background: var(--clr-bg); color: var(--clr-text);
   overflow-x: hidden; font-size: 1rem; line-height: 1.65;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;

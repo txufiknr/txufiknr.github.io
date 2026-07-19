@@ -5,9 +5,8 @@
   <title>Taufik Nur Rahmanda, S.Kom. | Senior Full-Stack Engineer &amp; AI/LLM Developer</title>
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,viewport-fit=cover">
   <script>document.documentElement.classList.remove('no-js');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preconnect" href="https://rsms.me">
+  <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="assets/images/me/taufik-nur-rahmanda.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="prefetch" href="https://github.com/txufiknr" as="document">
   <link rel="prefetch" href="https://linkedin.com/in/taufik-nur-rahmanda" as="document">
@@ -741,6 +740,7 @@
   function setupCardSpotlight() {
     var MAX = 8; // max tilt in degrees
     var cards = document.querySelectorAll(".skill-category, .project-card, .testimonial-card");
+    // TODO: this also listens hover/mouse move on ::scroll-marker dots, how to make in only on cards slide (not on dots)?
     cards.forEach(function(card) {
       card.addEventListener("mousemove", function(e) {
         var r = card.getBoundingClientRect();
