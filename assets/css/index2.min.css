@@ -169,6 +169,51 @@ img { max-width: 100%; height: auto; display: block }
     radial-gradient(circle 300px at 80% 30%, rgba(167, 139, 250, .1), transparent);
   pointer-events: none;
 }
+
+/* === Hero backdrop: floating boxes + drifting particles === */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.hero-bg .hero-box {
+  position: absolute;
+  border-radius: 28%;
+  background: linear-gradient(135deg, rgba(124, 58, 237, .12), rgba(167, 139, 250, .04));
+  box-shadow: 0 0 40px rgba(124, 58, 237, .12);
+}
+.hero-bg .hero-box:nth-child(1) { width: 7vmin;  height: 7vmin;  left: 66%; top: 24%; opacity: .55 }
+.hero-bg .hero-box:nth-child(2) { width: 13vmin; height: 13vmin; left: 82%; top: 30%; opacity: .4 }
+.hero-bg .hero-box:nth-child(3) { width: 24vmin; height: 24vmin; left: 55%; top: 70%; opacity: .28 }
+.hero-bg .hero-box::after {
+  content: ''; display: block; width: 100%; height: 100%; border-radius: inherit;
+  border: 1px solid rgba(167, 139, 250, .25);
+  background: inherit;
+  animation: heroFloat 7s ease-in-out infinite;
+}
+.hero-bg .hero-box:nth-child(2)::after { animation-duration: 9s }
+.hero-bg .hero-box:nth-child(3)::after { animation-duration: 11s }
+@keyframes heroFloat { 50% { transform: translateY(-34px) } }
+
+.hero-bg .particle {
+  position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(167, 139, 250, .55);
+  box-shadow: 0 0 8px rgba(124, 58, 237, .5);
+  animation: heroParticle 6s linear infinite;
+}
+.hero-bg .particle:nth-child(4) { --mx: -120px; --my: 160px;  left: 12%; top: 30%; animation-delay: -.3s }
+.hero-bg .particle:nth-child(5) { --mx: 140px;  --my: -110px; left: 30%; top: 55%; animation-delay: -.9s }
+.hero-bg .particle:nth-child(6) { --mx: -160px; --my: -130px; left: 50%; top: 25%; animation-delay: -1.5s }
+.hero-bg .particle:nth-child(7) { --mx: 150px;  --my: 180px;  left: 68%; top: 40%; animation-delay: -2.1s }
+.hero-bg .particle:nth-child(8) { --mx: -140px; --my: -150px; left: 85%; top: 60%; animation-delay: -2.7s }
+.hero-bg .particle:nth-child(9) { --mx: 120px;  --my: 150px;  left: 22%; top: 75%; animation-delay: -3.3s }
+.hero-bg .particle:nth-child(10){ --mx: -170px; --my: -160px; left: 44%; top: 12%; animation-delay: -3.9s }
+.hero-bg .particle:nth-child(11){ --mx: 160px;  --my: 140px;  left: 72%; top: 80%; animation-delay: -4.5s }
+@keyframes heroParticle {
+  0%   { transform: translate3d(0, 0, 0) rotate(0); opacity: 0 }
+  15%  { opacity: 1 }
+  85%  { opacity: 1 }
+  100% { transform: translate3d(var(--mx, 100px), var(--my, 100px), 0) rotate(220deg); opacity: 0 }
+}
 .hero-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
   align-items: center; position: relative; z-index: 1;
