@@ -721,6 +721,20 @@
         track.scrollLeft += e.deltaY;
       }
     }, { passive: false });
+
+    // Clicking a scroll-marker dot focuses it (and its card); defocus so no
+    // persistent focus ring / active state is left behind on the dot or card.
+    track.addEventListener("click", function (e) {
+      var ae = document.activeElement;
+      if (ae && (ae === track || ae.classList && (ae.classList.contains("testimonial-card") || ae.classList.contains("testimonial-track")))) {
+        ae.blur();
+      }
+    });
+    // Also drop focus shortly after a marker-driven scroll settles.
+    track.addEventListener("scrollsnapchange", function () {
+      var ae = document.activeElement;
+      if (ae && ae.blur) { try { ae.blur(); } catch (_) {} }
+    });
   }
 
   // Cursor-follow radial spotlight + 3D tilt on cards (tech stack, portfolio, testimonials)
