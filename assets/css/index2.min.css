@@ -97,7 +97,7 @@ img { max-width: 100%; height: auto; display: block }
   box-shadow: 0 8px 32px var(--clr-glow);
 }
 .btn-outline { background: transparent; color: var(--clr-text); border: 1px solid var(--clr-primary-light) }
-.btn-outline:hover { background: var(--clr-primary); border-color: var(--clr-primary) }
+.btn-outline:hover { border: 1px solid var(--clr-primary) }
 
 /* === Nav === */
 #navbar {
@@ -256,9 +256,9 @@ img { max-width: 100%; height: auto; display: block }
 .portfolio-btn { max-width: 300px; padding-right: 0 }
 .about-btn { border: none }
 
-/* Rotating label on the About Me button — replicates the old site's
-   zoom / fade / rotation drop. Children 1-3 use `roll`; the last child
-   uses `roll2` which scales up huge then fades out to 0. */
+/* Rotating label on the About Me button — each text scales/translates/
+   rotates in, holds, then scales/translates/rotates out; loops forever
+   with staggered delays. */
 .dropping-texts {
   display: inline-block; position: relative;
   height: 1.2em; line-height: 1.2em; width: 7.5em;
@@ -274,7 +274,7 @@ img { max-width: 100%; height: auto; display: block }
 .dropping-texts > span:nth-child(1) { animation-delay: 0s }
 .dropping-texts > span:nth-child(2) { animation-delay: 2.25s }
 .dropping-texts > span:nth-child(3) { animation-delay: 4.5s }
-.dropping-texts > span:nth-child(4) { animation: dropRoll2 9s linear infinite; animation-delay: 6.75s }
+.dropping-texts > span:nth-child(4) { animation-delay: 6.75s }
 @keyframes dropRoll {
   0%   { opacity: 0; transform: scale(0)   translate(-30px, 0)    rotate(-25deg) }
   3%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
@@ -282,14 +282,6 @@ img { max-width: 100%; height: auto; display: block }
   20%  { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
   27%  { opacity: .5; transform: scale(0)  translate(20px, 100px) rotate(0) }
   100% { opacity: 0; transform: scale(0)   translate(-30px, 0)    rotate(15deg) }
-}
-@keyframes dropRoll2 {
-  0%   { opacity: 0;  transform: scale(0)    translate(-30px, 0) rotate(-25deg) }
-  3%   { opacity: 1;  transform: scale(1)    translate(0, 0)     rotate(0) }
-  5%   { opacity: 1;  transform: scale(1)    translate(0, 0)     rotate(0) }
-  28%  { opacity: 1;  transform: scale(1)    translate(0, 0)     rotate(0) }
-  37%  { opacity: 0;  transform: scale(8)    translate(0, 0)     rotate(0) }
-  100% { opacity: 0;  transform: scale(8)    translate(0, 0)     rotate(0) }
 }
 @media (max-width: 480px) {
   .dropping-texts { width: 6.5em }
