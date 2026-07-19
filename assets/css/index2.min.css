@@ -410,11 +410,11 @@ img { max-width: 100%; height: auto; display: block }
   /* Default to the target so the number is correct even if the animation never runs */
   --num: var(--target);
   /* Animate --num from 0 to --target, driven by scroll into view.
-     Range runs from when the section enters until it reaches the middle of the
-     viewport, so the count finishes later and stays noticeable even on fast scroll. */
+     Finishes when the element reaches 30% from the top of the screen, so the
+     count stays noticeable across a longer scroll distance (entry -> top at 30%). */
   animation: statCount 2.4s cubic-bezier(.22,1,.36,1) forwards;
   animation-timeline: view();
-  animation-range: entry 5% cover 55%;
+  animation-range: entry 5% cover 70%;
 }
 /* Fallback for browsers without animation-timeline: run on load (time-based) */
 @supports not (animation-timeline: view()) {
