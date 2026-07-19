@@ -92,7 +92,7 @@
     <div class="hero-content" data-anim>
       <div class="hero-badge">Open for work &amp; collaborations</div>
       <h1 class="hero-name">Hi, I'm <span class="highlight">Taufik Nur Rahmanda</span></h1>
-      <p class="hero-title"><span>Senior Full-Stack Engineer</span> &amp; AI/LLM Developer<br>9+ years building high-performance web, mobile &amp; AI systems</p>
+      <p class="hero-title"><span>Senior Full-Stack Engineer</span>, AI/LLM Researcher &amp; Developer<br>9+ years building scalable high-performance web, mobile &amp; AI systems.</p>
       <div class="hero-actions">
         <a href="#portfolio" class="btn btn-primary portfolio-btn">
           <span class="btn-text">View Portfolio</span>
@@ -734,19 +734,19 @@
     //   }
     // }, { passive: false });
 
-    // Clicking a scroll-marker dot focuses it (and its card); defocus so no
-    // persistent focus ring / active state is left behind on the dot or card.
-    track.addEventListener("click", function (e) {
-      var ae = document.activeElement;
-      if (ae && (ae === track || ae.classList && (ae.classList.contains("testimonial-card") || ae.classList.contains("testimonial-track")))) {
-        ae.blur();
-      }
-    });
-    // Also drop focus shortly after a marker-driven scroll settles.
-    track.addEventListener("scrollsnapchange", function () {
-      var ae = document.activeElement;
-      if (ae && ae.blur) { try { ae.blur(); } catch (_) {} }
-    });
+    // // Clicking a scroll-marker dot focuses it (and its card); defocus so no
+    // // persistent focus ring / active state is left behind on the dot or card.
+    // track.addEventListener("click", function (e) {
+    //   var ae = document.activeElement;
+    //   if (ae && (ae === track || ae.classList && (ae.classList.contains("testimonial-card") || ae.classList.contains("testimonial-track")))) {
+    //     ae.blur();
+    //   }
+    // });
+    // // Also drop focus shortly after a marker-driven scroll settles.
+    // track.addEventListener("scrollsnapchange", function () {
+    //   var ae = document.activeElement;
+    //   if (ae && ae.blur) { try { ae.blur(); } catch (_) {} }
+    // });
   }
 
   // Cursor-follow radial spotlight + 3D tilt on cards (tech stack, portfolio, testimonials)
