@@ -204,7 +204,13 @@
 <!-- Portfolio -->
 <section id="portfolio" class="section" aria-label="Portfolio projects">
   <div class="container">
-    <h2 class="section-title">Featured Work</h2>
+    <h2 class="section-title section-title--tw">
+      <span class="tw-wrap">
+        <span class="tw-text">Featured Work</span>
+        <span class="tw-text">Selected Projects</span>
+        <span class="tw-text">Recent Work</span>
+      </span>
+    </h2>
     <p class="section-subtitle">Projects I've designed, built, and shipped across web, mobile &amp; AI</p>
     <div class="portfolio-filter" role="tablist" aria-label="Filter projects">
       <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
@@ -710,7 +716,7 @@
   }
   window.addEventListener("resize", setFooterHeight);
   setFooterHeight();
-  setupScrollAnim(); setupNav(); setupFilter(); setupParallax(); setupMagnifier(); setupCardSpotlight(); setupTestimonialSlider();
+  setupScrollAnim(); setupNav(); setupFilter(); setupParallax(); setupMagnifier(); setupCardSpotlight(); setupTestimonialSlider(); setupDroppingTextsWidth();
 
   // Testimonial slider: prev/next arrows scroll the track by one view
   function setupTestimonialSlider() {
@@ -754,6 +760,34 @@
     //   var ae = document.activeElement;
     //   if (ae && ae.blur) { try { ae.blur(); } catch (_) {} }
     // });
+  }
+
+  // Drum roll: sync container width to the currently visible text span
+  function setupDroppingTextsWidth() {
+    var el = document.querySelector('.dropping-texts');
+    if (!el) return;
+    var spans = el.querySelectorAll(':scope > span');
+    if (!spans.length) return;
+    // Pre-measure each span's natural width
+    var widths = [];
+    var temp = document.createElement('span');
+    temp.style.cssText = 'position:fixed;visibility:hidden;white-space:nowrap;font:inherit;font-weight:inherit';
+    document.body.appendChild(temp);
+    for (var i = 0; i < spans.length; i++) {
+      temp.textContent = spans[i].textContent;
+      widths.push(temp.offsetWidth);
+    }
+    document.body.removeChild(temp);
+    el.style.width = widths[0] + 'px';
+    var cur = 0;
+    setInterval(function() {
+      for (var i = 0; i < spans.length; i++) {
+        if (parseFloat(getComputedStyle(spans[i]).opacity) > 0.5) {
+          if (i !== cur) { cur = i; el.style.width = widths[i] + 'px'; }
+          break;
+        }
+      }
+    }, 200);
   }
 
   // Cursor-follow radial spotlight + 3D tilt on cards (tech stack, portfolio, testimonials)

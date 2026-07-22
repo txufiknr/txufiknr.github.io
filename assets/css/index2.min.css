@@ -260,30 +260,27 @@ img { max-width: 100%; height: auto; display: block }
    rotates in, holds, then scales/translates/rotates out; loops forever
    with staggered delays. */
 .dropping-texts {
-  display: inline-block; position: relative;
-  height: 1.2em; line-height: 1.2em; width: 7.5em;
+  display: inline-grid; position: relative;
+  height: 1.2em; line-height: 1.2em;
   overflow: visible; vertical-align: middle; text-align: left;
+  transition: width .35s cubic-bezier(.22,1,.36,1);
 }
 .dropping-texts > span {
-  position: absolute; left: 0; top: 0; width: 100%;
-  white-space: nowrap; transform-origin: left center;
-  font: inherit; font-weight: inherit;
+  grid-area: 1/1; white-space: nowrap; transform-origin: left center;
+  font: inherit; font-weight: inherit; justify-self: start;
   opacity: 0; transform: scale(0) translate(-30px, 0) rotate(-25deg);
-  animation: dropRoll 9s linear infinite;
+  animation: dropRoll 4.5s linear infinite;
 }
 .dropping-texts > span:nth-child(1) { animation-delay: 0s }
-.dropping-texts > span:nth-child(2) { animation-delay: 2.25s }
-.dropping-texts > span:nth-child(3) { animation-delay: 4.5s }
-.dropping-texts > span:nth-child(4) { animation-delay: 6.75s }
+.dropping-texts > span:nth-child(2) { animation-delay: 1.125s }
+.dropping-texts > span:nth-child(3) { animation-delay: 2.25s }
+.dropping-texts > span:nth-child(4) { animation-delay: 3.375s }
 @keyframes dropRoll {
   0%   { opacity: 0; transform: scale(0)   translate(-30px, 0)    rotate(-25deg) }
-  3%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
+  3%   { opacity: 1; transform: scale(1.15)   translate(0, 0)        rotate(0) }
   5%   { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
   20%  { opacity: 1; transform: scale(1)   translate(0, 0)        rotate(0) }
   27%  { opacity: .5; transform: scale(0)  translate(-20px, 50px) rotate(0) }
-}
-@media (max-width: 480px) {
-  .dropping-texts { width: 6.5em }
 }
 .btn-primary { display: inline-flex; align-items: center; gap: 0; background: var(--clr-primary); color: var(--clr-white); overflow: hidden }
 .btn-primary:hover { background: var(--clr-primary-light); box-shadow: 0 8px 32px var(--clr-glow) }
@@ -824,6 +821,52 @@ html { interpolate-size: allow-keywords; }
   [data-anim='left-timeline'] { animation: fadeInLeft .7s ease forwards; animation-timeline: view(); animation-range: entry 0% entry 35% }
   [data-anim='right-timeline'] { animation: fadeInRight .7s ease forwards; animation-timeline: view(); animation-range: entry 0% entry 35% }
   [data-anim='blur-timeline'] { animation: slideUpBlur .8s ease forwards; animation-timeline: view(); animation-range: entry 0% entry 40% }
+}
+
+/* === Typewriter section title (Featured Work) === */
+.section-title--tw {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+.tw-wrap {
+  display: inline-grid;
+  position: relative;
+  height: 1.15em;
+  line-height: 1.15;
+  vertical-align: bottom;
+}
+.tw-text {
+  grid-area: 1/1; justify-self: start;
+  white-space: nowrap; overflow: hidden;
+  width: max-content; max-width: 0;
+  border-right: .12em solid transparent;
+  background: linear-gradient(135deg, var(--clr-white), var(--clr-primary-light));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation:
+    twType 12s steps(80,end) infinite,
+    twState 12s step-end infinite,
+    twCaret 1s step-end infinite;
+}
+.tw-text:nth-child(1) { animation-delay: 0s, 0s, 0s }
+.tw-text:nth-child(2) { animation-delay: 4s, 4s, 4s }
+.tw-text:nth-child(3) { animation-delay: 8s, 8s, 8s }
+@keyframes twType {
+  0%, 2%   { max-width: 0 }
+  24%      { max-width: 500px }
+  28%      { max-width: 500px }
+  32%      { max-width: 0 }
+  100%     { max-width: 0 }
+}
+@keyframes twState {
+  0%, 2%   { border-color: transparent }
+  2.01%    { border-color: var(--clr-primary-light) }
+  32%      { border-color: var(--clr-primary-light) }
+  32.01%   { border-color: transparent }
+  100%     { border-color: transparent }
+}
+@keyframes twCaret {
+  50% { border-color: transparent }
 }
 
 /* === Responsive === */
