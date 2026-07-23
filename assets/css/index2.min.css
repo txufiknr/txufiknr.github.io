@@ -373,6 +373,11 @@ img { max-width: 100%; height: auto; display: block }
 
 /* === Stats === */
 /* === Pure-CSS count-up (no JS) === */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 @property --num {
   syntax: "<integer>";
   initial-value: 0;
@@ -460,6 +465,49 @@ img { max-width: 100%; height: auto; display: block }
 .project-card .card-links { display: flex; gap: .75rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, .04) }
 .project-card .card-links a { font-size: .82rem; font-weight: 500; color: var(--clr-primary-light) }
 .project-card .card-links a:hover { color: var(--clr-white) }
+
+/* Twistloom card: animated gradient glow border */
+.portfolio-grid > .project-card:first-child {
+  overflow: visible;
+  position: relative;
+}
+.portfolio-grid > .project-card:first-child .card-body {
+  background: rgba(0, 0, 0, .85);
+  border-bottom-left-radius: var(--radius-xl);
+  border-bottom-right-radius: var(--radius-xl);
+}
+.portfolio-grid > .project-card:first-child .card-img {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.portfolio-grid > .project-card:first-child::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0deg,
+    var(--clr-primary) 30deg,
+    var(--clr-accent) 60deg,
+    var(--clr-primary-light) 90deg,
+    transparent 120deg,
+    transparent 180deg,
+    var(--clr-primary) 210deg,
+    var(--clr-accent) 240deg,
+    var(--clr-primary-light) 270deg,
+    transparent 300deg,
+    transparent 360deg
+  );
+  animation: spin 3s linear infinite;
+}
+/* .portfolio-grid > .project-card:first-child::after {
+  filter: blur(6px);
+  opacity: 0.35;
+} */
+@keyframes spin {
+  to { --angle: 360deg; }
+}
 
 /* === Skills (Tech Stack) === */
 #skills { background: var(--clr-purple-dark); position: relative; display: flex; align-items: center }
