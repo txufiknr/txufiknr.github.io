@@ -155,12 +155,25 @@ img { max-width: 100%; height: auto; display: block }
 #hero {
   min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
   padding: calc(var(--nav-height) + 3rem) max(1.5rem, 5vw) 2rem;
-  background:
+  /* background:
     radial-gradient(circle 400px at 20% 50%, rgba(124, 58, 237, .05), transparent),
     radial-gradient(circle 300px at 80% 30%, rgba(167, 139, 250, .04), transparent),
     radial-gradient(ellipse 80% 60% at 50% -10%, var(--clr-purple-dark), transparent),
     radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124, 58, 237, .08), transparent),
-    var(--clr-bg);
+    var(--clr-bg); */
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.1) 0,
+    rgba(255,255,255,.1) 1px,
+    transparent 1px,
+    transparent 120px
+  ), repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.1) 0,
+    rgba(255,255,255,.1) 1px,
+    transparent 1px,
+    transparent 120px
+  );
 }
 #hero::before {
   content: ''; position: absolute; inset: 0;
